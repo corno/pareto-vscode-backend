@@ -1,0 +1,33 @@
+{
+  "name": "pareto-vscode-backend",
+  "version": "0.1.0",
+  "description": "A library providing utilities for the VSCode language server",
+  "main": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "./dist/index.js",
+  "bin": {},
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "documentation"
+  ],
+  "scripts": {},
+  "keywords": [],
+  "author": "Corno",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corno/pareto-vscode-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/corno/pareto-vscode-backend/issues"
+  },
+  "homepage": "https://github.com/corno/pareto-vscode-backend#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "pareto": "^0.76.45"
+  }
+}
