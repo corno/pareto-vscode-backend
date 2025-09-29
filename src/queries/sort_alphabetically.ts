@@ -12,4 +12,10 @@ export const $$ = (
 		'content': string
 		'position': d.Position
 	},
-): _easync.Unsafe_Query_Result<d.Replace, null> => _ea.panic("IMPLEMENT ME")
+): _easync.Unsafe_Query_Result<d.Replace, null> => _easync.query.unsafe['create result']({
+	'range': {
+		'start': $p.position,
+		'end': $p.position
+	},
+	'text': `sort alphabetically at ${$p.position.line}:${$p.position.character}`
+})
