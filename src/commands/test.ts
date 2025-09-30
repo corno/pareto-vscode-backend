@@ -20,7 +20,8 @@ export const $$: _eb.Run_Unsafe_Program_Main = () => q_convert_to_json({
     () => ({
         'exit code': 1,
     }),
-    ($) => cmd_log(_ea.array_literal([
+    ($) => _easync.command.unsafe.initialize<_eb.Error>(
+    ).then_safe(() => cmd_log(_ea.array_literal([
         $
-    ])).cast_to_unsafe(),
+    ]))),
 )
