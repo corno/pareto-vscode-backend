@@ -14,7 +14,7 @@ export const $$ = (
 	$p: {
 		'content': string
 	},
-): _easync.Unsafe_Query_Result<string, null> => _ea.cc(
+): _easync.Unguaranteed_Query_Result<string, null> => _ea.cc(
 	x_parse.parse(
 		$p.content,
 		{
@@ -24,9 +24,9 @@ export const $$ = (
 	($) => {
 		switch ($[0]) {
 			case 'failure': return _ea.ss($, ($) => {
-				return _easync.query.unsafe['raise exception'](null)
+				return _easync.query.unguaranteed['raise exception'](null)
 			})
-			case 'success': return _ea.ss($, ($) => _easync.query.unsafe['create result'](s_json.Document(
+			case 'success': return _ea.ss($, ($) => _easync.query.unguaranteed['create result'](s_json.Document(
 				t_ast_2_json.Document($),
 				{
 					'indentation': "    ",

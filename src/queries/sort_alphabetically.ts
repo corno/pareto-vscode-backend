@@ -12,7 +12,7 @@ export const $$ = (
 		'content': string
 		'position': d.Position
 	},
-): _easync.Unsafe_Query_Result<d.Replace, null> => _easync.query.unsafe['create result']({
+): _easync.Unguaranteed_Query_Result<d.Replace, null> => _easync.query.unguaranteed['create result']({
 	'range': {
 		'start': $p.position,
 		'end': $p.position

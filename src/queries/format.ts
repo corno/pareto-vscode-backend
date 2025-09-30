@@ -34,7 +34,7 @@ export const $$ = (
 		'content': string
 		'options': d.Format_Options
 	},
-): _easync.Unsafe_Query_Result<d.Format_Result, d.Format_Error> => _ea.cc(
+): _easync.Unguaranteed_Query_Result<d.Format_Result, d.Format_Error> => _ea.cc(
 	x_parse.parse(
 		$p.content,
 		{
@@ -44,12 +44,12 @@ export const $$ = (
 	($) => {
 		switch ($[0]) {
 			case 'failure': return _ea.ss($, ($) => {
-				return _easync.query.unsafe['raise exception']({
+				return _easync.query.unguaranteed['raise exception']({
 					'message': s_parse_result.Parse_Error($, { 'position info': ['zero based', null] })
 				})
 			})
 			case 'success': return _ea.ss($, ($) => {
-				return _easync.query.unsafe['create result'](t_ast_2_ide.Document(
+				return _easync.query.unguaranteed['create result'](t_ast_2_ide.Document(
 					$,
 					{
 						'current indentation': "",

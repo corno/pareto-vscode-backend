@@ -18,7 +18,7 @@ export const $$ = (
 		'file path': string
 		'position': d.Position
 	},
-): _easync.Safe_Query_Result<d.On_Hover_Result> => load_astn_document(
+): _easync.Guaranteed_Query_Result<d.On_Hover_Result> => load_astn_document(
 	{
 		'content': $p.content,
 		'file path': $p['file path'],
@@ -32,7 +32,7 @@ export const $$ = (
 		})
 	}
 })).catch(($) => {
-	return _easync.query.safe['create result']({
+	return _easync.query.guaranteed['create result']({
 		'contents': {
 			'hover texts': _ea.not_set()
 		}

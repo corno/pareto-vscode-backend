@@ -50,7 +50,7 @@ export const $$ = (
 		'file path': string
 		'tab size': number
 	},
-): _easync.Safe_Query_Result<d.On_Validate_Document_Result> => load_astn_document(
+): _easync.Guaranteed_Query_Result<d.On_Validate_Document_Result> => load_astn_document(
 	{
 		'content': $p.content,
 		'file path': $p['file path'],
@@ -96,7 +96,7 @@ export const $$ = (
 		}))
 	})
 ).catch(($) => {
-	return _easync.query.safe['create result']<d.On_Validate_Document_Result>({
+	return _easync.query.guaranteed['create result']<d.On_Validate_Document_Result>({
 		'diagnostics': _ea.cc(
 			$,
 			($): d.Diagnostics => {
