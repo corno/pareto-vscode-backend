@@ -12,16 +12,19 @@ import { $$ as q_convert_to_json } from "../queries/convert_to_json"
 export const $$: _eb.Run_Unsafe_Program_Main = () => q_convert_to_json({
     'content': "{ FSDFSDFSD : x} "
 }).process(
-    ($i, $) => cmd_log_error(
-        _ea.array_literal([
-            "not a valid ASTN document",
-        ])
-    ),
-    () => ({
+    ($i, $) => {
+        return $i.execute(() => cmd_log_error(
+            _ea.array_literal([
+                "not a valid ASTN document",
+            ])
+        ))
+    },
+    ($) => ({
         'exit code': 1,
     }),
-    ($i, $) => _easync.command.unsafe.initialize<_eb.Error>(
-    ).then_safe(() => cmd_log(_ea.array_literal([
-        $
-    ]))),
+    ($i, $) => {
+        return $i.execute(() => cmd_log(_ea.array_literal([
+            $
+        ])))
+    },
 )
