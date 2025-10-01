@@ -69,8 +69,6 @@ export const Group_Content = (
 	$: d_in.Group_Content,
 	$p: {
 		'location': d_token.Relative_Location
-		'full path': string
-		'id path': string
 	}
 ): d_out.Optional_Completion_Items => {
 	return filter_dictionary(
@@ -81,8 +79,6 @@ export const Group_Content = (
 					case 'missing': return _ea.ss($, ($) => _ea.not_set())
 					case 'unique': return _ea.ss($, ($) => Optional_Node($.node, {
 						'location': $p.location,
-						'full path': `${$p['full path']} . '${key}'`,
-						'id path': $p['id path']
 					}))
 					default: return _ea.au($[0])
 				}
@@ -95,8 +91,6 @@ export const Node = (
 	$: d_in.Node,
 	$p: {
 		'location': d_token.Relative_Location
-		'full path': string
-		'id path': string
 	}
 ): d_out.Optional_Completion_Items => {
 	// if (is_in_range($.value.range))
@@ -109,13 +103,27 @@ export const Node = (
 
 	const in_range = is_in_range($p.location, { range: node_range })
 
-	const wrap = (): d_out.Optional_Completion_Items => in_range
-		? _ea.set(_ea.array_literal([
-			{
-				'label': `${$p['full path']} | ${$p['id path']}`
-			}
-		]))
-		: _ea.not_set()
+	const wrap = (): d_out.Optional_Completion_Items => {
+
+		const default_initialized_value: d_ast_target.Value = t_default_initialize.Value(node.definition)
+		const fpblock: d_fpblock.Block = _ea.array_literal([
+			['nested line', _ea.array_literal<d_fpblock.Line_Part>([
+				t_astn_target_to_fp.Value(default_initialized_value, { 'style': ['verbose', null], 'in concise group': false })
+			])]
+		])
+		const serialized = s_fp.Block(fpblock, {
+
+			'indentation': "asdf",
+			'newline': '\n',
+		})
+		return in_range
+			? _ea.set(_ea.array_literal([
+				{
+					'label': serialized
+				}
+			]))
+			: _ea.not_set()
+	}
 
 	if (!in_range) {
 		// If not in range, return not set
@@ -133,8 +141,6 @@ export const Node = (
 				switch ($[0]) {
 					case 'valid': return _ea.ss($, ($) => filter_list($.elements.map(($) => Node($, {
 						'location': $p.location,
-						'full path': `${$p['full path']} [ # ]`,
-						'id path': $p['id path']
 					}))))
 					case 'invalid': return _ea.ss($, ($) => wrap())
 					default: return _ea.au($[0])
@@ -144,8 +150,6 @@ export const Node = (
 			case 'reference': return _ea.ss($, ($) => wrap()) //show options?
 			case 'component': return _ea.ss($, ($) => Node($.node, {
 				'location': $p.location,
-				'full path': $p['full path'],
-				'id path': $p['id path']
 			}))
 			case 'dictionary': return _ea.ss($, ($) => {
 				return _ea.cc($['found value type'], ($) => {
@@ -156,13 +160,9 @@ export const Node = (
 									switch ($[0]) {
 										case 'multiple': return _ea.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, {
 											'location': $p.location,
-											'full path': `${$p['full path']} [ \`${key}\` ]`,
-											'id path': `${$p['id path']} > \`${key}\``
 										}))))
 										case 'unique': return _ea.ss($, ($) => Optional_Node($, {
 											'location': $p.location,
-											'full path': `${$p['full path']} [ \`${key}\` ]`,
-											'id path': `${$p['id path']} > \`${key}\``
 										}))
 										default: return _ea.au($[0])
 									}
@@ -192,24 +192,7 @@ export const Node = (
 							$p
 						).transform(
 							($) => _ea.set($),
-							() => {
-								const default_initialized_group: d_ast_target.Value = t_default_initialize.Value(node.definition)
-								const fpblock: d_fpblock.Block = _ea.array_literal([
-									['nested line', _ea.array_literal<d_fpblock.Line_Part>([
-										t_astn_target_to_fp.Value(default_initialized_group, { 'style': ['verbose', null], 'in concise group': false })
-									])]
-								])
-								const serialized = s_fp.Block(fpblock, {
-
-									'indentation': "asdf",
-									'newline': '\n',
-								})
-								return _ea.set(_ea.array_literal([
-									{
-										'label': serialized
-									}
-								]))
-							}
+							() => wrap()
 						))
 						default: return _ea.au($[0])
 					}
@@ -225,8 +208,6 @@ export const Node = (
 							switch ($[0]) {
 								case 'set': return _ea.ss($, ($) => Node($['child node'], {
 									'location': $p.location,
-									'full path': `${$p['full path']} *`,
-									'id path': $p['id path']
 								}))
 								case 'not set': return _ea.ss($, ($) => _ea.not_set())
 								default: return _ea.au($[0])
@@ -253,8 +234,6 @@ export const Node = (
 										($) => {
 											return Node($.node, {
 												'location': $p.location,
-												'full path': `${$p['full path']} | '${temp}'`,
-												'id path': $p['id path']
 											}).transform(
 												($) => _ea.set($),
 												() => wrap()
@@ -288,15 +267,11 @@ export const Optional_Node = (
 	$: d_in.Optional_Node,
 	$p: {
 		'location': d_token.Relative_Location
-		'full path': string
-		'id path': string
 	}
 ): d_out.Optional_Completion_Items => {
 	return $.transform(
 		($) => Node($, {
 			'location': $p.location,
-			'full path': $p['full path'],
-			'id path': $p['id path']
 		}),
 		() => _ea.not_set()
 	)

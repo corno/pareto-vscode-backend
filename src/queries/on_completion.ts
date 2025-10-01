@@ -26,8 +26,6 @@ export const $$ = (
 ).map(($): d.On_Completion_Result => ({
 	'completion items': t_find_completion_items.Node($, {
 		'location': t_backend_location.Relative_Location($p.position),
-		'full path': ``,
-		'id path': ``,
 	}).transform(
 		($) => $,
 		() => _ea.array_literal([]),
