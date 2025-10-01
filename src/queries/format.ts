@@ -34,38 +34,28 @@ export const $$ = (
 		'content': string
 		'options': d.Format_Options
 	},
-): _easync.Unguaranteed_Query_Result<d.Format_Result, d.Format_Error> => _ea.cc(
-	x_parse.parse(
-		$p.content,
+): _easync.Unguaranteed_Query_Result<d.Format_Result, d.Format_Error> => x_parse.parse(
+	$p.content,
+	{
+		'tab size': 1
+	}
+).transform(
+	($) => _easync.query.unguaranteed['create result'](t_ast_2_ide.Document(
+		$,
 		{
-			'tab size': 1
+			'current indentation': "",
+			'indentation string': $p.options['indent string'],
+			'remove commas': $p.options['preserve commas'],
 		}
-	),
-	($) => {
+	).map(($): d.Text_Edit => _ea.cc($, ($): d.Text_Edit => {
 		switch ($[0]) {
-			case 'failure': return _ea.ss($, ($) => {
-				return _easync.query.unguaranteed['raise exception']({
-					'message': s_parse_result.Parse_Error($, { 'position info': ['zero based', null] })
-				})
-			})
-			case 'success': return _ea.ss($, ($) => {
-				return _easync.query.unguaranteed['create result'](t_ast_2_ide.Document(
-					$,
-					{
-						'current indentation': "",
-						'indentation string': $p.options['indent string'],
-						'remove commas': $p.options['preserve commas'],
-					}
-				).map(($): d.Text_Edit => _ea.cc($, ($): d.Text_Edit => {
-					switch ($[0]) {
-						case 'replace': return _ea.ss($, ($) => ['replace', { 'range': create_frontend_range_from_relative_range($.range), 'text': $.text }])
-						case 'delete': return _ea.ss($, ($) => ['delete', { 'range': create_frontend_range_from_relative_range($.range) }])
-						case 'insert': return _ea.ss($, ($) => ['insert', { 'location': create_frontend_position_from_relative_location($.location), 'text': $.text }])
-						default: return _ea.au($[0])
-					}
-				})))
-			})
+			case 'replace': return _ea.ss($, ($) => ['replace', { 'range': create_frontend_range_from_relative_range($.range), 'text': $.text }])
+			case 'delete': return _ea.ss($, ($) => ['delete', { 'range': create_frontend_range_from_relative_range($.range) }])
+			case 'insert': return _ea.ss($, ($) => ['insert', { 'location': create_frontend_position_from_relative_location($.location), 'text': $.text }])
 			default: return _ea.au($[0])
 		}
-	}
+	}))),
+	($) => _easync.query.unguaranteed['raise exception']({
+		'message': s_parse_result.Parse_Error($, { 'position info': ['zero based', null] })
+	})
 )

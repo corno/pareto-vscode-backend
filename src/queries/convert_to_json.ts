@@ -14,26 +14,18 @@ export const $$ = (
 	$p: {
 		'content': string
 	},
-): _easync.Unguaranteed_Query_Result<string, null> => _ea.cc(
-	x_parse.parse(
-		$p.content,
-		{
-			'tab size': 1
-		}
-	),
-	($) => {
-		switch ($[0]) {
-			case 'failure': return _ea.ss($, ($) => {
-				return _easync.query.unguaranteed['raise exception'](null)
-			})
-			case 'success': return _ea.ss($, ($) => _easync.query.unguaranteed['create result'](s_json.Document(
-				t_ast_2_json.Document($),
-				{
-					'indentation': "    ",
-					'newline': '\n'
-				}
-			)))
-			default: return _ea.au($[0])
-		}
+): _easync.Unguaranteed_Query_Result<string, null> => x_parse.parse(
+	$p.content,
+	{
+		'tab size': 1
 	}
+).transform(
+	($) => _easync.query.unguaranteed['create result'](s_json.Document(
+		t_ast_2_json.Document($),
+		{
+			'indentation': "    ",
+			'newline': '\n'
+		}
+	)),
+	($) => _easync.query.unguaranteed['raise exception'](null)
 )
