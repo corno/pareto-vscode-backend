@@ -2,7 +2,7 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../client_data_types"
+import * as d from "../vscode_client_data_types"
 
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/generated/interface/schemas/ide/data_types/source"

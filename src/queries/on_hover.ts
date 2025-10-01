@@ -2,15 +2,12 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../server_data_types"
+import * as d from "../vscode_server_data_types"
 
 import { $$ as load_astn_document } from "pareto/dist/queries/load_astn_document"
 
 import * as t_find_hover_texts from "../transformations/find_hover_texts"
 import * as t_backend_location from "../transformations/backend_location"
-
-
-
 
 export const $$ = (
 	$p: {

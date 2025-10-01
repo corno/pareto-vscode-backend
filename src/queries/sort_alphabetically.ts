@@ -2,7 +2,7 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../client_data_types"
+import * as d from "../vscode_client_data_types"
 
 import * as t_backend_location from "../transformations/backend_location"
 

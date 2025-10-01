@@ -9,7 +9,7 @@ import { $$ as cmd_log } from "exupery-resources/dist/actions/log"
 import { $$ as q_convert_to_json } from "../queries/convert_to_json"
 
 
-export const $$: _eb.Run_Unguaranteed_Procedure_Main = () => q_convert_to_json({
+export const $$: _eb.Unguaranteed_Main = () => q_convert_to_json({
     'content': "{ FSDFSDFSD : x} "
 }).process(
     ($i, $) => {

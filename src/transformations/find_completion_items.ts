@@ -35,22 +35,22 @@ const is_in_range = (
 		)
 }
 
-const filter_dictionary = ($: _et.Dictionary<s_out.Optional_Hover_Texts>): s_out.Optional_Hover_Texts => {
+const filter_dictionary = ($: _et.Dictionary<s_out.Optional_Completion_Items>): s_out.Optional_Completion_Items => {
 	return op_cast_dictionary_to_non_empty(
 		op_filter_dictionary($)
-	).transform<s_out.Optional_Hover_Texts>(
-		($) => op_expect_1_entry($).transform<s_out.Optional_Hover_Texts>(
+	).transform<s_out.Optional_Completion_Items>(
+		($) => op_expect_1_entry($).transform<s_out.Optional_Completion_Items>(
 			($) => _ea.set($.value),
 			() => _ea.panic("multiple entries match the location, that should not happen"),
 		),
 		() => _ea.not_set()
 	)
 }
-const filter_list = ($: _et.Array<s_out.Optional_Hover_Texts>): s_out.Optional_Hover_Texts => {
+const filter_list = ($: _et.Array<s_out.Optional_Completion_Items>): s_out.Optional_Completion_Items => {
 	return op_cast_list_to_non_empty(
 		op_filter_list($)
-	).transform<s_out.Optional_Hover_Texts>(
-		($) => op_expect_1_element($).transform<s_out.Optional_Hover_Texts>(
+	).transform<s_out.Optional_Completion_Items>(
+		($) => op_expect_1_element($).transform<s_out.Optional_Completion_Items>(
 			($) => _ea.set($),
 			() => _ea.panic("multiple entries match the location, that should not happen"),
 		),
@@ -65,9 +65,9 @@ export const Group_Content = (
 		'full path': string
 		'id path': string
 	}
-): s_out.Optional_Hover_Texts => {
+): s_out.Optional_Completion_Items => {
 	return filter_dictionary(
-		$.properties.map(($, key): s_out.Optional_Hover_Texts => {
+		$.properties.map(($, key): s_out.Optional_Completion_Items => {
 			return _ea.cc($, ($) => {
 				switch ($[0]) {
 					case 'multiple': return _ea.ss($, ($) => _ea.not_set())
@@ -91,7 +91,7 @@ export const Node = (
 		'full path': string
 		'id path': string
 	}
-): s_out.Optional_Hover_Texts => {
+): s_out.Optional_Completion_Items => {
 	// if (is_in_range($.value.range))
 
 	// Check if the node is in the specified location
@@ -102,8 +102,12 @@ export const Node = (
 
 	const in_range = is_in_range($p.location, { range: node_range })
 
-	const wrap = (): s_out.Optional_Hover_Texts => in_range
-		? _ea.set(_ea.array_literal([$p['full path'], $p['id path']]))
+	const wrap = (): s_out.Optional_Completion_Items => in_range
+		? _ea.set(_ea.array_literal([
+			{
+				'label': `${$p['full path']} | ${$p['id path']}`
+			}
+		]))
 		: _ea.not_set()
 
 	if (!in_range) {
@@ -113,7 +117,7 @@ export const Node = (
 
 
 
-	return _ea.cc($.type, ($): s_out.Optional_Hover_Texts => {
+	return _ea.cc($.type, ($): s_out.Optional_Completion_Items => {
 		switch ($[0]) {
 			case 'number': return _ea.ss($, ($) => wrap())
 			case 'boolean': return _ea.ss($, ($) => wrap())
@@ -140,7 +144,7 @@ export const Node = (
 				return _ea.cc($['found value type'], ($) => {
 					switch ($[0]) {
 						case 'valid': return _ea.ss($, ($) => filter_dictionary(
-							$.entries.map(($, key): s_out.Optional_Hover_Texts => {
+							$.entries.map(($, key): s_out.Optional_Completion_Items => {
 								return _ea.cc($, ($) => {
 									switch ($[0]) {
 										case 'multiple': return _ea.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, {
@@ -186,7 +190,7 @@ export const Node = (
 				}
 			}))
 			case 'identifier value pair': return _ea.ss($, ($) => {
-				return _ea.set(_ea.array_literal(["FIXIDVALUEPAIR"]))
+				return _ea.set(_ea.panic("not implemented yet"))
 			})
 			case 'optional': return _ea.ss($, ($) => {
 				return _ea.cc($['found value type'], ($) => {
@@ -219,7 +223,7 @@ export const Node = (
 							})
 							return _ea.cc($['value type'], ($) => {
 								switch ($[0]) {
-									case 'state': return _ea.ss($, ($) => $['found state definition'].transform<s_out.Optional_Hover_Texts>(
+									case 'state': return _ea.ss($, ($) => $['found state definition'].transform<s_out.Optional_Completion_Items>(
 										($) => {
 											return Node($.node, {
 												'location': $p.location,
@@ -261,7 +265,7 @@ export const Optional_Node = (
 		'full path': string
 		'id path': string
 	}
-): s_out.Optional_Hover_Texts => {
+): s_out.Optional_Completion_Items => {
 	return $.transform(
 		($) => Node($, {
 			'location': $p.location,

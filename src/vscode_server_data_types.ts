@@ -50,10 +50,14 @@ export type On_Hover_Result = {
 	}
 }
 
+export type Completion_Items = _et.Array<{
+	'label': string
+}>
+
+export type Optional_Completion_Items = _et.Optional_Value<Completion_Items>
+
 export type On_Completion_Result = {
-	'completion items': _et.Array<{
-		'label': string
-	}>
+	'completion items': Completion_Items
 }
 
 export type On_Validate_Document_Result = {

@@ -2,11 +2,11 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../server_data_types"
+import * as d from "../vscode_server_data_types"
 
 import { $$ as load_astn_document } from "pareto/dist/queries/load_astn_document"
 
-import * as t_find_hover_texts from "../transformations/find_hover_texts"
+import * as t_find_completion_items from "../transformations/find_completion_items"
 import * as t_backend_location from "../transformations/backend_location"
 
 
@@ -24,22 +24,20 @@ export const $$ = (
 		'file path': $p['file path'],
 	}
 ).map(($): d.On_Completion_Result => ({
-	'completion items': _ea.array_literal([
-		{
-			'label': "IMPLEMENT ME",
-		},
-		{
-			'label': "Textpad",
-		},
-		{
-			'label': "Javascript",
-		},
-		{
-			'label': "Foobar",
-		},
-	])
+	'completion items': t_find_completion_items.Node($, {
+		'location': t_backend_location.Relative_Location($p.position),
+		'full path': ``,
+		'id path': ``,
+	}).transform(
+		($) => $,
+		() => _ea.array_literal([]),
+	)
 })).catch(($) => {
 	return _easync.query.guaranteed['create result']({
-		'completion items': _ea.array_literal([])
+		'completion items': _ea.array_literal([
+			{
+				'label': `Error: ${$[0]}`,
+			}
+		])
 	})
 })
