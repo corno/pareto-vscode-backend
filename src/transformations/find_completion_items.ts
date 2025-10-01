@@ -2,11 +2,16 @@ import * as _et from "exupery-core-types"
 import * as _ea from "exupery-core-alg"
 import * as _ed from "exupery-core-dev"
 
-import * as s_in from "pareto/dist/temp/temp_unmashall_result_types"
-
+import * as d_in from "pareto/dist/temp/temp_unmashall_result_types"
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
+import * as d_ast_target from "astn/dist/generated/interface/schemas/target/data_types/target"
+import * as d_fpblock from "pareto-fountain-pen/dist/generated/interface/schemas/block/data_types/target"
+import * as d_out from "../vscode_server_data_types"
 
-import * as s_out from "../vscode_server_data_types"
+import * as t_astn_target_to_fp from "astn/dist/transformations/target/fountain_pen_block"
+import * as t_default_initialize from "./default_initialize"
+
+import * as s_fp from "pareto-fountain-pen/dist/serialize/block"
 
 import { $$ as op_filter_list } from "pareto-standard-operations/dist/pure/list/filter"
 import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/pure/dictionary/filter"
@@ -14,6 +19,8 @@ import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist
 import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/impure/dictionary/cast_to_non_empty"
 import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/impure/list/expect_exactly_one_element"
 import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/impure/dictionary/expect_exactly_one_entry"
+
+import * as t_ast from "astn/dist/generated/interface/schemas/ast/data_types/target"
 
 import * as t_ast_to_range from "astn/dist/transformations/ast/temp_value_range"
 
@@ -35,22 +42,22 @@ const is_in_range = (
 		)
 }
 
-const filter_dictionary = ($: _et.Dictionary<s_out.Optional_Completion_Items>): s_out.Optional_Completion_Items => {
+const filter_dictionary = ($: _et.Dictionary<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => {
 	return op_cast_dictionary_to_non_empty(
 		op_filter_dictionary($)
-	).transform<s_out.Optional_Completion_Items>(
-		($) => op_expect_1_entry($).transform<s_out.Optional_Completion_Items>(
+	).transform<d_out.Optional_Completion_Items>(
+		($) => op_expect_1_entry($).transform<d_out.Optional_Completion_Items>(
 			($) => _ea.set($.value),
 			() => _ea.panic("multiple entries match the location, that should not happen"),
 		),
 		() => _ea.not_set()
 	)
 }
-const filter_list = ($: _et.Array<s_out.Optional_Completion_Items>): s_out.Optional_Completion_Items => {
+const filter_list = ($: _et.Array<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => {
 	return op_cast_list_to_non_empty(
 		op_filter_list($)
-	).transform<s_out.Optional_Completion_Items>(
-		($) => op_expect_1_element($).transform<s_out.Optional_Completion_Items>(
+	).transform<d_out.Optional_Completion_Items>(
+		($) => op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
 			($) => _ea.set($),
 			() => _ea.panic("multiple entries match the location, that should not happen"),
 		),
@@ -59,15 +66,15 @@ const filter_list = ($: _et.Array<s_out.Optional_Completion_Items>): s_out.Optio
 }
 
 export const Group_Content = (
-	$: s_in.Group_Content,
+	$: d_in.Group_Content,
 	$p: {
 		'location': d_token.Relative_Location
 		'full path': string
 		'id path': string
 	}
-): s_out.Optional_Completion_Items => {
+): d_out.Optional_Completion_Items => {
 	return filter_dictionary(
-		$.properties.map(($, key): s_out.Optional_Completion_Items => {
+		$.properties.map(($, key): d_out.Optional_Completion_Items => {
 			return _ea.cc($, ($) => {
 				switch ($[0]) {
 					case 'multiple': return _ea.ss($, ($) => _ea.not_set())
@@ -85,13 +92,13 @@ export const Group_Content = (
 }
 
 export const Node = (
-	$: s_in.Node,
+	$: d_in.Node,
 	$p: {
 		'location': d_token.Relative_Location
 		'full path': string
 		'id path': string
 	}
-): s_out.Optional_Completion_Items => {
+): d_out.Optional_Completion_Items => {
 	// if (is_in_range($.value.range))
 
 	// Check if the node is in the specified location
@@ -102,7 +109,7 @@ export const Node = (
 
 	const in_range = is_in_range($p.location, { range: node_range })
 
-	const wrap = (): s_out.Optional_Completion_Items => in_range
+	const wrap = (): d_out.Optional_Completion_Items => in_range
 		? _ea.set(_ea.array_literal([
 			{
 				'label': `${$p['full path']} | ${$p['id path']}`
@@ -117,7 +124,7 @@ export const Node = (
 
 
 
-	return _ea.cc($.type, ($): s_out.Optional_Completion_Items => {
+	return _ea.cc($.type, ($): d_out.Optional_Completion_Items => {
 		switch ($[0]) {
 			case 'number': return _ea.ss($, ($) => wrap())
 			case 'boolean': return _ea.ss($, ($) => wrap())
@@ -144,7 +151,7 @@ export const Node = (
 				return _ea.cc($['found value type'], ($) => {
 					switch ($[0]) {
 						case 'valid': return _ea.ss($, ($) => filter_dictionary(
-							$.entries.map(($, key): s_out.Optional_Completion_Items => {
+							$.entries.map(($, key): d_out.Optional_Completion_Items => {
 								return _ea.cc($, ($) => {
 									switch ($[0]) {
 										case 'multiple': return _ea.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, {
@@ -170,25 +177,44 @@ export const Node = (
 					}
 				})
 			})
-			case 'group': return _ea.ss($, ($) => _ea.cc($['found value type'], ($) => {
-				switch ($[0]) {
-					case 'invalid': return _ea.ss($, ($) => wrap())
-					case 'valid': return _ea.ss($, ($) => Group_Content(
-						_ea.cc($, ($) => {
-							switch ($[0]) {
-								case 'ordered': return _ea.ss($, ($) => $.content)
-								case 'indexed': return _ea.ss($, ($) => $.content)
-								default: return _ea.au($[0])
+			case 'group': return _ea.ss($, ($) => {
+				return _ea.cc($['found value type'], ($) => {
+					switch ($[0]) {
+						case 'invalid': return _ea.ss($, ($) => wrap())
+						case 'valid': return _ea.ss($, ($) => Group_Content(
+							_ea.cc($, ($) => {
+								switch ($[0]) {
+									case 'ordered': return _ea.ss($, ($) => $.content)
+									case 'indexed': return _ea.ss($, ($) => $.content)
+									default: return _ea.au($[0])
+								}
+							}),
+							$p
+						).transform(
+							($) => _ea.set($),
+							() => {
+								const default_initialized_group: d_ast_target.Value = t_default_initialize.Value(node.definition)
+								const fpblock: d_fpblock.Block = _ea.array_literal([
+									['nested line', _ea.array_literal<d_fpblock.Line_Part>([
+										t_astn_target_to_fp.Value(default_initialized_group, { 'style': ['verbose', null], 'in concise group': false })
+									])]
+								])
+								const serialized = s_fp.Block(fpblock, {
+
+									'indentation': "asdf",
+									'newline': '\n',
+								})
+								return _ea.set(_ea.array_literal([
+									{
+										'label': serialized
+									}
+								]))
 							}
-						}),
-						$p
-					).transform(
-						($) => _ea.set($),
-						() => wrap()
-					))
-					default: return _ea.au($[0])
-				}
-			}))
+						))
+						default: return _ea.au($[0])
+					}
+				})
+			})
 			case 'identifier value pair': return _ea.ss($, ($) => {
 				return _ea.set(_ea.panic("not implemented yet"))
 			})
@@ -223,7 +249,7 @@ export const Node = (
 							})
 							return _ea.cc($['value type'], ($) => {
 								switch ($[0]) {
-									case 'state': return _ea.ss($, ($) => $['found state definition'].transform<s_out.Optional_Completion_Items>(
+									case 'state': return _ea.ss($, ($) => $['found state definition'].transform<d_out.Optional_Completion_Items>(
 										($) => {
 											return Node($.node, {
 												'location': $p.location,
@@ -259,13 +285,13 @@ export const Node = (
 }
 
 export const Optional_Node = (
-	$: s_in.Optional_Node,
+	$: d_in.Optional_Node,
 	$p: {
 		'location': d_token.Relative_Location
 		'full path': string
 		'id path': string
 	}
-): s_out.Optional_Completion_Items => {
+): d_out.Optional_Completion_Items => {
 	return $.transform(
 		($) => Node($, {
 			'location': $p.location,
