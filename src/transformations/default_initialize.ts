@@ -42,9 +42,12 @@ export const Value = (
                 'value': "IMPLEMENT ME"
             }])
             case 'optional': return _ea.ss($, ($): d_ast_target.Value => ['nothing', null])
-            case 'state group': return _ea.ss($, ($) => ['text', {
-                'delimiter': ['quote', null],
-                'value': "FOO"
+            case 'state group': return _ea.ss($, ($): d_ast_target.Value => ['state', {
+                'state': "SDFDS",
+                'value': ['text', {
+                    'delimiter': ['none', null],
+                    'value': "FIX STATE"
+                }]
             }])
             case 'type parameter': return _ea.ss($, ($) => ['text', {
                 'delimiter': ['quote', null],
