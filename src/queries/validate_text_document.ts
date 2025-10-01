@@ -6,7 +6,7 @@ import * as d from "../vscode_server_data_types"
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/generated/interface/schemas/ide/data_types/source"
 
-import { $$ as load_astn_document } from "pareto/dist/queries/load_astn_document"
+import { $$ as load_astn_document } from "pareto/dist/queries/load_pareto_document"
 
 import * as t_find_hover_texts from "../transformations/find_hover_texts"
 import * as t_backend_location from "../transformations/backend_location"

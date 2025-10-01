@@ -4,7 +4,7 @@ import * as _ea from 'exupery-core-alg'
 
 import * as d from "../vscode_server_data_types"
 
-import { $$ as load_astn_document } from "pareto/dist/queries/load_astn_document"
+import { $$ as load_astn_document } from "pareto/dist/queries/load_pareto_document"
 
 import * as t_find_completion_items from "../transformations/find_completion_items"
 import * as t_backend_location from "../transformations/backend_location"
