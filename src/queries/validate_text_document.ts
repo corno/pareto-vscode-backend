@@ -8,7 +8,7 @@ import * as d_ide from "astn/dist/generated/interface/schemas/ide/data_types/sou
 
 import { $$ as load_astn_document } from "pareto/dist/queries/load_pareto_document"
 
-import * as t_find_hover_texts from "../transformations/find_hover_texts"
+import * as t_find_hover_texts from "../transformations/get_hover_texts"
 import * as t_backend_location from "../transformations/backend_location"
 
 import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/transformations/unmarshall_result/unmarshall_errors"
@@ -55,7 +55,7 @@ export const $$ = (
 		'content': $p.content,
 		'file path': $p['file path'],
 	}
-).map(
+).map_(
 	($): d.On_Validate_Document_Result => ({
 		'diagnostics': t_unmarshall_result_2_unmarshall_errors.Node($, null).map(($): d.Diagnostic => ({
 
@@ -95,7 +95,7 @@ export const $$ = (
 			'related information': _ea.not_set()
 		}))
 	})
-).catch(($) => {
+).catch_(($) => {
 	return _easync.query.guaranteed['create result']<d.On_Validate_Document_Result>({
 		'diagnostics': _ea.cc(
 			$,

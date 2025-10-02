@@ -6,7 +6,7 @@ import * as d from "../vscode_server_data_types"
 
 import { $$ as load_astn_document } from "pareto/dist/queries/load_pareto_document"
 
-import * as t_find_completion_items from "../transformations/find_completion_items"
+import * as t_find_completion_items from "../transformations/get_completion_items"
 import * as t_backend_location from "../transformations/backend_location"
 
 
@@ -16,21 +16,23 @@ export const $$ = (
 	$p: {
 		'content': string
 		'file path': string
-		'position': d.Position
+		'position': d.Position,
+		'indent': string,
 	},
 ): _easync.Guaranteed_Query_Result<d.On_Completion_Result> => load_astn_document(
 	{
 		'content': $p.content,
 		'file path': $p['file path'],
 	}
-).map(($): d.On_Completion_Result => ({
+).map_(($): d.On_Completion_Result => ({
 	'completion items': t_find_completion_items.Node($, {
 		'location': t_backend_location.Relative_Location($p.position),
+		'indent': $p.indent,
 	}).transform(
 		($) => $,
 		() => _ea.array_literal([]),
 	)
-})).catch(($) => {
+})).catch_(($) => {
 	return _easync.query.guaranteed['create result']({
 		'completion items': _ea.array_literal([
 			{

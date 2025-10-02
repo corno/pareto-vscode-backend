@@ -25,8 +25,7 @@ import * as t_ast_to_range from "astn/dist/transformations/ast/temp_value_range"
 const is_in_range = (
 	$: d_token.Relative_Location,
 	$p: {
-		'range': d_token.Range
-
+		'range': d_token.Range,
 	}
 ): boolean => {
 	return (
@@ -67,6 +66,7 @@ export const Group_Content = (
 	$: d_in.Group_Content,
 	$p: {
 		'location': d_token.Relative_Location
+		'indent': string
 	}
 ): d_out.Optional_Completion_Items => {
 	return filter_dictionary(
@@ -75,9 +75,7 @@ export const Group_Content = (
 				switch ($[0]) {
 					case 'multiple': return _ea.ss($, ($) => _ea.not_set())
 					case 'missing': return _ea.ss($, ($) => _ea.not_set())
-					case 'unique': return _ea.ss($, ($) => Optional_Node($.node, {
-						'location': $p.location,
-					}))
+					case 'unique': return _ea.ss($, ($) => Optional_Node($.node, $p))
 					default: return _ea.au($[0])
 				}
 			})
@@ -88,7 +86,8 @@ export const Group_Content = (
 export const Node = (
 	$: d_in.Node,
 	$p: {
-		'location': d_token.Relative_Location
+		'location': d_token.Relative_Location,
+		'indent': string
 	}
 ): d_out.Optional_Completion_Items => {
 	// if (is_in_range($.value.range))
@@ -111,7 +110,7 @@ export const Node = (
 		])
 		const serialized = s_fp.Block(fpblock, {
 
-			'indentation': "asdf",
+			'indentation': $p.indent,
 			'newline': '\n',
 		})
 		return in_range
@@ -137,18 +136,14 @@ export const Node = (
 			case 'type parameter': return _ea.ss($, ($) => _ed.implement_me())
 			case 'list': return _ea.ss($, ($) => _ea.cc($['found value type'], ($) => {
 				switch ($[0]) {
-					case 'valid': return _ea.ss($, ($) => filter_list($.elements.map(($) => Node($, {
-						'location': $p.location,
-					}))))
+					case 'valid': return _ea.ss($, ($) => filter_list($.elements.map(($) => Node($, $p))))
 					case 'invalid': return _ea.ss($, ($) => wrap())
 					default: return _ea.au($[0])
 				}
 			}))
 			case 'nothing': return _ea.ss($, ($) => wrap())
 			case 'reference': return _ea.ss($, ($) => wrap()) //show options?
-			case 'component': return _ea.ss($, ($) => Node($.node, {
-				'location': $p.location,
-			}))
+			case 'component': return _ea.ss($, ($) => Node($.node, $p))
 			case 'dictionary': return _ea.ss($, ($) => {
 				return _ea.cc($['found value type'], ($) => {
 					switch ($[0]) {
@@ -156,12 +151,8 @@ export const Node = (
 							$.entries.map(($, key): d_out.Optional_Completion_Items => {
 								return _ea.cc($, ($) => {
 									switch ($[0]) {
-										case 'multiple': return _ea.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, {
-											'location': $p.location,
-										}))))
-										case 'unique': return _ea.ss($, ($) => Optional_Node($, {
-											'location': $p.location,
-										}))
+										case 'multiple': return _ea.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, $p))))
+										case 'unique': return _ea.ss($, ($) => Optional_Node($, $p))
 										default: return _ea.au($[0])
 									}
 								})
@@ -204,9 +195,7 @@ export const Node = (
 					switch ($[0]) {
 						case 'valid': return _ea.ss($, ($) => _ea.cc($, ($) => {
 							switch ($[0]) {
-								case 'set': return _ea.ss($, ($) => Node($['child node'], {
-									'location': $p.location,
-								}))
+								case 'set': return _ea.ss($, ($) => Node($['child node'], $p))
 								case 'not set': return _ea.ss($, ($) => _ea.not_set())
 								default: return _ea.au($[0])
 							}
@@ -230,9 +219,7 @@ export const Node = (
 								switch ($[0]) {
 									case 'state': return _ea.ss($, ($) => $['found state definition'].transform<d_out.Optional_Completion_Items>(
 										($) => {
-											return Node($.node, {
-												'location': $p.location,
-											}).transform(
+											return Node($.node, $p).transform(
 												($) => _ea.set($),
 												() => wrap()
 											)
@@ -265,12 +252,11 @@ export const Optional_Node = (
 	$: d_in.Optional_Node,
 	$p: {
 		'location': d_token.Relative_Location
+		'indent': string
 	}
 ): d_out.Optional_Completion_Items => {
 	return $.transform(
-		($) => Node($, {
-			'location': $p.location,
-		}),
+		($) => Node($, $p),
 		() => _ea.not_set()
 	)
 }

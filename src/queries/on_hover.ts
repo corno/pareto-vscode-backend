@@ -6,7 +6,7 @@ import * as d from "../vscode_server_data_types"
 
 import { $$ as load_pareto_document } from "pareto/dist/queries/load_pareto_document"
 
-import * as t_find_hover_texts from "../transformations/find_hover_texts"
+import * as t_find_hover_texts from "../transformations/get_hover_texts"
 import * as t_backend_location from "../transformations/backend_location"
 
 export const $$ = (
@@ -20,7 +20,7 @@ export const $$ = (
 		'content': $p.content,
 		'file path': $p['file path'],
 	}
-).map(($): d.On_Hover_Result => ({
+).map_(($): d.On_Hover_Result => ({
 	'contents': {
 		'hover texts': t_find_hover_texts.Node($, {
 			'location': t_backend_location.Relative_Location($p.position),
@@ -28,7 +28,7 @@ export const $$ = (
 			'id path': ``,
 		})
 	}
-})).catch(($) => {
+})).catch_(($) => {
 	return _easync.query.guaranteed['create result']({
 		'contents': {
 			'hover texts': _ea.not_set()
