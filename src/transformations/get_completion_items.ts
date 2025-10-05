@@ -4,11 +4,11 @@ import * as _ed from "exupery-core-dev"
 
 import * as d_in from "pareto/dist/temp/temp_unmashall_result_types"
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
-import * as d_ast_target from "astn/dist/generated/interface/schemas/target/data_types/target"
+import * as d_ast_target from "astn/dist/generated/interface/schemas/authoring_target/data_types/target"
 import * as d_fpblock from "pareto-fountain-pen/dist/generated/interface/schemas/block/data_types/target"
 import * as d_out from "../vscode_server_data_types"
 
-import * as t_astn_target_to_fp from "astn/dist/transformations/target/fountain_pen_block"
+import * as t_astn_target_to_fp from "astn/dist/transformations/authoring_target/fountain_pen_block"
 import * as t_default_initialize from "./default_initialize"
 
 import * as s_fp from "pareto-fountain-pen/dist/serialize/block"
@@ -105,7 +105,10 @@ export const Node = (
 		const default_initialized_value: d_ast_target.Value = t_default_initialize.Value(node.definition)
 		const fpblock: d_fpblock.Block = _ea.array_literal([
 			['nested line', _ea.array_literal<d_fpblock.Line_Part>([
-				t_astn_target_to_fp.Value(default_initialized_value, { 'style': ['verbose', null], 'in concise group': false })
+				t_astn_target_to_fp.Value(default_initialized_value, {
+					'in concise group': false,
+					'write delimiters': false,
+				})
 			])]
 		])
 		const serialized = s_fp.Block(fpblock, {

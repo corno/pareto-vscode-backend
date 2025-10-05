@@ -1,6 +1,6 @@
 import * as _ea from 'exupery-core-alg'
 
-import * as d_ast_target from "astn/dist/generated/interface/schemas/target/data_types/target"
+import * as d_ast_target from "astn/dist/generated/interface/schemas/authoring_target/data_types/target"
 import * as d_schema from "pareto/dist/generated/interface/schemas/schema/data_types/source";
 
 
@@ -42,13 +42,7 @@ export const Value = (
                 'value': "IMPLEMENT ME"
             }])
             case 'optional': return _ea.ss($, ($): d_ast_target.Value => ['nothing', null])
-            case 'state group': return _ea.ss($, ($): d_ast_target.Value => ['state', {
-                'state': "SDFDS",
-                'value': ['text', {
-                    'delimiter': ['none', null],
-                    'value': "FIX STATE"
-                }]
-            }])
+            case 'state group': return _ea.ss($, ($): d_ast_target.Value => ['state', ['missing data', null]])
             case 'type parameter': return _ea.ss($, ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': "IMPLEMENT ME"

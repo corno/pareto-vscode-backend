@@ -38,3 +38,13 @@ export type Format_Result = _et.Array<Text_Edit>
 export type Format_Error = {
 	'message': string
 }
+
+export type Format_Parameters = {
+	'content': string
+	'options': Format_Options
+}
+
+export type Sort_Alphabetically_Parameters = {
+	'content': string
+	'position': Position
+}

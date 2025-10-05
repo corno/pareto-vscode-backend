@@ -63,3 +63,26 @@ export type On_Completion_Result = {
 export type On_Validate_Document_Result = {
 	'diagnostics': Diagnostics
 }
+
+export type Convert_To_JSON_Parameters = {
+	'content': string
+}
+
+export type On_Completion_Parameters = {
+	'content': string
+	'file path': string
+	'position': Position,
+	'indent': string,
+}
+
+export type On_Hover_Parameters = {
+	'content': string
+	'file path': string
+	'position': Position
+}
+
+export type Validate_Document_Parameters = {
+	'content': string
+	'file path': string
+	'tab size': number
+}

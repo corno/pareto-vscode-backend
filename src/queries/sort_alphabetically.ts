@@ -7,12 +7,9 @@ import * as d from "../vscode_client_data_types"
 import * as t_backend_location from "../transformations/backend_location"
 
 
-export const $$ = (
-	$p: {
-		'content': string
-		'position': d.Position
-	},
-): _easync.Unguaranteed_Query_Result<d.Replace, null> => _easync.query.unguaranteed['create result']({
+export const $$: _easync.Unguaranteed_Query_Initializer<d.Sort_Alphabetically_Parameters, d.Replace, null> = (
+	$p,
+) => _easync.query.unguaranteed['create result']({
 	'range': {
 		'start': $p.position,
 		'end': $p.position

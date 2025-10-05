@@ -2,11 +2,11 @@ import * as _et from "exupery-core-types"
 import * as _ea from "exupery-core-alg"
 import * as _ed from "exupery-core-dev"
 
-import * as s_in from "pareto/dist/temp/temp_unmashall_result_types"
+import * as d_in from "pareto/dist/temp/temp_unmashall_result_types"
 
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
 
-import * as s_out from "../vscode_server_data_types"
+import * as d_out from "../vscode_server_data_types"
 
 import { $$ as op_filter_list } from "pareto-standard-operations/dist/pure/list/filter"
 import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/pure/dictionary/filter"
@@ -35,22 +35,22 @@ const is_in_range = (
 		)
 }
 
-const filter_dictionary = ($: _et.Dictionary<s_out.Optional_Hover_Texts>): s_out.Optional_Hover_Texts => {
+const filter_dictionary = ($: _et.Dictionary<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => {
 	return op_cast_dictionary_to_non_empty(
 		op_filter_dictionary($)
-	).transform<s_out.Optional_Hover_Texts>(
-		($) => op_expect_1_entry($).transform<s_out.Optional_Hover_Texts>(
+	).transform<d_out.Optional_Hover_Texts>(
+		($) => op_expect_1_entry($).transform<d_out.Optional_Hover_Texts>(
 			($) => _ea.set($.value),
 			() => _ea.panic("multiple entries match the location, that should not happen"),
 		),
 		() => _ea.not_set()
 	)
 }
-const filter_list = ($: _et.Array<s_out.Optional_Hover_Texts>): s_out.Optional_Hover_Texts => {
+const filter_list = ($: _et.Array<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => {
 	return op_cast_list_to_non_empty(
 		op_filter_list($)
-	).transform<s_out.Optional_Hover_Texts>(
-		($) => op_expect_1_element($).transform<s_out.Optional_Hover_Texts>(
+	).transform<d_out.Optional_Hover_Texts>(
+		($) => op_expect_1_element($).transform<d_out.Optional_Hover_Texts>(
 			($) => _ea.set($),
 			() => _ea.panic("multiple entries match the location, that should not happen"),
 		),
@@ -59,15 +59,15 @@ const filter_list = ($: _et.Array<s_out.Optional_Hover_Texts>): s_out.Optional_H
 }
 
 export const Group_Content = (
-	$: s_in.Group_Content,
+	$: d_in.Group_Content,
 	$p: {
 		'location': d_token.Relative_Location
 		'full path': string
 		'id path': string
 	}
-): s_out.Optional_Hover_Texts => {
+): d_out.Optional_Hover_Texts => {
 	return filter_dictionary(
-		$.properties.map(($, key): s_out.Optional_Hover_Texts => {
+		$.properties.map(($, key): d_out.Optional_Hover_Texts => {
 			return _ea.cc($, ($) => {
 				switch ($[0]) {
 					case 'multiple': return _ea.ss($, ($) => _ea.not_set())
@@ -85,13 +85,13 @@ export const Group_Content = (
 }
 
 export const Node = (
-	$: s_in.Node,
+	$: d_in.Node,
 	$p: {
 		'location': d_token.Relative_Location
 		'full path': string
 		'id path': string
 	}
-): s_out.Optional_Hover_Texts => {
+): d_out.Optional_Hover_Texts => {
 	// if (is_in_range($.value.range))
 
 	// Check if the node is in the specified location
@@ -102,7 +102,7 @@ export const Node = (
 
 	const in_range = is_in_range($p.location, { range: node_range })
 
-	const wrap = (): s_out.Optional_Hover_Texts => in_range
+	const wrap = (): d_out.Optional_Hover_Texts => in_range
 		? _ea.set(_ea.array_literal([$p['full path'], $p['id path']]))
 		: _ea.not_set()
 
@@ -113,7 +113,7 @@ export const Node = (
 
 
 
-	return _ea.cc($.type, ($): s_out.Optional_Hover_Texts => {
+	return _ea.cc($.type, ($): d_out.Optional_Hover_Texts => {
 		switch ($[0]) {
 			case 'number': return _ea.ss($, ($) => wrap())
 			case 'boolean': return _ea.ss($, ($) => wrap())
@@ -140,7 +140,7 @@ export const Node = (
 				return _ea.cc($['found value type'], ($) => {
 					switch ($[0]) {
 						case 'valid': return _ea.ss($, ($) => filter_dictionary(
-							$.entries.map(($, key): s_out.Optional_Hover_Texts => {
+							$.entries.map(($, key): d_out.Optional_Hover_Texts => {
 								return _ea.cc($, ($) => {
 									switch ($[0]) {
 										case 'multiple': return _ea.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, {
@@ -219,7 +219,7 @@ export const Node = (
 							})
 							return _ea.cc($['value type'], ($) => {
 								switch ($[0]) {
-									case 'state': return _ea.ss($, ($) => $['found state definition'].transform<s_out.Optional_Hover_Texts>(
+									case 'state': return _ea.ss($, ($) => $['found state definition'].transform<d_out.Optional_Hover_Texts>(
 										($) => {
 											return Node($.node, {
 												'location': $p.location,
@@ -255,13 +255,13 @@ export const Node = (
 }
 
 export const Optional_Node = (
-	$: s_in.Optional_Node,
+	$: d_in.Optional_Node,
 	$p: {
 		'location': d_token.Relative_Location
 		'full path': string
 		'id path': string
 	}
-): s_out.Optional_Hover_Texts => {
+): d_out.Optional_Hover_Texts => {
 	return $.transform(
 		($) => Node($, {
 			'location': $p.location,

@@ -9,13 +9,9 @@ import { $$ as load_pareto_document } from "pareto/dist/queries/load_pareto_docu
 import * as t_find_hover_texts from "../transformations/get_hover_texts"
 import * as t_backend_location from "../transformations/backend_location"
 
-export const $$ = (
-	$p: {
-		'content': string
-		'file path': string
-		'position': d.Position
-	},
-): _easync.Guaranteed_Query_Result<d.On_Hover_Result> => load_pareto_document(
+export const $$: _easync.Guaranteed_Query_Initializer<d.On_Hover_Parameters, d.On_Hover_Result> = (
+	$p,
+) => load_pareto_document(
 	{
 		'content': $p.content,
 		'file path': $p['file path'],

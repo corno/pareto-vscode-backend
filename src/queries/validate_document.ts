@@ -43,14 +43,9 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 	})
 }
 
-
-export const $$ = (
-	$p: {
-		'content': string
-		'file path': string
-		'tab size': number
-	},
-): _easync.Guaranteed_Query_Result<d.On_Validate_Document_Result> => load_astn_document(
+export const $$: _easync.Guaranteed_Query_Initializer<d.Validate_Document_Parameters, d.On_Validate_Document_Result> = (
+	$p,
+) => load_astn_document(
 	{
 		'content': $p.content,
 		'file path': $p['file path'],

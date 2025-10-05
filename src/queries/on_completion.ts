@@ -9,17 +9,9 @@ import { $$ as load_astn_document } from "pareto/dist/queries/load_pareto_docume
 import * as t_find_completion_items from "../transformations/get_completion_items"
 import * as t_backend_location from "../transformations/backend_location"
 
-
-
-
-export const $$ = (
-	$p: {
-		'content': string
-		'file path': string
-		'position': d.Position,
-		'indent': string,
-	},
-): _easync.Guaranteed_Query_Result<d.On_Completion_Result> => load_astn_document(
+export const $$: _easync.Guaranteed_Query_Initializer<d.On_Completion_Parameters, d.On_Completion_Result> = (
+	$p,
+) => load_astn_document(
 	{
 		'content': $p.content,
 		'file path': $p['file path'],
