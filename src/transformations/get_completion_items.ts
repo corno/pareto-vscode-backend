@@ -211,28 +211,31 @@ export const Node = (
 			case 'state': return _ea.ss($, ($) => {
 				return _ea.cc($['found value type'], ($) => {
 					switch ($[0]) {
-						case 'valid': return _ea.ss($, ($) => {
-							const temp: string = _ea.cc($['value type'], ($) => {
-								switch ($[0]) {
-									case 'state': return _ea.ss($, ($) => $.value.state.value)
-									default: return _ea.au($[0])
-								}
-							})
-							return _ea.cc($['value type'], ($) => {
-								switch ($[0]) {
-									case 'state': return _ea.ss($, ($) => $['found state definition'].transform<d_out.Optional_Completion_Items>(
-										($) => {
-											return Node($.node, $p).transform(
-												($) => _ea.set($),
-												() => wrap()
-											)
-										},
-										() => _ea.not_set()
-									))
-									default: return _ea.au($[0])
-								}
-							})
-						})
+						case 'valid': return _ea.ss($, ($) => _ea.cc($['value type'], ($) => {
+							switch ($[0]) {
+								case 'state': return _ea.ss($, ($) => {
+									return _ea.cc($['value substatus'], ($) => {
+										switch ($[0]) {
+											case 'missing data': return _ea.ss($, ($) => _ed.implement_me())
+											case 'set': return _ea.ss($, ($) => {
+												const temp = $.value.state.value
+												return $['found state definition'].transform<d_out.Optional_Completion_Items>(
+													($) => {
+														return Node($.node, $p).transform(
+															($) => _ea.set($),
+															() => wrap()
+														)
+													},
+													() => _ea.not_set()
+												)
+											})
+											default: return _ea.au($[0])
+										}
+									})
+								})
+								default: return _ea.au($[0])
+							}
+						}))
 						case 'invalid': return _ea.ss($, ($) => wrap())
 						//
 						// case 'unknown state': return _ea.ss($, ($) => _ea.set(_ea.array_literal(["FIXUNKNOWNSTATE"])))

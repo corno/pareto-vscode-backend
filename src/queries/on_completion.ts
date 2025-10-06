@@ -2,7 +2,7 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../generated/interface/schemas/server/data_types/target"
+import * as d from "../generated/interface/schemas/server/data_types/source"
 
 import { $$ as load_astn_document } from "pareto/dist/queries/load_pareto_document"
 
