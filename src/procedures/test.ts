@@ -3,7 +3,7 @@ import * as _eb from 'exupery-core-bin'
 import * as _easync from 'exupery-core-async'
 
 import * as D_Resources from "exupery-resources/dist/types"
-import * as D_server from "../vscode_server_data_types"
+import * as D_server from "../generated/interface/schemas/server/data_types/target"
 
 
 import { $$ as p_log_error } from "exupery-resources/dist/procedures/log_error"
@@ -73,7 +73,7 @@ export const $$: _eb.Unguaranteed_Main_Initializer = () => _easync.up.sequence([
             ),
             //result transformation
             _easync.ut.g(($): D_Resources.Log_Parameters => ({
-                'lines': $['completion items'].map(($) => $['label'])
+                'lines': $['completion items'].map(($) => ">" + $['label'] + "<")
             })),
         ),
     )

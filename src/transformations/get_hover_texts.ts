@@ -6,7 +6,7 @@ import * as d_in from "pareto/dist/temp/temp_unmashall_result_types"
 
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
 
-import * as d_out from "../vscode_server_data_types"
+import * as d_out from "../generated/interface/schemas/server/data_types/target"
 
 import { $$ as op_filter_list } from "pareto-standard-operations/dist/pure/list/filter"
 import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/pure/dictionary/filter"

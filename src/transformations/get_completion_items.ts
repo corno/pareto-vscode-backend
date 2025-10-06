@@ -6,7 +6,7 @@ import * as d_in from "pareto/dist/temp/temp_unmashall_result_types"
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
 import * as d_ast_target from "astn/dist/generated/interface/schemas/authoring_target/data_types/target"
 import * as d_fpblock from "pareto-fountain-pen/dist/generated/interface/schemas/block/data_types/target"
-import * as d_out from "../vscode_server_data_types"
+import * as d_out from "../generated/interface/schemas/server/data_types/target"
 
 import * as t_astn_target_to_fp from "astn/dist/transformations/authoring_target/fountain_pen_block"
 import * as t_default_initialize from "./default_initialize"
