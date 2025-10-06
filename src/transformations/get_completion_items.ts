@@ -2,6 +2,7 @@ import * as _et from "exupery-core-types"
 import * as _ea from "exupery-core-alg"
 import * as _ed from "exupery-core-dev"
 
+import * as d_schema from "pareto/dist/generated/interface/schemas/schema/data_types/source"
 import * as d_in from "pareto/dist/temp/temp_unmashall_result_types"
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
 import * as d_ast_target from "astn/dist/generated/interface/schemas/authoring_target/data_types/target"
@@ -100,26 +101,30 @@ export const Node = (
 
 	const in_range = is_in_range($p.location, { range: node_range })
 
-	const wrap = (): d_out.Optional_Completion_Items => {
-
-		const default_initialized_value: d_ast_target.Value = t_default_initialize.Value(node.definition)
+	const create_default_value_string = (node: d_schema.Type_Node, write_delimiters: boolean) => {
+		const default_initialized_value: d_ast_target.Value = t_default_initialize.Value(node)
 		const fpblock: d_fpblock.Block = _ea.array_literal([
 			['nested line', _ea.array_literal<d_fpblock.Line_Part>([
 				t_astn_target_to_fp.Value(default_initialized_value, {
 					'in concise group': false,
-					'write delimiters': false,
+					'write delimiters': write_delimiters,
 				})
 			])]
 		])
-		const serialized = s_fp.Block(fpblock, {
+		return s_fp.Block(fpblock, {
 
 			'indentation': $p.indent,
 			'newline': '\n',
 		})
+
+	}
+
+	const wrap = (): d_out.Optional_Completion_Items => {
+
 		return in_range
 			? _ea.set(_ea.array_literal([
 				{
-					'label': serialized
+					'label': create_default_value_string(node.definition, false)
 				}
 			]))
 			: _ea.not_set()
@@ -209,6 +214,7 @@ export const Node = (
 				})
 			})
 			case 'state': return _ea.ss($, ($) => {
+				const state_group_definition = $.definition
 				return _ea.cc($['found value type'], ($) => {
 					switch ($[0]) {
 						case 'valid': return _ea.ss($, ($) => _ea.cc($['value type'], ($) => {
@@ -216,7 +222,13 @@ export const Node = (
 								case 'state': return _ea.ss($, ($) => {
 									return _ea.cc($['value substatus'], ($) => {
 										switch ($[0]) {
-											case 'missing data': return _ea.ss($, ($) => _ed.implement_me())
+											case 'missing data': return _ea.ss($, ($) => {
+												return _ea.set(state_group_definition.to_array(() => 1).map(($) => {
+													return {
+														'label': `| '${$.key}' ${create_default_value_string($.value, true)}`
+													}
+												}))
+											})
 											case 'set': return _ea.ss($, ($) => {
 												const temp = $.value.state.value
 												return $['found state definition'].transform<d_out.Optional_Completion_Items>(
