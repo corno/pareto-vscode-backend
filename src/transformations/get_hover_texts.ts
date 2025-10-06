@@ -208,6 +208,7 @@ export const Node = (
 				})
 			})
 			case 'state': return _ea.ss($, ($) => {
+				const def = $.definition
 				return _ea.cc($['found value type'], ($) => {
 					switch ($[0]) {
 						case 'valid': return _ea.ss($, ($) => _ea.cc($['value type'], ($) => {
@@ -215,7 +216,10 @@ export const Node = (
 								case 'state': return _ea.ss($, ($) => {
 									return _ea.cc($['value substatus'], ($) => {
 										switch ($[0]) {
-											case 'missing data': return _ea.ss($, ($) => _ed.implement_me())
+											case 'missing data': return _ea.ss($, ($) => {
+												
+												return _ea.set(def.map(($, key) => key))
+											})
 											case 'set': return _ea.ss($, ($) => {
 												const temp = $.value.state.value
 												return $['found state definition'].transform<d_out.Optional_Hover_Texts>(

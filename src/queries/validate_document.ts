@@ -128,7 +128,7 @@ export const $$: _easync.Guaranteed_Query_Initializer<d.Validate_Document_Parame
 									'character': 0,
 								}
 							},
-							'message': `error in schema: ${$}`,
+							'message': `error in schema: ${$['file location']}`,
 							'related information': _ea.set(_ea.array_literal([
 								{
 									'location': {
