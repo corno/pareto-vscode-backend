@@ -211,6 +211,12 @@ export const Range: _i_signatures._T_Range = ($, $p) => ['verbose group', _pa.di
         }
     )),
 })]
+export const Seal_Parameters: _i_signatures._T_Seal_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
+    'content': _pa.cc($['content'], ($) => ['text', ({
+        'delimiter': ['quote', null],
+        'value': $,
+    })]),
+})]
 export const Validate_Document_Parameters: _i_signatures._T_Validate_Document_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
     'content': _pa.cc($['content'], ($) => ['text', ({
         'delimiter': ['quote', null],

@@ -82,6 +82,10 @@ export type _T_Range = {
     readonly 'start': _T_Position
 }
 
+export type _T_Seal_Parameters = {
+    readonly 'content': string
+}
+
 export type _T_Validate_Document_Parameters = {
     readonly 'content': string
     readonly 'file path': string
@@ -121,6 +125,8 @@ export type Optional_Hover_Texts = _T_Optional_Hover_Texts
 export type Position = _T_Position
 
 export type Range = _T_Range
+
+export type Seal_Parameters = _T_Seal_Parameters
 
 export type Validate_Document_Parameters = _T_Validate_Document_Parameters
 
@@ -312,6 +318,10 @@ export namespace _T_Range {
     export namespace start {
     }
     export type start = _T_Position
+}
+
+export namespace _T_Seal_Parameters {
+    export type content = string
 }
 
 export namespace _T_Validate_Document_Parameters {
@@ -508,6 +518,10 @@ export namespace Range {
     export namespace start {
     }
     export type start = _T_Position
+}
+
+export namespace Seal_Parameters {
+    export type content = string
 }
 
 export namespace Validate_Document_Parameters {

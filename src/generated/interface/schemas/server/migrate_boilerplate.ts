@@ -85,6 +85,11 @@ export type _T_Range = (
     $$_p: null,
 ) => _i_out._T_Range
 
+export type _T_Seal_Parameters = (
+    $$_: _i_in._T_Seal_Parameters,
+    $$_p: null,
+) => _i_out._T_Seal_Parameters
+
 export type _T_Validate_Document_Parameters = (
     $$_: _i_in._T_Validate_Document_Parameters,
     $$_p: null,
@@ -123,6 +128,8 @@ export type Optional_Hover_Texts = _T_Optional_Hover_Texts
 export type Position = _T_Position
 
 export type Range = _T_Range
+
+export type Seal_Parameters = _T_Seal_Parameters
 
 export type Validate_Document_Parameters = _T_Validate_Document_Parameters
 
@@ -350,6 +357,20 @@ export namespace _T_Range {
     export namespace RESULT {
     }
     export type RESULT = _i_out._T_Range
+}
+
+export namespace _T_Seal_Parameters {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Seal_Parameters
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Seal_Parameters
 }
 
 export namespace _T_Validate_Document_Parameters {
@@ -590,6 +611,20 @@ export namespace Range {
     export namespace RESULT {
     }
     export type RESULT = _i_out._T_Range
+}
+
+export namespace Seal_Parameters {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Seal_Parameters
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Seal_Parameters
 }
 
 export namespace Validate_Document_Parameters {

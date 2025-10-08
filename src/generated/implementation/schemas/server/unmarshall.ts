@@ -448,6 +448,22 @@ export const Range: _i_signatures._T_Range = ($, $p) => _i_generic.process_group
         }),
     }
 )
+export const Seal_Parameters: _i_signatures._T_Seal_Parameters = ($, $p) => _i_generic.process_group(
+    $,
+    {
+        'properties': ($) => ({
+            'content': _pa.cc(_i_generic.get_entry(
+                $,
+                {
+                    'key': "content",
+                }
+            ), ($) => _i_generic.process_text(
+                $,
+                null
+            )),
+        }),
+    }
+)
 export const Validate_Document_Parameters: _i_signatures._T_Validate_Document_Parameters = ($, $p) => _i_generic.process_group(
     $,
     {

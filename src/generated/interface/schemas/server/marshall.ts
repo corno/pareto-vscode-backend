@@ -118,6 +118,13 @@ export type _T_Range = (
     },
 ) => _i_out._T_Value
 
+export type _T_Seal_Parameters = (
+    $$_: _i_in._T_Seal_Parameters,
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => _i_out._T_Value
+
 export type _T_Validate_Document_Parameters = (
     $$_: _i_in._T_Validate_Document_Parameters,
     $$_p: {
@@ -158,6 +165,8 @@ export type Optional_Hover_Texts = _T_Optional_Hover_Texts
 export type Position = _T_Position
 
 export type Range = _T_Range
+
+export type Seal_Parameters = _T_Seal_Parameters
 
 export type Validate_Document_Parameters = _T_Validate_Document_Parameters
 
@@ -438,6 +447,24 @@ export namespace _T_Range {
     export namespace CONTEXT {
     }
     export type CONTEXT = _i_in._T_Range
+    
+    export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Value
+}
+
+export namespace _T_Seal_Parameters {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Seal_Parameters
     
     export namespace PARAMS {
         
@@ -746,6 +773,24 @@ export namespace Range {
     export namespace CONTEXT {
     }
     export type CONTEXT = _i_in._T_Range
+    
+    export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Value
+}
+
+export namespace Seal_Parameters {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Seal_Parameters
     
     export namespace PARAMS {
         
