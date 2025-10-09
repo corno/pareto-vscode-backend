@@ -15,7 +15,7 @@ import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operation
 import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/impure/list/expect_exactly_one_element"
 import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/impure/dictionary/expect_exactly_one_entry"
 
-import * as t_ast_to_range from "astn/dist/transformations/ast/temp_value_range"
+import * as t_ast_to_range from "astn/dist/transformations/authoring_ast/temp_value_range"
 
 const is_in_range = (
 	$: d_token.Relative_Location,
@@ -185,9 +185,6 @@ export const Node = (
 					default: return _ea.au($[0])
 				}
 			}))
-			case 'identifier value pair': return _ea.ss($, ($) => {
-				return _ea.set(_ea.array_literal(["FIXIDVALUEPAIR"]))
-			})
 			case 'optional': return _ea.ss($, ($) => {
 				return _ea.cc($['found value type'], ($) => {
 					switch ($[0]) {

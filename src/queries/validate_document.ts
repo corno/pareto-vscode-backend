@@ -69,6 +69,7 @@ export const $$: _easync.Guaranteed_Query_Initializer<d.Validate_Document_Parame
 							case 'state': return _ea.ss($, ($) => _ea.cc($, ($) => {
 								switch ($[0]) {
 									case 'missing state name': return _ea.ss($, ($) => `Missing state name`)
+									case 'missing data marker': return _ea.ss($, ($) => `Missing data marker for state 'XXXX'`)
 									case 'missing value': return _ea.ss($, ($) => `Missing value for state 'XXXX'`)
 									case 'more than 2 elements': return _ea.ss($, ($) => `State 'XXXX' has more than 2 elements`)
 									case 'state is not a string': return _ea.ss($, ($) => `State 'XXXX' is not a string`)

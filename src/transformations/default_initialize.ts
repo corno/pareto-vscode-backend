@@ -1,13 +1,20 @@
 import * as _ea from 'exupery-core-alg'
+import * as _edev from 'exupery-core-dev'
 
 import * as d_ast_target from "astn/dist/generated/interface/schemas/authoring_target/data_types/target"
 import * as d_schema from "pareto/dist/generated/interface/schemas/schema/data_types/source";
 
 
-export const Value = (
+export const Type_Node = (
     $: d_schema.Type_Node,
-): d_ast_target.Value => {
-    return _ea.cc($, ($): d_ast_target.Value => {
+): d_ast_target.Value => ({
+    'type': Type_Node_X($)
+})
+
+export const Type_Node_X = (
+    $: d_schema.Type_Node,
+): d_ast_target.Value._type => {
+    return _ea.cc($, ($): d_ast_target.Value._type => {
         switch ($[0]) {
             case 'number': return _ea.ss($, ($) => ['text', {
                 'delimiter': ['none', null],
@@ -29,25 +36,76 @@ export const Value = (
             }])
             case 'component': return _ea.ss($, ($) => _ea.cc($, ($) => {
                 switch ($[0]) {
-                    case 'external': return _ea.ss($, ($) => Value($.type.entry.node))
-                    case 'internal': return _ea.ss($, ($) => Value($.entry.node))
-                    case 'internal cyclic': return _ea.ss($, ($) => Value($.entry.compute().node))
+                    case 'external': return _ea.ss($, ($) => Type_Node_X($.type.entry.node))
+                    case 'internal': return _ea.ss($, ($) => Type_Node_X($.entry.node))
+                    case 'internal cyclic': return _ea.ss($, ($) => Type_Node_X($.entry.compute().node))
                     default: return _ea.au($[0])
                 }
             }))
-            case 'dictionary': return _ea.ss($, ($) => ['dictionary', _ea.dictionary_literal({})])
-            case 'group': return _ea.ss($, ($) => ['verbose group', $.map(($) => Value($))])
-            case 'identifier value pair': return _ea.ss($, ($) => ['text', {
-                'delimiter': ['quote', null],
-                'value': "IMPLEMENT ME"
-            }])
-            case 'optional': return _ea.ss($, ($): d_ast_target.Value => ['nothing', null])
-            case 'state group': return _ea.ss($, ($): d_ast_target.Value => ['state', ['missing data', null]])
-            case 'type parameter': return _ea.ss($, ($) => ['text', {
-                'delimiter': ['quote', null],
-                'value': "IMPLEMENT ME"
-            }])
+            case 'dictionary': return _ea.ss($, ($) => ['dictionary', _ea.array_literal([])])
+            case 'group': return _ea.ss($, ($): d_ast_target.Value._type => ['verbose group', _edev.implement_me()]) //$.map(($) => Type_Node($))
+            case 'optional': return _ea.ss($, ($) => ['nothing', null])
+            case 'state group': return _ea.ss($, ($) => ['state', ['missing data', null]])
+            // case 'type parameter': return _ea.ss($, ($) => ['text', {
+            //     'delimiter': ['quote', null],
+            //     'value': "IMPLEMENT ME"
+            // }])
             default: return _ea.au($[0])
         }
     })
 }
+
+export const Type_Node_Resolver = (
+    $: d_schema.Node_Resolver,
+): d_ast_target.Value => ({
+    'type': Type_Node_Resolver_X($)
+})
+
+
+export const Type_Node_Resolver_X = (
+    $: d_schema.Node_Resolver,
+): d_ast_target.Value._type => _ea.cc($, ($) => {
+    switch ($[0]) {
+        case 'number': return _ea.ss($, ($) => ['text', {
+            'delimiter': ['none', null],
+            'value': "0"
+        }])
+        case 'boolean': return _ea.ss($, ($) => ['text', {
+            'delimiter': ['none', null],
+            'value': "false"
+        }])
+        case 'nothing': return _ea.ss($, ($) => ['nothing', null])
+        case 'text': return _ea.ss($, ($) => ['text', {
+            'delimiter': ['quote', null],
+            'value': ""
+        }])
+        case 'list': return _ea.ss($, ($) => ['list', _ea.array_literal([])])
+        case 'reference': return _ea.ss($, ($) => ['text', {
+            'delimiter': ['backtick', null],
+            'value': "..."
+        }])
+        case 'component': return _ea.ss($, ($) => _ea.cc($.location, ($) => {
+            switch ($[0]) {
+                case 'external': return _ea.ss($, ($) => _edev.implement_me())
+                case 'internal': return _ea.ss($, ($) => _edev.implement_me())
+                // case 'external': return _ea.ss($, ($) => Type_Node_X($.type.entry.node))
+                // case 'internal': return _ea.ss($, ($) => Type_Node_X($.entry.node))
+                // case 'internal cyclic': return _ea.ss($, ($) => Type_Node_X($.entry.compute().node))
+                default: return _ea.au($[0])
+            }
+        }))
+        case 'dictionary': return _ea.ss($, ($) => ['dictionary', _ea.array_literal([])])
+        case 'group': return _ea.ss($, ($): d_ast_target.Value._type => ['verbose group', $['ordered list'].map(($) => ({
+            'key': $.key,
+            'value': Type_Node_Resolver($.value.resolver)
+        }))])
+        case 'optional': return _ea.ss($, ($) => ['nothing', null])
+        case 'state group': return _ea.ss($, ($) => ['state', ['missing data', null]])
+        // case 'type parameter': return _ea.ss($, ($) => ['text', {
+        //     'delimiter': ['quote', null],
+        //     'value': "IMPLEMENT ME"
+        // }])
+
+        default: return _ea.au($[0])
+    }
+})

@@ -9,7 +9,7 @@ import * as d_ide from "astn/dist/generated/interface/schemas/ide/data_types/sou
 
 import * as x_parse from "astn/dist/authoring_parse/parse"
 
-import * as t_ast_2_ide from "astn/dist/transformations/ast/ide"
+import * as t_ast_2_ide from "astn/dist/transformations/authoring_ast/ide"
 
 import * as s_parse_result from "astn/dist/serializers/parse_result"
 
