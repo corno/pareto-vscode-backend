@@ -225,8 +225,11 @@ export const Node = (
 												return _ea.set(state_group_definition.to_array(() => 1).map(($) => {
 													return {
 														'label': $.key,
-														'insert text': `'${$.key}' ${create_default_value_string($.value, true)}`,
-														'documentation': "",
+														'insert text': `'${$.key}' ${create_default_value_string($.value.node, true)}`,
+														'documentation': $.value.description.transform(
+															($) => $,
+															() => ""
+														),
 													}
 												}))
 											})

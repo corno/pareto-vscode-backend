@@ -4,12 +4,14 @@ import * as _ea from 'exupery-core-alg'
 
 import * as d from "../generated/interface/schemas/server/data_types/source"
 
-import { $$ as load_astn_document } from "pareto/dist/queries/load_pareto_document"
+import { $$ as load_astn_document, Error } from "pareto/dist/queries/load_pareto_document"
+
 
 import * as t_find_completion_items from "../transformations/get_completion_items"
 import * as t_backend_location from "../transformations/backend_location"
 
-export const $$: _easync.Guaranteed_Query_Initializer<d.On_Completion_Parameters, d.On_Completion_Result> = (
+
+export const $$: _easync.Unguaranteed_Query_Initializer<d.On_Completion_Parameters, d.On_Completion_Result, Error> = (
 	$p,
 ) => load_astn_document(
 	{
@@ -24,14 +26,4 @@ export const $$: _easync.Guaranteed_Query_Initializer<d.On_Completion_Parameters
 		($) => $,
 		() => _ea.array_literal([]),
 	)
-})).catch_(($) => {
-	return _easync.query.guaranteed['create result']({
-		'completion items': _ea.array_literal([
-			{
-				'label': `no completion suggestions because of: ${$[0]}`,
-				'insert text': "",
-				'documentation': "",
-			}
-		])
-	})
-})
+}))

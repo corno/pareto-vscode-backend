@@ -39,7 +39,7 @@ export const $$: _eb.Unguaranteed_Main_Initializer = () => _easync.up.sequence([
     ),
     _easync.up.action(
         _easync.upi.g(p_log),
-        _easync.uq.g(
+        _easync.uq.u(
             //the query
             q_on_completion,
             //parameters
@@ -75,6 +75,15 @@ export const $$: _eb.Unguaranteed_Main_Initializer = () => _easync.up.sequence([
             _easync.ut.g(($): D_Resources.Log_Parameters => ({
                 'lines': $['completion items'].map(($) => ">" + $['label'] + "<")
             })),
+            ($) => ({
+                'exit code': 1,
+            }),
+            _easync.eh(
+                p_log_error,
+                ($) => ({
+                    'lines': _ea.array_literal([ $[0]])
+                })
+            ),
         ),
     )
 ])
