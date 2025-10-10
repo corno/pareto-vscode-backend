@@ -14,6 +14,24 @@ export const Completion_Items: _i_signatures._T_Completion_Items = ($, $p) => _i
             $,
             {
                 'properties': ($) => ({
+                    'documentation': _pa.cc(_i_generic.get_entry(
+                        $,
+                        {
+                            'key': "documentation",
+                        }
+                    ), ($) => _i_generic.process_text(
+                        $,
+                        null
+                    )),
+                    'insert text': _pa.cc(_i_generic.get_entry(
+                        $,
+                        {
+                            'key': "insert text",
+                        }
+                    ), ($) => _i_generic.process_text(
+                        $,
+                        null
+                    )),
                     'label': _pa.cc(_i_generic.get_entry(
                         $,
                         {

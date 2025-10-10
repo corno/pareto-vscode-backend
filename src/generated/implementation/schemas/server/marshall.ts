@@ -6,6 +6,14 @@ import * as _i_signatures from "../../../interface/schemas/server/marshall"
 
 
 export const Completion_Items: _i_signatures._T_Completion_Items = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+    'documentation': _pa.cc($['documentation'], ($) => ['text', ({
+        'delimiter': ['quote', null],
+        'value': $,
+    })]),
+    'insert text': _pa.cc($['insert text'], ($) => ['text', ({
+        'delimiter': ['quote', null],
+        'value': $,
+    })]),
     'label': _pa.cc($['label'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,

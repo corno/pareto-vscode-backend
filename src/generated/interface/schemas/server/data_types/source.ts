@@ -5,6 +5,8 @@ import * as _i_core from "../../../core/resolved"
 // **** TYPES
 
 export type _T_Completion_Items = _i_core._T_List<null, {
+    readonly 'documentation': string
+    readonly 'insert text': string
     readonly 'label': string
 }>
 
@@ -135,9 +137,13 @@ export type Validate_Document_Parameters = _T_Validate_Document_Parameters
 export namespace _T_Completion_Items {
     
     export namespace L {
+        export type documentation = string
+        export type insert_text = string
         export type label = string
     }
     export type L = {
+        readonly 'documentation': string
+        readonly 'insert text': string
         readonly 'label': string
     }
 }
@@ -335,9 +341,13 @@ export namespace _T_Validate_Document_Parameters {
 export namespace Completion_Items {
     
     export namespace L {
+        export type documentation = string
+        export type insert_text = string
         export type label = string
     }
     export type L = {
+        readonly 'documentation': string
+        readonly 'insert text': string
         readonly 'label': string
     }
 }

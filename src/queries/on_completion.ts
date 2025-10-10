@@ -28,7 +28,9 @@ export const $$: _easync.Guaranteed_Query_Initializer<d.On_Completion_Parameters
 	return _easync.query.guaranteed['create result']({
 		'completion items': _ea.array_literal([
 			{
-				'label': `Error: ${$[0]}`,
+				'label': `no completion suggestions because of: ${$[0]}`,
+				'insert text': "",
+				'documentation': "",
 			}
 		])
 	})

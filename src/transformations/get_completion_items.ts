@@ -124,7 +124,9 @@ export const Node = (
 		return in_range
 			? _ea.set(_ea.array_literal([
 				{
-					'label': create_default_value_string(node.definition, false)
+					'label': "verbose group",
+					'insert text': create_default_value_string(node.definition, false),
+					'documentation': ""
 				}
 			]))
 			: _ea.not_set()
@@ -222,7 +224,9 @@ export const Node = (
 											case 'missing data': return _ea.ss($, ($) => {
 												return _ea.set(state_group_definition.to_array(() => 1).map(($) => {
 													return {
-														'label': `| '${$.key}' ${create_default_value_string($.value, true)}`
+														'label': $.key,
+														'insert text': `'${$.key}' ${create_default_value_string($.value, true)}`,
+														'documentation': "",
 													}
 												}))
 											})
