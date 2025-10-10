@@ -28,6 +28,6 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "pareto": "^0.76.63"
+    "pareto": "^0.76.64"
   }
 }
