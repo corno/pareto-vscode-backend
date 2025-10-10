@@ -45,7 +45,7 @@ export const Type_Node_X = (
             case 'dictionary': return _ea.ss($, ($) => ['dictionary', _ea.array_literal([])])
             case 'group': return _ea.ss($, ($): d_ast_target.Value._type => ['verbose group', $['ordered list'].map(($) => ({
                 'key': $.key,
-                'value': Type_Node($.value)
+                'value': Type_Node($.value.node)
             }))])
             case 'optional': return _ea.ss($, ($) => ['nothing', null])
             case 'state group': return _ea.ss($, ($) => ['state', ['missing data', null]])
