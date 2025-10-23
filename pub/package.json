@@ -1,6 +1,6 @@
 {
   "name": "pareto-vscode-backend",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "A library providing utilities for the VSCode language server",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,6 +28,6 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "pareto": "^0.76.64"
+    "pareto": "^0.76.65"
   }
 }
