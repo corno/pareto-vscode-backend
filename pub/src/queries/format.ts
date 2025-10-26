@@ -7,11 +7,11 @@ import * as d from "../generated/interface/schemas/client/data_types/target"
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/generated/interface/schemas/ide/data_types/source"
 
-import * as x_parse from "astn/dist/authoring_parse/parse"
+import * as x_parse from "astn/dist/exceptional/authoring_parse/parse"
 
 import * as t_ast_2_ide from "astn/dist/transformations/authoring_ast/ide"
 
-import * as s_parse_result from "astn/dist/serializers/parse_result"
+import * as s_parse_result from "astn/dist/exceptional/serializers/parse_result"
 
 
 

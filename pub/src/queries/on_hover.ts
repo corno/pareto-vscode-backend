@@ -6,8 +6,8 @@ import * as d from "../generated/interface/schemas/server/data_types/source"
 
 import { $$ as load_pareto_document } from "pareto/dist/queries/load_pareto_document"
 
-import * as t_find_hover_texts from "../transformations/get_hover_texts"
-import * as t_backend_location from "../transformations/backend_location"
+import * as t_find_hover_texts from "../transformations/temp/get_hover_texts"
+import * as t_backend_location from "../transformations/server/backend_location"
 
 export const $$: _easync.Guaranteed_Query_Initializer<d.On_Hover_Parameters, d.On_Hover_Result> = (
 	$p,

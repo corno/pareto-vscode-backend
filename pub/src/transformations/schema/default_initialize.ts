@@ -1,20 +1,20 @@
 import * as _ea from 'exupery-core-alg'
 import * as _edev from 'exupery-core-dev'
 
-import * as d_ast_target from "astn/dist/generated/interface/schemas/authoring_target/data_types/target"
-import * as d_schema from "pareto/dist/generated/interface/schemas/schema/data_types/source";
+import * as d_out from "astn/dist/generated/interface/schemas/authoring_target/data_types/target"
+import * as d_in from "pareto/dist/generated/interface/schemas/schema/data_types/source";
 
 
 export const Type_Node = (
-    $: d_schema.Type_Node,
-): d_ast_target.Value => ({
+    $: d_in.Type_Node,
+): d_out.Value => ({
     'type': Type_Node_X($)
 })
 
 export const Type_Node_X = (
-    $: d_schema.Type_Node,
-): d_ast_target.Value._type => {
-    return _ea.cc($, ($): d_ast_target.Value._type => {
+    $: d_in.Type_Node,
+): d_out.Value._type => {
+    return _ea.cc($, ($): d_out.Value._type => {
         switch ($[0]) {
             case 'number': return _ea.ss($, ($) => ['text', {
                 'delimiter': ['none', null],
@@ -43,7 +43,7 @@ export const Type_Node_X = (
                 }
             }))
             case 'dictionary': return _ea.ss($, ($) => ['dictionary', _ea.array_literal([])])
-            case 'group': return _ea.ss($, ($): d_ast_target.Value._type => ['verbose group', $['ordered list'].map(($) => ({
+            case 'group': return _ea.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
                 'key': $.key,
                 'value': Type_Node($.value.node)
             }))])
@@ -59,15 +59,15 @@ export const Type_Node_X = (
 }
 
 export const Type_Node_Resolver = (
-    $: d_schema.Node_Resolver,
-): d_ast_target.Value => ({
+    $: d_in.Node_Resolver,
+): d_out.Value => ({
     'type': Type_Node_Resolver_X($)
 })
 
 
 export const Type_Node_Resolver_X = (
-    $: d_schema.Node_Resolver,
-): d_ast_target.Value._type => _ea.cc($, ($) => {
+    $: d_in.Node_Resolver,
+): d_out.Value._type => _ea.cc($, ($) => {
     switch ($[0]) {
         case 'number': return _ea.ss($, ($) => ['text', {
             'delimiter': ['none', null],
@@ -98,7 +98,7 @@ export const Type_Node_Resolver_X = (
             }
         }))
         case 'dictionary': return _ea.ss($, ($) => ['dictionary', _ea.array_literal([])])
-        case 'group': return _ea.ss($, ($): d_ast_target.Value._type => ['verbose group', $['ordered list'].map(($) => ({
+        case 'group': return _ea.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
             'key': $.key,
             'value': Type_Node_Resolver($.value.resolver)
         }))])

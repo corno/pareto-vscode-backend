@@ -2,26 +2,31 @@ import * as _et from "exupery-core-types"
 import * as _ea from "exupery-core-alg"
 import * as _ed from "exupery-core-dev"
 
+import * as d_schema from "pareto/dist/generated/interface/schemas/schema/data_types/source"
 import * as d_in from "pareto/dist/temp/temp_unmashall_result_types"
-
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
+import * as d_ast_target from "astn/dist/generated/interface/schemas/authoring_target/data_types/target"
+import * as d_fpblock from "pareto-fountain-pen/dist/generated/interface/schemas/block/data_types/target"
+import * as d_out from "../../generated/interface/schemas/server/data_types/target"
 
-import * as d_out from "../generated/interface/schemas/server/data_types/target"
+import * as t_astn_target_to_fp from "astn/dist/transformations/authoring_target/fountain_pen_block"
+import * as t_default_initialize from "../schema/default_initialize"
 
-import { $$ as op_filter_list } from "pareto-standard-operations/dist/pure/list/filter"
-import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/pure/dictionary/filter"
-import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist/impure/list/cast_to_non_empty"
-import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/impure/dictionary/cast_to_non_empty"
-import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/impure/list/expect_exactly_one_element"
-import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/impure/dictionary/expect_exactly_one_entry"
+import * as s_fp from "pareto-fountain-pen/dist/exceptional/serialize/block"
+
+import { $$ as op_filter_list } from "pareto-standard-operations/dist/operations/pure/list/filter"
+import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/operations/pure/dictionary/filter"
+import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist/operations/impure/list/cast_to_non_empty"
+import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/operations/impure/dictionary/cast_to_non_empty"
+import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/operations/impure/list/expect_exactly_one_element"
+import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/operations/impure/dictionary/expect_exactly_one_entry"
 
 import * as t_ast_to_range from "astn/dist/transformations/authoring_ast/temp_value_range"
 
 const is_in_range = (
 	$: d_token.Relative_Location,
 	$p: {
-		'range': d_token.Range
-
+		'range': d_token.Range,
 	}
 ): boolean => {
 	return (
@@ -35,22 +40,22 @@ const is_in_range = (
 		)
 }
 
-const filter_dictionary = ($: _et.Dictionary<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => {
+const filter_dictionary = ($: _et.Dictionary<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => {
 	return op_cast_dictionary_to_non_empty(
 		op_filter_dictionary($)
-	).transform<d_out.Optional_Hover_Texts>(
-		($) => op_expect_1_entry($).transform<d_out.Optional_Hover_Texts>(
+	).transform<d_out.Optional_Completion_Items>(
+		($) => op_expect_1_entry($).transform<d_out.Optional_Completion_Items>(
 			($) => _ea.set($.value),
 			() => _ea.panic("multiple entries match the location, that should not happen"),
 		),
 		() => _ea.not_set()
 	)
 }
-const filter_list = ($: _et.Array<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => {
+const filter_list = ($: _et.Array<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => {
 	return op_cast_list_to_non_empty(
 		op_filter_list($)
-	).transform<d_out.Optional_Hover_Texts>(
-		($) => op_expect_1_element($).transform<d_out.Optional_Hover_Texts>(
+	).transform<d_out.Optional_Completion_Items>(
+		($) => op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
 			($) => _ea.set($),
 			() => _ea.panic("multiple entries match the location, that should not happen"),
 		),
@@ -62,21 +67,16 @@ export const Group_Content = (
 	$: d_in.Group_Content,
 	$p: {
 		'location': d_token.Relative_Location
-		'full path': string
-		'id path': string
+		'indent': string
 	}
-): d_out.Optional_Hover_Texts => {
+): d_out.Optional_Completion_Items => {
 	return filter_dictionary(
-		$.properties.map(($, key): d_out.Optional_Hover_Texts => {
+		$.properties.map(($, key): d_out.Optional_Completion_Items => {
 			return _ea.cc($, ($) => {
 				switch ($[0]) {
 					case 'multiple': return _ea.ss($, ($) => _ea.not_set())
 					case 'missing': return _ea.ss($, ($) => _ea.not_set())
-					case 'unique': return _ea.ss($, ($) => Optional_Node($.node, {
-						'location': $p.location,
-						'full path': `${$p['full path']} . '${key}'`,
-						'id path': $p['id path']
-					}))
+					case 'unique': return _ea.ss($, ($) => Optional_Node($.node, $p))
 					default: return _ea.au($[0])
 				}
 			})
@@ -87,11 +87,10 @@ export const Group_Content = (
 export const Node = (
 	$: d_in.Node,
 	$p: {
-		'location': d_token.Relative_Location
-		'full path': string
-		'id path': string
+		'location': d_token.Relative_Location,
+		'indent': string
 	}
-): d_out.Optional_Hover_Texts => {
+): d_out.Optional_Completion_Items => {
 	// if (is_in_range($.value.range))
 
 	// Check if the node is in the specified location
@@ -102,9 +101,36 @@ export const Node = (
 
 	const in_range = is_in_range($p.location, { range: node_range })
 
-	const wrap = (): d_out.Optional_Hover_Texts => in_range
-		? _ea.set(_ea.array_literal([$p['full path'], $p['id path']]))
-		: _ea.not_set()
+	const create_default_value_string = (node: d_schema.Type_Node, write_delimiters: boolean) => {
+		const default_initialized_value: d_ast_target.Value = t_default_initialize.Type_Node(node)
+		const fpblock: d_fpblock.Block = _ea.array_literal([
+			['nested line', _ea.array_literal<d_fpblock.Line_Part>([
+				t_astn_target_to_fp.Value(default_initialized_value, {
+					'in concise group': false,
+					'write delimiters': write_delimiters,
+				})
+			])]
+		])
+		return s_fp.Block(fpblock, {
+
+			'indentation': $p.indent,
+			'newline': '\n',
+		})
+
+	}
+
+	const wrap = (): d_out.Optional_Completion_Items => {
+
+		return in_range
+			? _ea.set(_ea.array_literal([
+				{
+					'label': "verbose group",
+					'insert text': create_default_value_string(node.definition, false),
+					'documentation': ""
+				}
+			]))
+			: _ea.not_set()
+	}
 
 	if (!in_range) {
 		// If not in range, return not set
@@ -113,46 +139,30 @@ export const Node = (
 
 
 
-	return _ea.cc($.type, ($): d_out.Optional_Hover_Texts => {
+	return _ea.cc($.type, ($): d_out.Optional_Completion_Items => {
 		switch ($[0]) {
 			case 'number': return _ea.ss($, ($) => wrap())
 			case 'boolean': return _ea.ss($, ($) => wrap())
 			case 'type parameter': return _ea.ss($, ($) => _ed.implement_me())
 			case 'list': return _ea.ss($, ($) => _ea.cc($['found value type'], ($) => {
 				switch ($[0]) {
-					case 'valid': return _ea.ss($, ($) => filter_list($.elements.map(($) => Node($, {
-						'location': $p.location,
-						'full path': `${$p['full path']} [ # ]`,
-						'id path': $p['id path']
-					}))))
+					case 'valid': return _ea.ss($, ($) => filter_list($.elements.map(($) => Node($, $p))))
 					case 'invalid': return _ea.ss($, ($) => wrap())
 					default: return _ea.au($[0])
 				}
 			}))
 			case 'nothing': return _ea.ss($, ($) => wrap())
 			case 'reference': return _ea.ss($, ($) => wrap()) //show options?
-			case 'component': return _ea.ss($, ($) => Node($.node, {
-				'location': $p.location,
-				'full path': $p['full path'],
-				'id path': $p['id path']
-			}))
+			case 'component': return _ea.ss($, ($) => Node($.node, $p))
 			case 'dictionary': return _ea.ss($, ($) => {
 				return _ea.cc($['found value type'], ($) => {
 					switch ($[0]) {
 						case 'valid': return _ea.ss($, ($) => filter_dictionary(
-							$.entries.map(($, key): d_out.Optional_Hover_Texts => {
+							$.entries.map(($, key): d_out.Optional_Completion_Items => {
 								return _ea.cc($, ($) => {
 									switch ($[0]) {
-										case 'multiple': return _ea.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, {
-											'location': $p.location,
-											'full path': `${$p['full path']} [ \`${key}\` ]`,
-											'id path': `${$p['id path']} > \`${key}\``
-										}))))
-										case 'unique': return _ea.ss($, ($) => Optional_Node($, {
-											'location': $p.location,
-											'full path': `${$p['full path']} [ \`${key}\` ]`,
-											'id path': `${$p['id path']} > \`${key}\``
-										}))
+										case 'multiple': return _ea.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, $p))))
+										case 'unique': return _ea.ss($, ($) => Optional_Node($, $p))
 										default: return _ea.au($[0])
 									}
 								})
@@ -166,35 +176,33 @@ export const Node = (
 					}
 				})
 			})
-			case 'group': return _ea.ss($, ($) => _ea.cc($['found value type'], ($) => {
-				switch ($[0]) {
-					case 'invalid': return _ea.ss($, ($) => wrap())
-					case 'valid': return _ea.ss($, ($) => Group_Content(
-						_ea.cc($, ($) => {
-							switch ($[0]) {
-								case 'ordered': return _ea.ss($, ($) => $.content)
-								case 'indexed': return _ea.ss($, ($) => $.content)
-								default: return _ea.au($[0])
-							}
-						}),
-						$p
-					).transform(
-						($) => _ea.set($),
-						() => wrap()
-					))
-					default: return _ea.au($[0])
-				}
-			}))
+			case 'group': return _ea.ss($, ($) => {
+				return _ea.cc($['found value type'], ($) => {
+					switch ($[0]) {
+						case 'invalid': return _ea.ss($, ($) => wrap())
+						case 'valid': return _ea.ss($, ($) => Group_Content(
+							_ea.cc($, ($) => {
+								switch ($[0]) {
+									case 'ordered': return _ea.ss($, ($) => $.content)
+									case 'indexed': return _ea.ss($, ($) => $.content)
+									default: return _ea.au($[0])
+								}
+							}),
+							$p
+						).transform(
+							($) => _ea.set($),
+							() => wrap()
+						))
+						default: return _ea.au($[0])
+					}
+				})
+			})
 			case 'optional': return _ea.ss($, ($) => {
 				return _ea.cc($['found value type'], ($) => {
 					switch ($[0]) {
 						case 'valid': return _ea.ss($, ($) => _ea.cc($, ($) => {
 							switch ($[0]) {
-								case 'set': return _ea.ss($, ($) => Node($['child node'], {
-									'location': $p.location,
-									'full path': `${$p['full path']} *`,
-									'id path': $p['id path']
-								}))
+								case 'set': return _ea.ss($, ($) => Node($['child node'], $p))
 								case 'not set': return _ea.ss($, ($) => _ea.not_set())
 								default: return _ea.au($[0])
 							}
@@ -205,7 +213,7 @@ export const Node = (
 				})
 			})
 			case 'state': return _ea.ss($, ($) => {
-				const def = $.definition
+				const state_group_definition = $.definition
 				return _ea.cc($['found value type'], ($) => {
 					switch ($[0]) {
 						case 'valid': return _ea.ss($, ($) => _ea.cc($['value type'], ($) => {
@@ -213,19 +221,23 @@ export const Node = (
 								case 'state': return _ea.ss($, ($) => {
 									return _ea.cc($['value substatus'], ($) => {
 										switch ($[0]) {
-											case 'missing data': return _ea.ss($, ($): d_out.Optional_Hover_Texts => {
-
-												return _ea.set(def.to_array(() => 1).map(($) => $.key))
+											case 'missing data': return _ea.ss($, ($) => {
+												return _ea.set(state_group_definition.to_array(() => 1).map(($) => {
+													return {
+														'label': $.key,
+														'insert text': `'${$.key}' ${create_default_value_string($.value.node, true)}`,
+														'documentation': $.value.description.transform(
+															($) => $,
+															() => ""
+														),
+													}
+												}))
 											})
 											case 'set': return _ea.ss($, ($) => {
 												const temp = $.value.state.value
-												return $['found state definition'].transform<d_out.Optional_Hover_Texts>(
+												return $['found state definition'].transform<d_out.Optional_Completion_Items>(
 													($) => {
-														return Node($.node, {
-															'location': $p.location,
-															'full path': `${$p['full path']} | '${temp}'`,
-															'id path': $p['id path']
-														}).transform(
+														return Node($.node, $p).transform(
 															($) => _ea.set($),
 															() => wrap()
 														)
@@ -262,16 +274,11 @@ export const Optional_Node = (
 	$: d_in.Optional_Node,
 	$p: {
 		'location': d_token.Relative_Location
-		'full path': string
-		'id path': string
+		'indent': string
 	}
-): d_out.Optional_Hover_Texts => {
+): d_out.Optional_Completion_Items => {
 	return $.transform(
-		($) => Node($, {
-			'location': $p.location,
-			'full path': $p['full path'],
-			'id path': $p['id path']
-		}),
+		($) => Node($, $p),
 		() => _ea.not_set()
 	)
 }

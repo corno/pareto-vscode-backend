@@ -10,10 +10,10 @@ import { $$ as load_astn_document } from "pareto/dist/queries/load_pareto_docume
 
 import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/transformations/unmarshall_result/unmarshall_errors"
 
-import { $$ as op_join } from "pareto-standard-operations/dist/impure/text/join_list_of_texts_with_separator"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_join } from "pareto-standard-operations/dist/operations/impure/text/join_list_of_texts_with_separator"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/operations/impure/dictionary/to_list_sorted_by_code_point"
 
-import * as s_parse_result from "astn/dist/serializers/parse_result"
+import * as s_parse_result from "astn/dist/exceptional/serializers/parse_result"
 
 const create_frontend_position_from_relative_location = ($: d_token.Relative_Location): d.Position => {
 	return {
