@@ -1,6 +1,6 @@
 {
   "name": "pareto-vscode-backend",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "A library providing utilities for the VSCode language server",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
