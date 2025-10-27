@@ -2,11 +2,11 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../generated/interface/schemas/server/data_types/source"
+import * as d from "../../generated/interface/schemas/server/data_types/source"
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/generated/interface/schemas/ide/data_types/source"
 
-import { $$ as load_astn_document } from "pareto/dist/queries/load_pareto_document"
+import { $$ as load_astn_document } from "pareto/dist/queries/unguaranteed/load_pareto_document"
 
 import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/transformations/unmarshall_result/unmarshall_errors"
 

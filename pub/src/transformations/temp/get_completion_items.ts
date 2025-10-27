@@ -21,7 +21,7 @@ import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operation
 import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/operations/impure/list/expect_exactly_one_element"
 import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/operations/impure/dictionary/expect_exactly_one_entry"
 
-import * as t_ast_to_range from "astn/dist/transformations/authoring_ast/temp_value_range"
+import * as t_ast_to_range from "astn/dist/transformations/authoring_parse_tree/temp_value_range"
 
 const is_in_range = (
 	$: d_token.Relative_Location,
@@ -103,7 +103,7 @@ export const Node = (
 
 	const create_default_value_string = (node: d_schema.Type_Node, write_delimiters: boolean) => {
 		const default_initialized_value: d_ast_target.Value = t_default_initialize.Type_Node(node)
-		const fpblock: d_fpblock.Block = _ea.array_literal([
+		const fpblock: d_fpblock.Group = _ea.array_literal([
 			['nested line', _ea.array_literal<d_fpblock.Line_Part>([
 				t_astn_target_to_fp.Value(default_initialized_value, {
 					'in concise group': false,
@@ -111,7 +111,7 @@ export const Node = (
 				})
 			])]
 		])
-		return s_fp.Block(fpblock, {
+		return s_fp.Group(fpblock, {
 
 			'indentation': $p.indent,
 			'newline': '\n',
