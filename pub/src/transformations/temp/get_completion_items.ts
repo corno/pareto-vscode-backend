@@ -104,7 +104,7 @@ export const Node = (
 	const create_default_value_string = (node: d_schema.Type_Node, write_delimiters: boolean) => {
 		const default_initialized_value: d_ast_target.Value = t_default_initialize.Type_Node(node)
 		const fpblock: d_fpblock.Group = _ea.array_literal([
-			['nested line', _ea.array_literal<d_fpblock.Line_Part>([
+			['nested line', _ea.array_literal<d_fpblock.Block_Part>([
 				t_astn_target_to_fp.Value(default_initialized_value, {
 					'in concise group': false,
 					'write delimiters': write_delimiters,

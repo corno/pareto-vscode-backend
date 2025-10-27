@@ -2,7 +2,7 @@ import * as _et from "exupery-core-types"
 import * as _ea from "exupery-core-alg"
 import * as _ed from "exupery-core-dev"
 
-import * as d_in from "pareto/dist/temp/temp_unmashall_result_types"
+import * as d_in from "pareto/dist/temp/temp_unmash.b._result_types"
 
 import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
 
