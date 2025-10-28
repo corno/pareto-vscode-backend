@@ -2,16 +2,16 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../../generated/interface/schemas/server/data_types/source"
-import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
-import * as d_ide from "astn/dist/generated/interface/schemas/ide/data_types/source"
+import * as d from "../../../interface/generated/pareto/schemas/server/data_types/source"
+import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
+import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
 
-import { $$ as load_astn_document } from "pareto/dist/queries/unguaranteed/load_pareto_document"
+import { $$ as load_astn_document } from "pareto/dist/implementation/queries/unguaranteed/load_pareto_document"
 
-import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/transformations/unmarshall_result/unmarshall_errors"
+import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/transformations/unmarshall_result/unmarshall_errors"
 
-import { $$ as op_join } from "pareto-standard-operations/dist/operations/impure/text/join_list_of_texts_with_separator"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/operations/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_join } from "pareto-standard-operations/dist/implementation/operations/impure/text/join_list_of_texts_with_separator"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_code_point"
 
 import * as s_parse_result from "astn/dist/exceptional/serializers/parse_result"
 

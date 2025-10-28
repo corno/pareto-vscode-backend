@@ -2,26 +2,26 @@ import * as _et from "exupery-core-types"
 import * as _ea from "exupery-core-alg"
 import * as _ed from "exupery-core-dev"
 
-import * as d_schema from "pareto/dist/generated/interface/schemas/schema/data_types/source"
+import * as d_schema from "pareto/dist/interface/generated/pareto/schemas/schema/data_types/source"
 import * as d_in from "pareto/dist/temp/temp_unmashall_result_types"
-import * as d_token from "astn/dist/generated/interface/schemas/token/data_types/source"
-import * as d_ast_target from "astn/dist/generated/interface/schemas/authoring_target/data_types/target"
-import * as d_fpblock from "pareto-fountain-pen/dist/generated/interface/schemas/block/data_types/target"
-import * as d_out from "../../generated/interface/schemas/server/data_types/target"
+import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
+import * as d_ast_target from "astn/dist/interface/generated/pareto/schemas/authoring_target/data_types/target"
+import * as d_fpblock from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
+import * as d_out from "../../../interface/generated/pareto/schemas/server/data_types/target"
 
-import * as t_astn_target_to_fp from "astn/dist/transformations/authoring_target/fountain_pen_block"
+import * as t_astn_target_to_fp from "astn/dist/implementation/transformations/authoring_target/fountain_pen_block"
 import * as t_default_initialize from "../schema/default_initialize"
 
 import * as s_fp from "pareto-fountain-pen/dist/exceptional/serialize/block"
 
-import { $$ as op_filter_list } from "pareto-standard-operations/dist/operations/pure/list/filter"
-import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/operations/pure/dictionary/filter"
-import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist/operations/impure/list/cast_to_non_empty"
-import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/operations/impure/dictionary/cast_to_non_empty"
-import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/operations/impure/list/expect_exactly_one_element"
-import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/operations/impure/dictionary/expect_exactly_one_entry"
+import { $$ as op_filter_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/filter"
+import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/filter"
+import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist/implementation/operations/impure/list/cast_to_non_empty"
+import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/cast_to_non_empty"
+import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
+import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/expect_exactly_one_entry"
 
-import * as t_ast_to_range from "astn/dist/transformations/authoring_parse_tree/temp_value_range"
+import * as t_ast_to_range from "astn/dist/implementation/transformations/authoring_parse_tree/temp_value_range"
 
 const is_in_range = (
 	$: d_token.Relative_Location,
@@ -103,15 +103,15 @@ export const Node = (
 
 	const create_default_value_string = (node: d_schema.Type_Node, write_delimiters: boolean) => {
 		const default_initialized_value: d_ast_target.Value = t_default_initialize.Type_Node(node)
-		const fpblock: d_fpblock.Group = _ea.array_literal([
-			['nested line', _ea.array_literal<d_fpblock.Block_Part>([
+		const fp_group: d_fpblock.Group = _ea.array_literal([
+			['nested block', _ea.array_literal<d_fpblock.Block_Part>([
 				t_astn_target_to_fp.Value(default_initialized_value, {
 					'in concise group': false,
 					'write delimiters': write_delimiters,
 				})
 			])]
 		])
-		return s_fp.Group(fpblock, {
+		return s_fp.Group(fp_group, {
 
 			'indentation': $p.indent,
 			'newline': '\n',

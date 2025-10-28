@@ -1,8 +1,8 @@
 import * as _pa from 'exupery-core-alg'
 import * as _pd from 'exupery-core-dev'
 
-import * as _i_out from "../../../interface/core/astn_target"
-import * as _i_signatures from "../../../interface/schemas/client/marshall"
+import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
+import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/client/marshall"
 
 
 export const Format_Error: _i_signatures._T_Format_Error = ($, $p) => ['verbose group', _pa.dictionary_literal({
