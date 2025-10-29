@@ -14,6 +14,8 @@ import { $$ as op_join } from "pareto-standard-operations/dist/implementation/op
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_code_point"
 
 import * as s_parse_result from "astn/dist/exceptional/serializers/parse_result"
+import { Signature } from "../../../interface/algorithms/queries/guaranteed/validate_document"
+
 
 const create_frontend_position_from_relative_location = ($: d_token.Relative_Location): d.Position => {
 	return {

@@ -8,6 +8,8 @@ import * as t_ast_2_json from "astn/dist/implementation/transformations/authorin
 import * as s_json from "pareto-json/dist/exceptional/serializers/json"
 
 import * as x_parse from "astn/dist/exceptional/authoring_parse/parse"
+import { Signature } from "../../../interface/algorithms/queries/unguaranteed/convert_to_json"
+
 
 /**
  * FIXME: this is not a query, but a transformation

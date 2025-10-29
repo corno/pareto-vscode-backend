@@ -12,6 +12,8 @@ import * as x_parse from "astn/dist/exceptional/authoring_parse/parse"
 import * as t_ast_2_ide from "astn/dist/implementation/transformations/authoring_parse_tree/ide"
 
 import * as s_parse_result from "astn/dist/exceptional/serializers/parse_result"
+import { Signature } from "../../../interface/algorithms/queries/unguaranteed/format"
+
 
 
 

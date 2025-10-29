@@ -9,6 +9,8 @@ import { $$ as load_astn_document, Error } from "pareto/dist/implementation/quer
 
 import * as t_find_completion_items from "../../transformations/temp/get_completion_items"
 import * as t_backend_location from "../../transformations/server/backend_location"
+import { Signature } from "../../../interface/algorithms/queries/unguaranteed/on_completion"
+
 
 
 export const $$: _easync.Unguaranteed_Query_Initializer<d.On_Completion_Parameters, d.On_Completion_Result, Error> = (
