@@ -2,7 +2,7 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../../../interface/generated/pareto/schemas/server/data_types/source"
+import * as d from "../../../../interface/generated/pareto/schemas/server/data_types/source"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
 
@@ -14,7 +14,7 @@ import { $$ as op_join } from "pareto-standard-operations/dist/implementation/op
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_code_point"
 
 import * as s_parse_result from "astn/dist/exceptional/serializers/parse_result"
-import { Signature } from "../../../interface/algorithms/queries/guaranteed/validate_document"
+import { Signature } from "../../../../interface/algorithms/queries/guaranteed/validate_document"
 
 
 const create_frontend_position_from_relative_location = ($: d_token.Relative_Location): d.Position => {

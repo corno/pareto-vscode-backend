@@ -3,7 +3,7 @@ import * as _edev from 'exupery-core-dev'
 
 import * as d_out from "astn/dist/interface/generated/pareto/schemas/authoring_target/data_types/target"
 import * as d_in from "pareto/dist/interface/generated/pareto/schemas/schema/data_types/source";
-import { Signature } from "../../../interface/algorithms/transformations/schema/default_initialize"
+import { Signature } from "../../../../interface/algorithms/transformations/schema/default_initialize"
 
 
 

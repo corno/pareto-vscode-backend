@@ -6,7 +6,7 @@ import * as d_in from "pareto/dist/temp/temp_unmashall_result_types"
 
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 
-import * as d_out from "../../../interface/generated/pareto/schemas/server/data_types/target"
+import * as d_out from "../../../../interface/generated/pareto/schemas/server/data_types/target"
 
 import { $$ as op_filter_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/filter"
 import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/filter"
@@ -16,7 +16,7 @@ import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/imple
 import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/expect_exactly_one_entry"
 
 import * as t_ast_to_range from "astn/dist/implementation/transformations/authoring_parse_tree/temp_value_range"
-import { Signature } from "../../../interface/algorithms/transformations/temp/get_hover_texts"
+import { Signature } from "../../../../interface/algorithms/transformations/temp/get_hover_texts"
 
 
 const is_in_range = (
