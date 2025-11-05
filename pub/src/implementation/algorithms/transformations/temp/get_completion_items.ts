@@ -9,19 +9,19 @@ import * as d_ast_target from "astn/dist/interface/generated/pareto/schemas/auth
 import * as d_fpblock from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
 import * as d_out from "../../../../interface/generated/pareto/schemas/server/data_types/target"
 
-import * as t_astn_target_to_fp from "astn/dist/implementation/transformations/authoring_target/fountain_pen_block"
+import * as t_astn_target_to_fp from "astn/dist/implementation/algorithms/transformations/authoring_target/fountain_pen_block"
 import * as t_default_initialize from "../schema/default_initialize"
 
 import * as s_fp from "pareto-fountain-pen/dist/exceptional/serialize/block"
 
-import { $$ as op_filter_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/filter"
-import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/filter"
-import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist/implementation/operations/impure/list/cast_to_non_empty"
-import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/cast_to_non_empty"
-import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
-import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/expect_exactly_one_entry"
+import { $$ as op_filter_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/list/filter"
+import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/dictionary/filter"
+import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/cast_to_non_empty"
+import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/cast_to_non_empty"
+import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/expect_exactly_one_element"
+import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/expect_exactly_one_entry"
 
-import * as t_ast_to_range from "astn/dist/implementation/transformations/authoring_parse_tree/temp_value_range"
+import * as t_ast_to_range from "astn/dist/implementation/algorithms/transformations/authoring_parse_tree/temp_value_range"
 import { Signature } from "../../../../interface/algorithms/transformations/temp/get_completion_items"
 
 
@@ -48,7 +48,7 @@ const filter_dictionary = ($: _et.Dictionary<d_out.Optional_Completion_Items>): 
 	).transform<d_out.Optional_Completion_Items>(
 		($) => op_expect_1_entry($).transform<d_out.Optional_Completion_Items>(
 			($) => _ea.set($.value),
-			() => _ea.panic("multiple entries match the location, that should not happen"),
+			() => _ea.deprecated_panic("multiple entries match the location, that should not happen"),
 		),
 		() => _ea.not_set()
 	)
@@ -59,7 +59,7 @@ const filter_list = ($: _et.Array<d_out.Optional_Completion_Items>): d_out.Optio
 	).transform<d_out.Optional_Completion_Items>(
 		($) => op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
 			($) => _ea.set($),
-			() => _ea.panic("multiple entries match the location, that should not happen"),
+			() => _ea.deprecated_panic("multiple entries match the location, that should not happen"),
 		),
 		() => _ea.not_set()
 	)

@@ -9,9 +9,9 @@ import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_ty
 
 import * as x_parse from "astn/dist/exceptional/authoring_parse/parse"
 
-import * as t_ast_2_ide from "astn/dist/implementation/transformations/authoring_parse_tree/ide"
+import * as t_ast_2_ide from "astn/dist/implementation/algorithms/transformations/authoring_parse_tree/ide"
 
-import * as s_parse_result from "astn/dist/exceptional/serializers/parse_result"
+import * as s_parse_result from "astn/dist/implementation/algorithms/transformations/parse_result/string"
 import { Signature } from "../../../../interface/algorithms/queries/unguaranteed/format"
 
 

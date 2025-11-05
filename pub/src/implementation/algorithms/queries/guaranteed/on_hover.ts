@@ -4,7 +4,7 @@ import * as _ea from 'exupery-core-alg'
 
 import * as d from "../../../../interface/generated/pareto/schemas/server/data_types/source"
 
-import { $$ as load_pareto_document } from "pareto/dist/implementation/queries/unguaranteed/load_pareto_document"
+import { $$ as load_pareto_document } from "pareto/dist/implementation/algorithms/queries/unguaranteed/load_pareto_document"
 
 import * as t_find_hover_texts from "../../transformations/temp/get_hover_texts"
 import * as t_backend_location from "../../transformations/server/backend_location"

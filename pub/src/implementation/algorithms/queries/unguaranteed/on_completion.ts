@@ -4,7 +4,7 @@ import * as _ea from 'exupery-core-alg'
 
 import * as d from "../../../../interface/generated/pareto/schemas/server/data_types/source"
 
-import { $$ as load_astn_document, Error } from "pareto/dist/implementation/queries/unguaranteed/load_pareto_document"
+import { $$ as load_astn_document, Error } from "pareto/dist/implementation/algorithms/queries/unguaranteed/load_pareto_document"
 
 
 import * as t_find_completion_items from "../../transformations/temp/get_completion_items"

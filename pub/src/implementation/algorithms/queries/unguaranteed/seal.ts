@@ -4,7 +4,7 @@ import * as _ea from 'exupery-core-alg'
 
 import * as d from "../../../../interface/generated/pareto/schemas/server/data_types/source"
 
-import * as t_ast_2_json from "astn/dist/implementation/transformations/authoring_parse_tree/json_target"
+import * as t_ast_2_json from "astn/dist/implementation/algorithms/transformations/authoring_parse_tree/json_target"
 import * as s_json from "pareto-json/dist/exceptional/serializers/json"
 
 import * as x_parse from "astn/dist/exceptional/authoring_parse/parse"

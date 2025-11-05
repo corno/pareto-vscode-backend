@@ -8,14 +8,14 @@ import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/dat
 
 import * as d_out from "../../../../interface/generated/pareto/schemas/server/data_types/target"
 
-import { $$ as op_filter_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/filter"
-import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/filter"
-import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist/implementation/operations/impure/list/cast_to_non_empty"
-import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/cast_to_non_empty"
-import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
-import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/expect_exactly_one_entry"
+import { $$ as op_filter_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/list/filter"
+import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/dictionary/filter"
+import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/cast_to_non_empty"
+import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/cast_to_non_empty"
+import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/expect_exactly_one_element"
+import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/expect_exactly_one_entry"
 
-import * as t_ast_to_range from "astn/dist/implementation/transformations/authoring_parse_tree/temp_value_range"
+import * as t_ast_to_range from "astn/dist/implementation/algorithms/transformations/authoring_parse_tree/temp_value_range"
 import { Signature } from "../../../../interface/algorithms/transformations/temp/get_hover_texts"
 
 
@@ -43,7 +43,7 @@ const filter_dictionary = ($: _et.Dictionary<d_out.Optional_Hover_Texts>): d_out
 	).transform<d_out.Optional_Hover_Texts>(
 		($) => op_expect_1_entry($).transform<d_out.Optional_Hover_Texts>(
 			($) => _ea.set($.value),
-			() => _ea.panic("multiple entries match the location, that should not happen"),
+			() => _ea.deprecated_panic("multiple entries match the location, that should not happen"),
 		),
 		() => _ea.not_set()
 	)
@@ -54,7 +54,7 @@ const filter_list = ($: _et.Array<d_out.Optional_Hover_Texts>): d_out.Optional_H
 	).transform<d_out.Optional_Hover_Texts>(
 		($) => op_expect_1_element($).transform<d_out.Optional_Hover_Texts>(
 			($) => _ea.set($),
-			() => _ea.panic("multiple entries match the location, that should not happen"),
+			() => _ea.deprecated_panic("multiple entries match the location, that should not happen"),
 		),
 		() => _ea.not_set()
 	)
