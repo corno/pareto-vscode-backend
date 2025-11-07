@@ -224,7 +224,7 @@ export const Node = (
 									return _ea.cc($['value substatus'], ($) => {
 										switch ($[0]) {
 											case 'missing data': return _ea.ss($, ($) => {
-												return _ea.set(state_group_definition.to_array(() => 1).map(($) => {
+												return _ea.set(state_group_definition.deprecated_to_array(() => 1).map(($) => {
 													return {
 														'label': $.key,
 														'insert text': `'${$.key}' ${create_default_value_string($.value.node, true)}`,

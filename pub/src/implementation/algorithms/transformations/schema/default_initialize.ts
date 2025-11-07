@@ -40,7 +40,7 @@ export const Type_Node_X = (
                 switch ($[0]) {
                     case 'external': return _ea.ss($, ($) => Type_Node_X($.type.entry.node))
                     case 'internal': return _ea.ss($, ($) => Type_Node_X($.entry.node))
-                    case 'internal cyclic': return _ea.ss($, ($) => Type_Node_X($.entry.compute().node))
+                    case 'internal cyclic': return _ea.ss($, ($) => Type_Node_X($.entry['get circular dependent']().node))
                     default: return _ea.au($[0])
                 }
             }))

@@ -217,7 +217,7 @@ export const Node = (
 										switch ($[0]) {
 											case 'missing data': return _ea.ss($, ($): d_out.Optional_Hover_Texts => {
 
-												return _ea.set(def.to_array(() => 1).map(($) => $.key))
+												return _ea.set(def.deprecated_to_array(() => 1).map(($) => $.key))
 											})
 											case 'set': return _ea.ss($, ($) => {
 												const temp = $.value.state.value
