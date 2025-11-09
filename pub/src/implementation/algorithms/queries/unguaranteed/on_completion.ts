@@ -13,13 +13,14 @@ import { Signature } from "../../../../interface/algorithms/queries/unguaranteed
 
 
 
-export const $$: _easync.Unguaranteed_Query_Initializer<d.On_Completion_Parameters, d.On_Completion_Result, Error> = (
+export const $$: _easync.Unguaranteed_Query<d.On_Completion_Parameters, d.On_Completion_Result, Error, null> = (
 	$p,
 ) => load_astn_document(
 	{
 		'content': $p.content,
 		'file path': $p['file path'],
-	}
+	},
+	null,
 ).map_(($): d.On_Completion_Result => ({
 	'completion items': t_find_completion_items.Node($, {
 		'location': t_backend_location.Relative_Location($p.position),

@@ -31,7 +31,7 @@ const create_frontend_range_from_relative_range = ($: d_ide.Relative_Range): d.R
 }
 
 
-export const $$: _easync.Unguaranteed_Query_Initializer<d.Format_Parameters, d.Format_Result, d.Format_Error> = (
+export const $$: _easync.Unguaranteed_Query<d.Format_Parameters, d.Format_Result, d.Format_Error, null> = (
 	$p
 ) => x_parse.parse(
 	$p.content,

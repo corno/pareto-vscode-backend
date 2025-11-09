@@ -42,13 +42,14 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 	})
 }
 
-export const $$: _easync.Guaranteed_Query_Initializer<d.Validate_Document_Parameters, d.On_Validate_Document_Result> = (
+export const $$: _easync.Guaranteed_Query<d.Validate_Document_Parameters, d.On_Validate_Document_Result, null> = (
 	$p,
 ) => load_astn_document(
 	{
 		'content': $p.content,
 		'file path': $p['file path'],
-	}
+	},
+	null,
 ).map_(
 	($): d.On_Validate_Document_Result => ({
 		'diagnostics': t_unmarshall_result_2_unmarshall_errors.Node($, null).map(($): d.Diagnostic => ({

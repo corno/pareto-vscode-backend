@@ -11,13 +11,14 @@ import * as t_backend_location from "../../transformations/server/backend_locati
 import { Signature } from "../../../../interface/algorithms/queries/guaranteed/on_hover"
 
 
-export const $$: _easync.Guaranteed_Query_Initializer<d.On_Hover_Parameters, d.On_Hover_Result> = (
+export const $$: _easync.Guaranteed_Query<d.On_Hover_Parameters, d.On_Hover_Result, null> = (
 	$p,
 ) => load_pareto_document(
 	{
 		'content': $p.content,
 		'file path': $p['file path'],
-	}
+	},
+	null,
 ).map_(($): d.On_Hover_Result => ({
 	'contents': {
 		'hover texts': t_find_hover_texts.Node($, {

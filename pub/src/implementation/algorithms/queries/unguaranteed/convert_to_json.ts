@@ -14,7 +14,7 @@ import { Signature } from "../../../../interface/algorithms/queries/unguaranteed
 /**
  * FIXME: this is not a query, but a transformation
  */
-export const $$: _easync.Unguaranteed_Query_Initializer<d.Convert_To_JSON_Parameters, string, null> = (
+export const $$: _easync.Unguaranteed_Query<d.Convert_To_JSON_Parameters, string, null, null> = (
 	$p,
 ) => x_parse.parse(
 	$p.content,
