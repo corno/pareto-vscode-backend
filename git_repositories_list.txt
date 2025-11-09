@@ -1,0 +1,8 @@
+Repository: pareto-vscode-backend
+Path: /home/corno/workspace/pareto-canon/packages/pareto-vscode-backend
+Last Commit: 2025-11-07 (b9bfdf4)
+Message: new version
+Branch: main
+Remote: git@github.com:corno/pareto-vscode-backend
+-------------------------------------------------
+
