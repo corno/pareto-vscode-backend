@@ -27,7 +27,7 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "exupery-core-async": "^0.3.4",
+    "exupery-core-async": "^0.3.5",
     "pareto": "^0.78.1"
   }
 }
