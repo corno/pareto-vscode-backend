@@ -5,34 +5,6 @@ import * as _i_vs from "./value_serializers"
 
 // **** TYPES
 
-export type _T_Format_Error = (
-    $$_: _i_in._T_Format_Error,
-    $$_p: {
-        readonly 'value serializers': _i_vs._T_Value_Serializers
-    },
-) => string
-
-export type _T_Format_Options = (
-    $$_: _i_in._T_Format_Options,
-    $$_p: {
-        readonly 'value serializers': _i_vs._T_Value_Serializers
-    },
-) => string
-
-export type _T_Format_Parameters = (
-    $$_: _i_in._T_Format_Parameters,
-    $$_p: {
-        readonly 'value serializers': _i_vs._T_Value_Serializers
-    },
-) => string
-
-export type _T_Format_Result = (
-    $$_: _i_in._T_Format_Result,
-    $$_p: {
-        readonly 'value serializers': _i_vs._T_Value_Serializers
-    },
-) => string
-
 export type _T_Position = (
     $$_: _i_in._T_Position,
     $$_p: {
@@ -47,15 +19,15 @@ export type _T_Range = (
     },
 ) => string
 
-export type _T_Replace = (
-    $$_: _i_in._T_Replace,
+export type _T_Format_Options = (
+    $$_: _i_in._T_Format_Options,
     $$_p: {
         readonly 'value serializers': _i_vs._T_Value_Serializers
     },
 ) => string
 
-export type _T_Sort_Alphabetically_Parameters = (
-    $$_: _i_in._T_Sort_Alphabetically_Parameters,
+export type _T_Replace = (
+    $$_: _i_in._T_Replace,
     $$_p: {
         readonly 'value serializers': _i_vs._T_Value_Serializers
     },
@@ -68,87 +40,55 @@ export type _T_Text_Edit = (
     },
 ) => string
 
+export type _T_Format_Result = (
+    $$_: _i_in._T_Format_Result,
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
+
+export type _T_Format_Error = (
+    $$_: _i_in._T_Format_Error,
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
+
+export type _T_Format_Parameters = (
+    $$_: _i_in._T_Format_Parameters,
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
+
+export type _T_Sort_Alphabetically_Parameters = (
+    $$_: _i_in._T_Sort_Alphabetically_Parameters,
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
+
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
-
-export type Format_Error = _T_Format_Error
-
-export type Format_Options = _T_Format_Options
-
-export type Format_Parameters = _T_Format_Parameters
-
-export type Format_Result = _T_Format_Result
 
 export type Position = _T_Position
 
 export type Range = _T_Range
 
-export type Replace = _T_Replace
+export type Format_Options = _T_Format_Options
 
-export type Sort_Alphabetically_Parameters = _T_Sort_Alphabetically_Parameters
+export type Replace = _T_Replace
 
 export type Text_Edit = _T_Text_Edit
 
+export type Format_Result = _T_Format_Result
+
+export type Format_Error = _T_Format_Error
+
+export type Format_Parameters = _T_Format_Parameters
+
+export type Sort_Alphabetically_Parameters = _T_Sort_Alphabetically_Parameters
+
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
-
-export namespace _T_Format_Error {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Format_Error
-    
-    export namespace PARAMS {
-        
-        export namespace value_serializers {
-        }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace _T_Format_Options {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Format_Options
-    
-    export namespace PARAMS {
-        
-        export namespace value_serializers {
-        }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace _T_Format_Parameters {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Format_Parameters
-    
-    export namespace PARAMS {
-        
-        export namespace value_serializers {
-        }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace _T_Format_Result {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Format_Result
-    
-    export namespace PARAMS {
-        
-        export namespace value_serializers {
-        }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
 
 export namespace _T_Position {
     
@@ -180,11 +120,11 @@ export namespace _T_Range {
     export type RESULT = string
 }
 
-export namespace _T_Replace {
+export namespace _T_Format_Options {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Replace
+    export type CONTEXT = _i_in._T_Format_Options
     
     export namespace PARAMS {
         
@@ -195,11 +135,11 @@ export namespace _T_Replace {
     export type RESULT = string
 }
 
-export namespace _T_Sort_Alphabetically_Parameters {
+export namespace _T_Replace {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Sort_Alphabetically_Parameters
+    export type CONTEXT = _i_in._T_Replace
     
     export namespace PARAMS {
         
@@ -225,9 +165,22 @@ export namespace _T_Text_Edit {
     export type RESULT = string
 }
 
-// *** ALIASES FOR NESTED TYPES
+export namespace _T_Format_Result {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Format_Result
+    
+    export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
+    }
+    export type RESULT = string
+}
 
-export namespace Format_Error {
+export namespace _T_Format_Error {
     
     export namespace CONTEXT {
     }
@@ -242,22 +195,7 @@ export namespace Format_Error {
     export type RESULT = string
 }
 
-export namespace Format_Options {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Format_Options
-    
-    export namespace PARAMS {
-        
-        export namespace value_serializers {
-        }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace Format_Parameters {
+export namespace _T_Format_Parameters {
     
     export namespace CONTEXT {
     }
@@ -272,11 +210,11 @@ export namespace Format_Parameters {
     export type RESULT = string
 }
 
-export namespace Format_Result {
+export namespace _T_Sort_Alphabetically_Parameters {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Format_Result
+    export type CONTEXT = _i_in._T_Sort_Alphabetically_Parameters
     
     export namespace PARAMS {
         
@@ -286,6 +224,8 @@ export namespace Format_Result {
     }
     export type RESULT = string
 }
+
+// *** ALIASES FOR NESTED TYPES
 
 export namespace Position {
     
@@ -317,6 +257,21 @@ export namespace Range {
     export type RESULT = string
 }
 
+export namespace Format_Options {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Format_Options
+    
+    export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
+    }
+    export type RESULT = string
+}
+
 export namespace Replace {
     
     export namespace CONTEXT {
@@ -332,11 +287,11 @@ export namespace Replace {
     export type RESULT = string
 }
 
-export namespace Sort_Alphabetically_Parameters {
+export namespace Text_Edit {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Sort_Alphabetically_Parameters
+    export type CONTEXT = _i_in._T_Text_Edit
     
     export namespace PARAMS {
         
@@ -347,11 +302,56 @@ export namespace Sort_Alphabetically_Parameters {
     export type RESULT = string
 }
 
-export namespace Text_Edit {
+export namespace Format_Result {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Text_Edit
+    export type CONTEXT = _i_in._T_Format_Result
+    
+    export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
+    }
+    export type RESULT = string
+}
+
+export namespace Format_Error {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Format_Error
+    
+    export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
+    }
+    export type RESULT = string
+}
+
+export namespace Format_Parameters {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Format_Parameters
+    
+    export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
+    }
+    export type RESULT = string
+}
+
+export namespace Sort_Alphabetically_Parameters {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Sort_Alphabetically_Parameters
     
     export namespace PARAMS {
         
