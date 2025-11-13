@@ -13,7 +13,8 @@ import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementa
 import { $$ as op_join } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/join_list_of_texts_with_separator"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_code_point"
 
-import * as s_parse_result from "astn/dist/implementation/algorithms/transformations/parse_result/string"
+import * as d_parse_result from "astn/dist/implementation/algorithms/transformations/parse_result/string"
+
 import { Signature } from "../../../../interface/algorithms/queries/guaranteed/validate_document"
 
 
@@ -151,7 +152,7 @@ export const $$: _easync.Guaranteed_Query<d.Validate_Document_Parameters, d.On_V
 						{
 							'severity': ['error', null],
 							'range': create_frontend_range_from_range($.range),
-							'message': `${s_parse_result.Parse_Error_Type($.type)}`,
+							'message': `${d_parse_result.Parse_Error_Type($.type)}`,
 							'related information': _ea.not_set()
 						}
 					]))
