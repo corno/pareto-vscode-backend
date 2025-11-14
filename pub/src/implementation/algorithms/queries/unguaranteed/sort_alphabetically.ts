@@ -9,7 +9,7 @@ import { Signature } from "../../../../interface/algorithms/queries/unguaranteed
 
 
 
-export const $$: _easync.Unguaranteed_Query<d.Sort_Alphabetically_Parameters, d.Replace, null, null> = (
+export const $$: _et.Unguaranteed_Query<d.Sort_Alphabetically_Parameters, d.Replace, null, null> = (
 	$p,
 ) => _easync.query.unguaranteed['create result']({
 	'range': {
