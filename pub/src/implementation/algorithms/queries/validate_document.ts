@@ -2,12 +2,12 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../../../../interface/generated/pareto/schemas/server/data_types/source"
+import * as d from "../../../interface/generated/pareto/schemas/server/data_types/source"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
 
-import { $$ as load_astn_document } from "pareto/dist/implementation/algorithms/queries/unguaranteed/load_pareto_document"
+import { $$ as load_astn_document } from "pareto/dist/implementation/algorithms/queries/load_pareto_document"
 
 import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/algorithms/transformations/unmarshall_result/unmarshall_errors"
 
@@ -16,7 +16,7 @@ import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/imp
 
 import * as d_parse_result from "astn/dist/implementation/algorithms/transformations/parse_result/string"
 
-import { Signature } from "../../../../interface/algorithms/queries/guaranteed/validate_document"
+import { Signature } from "../../../interface/algorithms/queries/validate_document"
 
 
 const create_frontend_position_from_relative_location = ($: d_token.Relative_Location): d.Position => {
@@ -46,7 +46,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 
 export type Resources = {
 	'queries': {
-		'read file': _et.Unguaranteed_Query<d_read_file.Parameters, d_read_file.Result, d_read_file.Error, null>
+		'read file': _et.Query_Procedure<d_read_file.Parameters, d_read_file.Result, d_read_file.Error, null>
 	}
 }
 

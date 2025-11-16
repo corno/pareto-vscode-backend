@@ -2,7 +2,7 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../../../../interface/generated/pareto/schemas/client/data_types/target"
+import * as d from "../../../interface/generated/pareto/schemas/client/data_types/target"
 
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
@@ -12,7 +12,7 @@ import * as x_parse from "astn/dist/exceptional/authoring_parse/parse"
 import * as t_ast_2_ide from "astn/dist/implementation/algorithms/transformations/authoring_parse_tree/ide"
 
 import * as s_parse_result from "astn/dist/implementation/algorithms/transformations/parse_result/string"
-import { Signature } from "../../../../interface/algorithms/queries/unguaranteed/format"
+import { Signature } from "../../../../interface/algorithms/queries/format"
 
 
 
@@ -31,7 +31,7 @@ const create_frontend_range_from_relative_range = ($: d_ide.Relative_Range): d.R
 }
 
 
-export const $$: _et.Unguaranteed_Query<d.Format_Parameters, d.Format_Result, d.Format_Error, null> = (
+export const $$: _et.Query_Procedure<d.Format_Parameters, d.Format_Result, d.Format_Error, null> = (
 	$p
 ) => x_parse.parse(
 	$p.content,
