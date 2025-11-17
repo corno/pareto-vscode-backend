@@ -9,10 +9,10 @@ import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_ty
 
 import * as x_parse from "astn/dist/exceptional/authoring_parse/parse"
 
-import * as t_ast_2_ide from "astn/dist/implementation/algorithms/transformations/authoring_parse_tree/ide"
+import * as t_ast_2_ide from "astn/dist/implementation/algorithms/transformers/authoring_parse_tree/ide"
 
-import * as s_parse_result from "astn/dist/implementation/algorithms/transformations/parse_result/string"
-import { Signature } from "../../../../interface/algorithms/queries/format"
+import * as s_parse_result from "astn/dist/implementation/algorithms/transformers/parse_result/string"
+import { Signature } from "../../../interface/algorithms/queries/format"
 
 
 
@@ -31,30 +31,30 @@ const create_frontend_range_from_relative_range = ($: d_ide.Relative_Range): d.R
 }
 
 
-export const $$: _et.Query_Procedure<d.Format_Parameters, d.Format_Result, d.Format_Error, null> = (
-	$p
-) => x_parse.parse(
-	$p.content,
-	{
-		'tab size': 1
-	}
-).transform(
-	($) => _easync.query.unguaranteed['create result'](t_ast_2_ide.Document(
-		$,
-		{
-			'current indentation': "",
-			'indentation string': $p.options['indent string'],
-			'remove commas': $p.options['preserve commas'],
-		}
-	).map(($): d.Text_Edit => _ea.cc($, ($): d.Text_Edit => {
-		switch ($[0]) {
-			case 'replace': return _ea.ss($, ($) => ['replace', { 'range': create_frontend_range_from_relative_range($.range), 'text': $.text }])
-			case 'delete': return _ea.ss($, ($) => ['delete', { 'range': create_frontend_range_from_relative_range($.range) }])
-			case 'insert': return _ea.ss($, ($) => ['insert', { 'location': create_frontend_position_from_relative_location($.location), 'text': $.text }])
-			default: return _ea.au($[0])
-		}
-	}))),
-	($) => _easync.query.unguaranteed['raise exception']({
-		'message': s_parse_result.Parse_Error($, { 'position info': ['zero based', null] })
-	})
-)
+// export const $$: _et.Query_Procedure<d.Format_Parameters, d.Format_Result, d.Format_Error, null> = (
+// 	$p
+// ) => x_parse.parse(
+// 	$p.content,
+// 	{
+// 		'tab size': 1
+// 	}
+// ).transform(
+// 	($) => _easync.query.unguaranteed['create result'](t_ast_2_ide.Document(
+// 		$,
+// 		{
+// 			'current indentation': "",
+// 			'indentation string': $p.options['indent string'],
+// 			'remove commas': $p.options['preserve commas'],
+// 		}
+// 	).map(($): d.Text_Edit => _ea.cc($, ($): d.Text_Edit => {
+// 		switch ($[0]) {
+// 			case 'replace': return _ea.ss($, ($) => ['replace', { 'range': create_frontend_range_from_relative_range($.range), 'text': $.text }])
+// 			case 'delete': return _ea.ss($, ($) => ['delete', { 'range': create_frontend_range_from_relative_range($.range) }])
+// 			case 'insert': return _ea.ss($, ($) => ['insert', { 'location': create_frontend_position_from_relative_location($.location), 'text': $.text }])
+// 			default: return _ea.au($[0])
+// 		}
+// 	}))),
+// 	($) => _easync.query.unguaranteed['raise exception']({
+// 		'message': s_parse_result.Parse_Error($, { 'position info': ['zero based', null] })
+// 	})
+// )

@@ -9,7 +9,7 @@ import * as d_ast_target from "astn/dist/interface/generated/pareto/schemas/auth
 import * as d_fpblock from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
 import * as d_out from "../../../../interface/generated/pareto/schemas/server/data_types/target"
 
-import * as t_astn_target_to_fp from "astn/dist/implementation/algorithms/transformations/authoring_target/fountain_pen_block"
+import * as t_astn_target_to_fp from "astn/dist/implementation/algorithms/transformers/authoring_target/fountain_pen_block"
 import * as t_default_initialize from "../schema/default_initialize"
 
 import * as s_fp from "pareto-fountain-pen/dist/exceptional/serialize/block"
@@ -21,7 +21,7 @@ import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operation
 import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/expect_exactly_one_element"
 import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/expect_exactly_one_entry"
 
-import * as t_ast_to_range from "astn/dist/implementation/algorithms/transformations/authoring_parse_tree/temp_value_range"
+import * as t_ast_to_range from "astn/dist/implementation/algorithms/transformers/authoring_parse_tree/temp_value_range"
 import { Signature } from "../../../../interface/algorithms/transformations/temp/get_completion_items"
 
 

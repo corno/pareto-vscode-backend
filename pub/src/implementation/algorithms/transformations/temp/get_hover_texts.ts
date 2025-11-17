@@ -15,7 +15,7 @@ import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operation
 import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/expect_exactly_one_element"
 import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/expect_exactly_one_entry"
 
-import * as t_ast_to_range from "astn/dist/implementation/algorithms/transformations/authoring_parse_tree/temp_value_range"
+import * as t_ast_to_range from "astn/dist/implementation/algorithms/transformers/authoring_parse_tree/temp_value_range"
 import { Signature } from "../../../../interface/algorithms/transformations/temp/get_hover_texts"
 
 
