@@ -48,7 +48,7 @@ const filter_dictionary = ($: _et.Dictionary<d_out.Optional_Hover_Texts>): d_out
 		() => _ea.not_set()
 	)
 }
-const filter_list = ($: _et.Array<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => {
+const filter_list = ($: _et.List<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => {
 	return op_cast_list_to_non_empty(
 		op_filter_list($)
 	).transform<d_out.Optional_Hover_Texts>(
@@ -105,7 +105,7 @@ export const Node = (
 	const in_range = is_in_range($p.location, { range: node_range })
 
 	const wrap = (): d_out.Optional_Hover_Texts => in_range
-		? _ea.set(_ea.array_literal([$p['full path'], $p['id path']]))
+		? _ea.set(_ea.list_literal([$p['full path'], $p['id path']]))
 		: _ea.not_set()
 
 	if (!in_range) {
@@ -244,11 +244,11 @@ export const Node = (
 						}))
 						case 'invalid': return _ea.ss($, ($) => wrap())
 						//
-						// case 'unknown state': return _ea.ss($, ($) => _ea.set(_ea.array_literal(["FIXUNKNOWNSTATE"])))
-						// case 'more than 2 elements': return _ea.ss($, ($) => _ea.set(_ea.array_literal(["FIXMORETHANTWO"])))
-						// case 'missing state name': return _ea.ss($, ($) => _ea.set(_ea.array_literal(["FIXMISSINGSTATENAME"])))
-						// case 'state is not a string': return _ea.ss($, ($) => _ea.set(_ea.array_literal(["FIXSTATEISNOTSTRING"])))
-						// case 'missing value': return _ea.ss($, ($) => _ea.set(_ea.array_literal(["FIXMISSINGVALUE"])))
+						// case 'unknown state': return _ea.ss($, ($) => _ea.set(_ea.list_literal(["FIXUNKNOWNSTATE"])))
+						// case 'more than 2 elements': return _ea.ss($, ($) => _ea.set(_ea.list_literal(["FIXMORETHANTWO"])))
+						// case 'missing state name': return _ea.ss($, ($) => _ea.set(_ea.list_literal(["FIXMISSINGSTATENAME"])))
+						// case 'state is not a string': return _ea.ss($, ($) => _ea.set(_ea.list_literal(["FIXSTATEISNOTSTRING"])))
+						// case 'missing value': return _ea.ss($, ($) => _ea.set(_ea.list_literal(["FIXMISSINGVALUE"])))
 						default: return _ea.au($[0])
 					}
 				})

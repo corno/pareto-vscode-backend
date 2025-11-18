@@ -105,7 +105,7 @@ import { Signature } from "../../../interface/algorithms/queries/validate_docume
 // 			$,
 // 			($): d.Diagnostics => {
 // 				switch ($[0]) {
-// 					case 'no schema file': return _ea.ss($, ($) => _ea.array_literal<d.Diagnostic>([
+// 					case 'no schema file': return _ea.ss($, ($) => _ea.list_literal<d.Diagnostic>([
 // 						{
 // 							'severity': ['error', null],
 // 							'range': {
@@ -124,7 +124,7 @@ import { Signature } from "../../../interface/algorithms/queries/validate_docume
 
 
 // 					]))
-// 					case 'schema error': return _ea.ss($, ($) => _ea.array_literal<d.Diagnostic>([
+// 					case 'schema error': return _ea.ss($, ($) => _ea.list_literal<d.Diagnostic>([
 // 						{
 // 							'severity': ['error', null],
 // 							'range': {
@@ -138,7 +138,7 @@ import { Signature } from "../../../interface/algorithms/queries/validate_docume
 // 								}
 // 							},
 // 							'message': `error in schema: ${$['file location']}`,
-// 							'related information': _ea.set(_ea.array_literal([
+// 							'related information': _ea.set(_ea.list_literal([
 // 								{
 // 									'location': {
 // 										'file path': "FIXME/PATH/TO/SCHEMA",
@@ -155,7 +155,7 @@ import { Signature } from "../../../interface/algorithms/queries/validate_docume
 
 
 // 					]))
-// 					case 'parse error': return _ea.ss($, ($) => _ea.array_literal<d.Diagnostic>([
+// 					case 'parse error': return _ea.ss($, ($) => _ea.list_literal<d.Diagnostic>([
 // 						{
 // 							'severity': ['error', null],
 // 							'range': create_frontend_range_from_range($.range),

@@ -31,7 +31,7 @@ export const Type_Node_X = (
                 'delimiter': ['quote', null],
                 'value': ""
             }])
-            case 'list': return _ea.ss($, ($) => ['list', _ea.array_literal([])])
+            case 'list': return _ea.ss($, ($) => ['list', _ea.list_literal([])])
             case 'reference': return _ea.ss($, ($) => ['text', {
                 'delimiter': ['backtick', null],
                 'value': "..."
@@ -44,7 +44,7 @@ export const Type_Node_X = (
                     default: return _ea.au($[0])
                 }
             }))
-            case 'dictionary': return _ea.ss($, ($) => ['dictionary', _ea.array_literal([])])
+            case 'dictionary': return _ea.ss($, ($) => ['dictionary', _ea.list_literal([])])
             case 'group': return _ea.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
                 'key': $.key,
                 'value': Type_Node($.value.node)
@@ -84,7 +84,7 @@ export const Type_Node_Resolver_X = (
             'delimiter': ['quote', null],
             'value': ""
         }])
-        case 'list': return _ea.ss($, ($) => ['list', _ea.array_literal([])])
+        case 'list': return _ea.ss($, ($) => ['list', _ea.list_literal([])])
         case 'reference': return _ea.ss($, ($) => ['text', {
             'delimiter': ['backtick', null],
             'value': "..."
@@ -99,7 +99,7 @@ export const Type_Node_Resolver_X = (
                 default: return _ea.au($[0])
             }
         }))
-        case 'dictionary': return _ea.ss($, ($) => ['dictionary', _ea.array_literal([])])
+        case 'dictionary': return _ea.ss($, ($) => ['dictionary', _ea.list_literal([])])
         case 'group': return _ea.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
             'key': $.key,
             'value': Type_Node_Resolver($.value.resolver)

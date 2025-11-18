@@ -35,6 +35,6 @@ import { Signature } from "../../../interface/algorithms/queries/on_completion"
 // 		'indent': $p.indent,
 // 	}).transform(
 // 		($) => $,
-// 		() => _ea.array_literal([]),
+// 		() => _ea.list_literal([]),
 // 	)
 // }))

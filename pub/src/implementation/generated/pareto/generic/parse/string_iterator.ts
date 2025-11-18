@@ -169,6 +169,6 @@ export const create_string_iterator = (
 }
 
 export type Token_Iterator<Expected, Token> = {
-    'get required token': (expected: _et.Array<Expected>) => Token,
+    'get required token': (expected: _et.List<Expected>) => Token,
     'consume token': () => void,
 }

@@ -53,7 +53,7 @@ const filter_dictionary = ($: _et.Dictionary<d_out.Optional_Completion_Items>): 
 		() => _ea.not_set()
 	)
 }
-const filter_list = ($: _et.Array<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => {
+const filter_list = ($: _et.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => {
 	return op_cast_list_to_non_empty(
 		op_filter_list($)
 	).transform<d_out.Optional_Completion_Items>(
@@ -105,8 +105,8 @@ export const Node = (
 
 	const create_default_value_string = (node: d_schema.Type_Node, write_delimiters: boolean) => {
 		const default_initialized_value: d_ast_target.Value = t_default_initialize.Type_Node(node)
-		const fp_group: d_fpblock.Group = _ea.array_literal([
-			['nested block', _ea.array_literal<d_fpblock.Block_Part>([
+		const fp_group: d_fpblock.Group = _ea.list_literal([
+			['nested block', _ea.list_literal<d_fpblock.Block_Part>([
 				t_astn_target_to_fp.Value(default_initialized_value, {
 					'in concise group': false,
 					'write delimiters': write_delimiters,
@@ -124,7 +124,7 @@ export const Node = (
 	const wrap = (): d_out.Optional_Completion_Items => {
 
 		return in_range
-			? _ea.set(_ea.array_literal([
+			? _ea.set(_ea.list_literal([
 				{
 					'label': "verbose group",
 					'insert text': create_default_value_string(node.definition, false),
@@ -256,11 +256,11 @@ export const Node = (
 						}))
 						case 'invalid': return _ea.ss($, ($) => wrap())
 						//
-						// case 'unknown state': return _ea.ss($, ($) => _ea.set(_ea.array_literal(["FIXUNKNOWNSTATE"])))
-						// case 'more than 2 elements': return _ea.ss($, ($) => _ea.set(_ea.array_literal(["FIXMORETHANTWO"])))
-						// case 'missing state name': return _ea.ss($, ($) => _ea.set(_ea.array_literal(["FIXMISSINGSTATENAME"])))
-						// case 'state is not a string': return _ea.ss($, ($) => _ea.set(_ea.array_literal(["FIXSTATEISNOTSTRING"])))
-						// case 'missing value': return _ea.ss($, ($) => _ea.set(_ea.array_literal(["FIXMISSINGVALUE"])))
+						// case 'unknown state': return _ea.ss($, ($) => _ea.set(_ea.list_literal(["FIXUNKNOWNSTATE"])))
+						// case 'more than 2 elements': return _ea.ss($, ($) => _ea.set(_ea.list_literal(["FIXMORETHANTWO"])))
+						// case 'missing state name': return _ea.ss($, ($) => _ea.set(_ea.list_literal(["FIXMISSINGSTATENAME"])))
+						// case 'state is not a string': return _ea.ss($, ($) => _ea.set(_ea.list_literal(["FIXSTATEISNOTSTRING"])))
+						// case 'missing value': return _ea.ss($, ($) => _ea.set(_ea.list_literal(["FIXMISSINGVALUE"])))
 						default: return _ea.au($[0])
 					}
 				})

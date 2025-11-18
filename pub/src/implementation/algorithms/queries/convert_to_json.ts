@@ -12,10 +12,10 @@ import { Signature } from "../../../interface/algorithms/queries/convert_to_json
 
 
 /**
- * FIXME: this is not a query, but a transformation
+ * FIXME: this is not a query, but a refinement
  */
-export const $$: _et.Query_Procedure<d.Convert_To_JSON_Parameters, string, null, null> = _easync.create_query_procedure(
-	($r, $p,) => x_parse.parse(
+export const $$: _et.Query_Procedure<string, null, d.Convert_To_JSON_Parameters, null> = _easync.create_query_procedure(
+	($p, $r) => x_parse.parse(
 		$p.content,
 		{
 			'tab size': 1

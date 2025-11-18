@@ -12,10 +12,10 @@ import { Signature } from "../../../interface/algorithms/queries/seal"
 
 
 /**
- * FIXME: this is not a query, but a transformation
+ * FIXME: this is not a query, but a refinement
  */
-export const $$: _et.Query_Procedure<d.Seal_Parameters, string, null, null> = _easync.create_query_procedure(
-	($r, $p,) => x_parse.parse(
+export const $$: _et.Query_Procedure<string, null, d.Seal_Parameters, null> = _easync.create_query_procedure(
+	($p, $r,) => x_parse.parse(
 		$p.content,
 		{
 			'tab size': 1
