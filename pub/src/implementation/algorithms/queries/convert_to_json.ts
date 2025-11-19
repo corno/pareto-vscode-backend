@@ -20,6 +20,8 @@ export const $$: _et.Query_Procedure<string, null, d.Convert_To_JSON_Parameters,
 		{
 			'tab size': 1
 		}
+	).transform_error_temp(
+		($) => null
 	).transform(
 		($): string => s_json.Document(
 			t_ast_2_json.Document($),
@@ -28,7 +30,5 @@ export const $$: _et.Query_Procedure<string, null, d.Convert_To_JSON_Parameters,
 				'newline': '\n'
 			}
 		),
-	).transform_error_temp(
-		($) => null
 	)
 )
