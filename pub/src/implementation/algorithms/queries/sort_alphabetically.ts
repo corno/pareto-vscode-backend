@@ -12,7 +12,7 @@ import { Signature } from "../../../interface/algorithms/queries/sort_alphabetic
 
 // export const $$: _et.Query_Procedure<d.Sort_Alphabetically_Parameters, d.Replace, null, null> = (
 // 	$p,
-// ) => _ei.data_processing.successful({
+// ) => _ei.__create_success_refinement_result({
 // 	'range': {
 // 		'start': $p.position,
 // 		'end': $p.position
