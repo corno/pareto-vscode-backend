@@ -9,7 +9,7 @@ import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/
 
 // import { $$ as load_astn_document } from "pareto/dist/implementation/algorithms/queries/load_pareto_document"
 
-import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/algorithms/transformations/unmarshall_result/unmarshall_errors"
+import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/transformations/unmarshall_result/unmarshall_errors"
 
 import { $$ as op_join } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/join_list_of_texts_with_separator"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_insertion"
