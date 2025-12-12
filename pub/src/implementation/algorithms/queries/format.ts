@@ -7,7 +7,7 @@ import * as d from "../../../interface/generated/pareto/schemas/client/data_type
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
 
-import * as x_parse from "astn/dist/exceptional/authoring_parse/parse"
+import * as x_parse from "astn/dist/implementation/algorithms/refiners/authoring_parse_tree/text/refiners"
 
 import * as t_ast_2_ide from "astn/dist/implementation/algorithms/transformers/authoring_parse_tree/ide"
 
