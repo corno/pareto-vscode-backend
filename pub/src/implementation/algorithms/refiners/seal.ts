@@ -11,24 +11,19 @@ import * as x_parse from "astn/dist/implementation/algorithms/refiners/authoring
 import { Signature } from "../../../interface/algorithms/queries/seal"
 
 
-/**
- * FIXME: this is not a query, but a refinement
- */
-export const $$: _et.Query_Procedure<string, null, d.Seal_Parameters, null> = _easync.create_query_procedure(
-	($p, $r,) => x_parse.parse(
-		$p.content,
+export const $$: _et.Refiner<string, null, d.Seal_Parameters> = ($p) => x_parse.parse(
+	$p.content,
+	{
+		'tab size': 1
+	}
+).transform_error_temp(
+	($) => null
+).transform_result(
+	($): string => s_json.Document(
+		t_ast_2_json.Document($),
 		{
-			'tab size': 1
+			'indentation': "    ",
+			'newline': '\n'
 		}
-	).transform_error_temp(
-		($) => null
-	).transform_result(
-		($): string => s_json.Document(
-			t_ast_2_json.Document($),
-			{
-				'indentation': "    ",
-				'newline': '\n'
-			}
-		),
-	)
+	),
 )

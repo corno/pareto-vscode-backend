@@ -1,6 +1,6 @@
 {
   "name": "pareto-vscode-backend",
-  "version": "0.3.0",
+  "version": "0.3.3",
   "description": "A library providing utilities for the VSCode language server",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "exupery-core-async": "^0.3.74",
-    "pareto": "^0.78.4"
+    "pareto": "^0.78.5"
   }
 }
