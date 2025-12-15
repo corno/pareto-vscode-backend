@@ -10,9 +10,8 @@ import { $$ as load_pareto_document } from "pareto/dist/implementation/queries/l
 
 import * as t_find_hover_texts from "../transformations/temp/get_hover_texts"
 import * as t_backend_location from "../transformations/server/backend_location"
+
 import { Signature } from "../../../interface/algorithms/queries/on_hover"
-
-
 
 export type Resources = {
 	'read file': _et.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
