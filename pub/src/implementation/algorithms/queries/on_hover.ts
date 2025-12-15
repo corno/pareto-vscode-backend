@@ -4,7 +4,7 @@ import * as _ea from 'exupery-core-alg'
 
 import * as d from "../../../interface/generated/pareto/schemas/server/data_types/source"
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
-import * as d_load_pareto_document from "pareto/dist/implementation/queries/load_pareto_document"
+import * as d_load_pareto_document from "pareto/dist/interface/algorithms/queries/load_pareto_document"
 
 import { $$ as load_pareto_document } from "pareto/dist/implementation/queries/load_pareto_document"
 
@@ -18,7 +18,7 @@ export type Resources = {
 	'read file': _et.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
 }
 
-export const $$: _et.Query_Procedure<d.On_Hover_Result, d_load_pareto_document.Error, d.On_Hover_Parameters, Resources> = _easync.create_query_procedure(
+export const $$: _et.Query_Function<d.On_Hover_Result, d_load_pareto_document.Error, d.On_Hover_Parameters, Resources> = _easync.create_query_function(
 	($p, $qr) => load_pareto_document($qr)(
 		{
 			'content': $p.content,

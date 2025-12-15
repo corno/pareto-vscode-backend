@@ -38,7 +38,7 @@ export const $$: _et.Refiner<d.Format_Result, d.Format_Error, d.Format_Parameter
 	{
 		'tab size': 1
 	}
-).transform_error_temp(
+).deprecated_transform_error(
 	($) => ({
 		'message': s_parse_result.Parse_Error($, { 'position info': ['zero based', null] })
 	})

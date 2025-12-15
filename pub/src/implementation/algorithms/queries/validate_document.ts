@@ -174,7 +174,7 @@ export type Resources = {
     'read file': _et.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
 }
 
-export const $$: _et.Query_Procedure<d.On_Validate_Document_Result, d.On_Validate_Document_Result, d.Validate_Document_Parameters, Resources> = _easync.create_query_procedure(
+export const $$: _et.Query_Function<d.On_Validate_Document_Result, d.On_Validate_Document_Result, d.Validate_Document_Parameters, Resources> = _easync.create_query_function(
     ($p, $qr) => load_pareto_document($qr)(
         {
             'content': $p.content,

@@ -16,7 +16,7 @@ export const $$: _et.Refiner<string, null, d.Convert_To_JSON_Parameters> = ($p) 
 	{
 		'tab size': 1
 	}
-).transform_error_temp(
+).deprecated_transform_error(
 	($) => null
 ).transform_result(
 	($): string => s_json.Document(
