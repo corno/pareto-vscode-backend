@@ -12,6 +12,8 @@ import { $$ as load_pareto_document } from "pareto/dist/implementation/queries/l
 import * as t_find_completion_items from "../transformations/temp/get_completion_items"
 import * as t_backend_location from "../transformations/server/backend_location"
 
+import * as r_path_from_text from "exupery-resources/dist/implementation/refiners/node_path/text"
+
 import { Signature } from "../../../interface/algorithms/queries/on_completion"
 
 export type Resources = {
@@ -22,7 +24,13 @@ export const $$: _et.Query_Function<d.On_Completion_Result, d_load_pareto_docume
     ($p, $qr) => load_pareto_document($qr)(
         {
             'content': $p.content,
-            'file path': $p['file path'],
+            'file path': r_path_from_text.Node_Path(
+                $p['file path'],
+                {
+                    'pedantic': true,
+                },
+                () => _ea.deprecated_panic("Invalid file path"),
+            ),
         },
         ($) => $,
     ).transform_result(($): d.On_Completion_Result => ({

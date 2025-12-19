@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "exupery-core-async": "^0.3.75",
-    "pareto": "^0.78.7"
+    "pareto": "^0.78.8"
   }
 }
