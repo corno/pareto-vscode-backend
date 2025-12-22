@@ -119,7 +119,7 @@ export const Node = (
 		switch ($[0]) {
 			case 'number': return _ea.ss($, ($) => wrap())
 			case 'boolean': return _ea.ss($, ($) => wrap())
-			case 'type parameter': return _ea.ss($, ($) => _ed.implement_me())
+			case 'type parameter': return _ea.ss($, ($) => _ed.implement_me("xx"))
 			case 'list': return _ea.ss($, ($) => _ea.cc($['found value type'], ($) => {
 				switch ($[0]) {
 					case 'valid': return _ea.ss($, ($) => filter_list($.elements.map(($) => Node($, {

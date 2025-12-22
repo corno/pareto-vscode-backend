@@ -91,8 +91,8 @@ export const Type_Node_Resolver_X = (
         }])
         case 'component': return _ea.ss($, ($) => _ea.cc($.location, ($) => {
             switch ($[0]) {
-                case 'external': return _ea.ss($, ($) => _edev.implement_me())
-                case 'internal': return _ea.ss($, ($) => _edev.implement_me())
+                case 'external': return _ea.ss($, ($) => _edev.implement_me("xx"))
+                case 'internal': return _ea.ss($, ($) => _edev.implement_me("xx"))
                 // case 'external': return _ea.ss($, ($) => Type_Node_X($.type.entry.node))
                 // case 'internal': return _ea.ss($, ($) => Type_Node_X($.entry.node))
                 // case 'internal cyclic': return _ea.ss($, ($) => Type_Node_X($.entry.compute().node))
