@@ -8,12 +8,12 @@ import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/dat
 
 import * as d_out from "../../../../interface/generated/pareto/schemas/server/data_types/target"
 
-import { $$ as op_filter_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/list/filter"
-import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/dictionary/filter"
-import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/cast_to_non_empty"
-import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/cast_to_non_empty"
-import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/expect_exactly_one_element"
-import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/expect_exactly_one_entry"
+import { $$ as op_filter_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/filter"
+import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/filter"
+import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist/implementation/operations/impure/list/cast_to_non_empty"
+import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/cast_to_non_empty"
+import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
+import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/expect_exactly_one_entry"
 
 import * as t_ast_to_range from "astn/dist/implementation/algorithms/transformers/authoring_parse_tree/temp_value_range"
 import { Signature } from "../../../../interface/algorithms/transformations/temp/get_hover_texts"

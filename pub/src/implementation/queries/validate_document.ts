@@ -2,23 +2,25 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../../../interface/generated/pareto/schemas/server/data_types/source"
+import * as d from "../../interface/generated/pareto/schemas/server/data_types/source"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
 import * as d_load_pareto_document from "pareto/dist/implementation/queries/load_pareto_document"
 import * as d_parse_result from "astn/dist/implementation/algorithms/transformers/parse_result/string"
 
-import { Signature } from "../../../interface/algorithms/queries/validate_document"
+export type Resources = {
+    'read file': _et.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
+}
 
+import { Signature } from "../../interface/algorithms/queries/validate_document"
+
+//dependencies
 import * as r_path_from_text from "exupery-resources/dist/implementation/refiners/node_path/text"
-
-
 import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/transformations/unmarshall_result/unmarshall_errors"
-
 import { $$ as q_load_pareto_document } from "pareto/dist/implementation/queries/load_pareto_document"
-import { $$ as op_join } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/join_list_of_texts_with_separator"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_insertion"
+import { $$ as op_join } from "pareto-standard-operations/dist/implementation/operations/impure/text/join_list_of_texts_with_separator"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
 
 
 
@@ -169,10 +171,6 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 // })
 
 
-
-export type Resources = {
-    'read file': _et.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
-}
 
 export const $$: _et.Query_Function<d.On_Validate_Document_Result, d.On_Validate_Document_Result, d.Validate_Document_Parameters, Resources> = _easync.create_query_function(
     ($p, $qr) => q_load_pareto_document($qr)(
