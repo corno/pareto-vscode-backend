@@ -6,8 +6,6 @@ import * as d_server from "../../interface/generated/pareto/schemas/server/data_
 import * as d_parse_result from "astn/dist/interface/generated/pareto/schemas/authoring_parse_result/data_types/target"
 import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/authoring_parse_tree/data_types/target"
 
-import { Signature as x } from "../../interface/algorithms/queries/seal"
-
 type Signature = _et.Deprecated_Refiner_Catcher<string, null, d_server.Seal_Parameters>
 
 //dependencies

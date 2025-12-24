@@ -12,9 +12,6 @@ import * as d_parse_result from "astn/dist/implementation/algorithms/transformer
 export type Resources = {
     'read file': _et.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
 }
-
-import { Signature } from "../../interface/algorithms/queries/validate_document"
-
 //dependencies
 import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
 import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/transformations/unmarshall_result/unmarshall_errors"

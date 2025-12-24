@@ -13,8 +13,6 @@ export type Resources = {
 
 type Signature = _et.Query_Function<_et.Query<d.On_Hover_Result, d_load_pareto_document.Error, d.On_Hover_Parameters>, Resources>
 
-import { Signature as x } from "../../interface/algorithms/queries/on_hover"
-
 //dependencies
 import { $$ as q_load_pareto_document } from "pareto/dist/implementation/queries/load_pareto_document"
 import * as t_find_hover_texts from "../transformers/schemas/temp/get_hover_texts"

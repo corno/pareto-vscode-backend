@@ -8,8 +8,6 @@ import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/auth
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
 
-import { Signature as x } from "../../interface/algorithms/queries/format"
-
 type Signature = _et.Deprecated_Refiner_Catcher<d_client.Format_Result, d_client.Format_Error, d_client.Format_Parameters>
 
 //dependencies
