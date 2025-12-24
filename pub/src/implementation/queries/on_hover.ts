@@ -11,7 +11,7 @@ export type Resources = {
 	'read file': _et.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
 }
 
-type Signature = _et.Query_Function<d.On_Hover_Result, d_load_pareto_document.Error, d.On_Hover_Parameters, Resources>
+type Signature = _et.Query_Function<_et.Query<d.On_Hover_Result, d_load_pareto_document.Error, d.On_Hover_Parameters>, Resources>
 
 import { Signature as x } from "../../interface/algorithms/queries/on_hover"
 
@@ -19,13 +19,13 @@ import { Signature as x } from "../../interface/algorithms/queries/on_hover"
 import { $$ as q_load_pareto_document } from "pareto/dist/implementation/queries/load_pareto_document"
 import * as t_find_hover_texts from "../transformers/schemas/temp/get_hover_texts"
 import * as t_backend_location from "../transformers/schemas/server/backend_location"
-import * as r_path_from_text from "exupery-resources/dist/implementation/refiners/node_path/text"
+import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
 
 export const $$: Signature = _easync.create_query_function(
 	($p, $qr) => q_load_pareto_document($qr)(
 		{
 			'content': $p.content,
-			'file path': r_path_from_text.Node_Path(
+			'file path': ds_path.Node_Path(
 				$p['file path'],
 				{
 					'pedantic': true,

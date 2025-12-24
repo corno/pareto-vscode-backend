@@ -16,7 +16,7 @@ export type Resources = {
 import { Signature } from "../../interface/algorithms/queries/validate_document"
 
 //dependencies
-import * as r_path_from_text from "exupery-resources/dist/implementation/refiners/node_path/text"
+import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
 import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/transformations/unmarshall_result/unmarshall_errors"
 import { $$ as q_load_pareto_document } from "pareto/dist/implementation/queries/load_pareto_document"
 import { $$ as op_join } from "pareto-standard-operations/dist/implementation/operations/impure/text/join_list_of_texts_with_separator"
@@ -172,11 +172,11 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 
 
 
-export const $$: _et.Query_Function<d.On_Validate_Document_Result, d.On_Validate_Document_Result, d.Validate_Document_Parameters, Resources> = _easync.create_query_function(
+export const $$: _et.Query_Function<_et.Query<d.On_Validate_Document_Result, d.On_Validate_Document_Result, d.Validate_Document_Parameters>, Resources> = _easync.create_query_function(
     ($p, $qr) => q_load_pareto_document($qr)(
         {
             'content': $p.content,
-            'file path': r_path_from_text.Node_Path(
+            'file path': ds_path.Node_Path(
                 $p['file path'],
                 {
                     'pedantic': true,
