@@ -35,7 +35,7 @@ const create_frontend_range_from_relative_range = ($: d_ide.Relative_Range): d.R
 
 export const $$: _et.Refiner_Old<d.Format_Result, d.Format_Error, d.Format_Parameters> = ( //FIXME should be a refiner with parameters
 	$p
-) => _ea.create_refinement_context<d_parse_tree._T_Document, d_parse_result.Parse_Error>((abort) => r_parse.parse(
+) => _ea.create_refinement_context<d_parse_tree._T_Document, d_parse_result.Parse_Error>((abort) => r_parse.Document(
 	$p.content,
 	{
 		'tab size': 1,

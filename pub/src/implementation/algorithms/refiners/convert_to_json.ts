@@ -15,7 +15,7 @@ import * as s_json from "pareto-json/dist/exceptional/serializers/json"
 import * as r_parse from "astn/dist/implementation/algorithms/refiners/authoring_parse_tree/text/refiners"
 
 
-export const $$: _et.Refiner_Old<string, null, d.Convert_To_JSON_Parameters> = ($) => _ea.create_refinement_context<d_parse_tree._T_Document, d_parse_result.Parse_Error>((abort) => r_parse.parse(
+export const $$: _et.Refiner_Old<string, null, d.Convert_To_JSON_Parameters> = ($) => _ea.create_refinement_context<d_parse_tree._T_Document, d_parse_result.Parse_Error>((abort) => r_parse.Document(
 	$.content,
 	{
 		'tab size': 1,
