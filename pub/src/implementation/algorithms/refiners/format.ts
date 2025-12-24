@@ -4,15 +4,17 @@ import * as _ea from 'exupery-core-alg'
 
 import * as d from "../../../interface/generated/pareto/schemas/client/data_types/target"
 
+import * as d_parse_result from "astn/dist/interface/generated/pareto/schemas/authoring_parse_result/data_types/target"
+import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/authoring_parse_tree/data_types/target"
+
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
 
-import * as x_parse from "astn/dist/implementation/algorithms/refiners/authoring_parse_tree/text/refiners"
-
-import * as t_ast_2_ide from "astn/dist/implementation/algorithms/transformers/authoring_parse_tree/ide"
-
-import * as s_parse_result from "astn/dist/implementation/algorithms/transformers/parse_result/string"
 import { Signature } from "../../../interface/algorithms/queries/format"
+
+import * as r_parse from "astn/dist/implementation/algorithms/refiners/authoring_parse_tree/text/refiners"
+import * as t_ast_2_ide from "astn/dist/implementation/algorithms/transformers/authoring_parse_tree/ide"
+import * as s_parse_result from "astn/dist/implementation/algorithms/transformers/parse_result/string"
 
 
 
@@ -31,14 +33,15 @@ const create_frontend_range_from_relative_range = ($: d_ide.Relative_Range): d.R
 }
 
 
-export const $$: _et.Refiner<d.Format_Result, d.Format_Error, d.Format_Parameters> = (
+export const $$: _et.Refiner_Old<d.Format_Result, d.Format_Error, d.Format_Parameters> = ( //FIXME should be a refiner with parameters
 	$p
-) => x_parse.parse(
+) => _ea.create_refinement_context<d_parse_tree._T_Document, d_parse_result.Parse_Error>((abort) => r_parse.parse(
 	$p.content,
 	{
-		'tab size': 1
-	}
-).deprecated_transform_error(
+		'tab size': 1,
+	},
+	abort,
+)).deprecated_transform_error(
 	($) => ({
 		'message': s_parse_result.Parse_Error($, { 'position info': ['zero based', null] })
 	})

@@ -4,19 +4,23 @@ import * as _ea from 'exupery-core-alg'
 
 import * as d from "../../../interface/generated/pareto/schemas/server/data_types/source"
 
-import * as t_ast_2_json from "astn/dist/implementation/algorithms/transformers/authoring_parse_tree/json_target" //FIXME this should be sealed target
-import * as s_json from "pareto-json/dist/exceptional/serializers/json"
+import * as d_parse_result from "astn/dist/interface/generated/pareto/schemas/authoring_parse_result/data_types/target"
+import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/authoring_parse_tree/data_types/target"
 
-import * as x_parse from "astn/dist/implementation/algorithms/refiners/authoring_parse_tree/text/refiners"
 import { Signature } from "../../../interface/algorithms/queries/seal"
 
+import * as t_ast_2_json from "astn/dist/implementation/algorithms/transformers/authoring_parse_tree/json_target" //FIXME this should be sealed target
+import * as s_json from "pareto-json/dist/exceptional/serializers/json"
+import * as r_parse from "astn/dist/implementation/algorithms/refiners/authoring_parse_tree/text/refiners"
 
-export const $$: _et.Refiner<string, null, d.Seal_Parameters> = ($p) => x_parse.parse(
-	$p.content,
+
+export const $$: _et.Refiner_Old<string, null, d.Seal_Parameters> = ($) => _ea.create_refinement_context<d_parse_tree._T_Document, d_parse_result.Parse_Error>((abort) => r_parse.parse(
+	$.content,
 	{
-		'tab size': 1
-	}
-).deprecated_transform_error(
+		'tab size': 1,
+	},
+	abort,
+)).deprecated_transform_error(
 	($) => null
 ).transform_result(
 	($): string => s_json.Document(
