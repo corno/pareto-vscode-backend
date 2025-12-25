@@ -11,9 +11,9 @@ import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_ty
 type Signature = _et.Deprecated_Refiner_Catcher<d_client.Format_Result, d_client.Format_Error, d_client.Format_Parameters>
 
 //dependencies
-import * as r_parse from "astn/dist/implementation/refiners/authoring_parse_tree/text/refiners"
-import * as t_ast_2_ide from "astn/dist/implementation/transformers/authoring_parse_tree/ide"
-import * as s_parse_result from "astn/dist/implementation/transformers/parse_result/string"
+import * as ds_authoring_parse_tree from "astn/dist/implementation/deserializers/schemas/authoring_parse_tree"
+import * as t_ast_2_ide from "astn/dist/implementation/transformers/schemas/authoring_parse_tree/ide"
+import * as s_parse_result from "astn/dist/implementation/serializers/schemas/parse_result"
 
 
 namespace t_token_to_client {
@@ -40,7 +40,7 @@ namespace t_ide_to_client {
 
 export const $$: Signature = ( //FIXME should be a refiner with parameters
 	$p
-) => _ea.create_refinement_context<d_parse_tree._T_Document, d_parse_result.Parse_Error>((abort) => r_parse.Document(
+) => _ea.create_refinement_context<d_parse_tree._T_Document, d_parse_result.Parse_Error>((abort) => ds_authoring_parse_tree.Document(
 	$p.content,
 	{
 		'tab size': 1,

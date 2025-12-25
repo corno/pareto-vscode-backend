@@ -2,7 +2,7 @@ import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 import * as _ed from 'exupery-core-dev'
 
-import * as d_in from "pareto/dist/temp/temp_unmashall_result_types"
+import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result_types"
 
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 
@@ -15,7 +15,7 @@ import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operation
 import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
 import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/expect_exactly_one_entry"
 
-import * as t_ast_to_range from "astn/dist/implementation/transformers/authoring_parse_tree/temp_value_range"
+import * as t_ast_to_range from "astn/dist/implementation/transformers/schemas/authoring_parse_tree/temp_value_range"
 
 const is_in_range = (
 	$: d_token.Relative_Location,

@@ -7,7 +7,7 @@ import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/dat
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
 import * as d_load_pareto_document from "pareto/dist/implementation/queries/load_pareto_document"
-import * as d_parse_result from "astn/dist/implementation/transformers/parse_result/string"
+import * as d_parse_result from "astn/dist/implementation/serializers/schemas/parse_result"
 
 import * as resources_exupery from "exupery-resources/dist/interface/resources"
 
@@ -16,9 +16,9 @@ export type Resources = {
 }
 //dependencies
 import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
-import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/transformations/unmarshall_result/unmarshall_errors"
+import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/transformers/schemas/unmarshall_result/unmarshall_errors"
 import { $$ as q_load_pareto_document } from "pareto/dist/implementation/queries/load_pareto_document"
-import { $$ as op_join } from "pareto-standard-operations/dist/implementation/operations/impure/text/join_list_of_texts_with_separator"
+import { $$ as op_join } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_separated_texts"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
 
 

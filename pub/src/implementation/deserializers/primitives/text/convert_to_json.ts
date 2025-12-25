@@ -9,12 +9,12 @@ import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/auth
 type Signature = _et.Deprecated_Refiner_Catcher<string, null, d_server.Convert_To_JSON_Parameters>
 
 //dependencies
-import * as t_ast_2_json from "astn/dist/implementation/transformers/authoring_parse_tree/json_target"
-import * as s_json from "pareto-json/dist/implementation/serializers/json"
-import * as r_parse from "astn/dist/implementation/refiners/authoring_parse_tree/text/refiners"
+import * as t_ast_2_json from "astn/dist/implementation/transformers/schemas/authoring_parse_tree/json_target"
+import * as s_json from "pareto-json/dist/implementation/serializers/schemas/json"
+import * as ds_authoring_parse_tree from "astn/dist/implementation/deserializers/schemas/authoring_parse_tree"
 
 
-export const $$: Signature = ($) => _ea.create_refinement_context<d_parse_tree._T_Document, d_parse_result.Parse_Error>((abort) => r_parse.Document(
+export const $$: Signature = ($) => _ea.create_refinement_context<d_parse_tree._T_Document, d_parse_result.Parse_Error>((abort) => ds_authoring_parse_tree.Document(
 	$.content,
 	{
 		'tab size': 1,
