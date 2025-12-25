@@ -11,9 +11,9 @@ import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_ty
 type Signature = _et.Deprecated_Refiner_Catcher<d_client.Format_Result, d_client.Format_Error, d_client.Format_Parameters>
 
 //dependencies
-import * as r_parse from "astn/dist/implementation/algorithms/refiners/authoring_parse_tree/text/refiners"
-import * as t_ast_2_ide from "astn/dist/implementation/algorithms/transformers/authoring_parse_tree/ide"
-import * as s_parse_result from "astn/dist/implementation/algorithms/transformers/parse_result/string"
+import * as r_parse from "astn/dist/implementation/refiners/authoring_parse_tree/text/refiners"
+import * as t_ast_2_ide from "astn/dist/implementation/transformers/authoring_parse_tree/ide"
+import * as s_parse_result from "astn/dist/implementation/transformers/parse_result/string"
 
 
 namespace t_token_to_client {

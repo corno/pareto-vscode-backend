@@ -7,7 +7,7 @@ import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/dat
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
 import * as d_load_pareto_document from "pareto/dist/implementation/queries/load_pareto_document"
-import * as d_parse_result from "astn/dist/implementation/algorithms/transformers/parse_result/string"
+import * as d_parse_result from "astn/dist/implementation/transformers/parse_result/string"
 
 import * as resources_exupery from "exupery-resources/dist/interface/resources"
 
