@@ -6,9 +6,10 @@ import * as d from "../../interface/generated/pareto/schemas/server/data_types/s
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
 import * as d_load_pareto_document from "pareto/dist/interface/algorithms/queries/load_pareto_document"
 
+import * as resources_exupery from "exupery-resources/dist/interface/resources"
 
 export type Resources = {
-	'read file': _et.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
+	'read file': resources_exupery.queries.read_file
 }
 
 type Signature = _et.Query_Function<_et.Query<d.On_Hover_Result, d_load_pareto_document.Error, d.On_Hover_Parameters>, Resources>

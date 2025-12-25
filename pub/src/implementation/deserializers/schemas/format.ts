@@ -2,7 +2,7 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d_client from "../../interface/generated/pareto/schemas/client/data_types/target"
+import * as d_client from "../../../interface/generated/pareto/schemas/client/data_types/target"
 import * as d_parse_result from "astn/dist/interface/generated/pareto/schemas/authoring_parse_result/data_types/target"
 import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/authoring_parse_tree/data_types/target"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"

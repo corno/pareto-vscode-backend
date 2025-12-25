@@ -9,8 +9,10 @@ import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/
 import * as d_load_pareto_document from "pareto/dist/implementation/queries/load_pareto_document"
 import * as d_parse_result from "astn/dist/implementation/algorithms/transformers/parse_result/string"
 
+import * as resources_exupery from "exupery-resources/dist/interface/resources"
+
 export type Resources = {
-    'read file': _et.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
+    'read file': resources_exupery.queries.read_file
 }
 //dependencies
 import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
