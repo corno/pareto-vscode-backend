@@ -2,18 +2,14 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
+import * as signatures from "../../interface/signatures"
+
+//data types
 import * as d from "../../interface/generated/pareto/schemas/server/data_types/source"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
-import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
-import * as d_load_pareto_document from "pareto/dist/implementation/queries/load_pareto_document"
 import * as d_parse_result from "astn/dist/implementation/serializers/schemas/parse_result"
 
-import * as resources_exupery from "exupery-resources/dist/interface/resources"
-
-export type Resources = {
-    'read file': resources_exupery.queries.read_file
-}
 //dependencies
 import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
 import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/transformers/schemas/unmarshall_result/unmarshall_errors"
@@ -171,7 +167,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 
 
 
-export const $$: _et.Query_Function<_et.Query<d.On_Validate_Document_Result, d.On_Validate_Document_Result, d.Validate_Document_Parameters>, Resources> = _easync.create_query_function(
+export const $$: signatures.queries.validate_document = _easync.create_query_function(
     ($p, $qr) => q_load_pareto_document($qr)(
         {
             'content': $p.content,

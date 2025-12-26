@@ -2,16 +2,10 @@ import * as _easync from 'exupery-core-async'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
+import * as signatures from "../../interface/signatures"
+
+//data types
 import * as d from "../../interface/generated/pareto/schemas/server/data_types/source"
-import * as d_load_pareto_document from "pareto/dist/interface/to_be_generated/load_pareto_document"
-
-import * as resources_exupery from "exupery-resources/dist/interface/resources"
-
-export type Resources = {
-    'read file': resources_exupery.queries.read_file
-}
-
-type Signature = _et.Query_Function<_et.Query<d.On_Completion_Result, d_load_pareto_document.Error, d.On_Completion_Parameters>, Resources>
 
 //dependencies
 import { $$ as q_load_pareto_document } from "pareto/dist/implementation/queries/load_pareto_document"
@@ -20,7 +14,7 @@ import * as t_backend_location from "../transformers/schemas/server/backend_loca
 import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
 
 
-export const $$: Signature = _easync.create_query_function(
+export const $$: signatures.queries.on_completion = _easync.create_query_function(
     ($p, $qr) => q_load_pareto_document($qr)(
         {
             'content': $p.content,
