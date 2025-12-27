@@ -3,7 +3,7 @@ import * as _ea from 'exupery-core-alg'
 import * as _ed from 'exupery-core-dev'
 
 import * as d_schema from "pareto/dist/interface/generated/pareto/schemas/schema/data_types/source"
-import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result_types"
+import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ast_target from "astn/dist/interface/generated/pareto/schemas/authoring_target/data_types/target"
 import * as d_fpblock from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
@@ -222,11 +222,11 @@ export const Node = (
 									return _ea.cc($['value substatus'], ($) => {
 										switch ($[0]) {
 											case 'missing data': return _ea.ss($, ($) => {
-												return _ea.set(state_group_definition.deprecated_to_array(() => 1).map(($) => {
+												return _ea.set(state_group_definition.to_list(($, key) => {
 													return {
-														'label': $.key,
-														'insert text': `'${$.key}' ${create_default_value_string($.value.node, true)}`,
-														'documentation': $.value.description.transform(
+														'label': key,
+														'insert text': `'${key}' ${create_default_value_string($.node, true)}`,
+														'documentation': $.description.transform(
 															($) => $,
 															() => ""
 														),

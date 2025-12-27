@@ -2,7 +2,7 @@ import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 import * as _ed from 'exupery-core-dev'
 
-import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result_types"
+import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result"
 
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 
@@ -215,7 +215,7 @@ export const Node = (
 										switch ($[0]) {
 											case 'missing data': return _ea.ss($, ($): d_out.Optional_Hover_Texts => {
 
-												return _ea.set(def.deprecated_to_array(() => 1).map(($) => $.key))
+												return _ea.set(def.to_list(($, key) => key))
 											})
 											case 'set': return _ea.ss($, ($) => {
 												const temp = $.value.state.value
