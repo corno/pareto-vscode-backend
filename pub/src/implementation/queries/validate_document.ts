@@ -15,7 +15,6 @@ import * as ds_path from "exupery-resources/dist/implementation/deserializers/sc
 import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/transformers/schemas/unmarshall_result/unmarshall_errors"
 import { $$ as q_load_pareto_document } from "pareto/dist/implementation/queries/load_pareto_document"
 import { $$ as s_list_of_separated_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_separated_texts"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
 
 
 
@@ -289,7 +288,7 @@ export const $$: signatures.queries.validate_document = _easync.create_query_fun
                                     case 'missing value': return _ea.ss($, ($) => `Missing value for state 'XXXX'`)
                                     case 'more than 2 elements': return _ea.ss($, ($) => `State 'XXXX' has more than 2 elements`)
                                     case 'state is not a string': return _ea.ss($, ($) => `State 'XXXX' is not a string`)
-                                    case 'unknown state': return _ea.ss($, ($) => `this state does not exist, choose from ${s_list_of_separated_texts(op_dictionary_to_list($.expected).map(($) => `'${$.key}'`), { 'separator': " or " })}`)
+                                    case 'unknown state': return _ea.ss($, ($) => `this state does not exist, choose from ${s_list_of_separated_texts($.expected.to_list(($, key) => `'${key}'`), { 'separator': " or " })}`)
                                     default: return _ea.au($[0])
                                 }
                             }))

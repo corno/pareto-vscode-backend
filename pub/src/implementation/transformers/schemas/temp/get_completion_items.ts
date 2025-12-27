@@ -13,10 +13,6 @@ import * as d_out from "../../../../interface/generated/pareto/schemas/server/da
 import * as t_astn_target_to_fp from "astn/dist/implementation/transformers/schemas/authoring_target/fountain_pen_block"
 import * as t_default_initialize from "../schema/default_initialize"
 import * as s_fp from "pareto-fountain-pen/dist/implementation/serializers/schemas/block"
-import { $$ as op_filter_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/filter"
-import { $$ as op_filter_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/filter"
-import { $$ as op_cast_list_to_non_empty } from "pareto-standard-operations/dist/implementation/operations/impure/list/cast_to_non_empty"
-import { $$ as op_cast_dictionary_to_non_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/cast_to_non_empty"
 import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
 import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/expect_exactly_one_entry"
 
@@ -41,25 +37,25 @@ const is_in_range = (
 }
 
 const filter_dictionary = ($: _et.Dictionary<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => {
-	return op_cast_dictionary_to_non_empty(
-		op_filter_dictionary($)
-	).transform<d_out.Optional_Completion_Items>(
-		($) => op_expect_1_entry($).transform<d_out.Optional_Completion_Items>(
-			($) => _ea.set($.value),
-			() => _ea.deprecated_panic("multiple entries match the location, that should not happen"),
-		),
-		() => _ea.not_set()
+	return _ea.cc(
+		$.filter(($) => $),
+		($) => $.is_empty()
+			? _ea.not_set()
+			: op_expect_1_entry($).transform<d_out.Optional_Completion_Items>(
+				($) => _ea.set($.value),
+				() => _ea.deprecated_panic("multiple entries match the location, that should not happen"),
+			)
 	)
 }
 const filter_list = ($: _et.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => {
-	return op_cast_list_to_non_empty(
-		op_filter_list($)
-	).transform<d_out.Optional_Completion_Items>(
-		($) => op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
-			($) => _ea.set($),
-			() => _ea.deprecated_panic("multiple entries match the location, that should not happen"),
-		),
-		() => _ea.not_set()
+	return _ea.cc(
+		$.filter(($) => $),
+		($) => $.is_empty()
+			? _ea.not_set()
+			: op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
+				($) => _ea.set($),
+				() => _ea.deprecated_panic("multiple entries match the location, that should not happen"),
+			)
 	)
 }
 
