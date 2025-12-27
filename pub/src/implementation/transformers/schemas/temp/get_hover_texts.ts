@@ -9,9 +9,10 @@ import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/dat
 import * as d_out from "../../../../interface/generated/pareto/schemas/server/data_types/target"
 
 import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
-import { $$ as op_expect_1_entry } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/expect_exactly_one_entry"
 
 import * as t_ast_to_range from "astn/dist/implementation/transformers/schemas/authoring_parse_tree/temp_value_range"
+
+
 
 const is_in_range = (
 	$: d_token.Relative_Location,
@@ -32,6 +33,30 @@ const is_in_range = (
 }
 
 const filter_dictionary = ($: _et.Dictionary<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => {
+
+
+	const op_expect_1_entry = <T>($: _et.Dictionary<T>): _et.Optional_Value<_et.Key_Value_Pair<T>> => {
+		let found: null | _et.Key_Value_Pair<T> = null
+		let found_too_many = false
+		$.map(($, key) => {
+			if (found !== null) {
+				found_too_many = true
+			}
+			found = {
+				'key': key,
+				'value': $,
+			}
+		})
+		if (found_too_many) {
+			//more than one entry
+			return _ea.not_set()
+		}
+		if (found === null) {
+			//not found
+			return _ea.not_set()
+		}
+		return _ea.set(found)
+	}
 	return _ea.cc(
 		$.filter(($) => $),
 		($) => $.is_empty()
