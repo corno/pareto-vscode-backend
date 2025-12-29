@@ -1,6 +1,6 @@
-import * as _easync from 'exupery-core-async'
-import * as _et from 'exupery-core-types'
-import * as _ea from 'exupery-core-alg'
+import * as _pq from 'pareto-core-query'
+import * as _pi from 'pareto-core-interface'
+import * as _pt from 'pareto-core-transformer'
 
 import * as signatures from "../../interface/signatures"
 
@@ -44,7 +44,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 }
 
 
-// export const $$: _et.Guaranteed_Query<d.Validate_Document_Parameters, d.On_Validate_Document_Result, Resources> = (
+// export const $$: _pi.Guaranteed_Query<d.Validate_Document_Parameters, d.On_Validate_Document_Result, Resources> = (
 // 	$p, $r
 // ) => load_astn_document(
 // 	{
@@ -56,50 +56,50 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 // 	($): d.On_Validate_Document_Result => ({
 // 		'diagnostics': t_unmarshall_result_2_unmarshall_errors.Node($, null).map(($): d.Diagnostic => ({
 
-// 			'severity': _ea.cc($.type, ($) => {
+// 			'severity': _pt.cc($.type, ($) => {
 // 				switch ($[0]) {
-// 					case 'error': return _ea.ss($, ($) => ['error', null])
-// 					case 'warning': return _ea.ss($, ($) => ['warning', null])
-// 					default: return _ea.au($[0])
+// 					case 'error': return _pt.ss($, ($) => ['error', null])
+// 					case 'warning': return _pt.ss($, ($) => ['warning', null])
+// 					default: return _pt.au($[0])
 // 				}
 // 			}),
 // 			'range': create_frontend_range_from_range($.range),
-// 			'message': _ea.cc($.type, ($) => {
+// 			'message': _pt.cc($.type, ($) => {
 // 				switch ($[0]) {
-// 					case 'error': return _ea.ss($, ($) => _ea.cc($, ($) => _ea.cc($, ($) => {
+// 					case 'error': return _pt.ss($, ($) => _pt.cc($, ($) => _pt.cc($, ($) => {
 // 						switch ($[0]) {
-// 							case 'duplicate property': return _ea.ss($, ($) => `Duplicate property '${$.name}'`)
-// 							case 'invalid value type': return _ea.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
-// 							case 'missing property': return _ea.ss($, ($) => `Missing property '${$.name}'`)
-// 							case 'state': return _ea.ss($, ($) => _ea.cc($, ($) => {
+// 							case 'duplicate property': return _pt.ss($, ($) => `Duplicate property '${$.name}'`)
+// 							case 'invalid value type': return _pt.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
+// 							case 'missing property': return _pt.ss($, ($) => `Missing property '${$.name}'`)
+// 							case 'state': return _pt.ss($, ($) => _pt.cc($, ($) => {
 // 								switch ($[0]) {
-// 									case 'missing state name': return _ea.ss($, ($) => `Missing state name`)
-// 									case 'missing data marker': return _ea.ss($, ($) => `Missing data marker for state 'XXXX'`)
-// 									case 'missing value': return _ea.ss($, ($) => `Missing value for state 'XXXX'`)
-// 									case 'more than 2 elements': return _ea.ss($, ($) => `State 'XXXX' has more than 2 elements`)
-// 									case 'state is not a string': return _ea.ss($, ($) => `State 'XXXX' is not a string`)
-// 									case 'unknown state': return _ea.ss($, ($) => `this state does not exist, choose from ${s_list_of_separated_texts(op_dictionary_to_list($.expected).map(($) => `'${$.key}'`), { 'separator': " or " })}`)
-// 									default: return _ea.au($[0])
+// 									case 'missing state name': return _pt.ss($, ($) => `Missing state name`)
+// 									case 'missing data marker': return _pt.ss($, ($) => `Missing data marker for state 'XXXX'`)
+// 									case 'missing value': return _pt.ss($, ($) => `Missing value for state 'XXXX'`)
+// 									case 'more than 2 elements': return _pt.ss($, ($) => `State 'XXXX' has more than 2 elements`)
+// 									case 'state is not a string': return _pt.ss($, ($) => `State 'XXXX' is not a string`)
+// 									case 'unknown state': return _pt.ss($, ($) => `this state does not exist, choose from ${s_list_of_separated_texts(op_dictionary_to_list($.expected).map(($) => `'${$.key}'`), { 'separator': " or " })}`)
+// 									default: return _pt.au($[0])
 // 								}
 // 							}))
-// 							case 'superfluous property': return _ea.ss($, ($) => `Superfluous property '${$.name}'`)
-// 							default: return _ea.au($[0])
+// 							case 'superfluous property': return _pt.ss($, ($) => `Superfluous property '${$.name}'`)
+// 							default: return _pt.au($[0])
 // 						}
 // 					})))
-// 					case 'warning': return _ea.ss($, ($) => _ea.cc($, ($) => `${$[0]} (FIXME: more info)`))
-// 					default: return _ea.au($[0])
+// 					case 'warning': return _pt.ss($, ($) => _pt.cc($, ($) => `${$[0]} (FIXME: more info)`))
+// 					default: return _pt.au($[0])
 // 				}
 // 			}),
-// 			'related information': _ea.not_set()
+// 			'related information': _pt.not_set()
 // 		}))
 // 	})
 // ).catch_(($) => {
 // 	return _easync.query.guaranteed['create result']<d.On_Validate_Document_Result>({
-// 		'diagnostics': _ea.cc(
+// 		'diagnostics': _pt.cc(
 // 			$,
 // 			($): d.Diagnostics => {
 // 				switch ($[0]) {
-// 					case 'no schema file': return _ea.ss($, ($) => _ea.list_literal<d.Diagnostic>([
+// 					case 'no schema file': return _pt.ss($, ($) => _pt.list_literal<d.Diagnostic>([
 // 						{
 // 							'severity': ['error', null],
 // 							'range': {
@@ -113,12 +113,12 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 // 								}
 // 							},
 // 							'message': `No schema file found`,
-// 							'related information': _ea.not_set()
+// 							'related information': _pt.not_set()
 // 						}
 
 
 // 					]))
-// 					case 'schema error': return _ea.ss($, ($) => _ea.list_literal<d.Diagnostic>([
+// 					case 'schema error': return _pt.ss($, ($) => _pt.list_literal<d.Diagnostic>([
 // 						{
 // 							'severity': ['error', null],
 // 							'range': {
@@ -132,7 +132,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 // 								}
 // 							},
 // 							'message': `error in schema: ${$['file location']}`,
-// 							'related information': _ea.set(_ea.list_literal([
+// 							'related information': _pt.set(_pt.list_literal([
 // 								{
 // 									'location': {
 // 										'file path': "FIXME/PATH/TO/SCHEMA",
@@ -149,15 +149,15 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 
 
 // 					]))
-// 					case 'parse error': return _ea.ss($, ($) => _ea.list_literal<d.Diagnostic>([
+// 					case 'parse error': return _pt.ss($, ($) => _pt.list_literal<d.Diagnostic>([
 // 						{
 // 							'severity': ['error', null],
 // 							'range': create_frontend_range_from_range($.range),
 // 							'message': `${d_parse_result.Parse_Error_Type($.type)}`,
-// 							'related information': _ea.not_set()
+// 							'related information': _pt.not_set()
 // 						}
 // 					]))
-// 					default: return _ea.au($[0])
+// 					default: return _pt.au($[0])
 // 				}
 // 			}
 // 		)
@@ -166,7 +166,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 
 
 
-export const $$: signatures.queries.validate_document = _easync.create_query_function(
+export const $$: signatures.queries.validate_document = _pq.create_query_function(
     ($p, $qr) => q_load_pareto_document($qr)(
         {
             'content': $p.content,
@@ -175,15 +175,15 @@ export const $$: signatures.queries.validate_document = _easync.create_query_fun
                 {
                     'pedantic': true,
                 },
-                () => _ea.deprecated_panic("Invalid file path"),
+                () => _pt.deprecated_panic("Invalid file path"),
             ),
         },
         ($): d.On_Validate_Document_Result => ({
-            'diagnostics': _ea.cc(
+            'diagnostics': _pt.cc(
                 $,
                 ($): d.Diagnostics => {
                     switch ($[0]) {
-                        case 'no schema file': return _ea.ss($, ($) => _ea.list_literal<d.Diagnostic>([
+                        case 'no schema file': return _pt.ss($, ($) => _pt.list_literal<d.Diagnostic>([
                             {
                                 'severity': ['error', null],
                                 'range': {
@@ -197,12 +197,12 @@ export const $$: signatures.queries.validate_document = _easync.create_query_fun
                                     }
                                 },
                                 'message': `No schema file found`,
-                                'related information': _ea.not_set()
+                                'related information': _pt.not_set()
                             }
 
 
                         ]))
-                        case 'schema error': return _ea.ss($, ($) => _ea.list_literal<d.Diagnostic>([
+                        case 'schema error': return _pt.ss($, ($) => _pt.list_literal<d.Diagnostic>([
                             {
                                 'severity': ['error', null],
                                 'range': {
@@ -216,7 +216,7 @@ export const $$: signatures.queries.validate_document = _easync.create_query_fun
                                     }
                                 },
                                 'message': `error in schema: ${$['file location']}`,
-                                'related information': _ea.set(_ea.list_literal([
+                                'related information': _pt.set(_pt.list_literal([
                                     {
                                         'location': {
                                             'file path': "FIXME/PATH/TO/SCHEMA",
@@ -233,15 +233,15 @@ export const $$: signatures.queries.validate_document = _easync.create_query_fun
 
 
                         ]))
-                        case 'parse error': return _ea.ss($, ($) => _ea.list_literal<d.Diagnostic>([
+                        case 'parse error': return _pt.ss($, ($) => _pt.list_literal<d.Diagnostic>([
                             {
                                 'severity': ['error', null],
                                 'range': create_frontend_range_from_range($.range),
                                 'message': `${d_parse_result.Parse_Error_Type($.type)}`,
-                                'related information': _ea.not_set()
+                                'related information': _pt.not_set()
                             }
                         ]))
-                        case 'unmarshall error': return _ea.ss($, ($) => _ea.list_literal<d.Diagnostic>([
+                        case 'unmarshall error': return _pt.ss($, ($) => _pt.list_literal<d.Diagnostic>([
                             {
                                 'severity': ['error', null],
                                 'range': {
@@ -255,10 +255,10 @@ export const $$: signatures.queries.validate_document = _easync.create_query_fun
                                     }
                                 },
                                 'message': `unmarshall error (no further information available currently)`,
-                                'related information': _ea.not_set()
+                                'related information': _pt.not_set()
                             }
                         ]))
-                        default: return _ea.au($[0])
+                        default: return _pt.au($[0])
                     }
                 }
             )
@@ -266,41 +266,41 @@ export const $$: signatures.queries.validate_document = _easync.create_query_fun
     ).transform_result(($): d.On_Validate_Document_Result => ({
         'diagnostics': t_unmarshall_result_2_unmarshall_errors.Node($, null).map(($): d.Diagnostic => ({
 
-            'severity': _ea.cc($.type, ($) => {
+            'severity': _pt.cc($.type, ($) => {
                 switch ($[0]) {
-                    case 'error': return _ea.ss($, ($) => ['error', null])
-                    case 'warning': return _ea.ss($, ($) => ['warning', null])
-                    default: return _ea.au($[0])
+                    case 'error': return _pt.ss($, ($) => ['error', null])
+                    case 'warning': return _pt.ss($, ($) => ['warning', null])
+                    default: return _pt.au($[0])
                 }
             }),
             'range': create_frontend_range_from_range($.range),
-            'message': _ea.cc($.type, ($) => {
+            'message': _pt.cc($.type, ($) => {
                 switch ($[0]) {
-                    case 'error': return _ea.ss($, ($) => _ea.cc($, ($) => _ea.cc($, ($) => {
+                    case 'error': return _pt.ss($, ($) => _pt.cc($, ($) => _pt.cc($, ($) => {
                         switch ($[0]) {
-                            case 'duplicate property': return _ea.ss($, ($) => `Duplicate property '${$.name}'`)
-                            case 'invalid value type': return _ea.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
-                            case 'missing property': return _ea.ss($, ($) => `Missing property '${$.name}'`)
-                            case 'state': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                            case 'duplicate property': return _pt.ss($, ($) => `Duplicate property '${$.name}'`)
+                            case 'invalid value type': return _pt.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
+                            case 'missing property': return _pt.ss($, ($) => `Missing property '${$.name}'`)
+                            case 'state': return _pt.ss($, ($) => _pt.cc($, ($) => {
                                 switch ($[0]) {
-                                    case 'missing state name': return _ea.ss($, ($) => `Missing state name`)
-                                    case 'missing data marker': return _ea.ss($, ($) => `Missing data marker for state 'XXXX'`)
-                                    case 'missing value': return _ea.ss($, ($) => `Missing value for state 'XXXX'`)
-                                    case 'more than 2 elements': return _ea.ss($, ($) => `State 'XXXX' has more than 2 elements`)
-                                    case 'state is not a string': return _ea.ss($, ($) => `State 'XXXX' is not a string`)
-                                    case 'unknown state': return _ea.ss($, ($) => `this state does not exist, choose from ${s_list_of_separated_texts($.expected.to_list(($, key) => `'${key}'`), { 'separator': " or " })}`)
-                                    default: return _ea.au($[0])
+                                    case 'missing state name': return _pt.ss($, ($) => `Missing state name`)
+                                    case 'missing data marker': return _pt.ss($, ($) => `Missing data marker for state 'XXXX'`)
+                                    case 'missing value': return _pt.ss($, ($) => `Missing value for state 'XXXX'`)
+                                    case 'more than 2 elements': return _pt.ss($, ($) => `State 'XXXX' has more than 2 elements`)
+                                    case 'state is not a string': return _pt.ss($, ($) => `State 'XXXX' is not a string`)
+                                    case 'unknown state': return _pt.ss($, ($) => `this state does not exist, choose from ${s_list_of_separated_texts($.expected.to_list(($, key) => `'${key}'`), { 'separator': " or " })}`)
+                                    default: return _pt.au($[0])
                                 }
                             }))
-                            case 'superfluous property': return _ea.ss($, ($) => `Superfluous property '${$.name}'`)
-                            default: return _ea.au($[0])
+                            case 'superfluous property': return _pt.ss($, ($) => `Superfluous property '${$.name}'`)
+                            default: return _pt.au($[0])
                         }
                     })))
-                    case 'warning': return _ea.ss($, ($) => _ea.cc($, ($) => `${$[0]} (FIXME: more info)`))
-                    default: return _ea.au($[0])
+                    case 'warning': return _pt.ss($, ($) => _pt.cc($, ($) => `${$[0]} (FIXME: more info)`))
+                    default: return _pt.au($[0])
                 }
             }),
-            'related information': _ea.not_set()
+            'related information': _pt.not_set()
         }))
     }))
 )

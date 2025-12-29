@@ -1,6 +1,6 @@
-import * as _easync from 'exupery-core-async'
-import * as _et from 'exupery-core-types'
-import * as _ea from 'exupery-core-alg'
+import * as _pq from 'pareto-core-query'
+import * as _pi from 'pareto-core-interface'
+import * as _pt from 'pareto-core-transformer'
 
 import * as signatures from "../../interface/signatures"
 
@@ -14,7 +14,7 @@ import * as t_backend_location from "../transformers/schemas/server/backend_loca
 import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
 
 
-export const $$: signatures.queries.on_completion = _easync.create_query_function(
+export const $$: signatures.queries.on_completion = _pq.create_query_function(
     ($p, $qr) => q_load_pareto_document($qr)(
         {
             'content': $p.content,
@@ -23,7 +23,7 @@ export const $$: signatures.queries.on_completion = _easync.create_query_functio
                 {
                     'pedantic': true,
                 },
-                () => _ea.deprecated_panic("Invalid file path"),
+                () => _pt.deprecated_panic("Invalid file path"),
             ),
         },
         ($) => $,
@@ -33,7 +33,7 @@ export const $$: signatures.queries.on_completion = _easync.create_query_functio
             'indent': $p.indent,
         }).transform(
             ($) => $,
-            () => _ea.list_literal([]),
+            () => _pt.list_literal([]),
         )
     }))
 )
