@@ -1,6 +1,6 @@
 import * as _pi from 'pareto-core-interface'
 import * as _pt from 'pareto-core-transformer'
-import * as _ed from 'pareto-core-dev'
+import * as _pdev from 'pareto-core-dev'
 
 import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result"
 
@@ -138,7 +138,7 @@ export const Node = (
 		switch ($[0]) {
 			case 'number': return _pt.ss($, ($) => wrap())
 			case 'boolean': return _pt.ss($, ($) => wrap())
-			case 'type parameter': return _pt.ss($, ($) => _ed.implement_me("xx"))
+			case 'type parameter': return _pt.ss($, ($) => _pdev.implement_me("xx"))
 			case 'list': return _pt.ss($, ($) => _pt.cc($['found value type'], ($) => {
 				switch ($[0]) {
 					case 'valid': return _pt.ss($, ($) => filter_list($.elements.map(($) => Node($, {
