@@ -1,5 +1,4 @@
 import * as _pq from 'pareto-core-query'
-import * as _pi from 'pareto-core-interface'
 
 import * as d from "../../interface/generated/pareto/schemas/client/data_types/target"
 

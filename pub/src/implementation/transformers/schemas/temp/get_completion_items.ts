@@ -154,8 +154,6 @@ export const Node = (
 		return _pt.not_set()
 	}
 
-
-
 	return _pt.cc($.type, ($): d_out.Optional_Completion_Items => {
 		switch ($[0]) {
 			case 'number': return _pt.ss($, ($) => wrap())

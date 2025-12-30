@@ -38,7 +38,7 @@ namespace t_ide_to_client {
 }
 
 
-export const $$: Signature = ( //FIXME should be a refiner with parameters
+export const $$: Signature = (
 	$, $p, abort
 ) => {
 	const x = ds_authoring_parse_tree.Document(
