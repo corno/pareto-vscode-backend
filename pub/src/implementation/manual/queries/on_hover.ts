@@ -3,15 +3,15 @@ import * as _pi from 'pareto-core-interface'
 import * as _pt from 'pareto-core-transformer'
 import * as _pinternals from 'pareto-core-internals'
 
-import * as signatures from "../../interface/signatures"
+import * as signatures from "../../../interface/signatures"
 
 //data types
-import * as d from "../../interface/generated/pareto/schemas/server/data_types/source"
+import * as d from "../../../interface/generated/pareto/schemas/server/data_types/source"
 
 //dependencies
 import { $$ as q_load_pareto_document } from "pareto/dist/implementation/queries/load_pareto_document"
-import * as t_find_hover_texts from "../transformers/schemas/temp/get_hover_texts"
-import * as t_backend_location from "../transformers/schemas/server/backend_location"
+import * as t_find_hover_texts from "../schemas/temp/transformers/get_hover_texts"
+import * as t_backend_location from "../schemas/server/transformers/backend_location"
 import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
 
 export const $$: signatures.queries.on_hover = _pq.create_query_function(

@@ -1,7 +1,7 @@
 import * as _pds from 'pareto-core-deserializer'
 import * as _pi from 'pareto-core-interface'
 
-import * as d_server from "../../../../interface/generated/pareto/schemas/server/data_types/source"
+import * as d_server from "../../../../../interface/generated/pareto/schemas/server/data_types/source"
 import * as d_parse_result from "astn/dist/interface/generated/pareto/schemas/authoring_parse_result/data_types/target"
 import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/authoring_parse_tree/data_types/target"
 

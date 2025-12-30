@@ -3,7 +3,7 @@ import * as _pt from 'pareto-core-transformer'
 
 type Signature = _pi.Deserializer_With_Parameters<string, null, d_server.Convert_To_JSON_Parameters>
 
-import * as d_server from "../../../../interface/generated/pareto/schemas/server/data_types/source"
+import * as d_server from "../../../../../interface/generated/pareto/schemas/server/data_types/source"
 
 //dependencies
 import * as t_authoring_parse_tree_2_sealed_ast from "astn/dist/implementation/transformers/schemas/authoring_parse_tree/json_target" //FIXME this should be sealed target

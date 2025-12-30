@@ -2,7 +2,7 @@ import * as _pi from 'pareto-core-interface'
 import * as _pds from 'pareto-core-deserializer'
 import * as _pt from 'pareto-core-transformer'
 
-import * as d_client from "../../../interface/generated/pareto/schemas/client/data_types/target"
+import * as d_client from "../../../../interface/generated/pareto/schemas/client/data_types/target"
 import * as d_parse_result from "astn/dist/interface/generated/pareto/schemas/authoring_parse_result/data_types/target"
 import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/authoring_parse_tree/data_types/target"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"

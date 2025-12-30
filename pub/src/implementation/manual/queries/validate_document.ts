@@ -3,10 +3,10 @@ import * as _pi from 'pareto-core-interface'
 import * as _pt from 'pareto-core-transformer'
 import * as _pinternals from 'pareto-core-internals'
 
-import * as signatures from "../../interface/signatures"
+import * as signatures from "../../../interface/signatures"
 
 //data types
-import * as d from "../../interface/generated/pareto/schemas/server/data_types/source"
+import * as d from "../../../interface/generated/pareto/schemas/server/data_types/source"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
 import * as d_parse_result from "astn/dist/implementation/serializers/schemas/parse_result"
