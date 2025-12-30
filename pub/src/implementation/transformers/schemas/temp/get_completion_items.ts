@@ -1,6 +1,7 @@
 import * as _pt from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
 import * as _pdev from 'pareto-core-dev'
+import * as _pinternals from 'pareto-core-internals'
 
 import * as d_schema from "pareto/dist/interface/generated/pareto/schemas/schema/data_types/source"
 import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result"
@@ -64,7 +65,7 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): 
 			? _pt.not_set()
 			: op_expect_1_entry($).transform<d_out.Optional_Completion_Items>(
 				($) => _pt.set($.value),
-				() => _pt.deprecated_panic("multiple entries match the location, that should not happen"),
+				() => _pinternals.panic("multiple entries match the location, that should not happen"),
 			)
 	)
 }
@@ -75,7 +76,7 @@ const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Option
 			? _pt.not_set()
 			: op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
 				($) => _pt.set($),
-				() => _pt.deprecated_panic("multiple entries match the location, that should not happen"),
+				() => _pinternals.panic("multiple entries match the location, that should not happen"),
 			)
 	)
 }

@@ -1,6 +1,7 @@
 import * as _pq from 'pareto-core-query'
 import * as _pi from 'pareto-core-interface'
 import * as _pt from 'pareto-core-transformer'
+import * as _pinternals from 'pareto-core-internals'
 
 import * as signatures from "../../interface/signatures"
 
@@ -175,7 +176,7 @@ export const $$: signatures.queries.validate_document = _pq.create_query_functio
                 {
                     'pedantic': true,
                 },
-                () => _pt.deprecated_panic("Invalid file path"),
+                () => _pinternals.panic("Invalid file path"),
             ),
         },
         ($): d.On_Validate_Document_Result => ({
