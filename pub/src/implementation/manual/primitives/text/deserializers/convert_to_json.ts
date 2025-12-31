@@ -8,9 +8,9 @@ import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/auth
 type Signature = _pi.Deserializer_With_Parameters<string, null, d_server.Convert_To_JSON_Parameters>
 
 //dependencies
-import * as t_ast_2_json from "astn/dist/implementation/transformers/schemas/authoring_parse_tree/json_target"
-import * as s_json from "pareto-json/dist/implementation/serializers/schemas/json"
-import * as ds_authoring_parse_tree from "astn/dist/implementation/deserializers/schemas/authoring_parse_tree"
+import * as t_ast_2_json from "astn/dist/implementation/manual/schemas/authoring_parse_tree/transformers/json_target"
+import * as s_json from "pareto-json/dist/implementation/manual/schemas/json/serializers"
+import * as ds_authoring_parse_tree from "astn/dist/implementation/manual/schemas/authoring_parse_tree/deserializers"
 
 
 export const $$: Signature = ($, $p, abort) => {

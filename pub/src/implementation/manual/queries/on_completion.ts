@@ -9,7 +9,7 @@ import * as signatures from "../../../interface/signatures"
 import * as d from "../../../interface/generated/pareto/schemas/server/data_types/source"
 
 //dependencies
-import { $$ as q_load_pareto_document } from "pareto/dist/implementation/queries/load_pareto_document"
+import { $$ as q_load_pareto_document } from "pareto/dist/implementation/manual/queries/load_pareto_document"
 import * as t_find_completion_items from "../schemas/temp/transformers/get_completion_items"
 import * as t_backend_location from "../schemas/server/transformers/backend_location"
 import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"

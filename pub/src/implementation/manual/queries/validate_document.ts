@@ -9,13 +9,13 @@ import * as signatures from "../../../interface/signatures"
 import * as d from "../../../interface/generated/pareto/schemas/server/data_types/source"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
-import * as d_parse_result from "astn/dist/implementation/serializers/schemas/parse_result"
+import * as d_parse_result from "astn/dist/implementation/manual/schemas/parse_result/serializers"
 
 //dependencies
 import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
-import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/transformers/schemas/unmarshall_result/unmarshall_errors"
-import { $$ as q_load_pareto_document } from "pareto/dist/implementation/queries/load_pareto_document"
-import { $$ as s_list_of_separated_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_separated_texts"
+import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/manual/schemas/unmarshall_result/transformers/unmarshall_errors"
+import { $$ as q_load_pareto_document } from "pareto/dist/implementation/manual/queries/load_pareto_document"
+import { $$ as s_list_of_separated_texts } from "pareto-standard-operations/dist/implementation/temp_serializers/schemas/list_of_separated_texts"
 
 
 

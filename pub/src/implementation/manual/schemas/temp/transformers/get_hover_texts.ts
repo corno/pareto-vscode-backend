@@ -11,7 +11,7 @@ import * as d_out from "../../../../../interface/generated/pareto/schemas/server
 
 import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
 
-import * as t_ast_to_range from "astn/dist/implementation/transformers/schemas/authoring_parse_tree/temp_value_range"
+import * as t_ast_to_range from "astn/dist/implementation/manual/schemas/authoring_parse_tree/transformers/token"
 
 
 

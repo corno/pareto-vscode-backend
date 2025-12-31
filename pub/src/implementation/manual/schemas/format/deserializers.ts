@@ -11,9 +11,9 @@ import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_ty
 type Signature = _pi.Deserializer_With_Parameters<d_client.Format_Result, d_client.Format_Error, d_client.Format_Parameters>
 
 //dependencies
-import * as ds_authoring_parse_tree from "astn/dist/implementation/deserializers/schemas/authoring_parse_tree"
-import * as t_ast_2_ide from "astn/dist/implementation/transformers/schemas/authoring_parse_tree/ide"
-import * as s_parse_result from "astn/dist/implementation/serializers/schemas/parse_result"
+import * as ds_authoring_parse_tree from "astn/dist/implementation/manual/schemas/authoring_parse_tree/deserializers"
+import * as t_ast_2_ide from "astn/dist/implementation/manual/schemas/authoring_parse_tree/transformers/ide"
+import * as s_parse_result from "astn/dist/implementation/manual/schemas/parse_result/serializers"
 
 
 namespace t_token_to_client {
