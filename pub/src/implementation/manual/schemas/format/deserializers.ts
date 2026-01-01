@@ -38,17 +38,15 @@ namespace t_ide_to_client {
 }
 
 
-export const $$: Signature = (
-	$, $p, abort
-) => {
+export const $$: Signature = ($, abort, $p) => {
 	const x = ds_authoring_parse_tree.Document(
 		$,
-		{
-			'tab size': 1,
-		},
 		($) => abort({
 			'message': s_parse_result.Parse_Error($, { 'position info': ['zero based', null] })
 		}),
+		{
+			'tab size': 1,
+		},
 	)
 
 	const x2 = t_ast_2_ide.Document(

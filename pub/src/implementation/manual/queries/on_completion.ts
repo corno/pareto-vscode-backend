@@ -12,7 +12,7 @@ import * as d from "../../../interface/generated/pareto/schemas/server/data_type
 import { $$ as q_load_pareto_document } from "pareto/dist/implementation/manual/queries/load_pareto_document"
 import * as t_find_completion_items from "../schemas/temp/transformers/get_completion_items"
 import * as t_backend_location from "../schemas/server/transformers/backend_location"
-import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
+import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/node_path/deserializers"
 
 
 export const $$: signatures.queries.on_completion = _pq.create_query_function(
@@ -21,10 +21,10 @@ export const $$: signatures.queries.on_completion = _pq.create_query_function(
             'content': $p.content,
             'file path': ds_path.Node_Path(
                 $p['file path'],
+                () => _pinternals.panic("Invalid file path"),
                 {
                     'pedantic': true,
                 },
-                () => _pinternals.panic("Invalid file path"),
             ),
         },
         ($) => $,

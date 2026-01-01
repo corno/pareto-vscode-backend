@@ -12,7 +12,7 @@ import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_ty
 import * as d_parse_result from "astn/dist/implementation/manual/schemas/parse_result/serializers"
 
 //dependencies
-import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/node_path"
+import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/node_path/deserializers"
 import * as t_unmarshall_result_2_unmarshall_errors from "pareto/dist/implementation/manual/schemas/unmarshall_result/transformers/unmarshall_errors"
 import { $$ as q_load_pareto_document } from "pareto/dist/implementation/manual/queries/load_pareto_document"
 import { $$ as s_list_of_separated_texts } from "pareto-standard-operations/dist/implementation/temp_serializers/schemas/list_of_separated_texts"
@@ -173,10 +173,10 @@ export const $$: signatures.queries.validate_document = _pq.create_query_functio
             'content': $p.content,
             'file path': ds_path.Node_Path(
                 $p['file path'],
+                () => _pinternals.panic("Invalid file path"),
                 {
                     'pedantic': true,
                 },
-                () => _pinternals.panic("Invalid file path"),
             ),
         },
         ($): d.On_Validate_Document_Result => ({
