@@ -1,4 +1,4 @@
-import * as _pq from 'pareto-core-query'
+import * as _p from 'pareto-core-query'
 import * as _pi from 'pareto-core-interface'
 import * as _pt from 'pareto-core-transformer'
 import * as _pinternals from 'pareto-core-internals'
@@ -15,7 +15,7 @@ import * as t_backend_location from "../schemas/server/transformers/backend_loca
 import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/node_path/deserializers"
 
 
-export const $$: signatures.queries.on_completion = _pq.create_query_function(
+export const $$: signatures.queries.on_completion = _p.create_query_function(
     ($p, $qr) => q_load_pareto_document($qr)(
         {
             'content': $p.content,

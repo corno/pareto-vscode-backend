@@ -1,4 +1,4 @@
-import * as _pt from 'pareto-core-transformer'
+import * as _p from 'pareto-core-transformer'
 import * as _pdev from 'pareto-core-dev'
 
 import * as d_out from "astn/dist/interface/generated/pareto/schemas/authoring_target/data_types/target"
@@ -13,46 +13,46 @@ export const Type_Node = (
 export const Type_Node_X = (
     $: d_in.Type_Node,
 ): d_out.Value._type => {
-    return _pt.cc($, ($): d_out.Value._type => {
+    return _p.cc($, ($): d_out.Value._type => {
         switch ($[0]) {
-            case 'number': return _pt.ss($, ($) => ['text', {
+            case 'number': return _p.ss($, ($) => ['text', {
                 'delimiter': ['none', null],
                 'value': "0"
             }])
-            case 'boolean': return _pt.ss($, ($) => ['text', {
+            case 'boolean': return _p.ss($, ($) => ['text', {
                 'delimiter': ['none', null],
                 'value': "false"
             }])
-            case 'nothing': return _pt.ss($, ($) => ['nothing', null])
-            case 'text': return _pt.ss($, ($) => ['text', {
+            case 'nothing': return _p.ss($, ($) => ['nothing', null])
+            case 'text': return _p.ss($, ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': ""
             }])
-            case 'list': return _pt.ss($, ($) => ['list', _pt.list_literal([])])
-            case 'reference': return _pt.ss($, ($) => ['text', {
+            case 'list': return _p.ss($, ($) => ['list', _p.list_literal([])])
+            case 'reference': return _p.ss($, ($) => ['text', {
                 'delimiter': ['backtick', null],
                 'value': "..."
             }])
-            case 'component': return _pt.ss($, ($) => _pt.cc($, ($) => {
+            case 'component': return _p.ss($, ($) => _p.cc($, ($) => {
                 switch ($[0]) {
-                    case 'external': return _pt.ss($, ($) => Type_Node_X($.type.entry.node))
-                    case 'internal': return _pt.ss($, ($) => Type_Node_X($.entry.node))
-                    case 'internal cyclic': return _pt.ss($, ($) => Type_Node_X($.entry['get circular dependent']().node))
-                    default: return _pt.au($[0])
+                    case 'external': return _p.ss($, ($) => Type_Node_X($.type.entry.node))
+                    case 'internal': return _p.ss($, ($) => Type_Node_X($.entry.node))
+                    case 'internal cyclic': return _p.ss($, ($) => Type_Node_X($.entry['get circular dependent']().node))
+                    default: return _p.au($[0])
                 }
             }))
-            case 'dictionary': return _pt.ss($, ($) => ['dictionary', _pt.list_literal([])])
-            case 'group': return _pt.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
+            case 'dictionary': return _p.ss($, ($) => ['dictionary', _p.list_literal([])])
+            case 'group': return _p.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
                 'key': $.key,
                 'value': Type_Node($.value.node)
             }))])
-            case 'optional': return _pt.ss($, ($) => ['nothing', null])
-            case 'state group': return _pt.ss($, ($) => ['state', ['missing data', null]])
-            // case 'type parameter': return _pt.ss($, ($) => ['text', {
+            case 'optional': return _p.ss($, ($) => ['nothing', null])
+            case 'state group': return _p.ss($, ($) => ['state', ['missing data', null]])
+            // case 'type parameter': return _p.ss($, ($) => ['text', {
             //     'delimiter': ['quote', null],
             //     'value': "IMPLEMENT ME"
             // }])
-            default: return _pt.au($[0])
+            default: return _p.au($[0])
         }
     })
 }
@@ -66,48 +66,48 @@ export const Type_Node_Resolver = (
 
 export const Type_Node_Resolver_X = (
     $: d_in.Node_Resolver,
-): d_out.Value._type => _pt.cc($, ($) => {
+): d_out.Value._type => _p.cc($, ($) => {
     switch ($[0]) {
-        case 'number': return _pt.ss($, ($) => ['text', {
+        case 'number': return _p.ss($, ($) => ['text', {
             'delimiter': ['none', null],
             'value': "0"
         }])
-        case 'boolean': return _pt.ss($, ($) => ['text', {
+        case 'boolean': return _p.ss($, ($) => ['text', {
             'delimiter': ['none', null],
             'value': "false"
         }])
-        case 'nothing': return _pt.ss($, ($) => ['nothing', null])
-        case 'text': return _pt.ss($, ($) => ['text', {
+        case 'nothing': return _p.ss($, ($) => ['nothing', null])
+        case 'text': return _p.ss($, ($) => ['text', {
             'delimiter': ['quote', null],
             'value': ""
         }])
-        case 'list': return _pt.ss($, ($) => ['list', _pt.list_literal([])])
-        case 'reference': return _pt.ss($, ($) => ['text', {
+        case 'list': return _p.ss($, ($) => ['list', _p.list_literal([])])
+        case 'reference': return _p.ss($, ($) => ['text', {
             'delimiter': ['backtick', null],
             'value': "..."
         }])
-        case 'component': return _pt.ss($, ($) => _pt.cc($.location, ($) => {
+        case 'component': return _p.ss($, ($) => _p.cc($.location, ($) => {
             switch ($[0]) {
-                case 'external': return _pt.ss($, ($) => _pdev.implement_me("xx"))
-                case 'internal': return _pt.ss($, ($) => _pdev.implement_me("xx"))
-                // case 'external': return _pt.ss($, ($) => Type_Node_X($.type.entry.node))
-                // case 'internal': return _pt.ss($, ($) => Type_Node_X($.entry.node))
-                // case 'internal cyclic': return _pt.ss($, ($) => Type_Node_X($.entry.compute().node))
-                default: return _pt.au($[0])
+                case 'external': return _p.ss($, ($) => _pdev.implement_me("xx"))
+                case 'internal': return _p.ss($, ($) => _pdev.implement_me("xx"))
+                // case 'external': return _p.ss($, ($) => Type_Node_X($.type.entry.node))
+                // case 'internal': return _p.ss($, ($) => Type_Node_X($.entry.node))
+                // case 'internal cyclic': return _p.ss($, ($) => Type_Node_X($.entry.compute().node))
+                default: return _p.au($[0])
             }
         }))
-        case 'dictionary': return _pt.ss($, ($) => ['dictionary', _pt.list_literal([])])
-        case 'group': return _pt.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
+        case 'dictionary': return _p.ss($, ($) => ['dictionary', _p.list_literal([])])
+        case 'group': return _p.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
             'key': $.key,
             'value': Type_Node_Resolver($.value.resolver)
         }))])
-        case 'optional': return _pt.ss($, ($) => ['nothing', null])
-        case 'state group': return _pt.ss($, ($) => ['state', ['missing data', null]])
-        // case 'type parameter': return _pt.ss($, ($) => ['text', {
+        case 'optional': return _p.ss($, ($) => ['nothing', null])
+        case 'state group': return _p.ss($, ($) => ['state', ['missing data', null]])
+        // case 'type parameter': return _p.ss($, ($) => ['text', {
         //     'delimiter': ['quote', null],
         //     'value': "IMPLEMENT ME"
         // }])
 
-        default: return _pt.au($[0])
+        default: return _p.au($[0])
     }
 })

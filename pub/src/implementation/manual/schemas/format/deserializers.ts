@@ -1,5 +1,5 @@
 import * as _pi from 'pareto-core-interface'
-import * as _pds from 'pareto-core-deserializer'
+import * as _p from 'pareto-core-deserializer'
 import * as _pt from 'pareto-core-transformer'
 
 import * as d_client from "../../../../interface/generated/pareto/schemas/client/data_types/target"

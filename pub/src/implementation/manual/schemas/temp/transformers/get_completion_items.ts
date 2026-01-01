@@ -1,4 +1,4 @@
-import * as _pt from 'pareto-core-transformer'
+import * as _p from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
 import * as _pdev from 'pareto-core-dev'
 import * as _pinternals from 'pareto-core-internals'
@@ -51,31 +51,31 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): 
 		})
 		if (found_too_many) {
 			//more than one entry
-			return _pt.not_set()
+			return _p.not_set()
 		}
 		if (found === null) {
 			//not found
-			return _pt.not_set()
+			return _p.not_set()
 		}
-		return _pt.set(found)
+		return _p.set(found)
 	}
-	return _pt.cc(
+	return _p.cc(
 		$.filter(($) => $),
 		($) => $.is_empty()
-			? _pt.not_set()
+			? _p.not_set()
 			: op_expect_1_entry($).transform<d_out.Optional_Completion_Items>(
-				($) => _pt.set($.value),
+				($) => _p.set($.value),
 				() => _pinternals.panic("multiple entries match the location, that should not happen"),
 			)
 	)
 }
 const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => {
-	return _pt.cc(
+	return _p.cc(
 		$.filter(($) => $),
 		($) => $.is_empty()
-			? _pt.not_set()
+			? _p.not_set()
 			: op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
-				($) => _pt.set($),
+				($) => _p.set($),
 				() => _pinternals.panic("multiple entries match the location, that should not happen"),
 			)
 	)
@@ -90,12 +90,12 @@ export const Group_Content = (
 ): d_out.Optional_Completion_Items => {
 	return filter_dictionary(
 		$.properties.map(($, key): d_out.Optional_Completion_Items => {
-			return _pt.cc($, ($) => {
+			return _p.cc($, ($) => {
 				switch ($[0]) {
-					case 'multiple': return _pt.ss($, ($) => _pt.not_set())
-					case 'missing': return _pt.ss($, ($) => _pt.not_set())
-					case 'unique': return _pt.ss($, ($) => Optional_Node($.node, $p))
-					default: return _pt.au($[0])
+					case 'multiple': return _p.ss($, ($) => _p.not_set())
+					case 'missing': return _p.ss($, ($) => _p.not_set())
+					case 'unique': return _p.ss($, ($) => Optional_Node($.node, $p))
+					default: return _p.au($[0])
 				}
 			})
 		})
@@ -121,8 +121,8 @@ export const Node = (
 
 	const create_default_value_string = (node: d_schema.Type_Node, write_delimiters: boolean) => {
 		const default_initialized_value: d_ast_target.Value = t_default_initialize.Type_Node(node)
-		const fp_group: d_fpblock.Group = _pt.list_literal([
-			['nested block', _pt.list_literal<d_fpblock.Block_Part>([
+		const fp_group: d_fpblock.Group = _p.list_literal([
+			['nested block', _p.list_literal<d_fpblock.Block_Part>([
 				t_astn_target_to_fp.Value(default_initialized_value, {
 					'in concise group': false,
 					'write delimiters': write_delimiters,
@@ -140,105 +140,105 @@ export const Node = (
 	const wrap = (): d_out.Optional_Completion_Items => {
 
 		return in_range
-			? _pt.set(_pt.list_literal([
+			? _p.set(_p.list_literal([
 				{
 					'label': "verbose group",
 					'insert text': create_default_value_string(node.definition, false),
 					'documentation': ""
 				}
 			]))
-			: _pt.not_set()
+			: _p.not_set()
 	}
 
 	if (!in_range) {
 		// If not in range, return not set
-		return _pt.not_set()
+		return _p.not_set()
 	}
 
-	return _pt.cc($.type, ($): d_out.Optional_Completion_Items => {
+	return _p.cc($.type, ($): d_out.Optional_Completion_Items => {
 		switch ($[0]) {
-			case 'number': return _pt.ss($, ($) => wrap())
-			case 'boolean': return _pt.ss($, ($) => wrap())
-			case 'type parameter': return _pt.ss($, ($) => _pdev.implement_me("xx"))
-			case 'list': return _pt.ss($, ($) => _pt.cc($['found value type'], ($) => {
+			case 'number': return _p.ss($, ($) => wrap())
+			case 'boolean': return _p.ss($, ($) => wrap())
+			case 'type parameter': return _p.ss($, ($) => _pdev.implement_me("xx"))
+			case 'list': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
 				switch ($[0]) {
-					case 'valid': return _pt.ss($, ($) => filter_list($.elements.map(($) => Node($, $p))))
-					case 'invalid': return _pt.ss($, ($) => wrap())
-					default: return _pt.au($[0])
+					case 'valid': return _p.ss($, ($) => filter_list($.elements.map(($) => Node($, $p))))
+					case 'invalid': return _p.ss($, ($) => wrap())
+					default: return _p.au($[0])
 				}
 			}))
-			case 'nothing': return _pt.ss($, ($) => wrap())
-			case 'reference': return _pt.ss($, ($) => wrap()) //show options?
-			case 'component': return _pt.ss($, ($) => Node($.node, $p))
-			case 'dictionary': return _pt.ss($, ($) => {
-				return _pt.cc($['found value type'], ($) => {
+			case 'nothing': return _p.ss($, ($) => wrap())
+			case 'reference': return _p.ss($, ($) => wrap()) //show options?
+			case 'component': return _p.ss($, ($) => Node($.node, $p))
+			case 'dictionary': return _p.ss($, ($) => {
+				return _p.cc($['found value type'], ($) => {
 					switch ($[0]) {
-						case 'valid': return _pt.ss($, ($) => filter_dictionary(
+						case 'valid': return _p.ss($, ($) => filter_dictionary(
 							$.entries.map(($, key): d_out.Optional_Completion_Items => {
-								return _pt.cc($, ($) => {
+								return _p.cc($, ($) => {
 									switch ($[0]) {
-										case 'multiple': return _pt.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, $p))))
-										case 'unique': return _pt.ss($, ($) => Optional_Node($, $p))
-										default: return _pt.au($[0])
+										case 'multiple': return _p.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, $p))))
+										case 'unique': return _p.ss($, ($) => Optional_Node($, $p))
+										default: return _p.au($[0])
 									}
 								})
 							})
 						).transform(
-							($) => _pt.set($),
+							($) => _p.set($),
 							() => wrap()
 						))
-						case 'invalid': return _pt.ss($, ($) => wrap())
-						default: return _pt.au($[0])
+						case 'invalid': return _p.ss($, ($) => wrap())
+						default: return _p.au($[0])
 					}
 				})
 			})
-			case 'group': return _pt.ss($, ($) => {
-				return _pt.cc($['found value type'], ($) => {
+			case 'group': return _p.ss($, ($) => {
+				return _p.cc($['found value type'], ($) => {
 					switch ($[0]) {
-						case 'invalid': return _pt.ss($, ($) => wrap())
-						case 'valid': return _pt.ss($, ($) => Group_Content(
-							_pt.cc($, ($) => {
+						case 'invalid': return _p.ss($, ($) => wrap())
+						case 'valid': return _p.ss($, ($) => Group_Content(
+							_p.cc($, ($) => {
 								switch ($[0]) {
-									case 'ordered': return _pt.ss($, ($) => $.content)
-									case 'indexed': return _pt.ss($, ($) => $.content)
-									default: return _pt.au($[0])
+									case 'ordered': return _p.ss($, ($) => $.content)
+									case 'indexed': return _p.ss($, ($) => $.content)
+									default: return _p.au($[0])
 								}
 							}),
 							$p
 						).transform(
-							($) => _pt.set($),
+							($) => _p.set($),
 							() => wrap()
 						))
-						default: return _pt.au($[0])
+						default: return _p.au($[0])
 					}
 				})
 			})
-			case 'optional': return _pt.ss($, ($) => {
-				return _pt.cc($['found value type'], ($) => {
+			case 'optional': return _p.ss($, ($) => {
+				return _p.cc($['found value type'], ($) => {
 					switch ($[0]) {
-						case 'valid': return _pt.ss($, ($) => _pt.cc($, ($) => {
+						case 'valid': return _p.ss($, ($) => _p.cc($, ($) => {
 							switch ($[0]) {
-								case 'set': return _pt.ss($, ($) => Node($['child node'], $p))
-								case 'not set': return _pt.ss($, ($) => _pt.not_set())
-								default: return _pt.au($[0])
+								case 'set': return _p.ss($, ($) => Node($['child node'], $p))
+								case 'not set': return _p.ss($, ($) => _p.not_set())
+								default: return _p.au($[0])
 							}
 						}))
-						case 'invalid': return _pt.ss($, ($) => wrap())
-						default: return _pt.au($[0])
+						case 'invalid': return _p.ss($, ($) => wrap())
+						default: return _p.au($[0])
 					}
 				})
 			})
-			case 'state': return _pt.ss($, ($) => {
+			case 'state': return _p.ss($, ($) => {
 				const state_group_definition = $.definition
-				return _pt.cc($['found value type'], ($) => {
+				return _p.cc($['found value type'], ($) => {
 					switch ($[0]) {
-						case 'valid': return _pt.ss($, ($) => _pt.cc($['value type'], ($) => {
+						case 'valid': return _p.ss($, ($) => _p.cc($['value type'], ($) => {
 							switch ($[0]) {
-								case 'state': return _pt.ss($, ($) => {
-									return _pt.cc($['value substatus'], ($) => {
+								case 'state': return _p.ss($, ($) => {
+									return _p.cc($['value substatus'], ($) => {
 										switch ($[0]) {
-											case 'missing data': return _pt.ss($, ($) => {
-												return _pt.set(state_group_definition.to_list(($, key) => {
+											case 'missing data': return _p.ss($, ($) => {
+												return _p.set(state_group_definition.to_list(($, key) => {
 													return {
 														'label': key,
 														'insert text': `'${key}' ${create_default_value_string($.node, true)}`,
@@ -249,37 +249,37 @@ export const Node = (
 													}
 												}))
 											})
-											case 'set': return _pt.ss($, ($) => {
+											case 'set': return _p.ss($, ($) => {
 												const temp = $.value.state.value
 												return $['found state definition'].transform<d_out.Optional_Completion_Items>(
 													($) => {
 														return Node($.node, $p).transform(
-															($) => _pt.set($),
+															($) => _p.set($),
 															() => wrap()
 														)
 													},
-													() => _pt.not_set()
+													() => _p.not_set()
 												)
 											})
-											default: return _pt.au($[0])
+											default: return _p.au($[0])
 										}
 									})
 								})
-								default: return _pt.au($[0])
+								default: return _p.au($[0])
 							}
 						}))
-						case 'invalid': return _pt.ss($, ($) => wrap())
+						case 'invalid': return _p.ss($, ($) => wrap())
 						//
-						// case 'unknown state': return _pt.ss($, ($) => _pt.set(_pt.list_literal(["FIXUNKNOWNSTATE"])))
-						// case 'more than 2 elements': return _pt.ss($, ($) => _pt.set(_pt.list_literal(["FIXMORETHANTWO"])))
-						// case 'missing state name': return _pt.ss($, ($) => _pt.set(_pt.list_literal(["FIXMISSINGSTATENAME"])))
-						// case 'state is not a string': return _pt.ss($, ($) => _pt.set(_pt.list_literal(["FIXSTATEISNOTSTRING"])))
-						// case 'missing value': return _pt.ss($, ($) => _pt.set(_pt.list_literal(["FIXMISSINGVALUE"])))
-						default: return _pt.au($[0])
+						// case 'unknown state': return _p.ss($, ($) => _p.set(_p.list_literal(["FIXUNKNOWNSTATE"])))
+						// case 'more than 2 elements': return _p.ss($, ($) => _p.set(_p.list_literal(["FIXMORETHANTWO"])))
+						// case 'missing state name': return _p.ss($, ($) => _p.set(_p.list_literal(["FIXMISSINGSTATENAME"])))
+						// case 'state is not a string': return _p.ss($, ($) => _p.set(_p.list_literal(["FIXSTATEISNOTSTRING"])))
+						// case 'missing value': return _p.ss($, ($) => _p.set(_p.list_literal(["FIXMISSINGVALUE"])))
+						default: return _p.au($[0])
 					}
 				})
 			})
-			case 'text': return _pt.ss($, ($) => wrap())
+			case 'text': return _p.ss($, ($) => wrap())
 
 		}
 	})
@@ -295,6 +295,6 @@ export const Optional_Node = (
 ): d_out.Optional_Completion_Items => {
 	return $.transform(
 		($) => Node($, $p),
-		() => _pt.not_set()
+		() => _p.not_set()
 	)
 }

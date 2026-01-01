@@ -1,4 +1,4 @@
-import * as _pq from 'pareto-core-query'
+import * as _p from 'pareto-core-query'
 
 import * as d from "../../../interface/generated/pareto/schemas/client/data_types/target"
 

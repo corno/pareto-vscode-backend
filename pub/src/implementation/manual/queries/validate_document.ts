@@ -1,4 +1,4 @@
-import * as _pq from 'pareto-core-query'
+import * as _p from 'pareto-core-query'
 import * as _pi from 'pareto-core-interface'
 import * as _pt from 'pareto-core-transformer'
 import * as _pinternals from 'pareto-core-internals'
@@ -167,7 +167,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 
 
 
-export const $$: signatures.queries.validate_document = _pq.create_query_function(
+export const $$: signatures.queries.validate_document = _p.create_query_function(
     ($p, $qr) => q_load_pareto_document($qr)(
         {
             'content': $p.content,
