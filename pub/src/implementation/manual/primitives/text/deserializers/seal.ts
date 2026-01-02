@@ -1,5 +1,5 @@
 import * as _pi from 'pareto-core-interface'
-import * as _pt from 'pareto-core-transformer'
+import * as _p from 'pareto-core-deserializer'
 
 type Signature = _pi.Deserializer_With_Parameters<string, null, d_server.Convert_To_JSON_Parameters>
 

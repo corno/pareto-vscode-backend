@@ -1,7 +1,6 @@
 import * as _p from 'pareto-core-query'
 import * as _pi from 'pareto-core-interface'
-import * as _pt from 'pareto-core-transformer'
-import * as _pinternals from 'pareto-core-internals'
+import * as _pinternals from 'pareto-core-internals' //FIX, change 'file path' parameter from string to 'Node Path'
 
 import * as signatures from "../../../interface/signatures"
 
