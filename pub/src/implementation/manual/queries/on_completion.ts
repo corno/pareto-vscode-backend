@@ -15,7 +15,7 @@ import * as t_backend_location from "../schemas/server/transformers/backend_loca
 import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/node_path/deserializers"
 
 
-export const $$: signatures.queries.on_completion = _p.create_query_function(
+export const $$: signatures.queries.on_completion = _p.query_function(
     ($p, $qr) => q_load_pareto_document($qr)(
         {
             'content': $p.content,

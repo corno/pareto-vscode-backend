@@ -167,7 +167,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 
 
 
-export const $$: signatures.queries.validate_document = _p.create_query_function(
+export const $$: signatures.queries.validate_document = _p.query_function(
     ($p, $qr) => q_load_pareto_document($qr)(
         {
             'content': $p.content,
