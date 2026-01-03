@@ -37,8 +37,13 @@ const is_in_range = (
 
 const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => {
 
-    const op_expect_1_entry = <T>($: _pi.Dictionary<T>): _pi.Optional_Value<_pi.Deprecated_Key_Value_Pair<T>> => {
-        let found: null | _pi.Deprecated_Key_Value_Pair<T> = null
+    type Key_Value_Pair<T> = {
+        'key': string,
+        'value': T,
+    }
+
+    const op_expect_1_entry = <T>($: _pi.Dictionary<T>): _pi.Optional_Value<Key_Value_Pair<T>> => {
+        let found: null | Key_Value_Pair<T> = null
         let found_too_many = false
         $.map(($, key) => {
             if (found !== null) {
