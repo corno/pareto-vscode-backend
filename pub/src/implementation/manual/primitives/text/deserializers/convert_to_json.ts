@@ -2,8 +2,6 @@ import * as _pds from 'pareto-core-deserializer'
 import * as _pi from 'pareto-core-interface'
 
 import * as d_server from "../../../../../interface/generated/pareto/schemas/server/data_types/source"
-import * as d_parse_result from "astn/dist/interface/generated/pareto/schemas/authoring_parse_result/data_types/target"
-import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/authoring_parse_tree/data_types/target"
 
 type Signature = _pi.Deserializer_With_Parameters<string, null, d_server.Convert_To_JSON_Parameters>
 
@@ -14,20 +12,20 @@ import * as ds_authoring_parse_tree from "astn/dist/implementation/manual/schema
 
 
 export const $$: Signature = ($, abort, $p,) => {
-	return s_json.Document(
-		t_ast_2_json.Document(
-			ds_authoring_parse_tree.Document(
-				$,
-				($) => abort(null),
-				{
-					'tab size': 1,
-				},
-			)
-		),
-		{
-			'indentation': "    ",
-			'newline': '\n'
-		}
-	)
+    return s_json.Document(
+        t_ast_2_json.Document(
+            ds_authoring_parse_tree.Document(
+                $,
+                ($) => abort(null),
+                {
+                    'tab size': 1,
+                },
+            )
+        ),
+        {
+            'indentation': "    ",
+            'newline': '\n'
+        }
+    )
 
 }

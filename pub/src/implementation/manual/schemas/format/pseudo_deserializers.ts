@@ -18,54 +18,54 @@ import * as s_parse_result from "astn/dist/implementation/manual/schemas/parse_r
 
 namespace t_token_to_client {
 
-	export const create_frontend_position_from_relative_location = ($: d_token.Relative_Location): d_client.Position => {
-		return {
-			line: $.line,
-			character: $.column
-		}
-	}
+    export const create_frontend_position_from_relative_location = ($: d_token.Relative_Location): d_client.Position => {
+        return {
+            line: $.line,
+            character: $.column
+        }
+    }
 }
 
 namespace t_ide_to_client {
 
-	export const create_frontend_range_from_relative_range = ($: d_ide.Relative_Range): d_client.Range => {
-		return {
-			start: t_token_to_client.create_frontend_position_from_relative_location($.start),
-			end: t_token_to_client.create_frontend_position_from_relative_location($.end),
-		}
-	}
+    export const create_frontend_range_from_relative_range = ($: d_ide.Relative_Range): d_client.Range => {
+        return {
+            start: t_token_to_client.create_frontend_position_from_relative_location($.start),
+            end: t_token_to_client.create_frontend_position_from_relative_location($.end),
+        }
+    }
 
 }
 
 
 export const $$: Signature = ($, abort, $p) => {
-	const x = ds_authoring_parse_tree.Document(
-		$,
-		($) => abort({
-			'message': s_parse_result.Parse_Error($, { 'position info': ['zero based', null] })
-		}),
-		{
-			'tab size': 1,
-		},
-	)
+    const x = ds_authoring_parse_tree.Document(
+        $,
+        ($) => abort({
+            'message': s_parse_result.Parse_Error($, { 'position info': ['zero based', null] })
+        }),
+        {
+            'tab size': 1,
+        },
+    )
 
-	const x2 = t_ast_2_ide.Document(
-		x,
-		{
-			'current indentation': "",
-			'indentation string': $p.options['indent string'],
-			'remove commas': $p.options['preserve commas'],
-		}
-	)
+    const x2 = t_ast_2_ide.Document(
+        x,
+        {
+            'current indentation': "",
+            'indentation string': $p.options['indent string'],
+            'remove commas': $p.options['preserve commas'],
+        }
+    )
 
-	const x3 = x2.map(($): d_client.Text_Edit => _pt.cc($, ($): d_client.Text_Edit => {
-		switch ($[0]) {
-			case 'replace': return _pt.ss($, ($) => ['replace', { 'range': t_ide_to_client.create_frontend_range_from_relative_range($.range), 'text': $.text }])
-			case 'delete': return _pt.ss($, ($) => ['delete', { 'range': t_ide_to_client.create_frontend_range_from_relative_range($.range) }])
-			case 'insert': return _pt.ss($, ($) => ['insert', { 'location': t_token_to_client.create_frontend_position_from_relative_location($.location), 'text': $.text }])
-			default: return _pt.au($[0])
-		}
-	}))
+    const x3 = x2.map(($): d_client.Text_Edit => _pt.cc($, ($): d_client.Text_Edit => {
+        switch ($[0]) {
+            case 'replace': return _pt.ss($, ($) => ['replace', { 'range': t_ide_to_client.create_frontend_range_from_relative_range($.range), 'text': $.text }])
+            case 'delete': return _pt.ss($, ($) => ['delete', { 'range': t_ide_to_client.create_frontend_range_from_relative_range($.range) }])
+            case 'insert': return _pt.ss($, ($) => ['insert', { 'location': t_token_to_client.create_frontend_position_from_relative_location($.location), 'text': $.text }])
+            default: return _pt.au($[0])
+        }
+    }))
 
-	return x3
+    return x3
 }
