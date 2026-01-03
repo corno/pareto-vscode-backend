@@ -10,7 +10,7 @@ import * as _i_out from "../../../../../interface/generated/pareto/schemas/serve
 export const Diagnostic_Severity: _i_signatures._T_Diagnostic_Severity = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'error': ($): _i_out._T_Diagnostic_Severity.SG => ['error', _i_generic.process_group(
                 $,
                 {

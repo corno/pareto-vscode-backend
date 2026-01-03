@@ -9,28 +9,28 @@ export const Diagnostic_Severity: _i_signatures._T_Diagnostic_Severity = ($, $p)
     switch ($[0]) {
         case 'error': return _pa.ss($, ($) => ({
             'state': "error",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
             })],
         }))
         case 'warning': return _pa.ss($, ($) => ({
             'state': "warning",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
             })],
         }))
         case 'information': return _pa.ss($, ($) => ({
             'state': "information",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
             })],
         }))
         case 'hint': return _pa.ss($, ($) => ({
             'state': "hint",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
             })],
         }))
         default: return _pa.au($[0])
     }
 })]
-export const Position: _i_signatures._T_Position = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Position: _i_signatures._T_Position = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'line': _pa.cc($['line'], ($) => ['text', ({
         'delimiter': ['backtick', null],
         'value': $p['value serializers']['default number'](
@@ -46,7 +46,7 @@ export const Position: _i_signatures._T_Position = ($, $p) => ['verbose group', 
         ),
     })]),
 })]
-export const Range: _i_signatures._T_Range = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Range: _i_signatures._T_Range = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'start': _pa.cc($['start'], ($) => Position(
         $,
         {
@@ -60,7 +60,7 @@ export const Range: _i_signatures._T_Range = ($, $p) => ['verbose group', _pa.di
         }
     )),
 })]
-export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'severity': _pa.cc($['severity'], ($) => Diagnostic_Severity(
         $,
         {
@@ -78,8 +78,8 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => ['verbose grou
         'value': $,
     })]),
     'related information': _pa.cc($['related information'], ($) => ['optional', $.transform(
-        ($): _i_out._T_Value.SG.optional => ['set', ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
-            'location': _pa.cc($['location'], ($) => ['verbose group', _pa.dictionary_literal({
+        ($): _i_out._T_Value.SG.optional => ['set', ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
+            'location': _pa.cc($['location'], ($) => ['verbose group', _pa.dictionary.literal({
                 'file path': _pa.cc($['file path'], ($) => ['text', ({
                     'delimiter': ['quote', null],
                     'value': $,
@@ -105,7 +105,7 @@ export const Diagnostics: _i_signatures._T_Diagnostics = ($, $p) => ['list', $.m
         'value serializers': $p['value serializers'],
     }
 ))]
-export const Document_Data: _i_signatures._T_Document_Data = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Document_Data: _i_signatures._T_Document_Data = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'file path': _pa.cc($['file path'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -128,8 +128,8 @@ export const Optional_Hover_Texts: _i_signatures._T_Optional_Hover_Texts = ($, $
     )],
     () => ['not set', null]
 )]
-export const On_Hover_Result: _i_signatures._T_On_Hover_Result = ($, $p) => ['verbose group', _pa.dictionary_literal({
-    'contents': _pa.cc($['contents'], ($) => ['verbose group', _pa.dictionary_literal({
+export const On_Hover_Result: _i_signatures._T_On_Hover_Result = ($, $p) => ['verbose group', _pa.dictionary.literal({
+    'contents': _pa.cc($['contents'], ($) => ['verbose group', _pa.dictionary.literal({
         'hover texts': _pa.cc($['hover texts'], ($) => Optional_Hover_Texts(
             $,
             {
@@ -138,7 +138,7 @@ export const On_Hover_Result: _i_signatures._T_On_Hover_Result = ($, $p) => ['ve
         )),
     })]),
 })]
-export const Completion_Items: _i_signatures._T_Completion_Items = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+export const Completion_Items: _i_signatures._T_Completion_Items = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
     'label': _pa.cc($['label'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -161,7 +161,7 @@ export const Optional_Completion_Items: _i_signatures._T_Optional_Completion_Ite
     )],
     () => ['not set', null]
 )]
-export const On_Completion_Result: _i_signatures._T_On_Completion_Result = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const On_Completion_Result: _i_signatures._T_On_Completion_Result = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'completion items': _pa.cc($['completion items'], ($) => Completion_Items(
         $,
         {
@@ -169,7 +169,7 @@ export const On_Completion_Result: _i_signatures._T_On_Completion_Result = ($, $
         }
     )),
 })]
-export const On_Validate_Document_Result: _i_signatures._T_On_Validate_Document_Result = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const On_Validate_Document_Result: _i_signatures._T_On_Validate_Document_Result = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'diagnostics': _pa.cc($['diagnostics'], ($) => Diagnostics(
         $,
         {
@@ -177,19 +177,19 @@ export const On_Validate_Document_Result: _i_signatures._T_On_Validate_Document_
         }
     )),
 })]
-export const Convert_To_JSON_Parameters: _i_signatures._T_Convert_To_JSON_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Convert_To_JSON_Parameters: _i_signatures._T_Convert_To_JSON_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'content': _pa.cc($['content'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
 })]
-export const Seal_Parameters: _i_signatures._T_Seal_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Seal_Parameters: _i_signatures._T_Seal_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'content': _pa.cc($['content'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
 })]
-export const On_Completion_Parameters: _i_signatures._T_On_Completion_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const On_Completion_Parameters: _i_signatures._T_On_Completion_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'content': _pa.cc($['content'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -209,7 +209,7 @@ export const On_Completion_Parameters: _i_signatures._T_On_Completion_Parameters
         'value': $,
     })]),
 })]
-export const On_Hover_Parameters: _i_signatures._T_On_Hover_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const On_Hover_Parameters: _i_signatures._T_On_Hover_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'content': _pa.cc($['content'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -225,7 +225,7 @@ export const On_Hover_Parameters: _i_signatures._T_On_Hover_Parameters = ($, $p)
         }
     )),
 })]
-export const Validate_Document_Parameters: _i_signatures._T_Validate_Document_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Validate_Document_Parameters: _i_signatures._T_Validate_Document_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'content': _pa.cc($['content'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,

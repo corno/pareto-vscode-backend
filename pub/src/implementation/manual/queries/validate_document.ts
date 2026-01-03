@@ -99,7 +99,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 // 			$,
 // 			($): d.Diagnostics => {
 // 				switch ($[0]) {
-// 					case 'no schema file': return _pt.ss($, ($) => _pt.list_literal<d.Diagnostic>([
+// 					case 'no schema file': return _pt.ss($, ($) => _pt.list.literal<d.Diagnostic>([
 // 						{
 // 							'severity': ['error', null],
 // 							'range': {
@@ -118,7 +118,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 
 
 // 					]))
-// 					case 'schema error': return _pt.ss($, ($) => _pt.list_literal<d.Diagnostic>([
+// 					case 'schema error': return _pt.ss($, ($) => _pt.list.literal<d.Diagnostic>([
 // 						{
 // 							'severity': ['error', null],
 // 							'range': {
@@ -132,7 +132,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 // 								}
 // 							},
 // 							'message': `error in schema: ${$['file location']}`,
-// 							'related information': _pt.set(_pt.list_literal([
+// 							'related information': _pt.set(_pt.list.literal([
 // 								{
 // 									'location': {
 // 										'file path': "FIXME/PATH/TO/SCHEMA",
@@ -149,7 +149,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => {
 
 
 // 					]))
-// 					case 'parse error': return _pt.ss($, ($) => _pt.list_literal<d.Diagnostic>([
+// 					case 'parse error': return _pt.ss($, ($) => _pt.list.literal<d.Diagnostic>([
 // 						{
 // 							'severity': ['error', null],
 // 							'range': create_frontend_range_from_range($.range),
@@ -183,7 +183,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                 $,
                 ($): d.Diagnostics => {
                     switch ($[0]) {
-                        case 'no schema file': return _p.ss($, ($) => _p.list_literal<d.Diagnostic>([
+                        case 'no schema file': return _p.ss($, ($) => _p.list.literal<d.Diagnostic>([
                             {
                                 'severity': ['error', null],
                                 'range': {
@@ -197,12 +197,12 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                                     }
                                 },
                                 'message': `No schema file found`,
-                                'related information': _p.not_set()
+                                'related information': _p.optional.not_set()
                             }
 
 
                         ]))
-                        case 'schema error': return _p.ss($, ($) => _p.list_literal<d.Diagnostic>([
+                        case 'schema error': return _p.ss($, ($) => _p.list.literal<d.Diagnostic>([
                             {
                                 'severity': ['error', null],
                                 'range': {
@@ -216,7 +216,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                                     }
                                 },
                                 'message': `error in schema: ${$['file location']}`,
-                                'related information': _p.set(_p.list_literal([
+                                'related information': _p.optional.set(_p.list.literal([
                                     {
                                         'location': {
                                             'file path': "FIXME/PATH/TO/SCHEMA",
@@ -233,15 +233,15 @@ export const $$: signatures.queries.validate_document = _p.query_function(
 
 
                         ]))
-                        case 'parse error': return _p.ss($, ($) => _p.list_literal<d.Diagnostic>([
+                        case 'parse error': return _p.ss($, ($) => _p.list.literal<d.Diagnostic>([
                             {
                                 'severity': ['error', null],
                                 'range': create_frontend_range_from_range($.range),
                                 'message': `${d_parse_result.Parse_Error_Type($.type)}`,
-                                'related information': _p.not_set()
+                                'related information': _p.optional.not_set()
                             }
                         ]))
-                        case 'unmarshall error': return _p.ss($, ($) => _p.list_literal<d.Diagnostic>([
+                        case 'unmarshall error': return _p.ss($, ($) => _p.list.literal<d.Diagnostic>([
                             {
                                 'severity': ['error', null],
                                 'range': {
@@ -255,7 +255,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                                     }
                                 },
                                 'message': `unmarshall error (no further information available currently)`,
-                                'related information': _p.not_set()
+                                'related information': _p.optional.not_set()
                             }
                         ]))
                         default: return _p.au($[0])
@@ -300,7 +300,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                     default: return _p.au($[0])
                 }
             }),
-            'related information': _p.not_set()
+            'related information': _p.optional.not_set()
         }))
     }))
 )

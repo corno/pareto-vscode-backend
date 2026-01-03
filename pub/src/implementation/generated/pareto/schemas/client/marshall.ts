@@ -5,7 +5,7 @@ import * as _i_signatures from "../../../../../interface/generated/pareto/schema
 import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
 
 
-export const Position: _i_signatures._T_Position = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Position: _i_signatures._T_Position = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'line': _pa.cc($['line'], ($) => ['text', ({
         'delimiter': ['backtick', null],
         'value': $p['value serializers']['default number'](
@@ -21,7 +21,7 @@ export const Position: _i_signatures._T_Position = ($, $p) => ['verbose group', 
         ),
     })]),
 })]
-export const Range: _i_signatures._T_Range = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Range: _i_signatures._T_Range = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'start': _pa.cc($['start'], ($) => Position(
         $,
         {
@@ -35,7 +35,7 @@ export const Range: _i_signatures._T_Range = ($, $p) => ['verbose group', _pa.di
         }
     )),
 })]
-export const Format_Options: _i_signatures._T_Format_Options = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Format_Options: _i_signatures._T_Format_Options = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'insert spaces': _pa.cc($['insert spaces'], ($) => ['text', ({
         'delimiter': ['backtick', null],
         'value': $p['value serializers']['boolean'](
@@ -69,7 +69,7 @@ export const Format_Options: _i_signatures._T_Format_Options = ($, $p) => ['verb
         'value': $,
     })]),
 })]
-export const Replace: _i_signatures._T_Replace = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Replace: _i_signatures._T_Replace = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'range': _pa.cc($['range'], ($) => Range(
         $,
         {
@@ -94,7 +94,7 @@ export const Text_Edit: _i_signatures._T_Text_Edit = ($, $p) => ['state', _pa.cc
         }))
         case 'delete': return _pa.ss($, ($) => ({
             'state': "delete",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'range': _pa.cc($['range'], ($) => Range(
                     $,
                     {
@@ -105,7 +105,7 @@ export const Text_Edit: _i_signatures._T_Text_Edit = ($, $p) => ['state', _pa.cc
         }))
         case 'insert': return _pa.ss($, ($) => ({
             'state': "insert",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'location': _pa.cc($['location'], ($) => Position(
                     $,
                     {
@@ -127,13 +127,13 @@ export const Format_Result: _i_signatures._T_Format_Result = ($, $p) => ['list',
         'value serializers': $p['value serializers'],
     }
 ))]
-export const Format_Error: _i_signatures._T_Format_Error = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Format_Error: _i_signatures._T_Format_Error = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'message': _pa.cc($['message'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
 })]
-export const Format_Parameters: _i_signatures._T_Format_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Format_Parameters: _i_signatures._T_Format_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'content': _pa.cc($['content'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -145,7 +145,7 @@ export const Format_Parameters: _i_signatures._T_Format_Parameters = ($, $p) => 
         }
     )),
 })]
-export const Sort_Alphabetically_Parameters: _i_signatures._T_Sort_Alphabetically_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Sort_Alphabetically_Parameters: _i_signatures._T_Sort_Alphabetically_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'content': _pa.cc($['content'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,

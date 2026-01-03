@@ -33,7 +33,7 @@ export const $$: signatures.queries.on_completion = _p.query_function(
             'indent': $p.indent,
         }).transform(
             ($) => $,
-            () => _p.list_literal([]),
+            () => _p.list.literal([]),
         )
     }))
 )

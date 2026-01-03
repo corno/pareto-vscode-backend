@@ -155,7 +155,7 @@ export const Replace: _i_signatures._T_Replace = ($, $p) => _i_generic.process_g
 export const Text_Edit: _i_signatures._T_Text_Edit = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'replace': ($): _i_out._T_Text_Edit.SG => ['replace', Replace(
                 $,
                 {

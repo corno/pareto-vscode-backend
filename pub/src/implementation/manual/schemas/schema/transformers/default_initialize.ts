@@ -28,7 +28,7 @@ export const Type_Node_X = (
                 'delimiter': ['quote', null],
                 'value': ""
             }])
-            case 'list': return _p.ss($, ($) => ['list', _p.list_literal([])])
+            case 'list': return _p.ss($, ($) => ['list', _p.list.literal([])])
             case 'reference': return _p.ss($, ($) => ['text', {
                 'delimiter': ['backtick', null],
                 'value': "..."
@@ -41,7 +41,7 @@ export const Type_Node_X = (
                     default: return _p.au($[0])
                 }
             }))
-            case 'dictionary': return _p.ss($, ($) => ['dictionary', _p.list_literal([])])
+            case 'dictionary': return _p.ss($, ($) => ['dictionary', _p.list.literal([])])
             case 'group': return _p.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
                 'key': $.key,
                 'value': Type_Node($.value.node)
@@ -81,7 +81,7 @@ export const Type_Node_Resolver_X = (
             'delimiter': ['quote', null],
             'value': ""
         }])
-        case 'list': return _p.ss($, ($) => ['list', _p.list_literal([])])
+        case 'list': return _p.ss($, ($) => ['list', _p.list.literal([])])
         case 'reference': return _p.ss($, ($) => ['text', {
             'delimiter': ['backtick', null],
             'value': "..."
@@ -96,7 +96,7 @@ export const Type_Node_Resolver_X = (
                 default: return _p.au($[0])
             }
         }))
-        case 'dictionary': return _p.ss($, ($) => ['dictionary', _p.list_literal([])])
+        case 'dictionary': return _p.ss($, ($) => ['dictionary', _p.list.literal([])])
         case 'group': return _p.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
             'key': $.key,
             'value': Type_Node_Resolver($.value.resolver)

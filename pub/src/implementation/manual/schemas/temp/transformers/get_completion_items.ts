@@ -51,20 +51,20 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): 
 		})
 		if (found_too_many) {
 			//more than one entry
-			return _p.not_set()
+			return _p.optional.not_set()
 		}
 		if (found === null) {
 			//not found
-			return _p.not_set()
+			return _p.optional.not_set()
 		}
-		return _p.set(found)
+		return _p.optional.set(found)
 	}
 	return _p.cc(
 		$.filter(($) => $),
 		($) => $.is_empty()
-			? _p.not_set()
+			? _p.optional.not_set()
 			: op_expect_1_entry($).transform<d_out.Optional_Completion_Items>(
-				($) => _p.set($.value),
+				($) => _p.optional.set($.value),
 				() => _pinternals.panic("multiple entries match the location, that should not happen"),
 			)
 	)
@@ -73,9 +73,9 @@ const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Option
 	return _p.cc(
 		$.filter(($) => $),
 		($) => $.is_empty()
-			? _p.not_set()
+			? _p.optional.not_set()
 			: op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
-				($) => _p.set($),
+				($) => _p.optional.set($),
 				() => _pinternals.panic("multiple entries match the location, that should not happen"),
 			)
 	)
@@ -92,8 +92,8 @@ export const Group_Content = (
 		$.properties.map(($, key): d_out.Optional_Completion_Items => {
 			return _p.cc($, ($) => {
 				switch ($[0]) {
-					case 'multiple': return _p.ss($, ($) => _p.not_set())
-					case 'missing': return _p.ss($, ($) => _p.not_set())
+					case 'multiple': return _p.ss($, ($) => _p.optional.not_set())
+					case 'missing': return _p.ss($, ($) => _p.optional.not_set())
 					case 'unique': return _p.ss($, ($) => Optional_Node($.node, $p))
 					default: return _p.au($[0])
 				}
@@ -121,8 +121,8 @@ export const Node = (
 
 	const create_default_value_string = (node: d_schema.Type_Node, write_delimiters: boolean) => {
 		const default_initialized_value: d_ast_target.Value = t_default_initialize.Type_Node(node)
-		const fp_group: d_fpblock.Group = _p.list_literal([
-			['nested block', _p.list_literal<d_fpblock.Block_Part>([
+		const fp_group: d_fpblock.Group = _p.list.literal([
+			['nested block', _p.list.literal<d_fpblock.Block_Part>([
 				t_astn_target_to_fp.Value(default_initialized_value, {
 					'in concise group': false,
 					'write delimiters': write_delimiters,
@@ -140,19 +140,19 @@ export const Node = (
 	const wrap = (): d_out.Optional_Completion_Items => {
 
 		return in_range
-			? _p.set(_p.list_literal([
+			? _p.optional.set(_p.list.literal([
 				{
 					'label': "verbose group",
 					'insert text': create_default_value_string(node.definition, false),
 					'documentation': ""
 				}
 			]))
-			: _p.not_set()
+			: _p.optional.not_set()
 	}
 
 	if (!in_range) {
 		// If not in range, return not set
-		return _p.not_set()
+		return _p.optional.not_set()
 	}
 
 	return _p.cc($.type, ($): d_out.Optional_Completion_Items => {
@@ -184,7 +184,7 @@ export const Node = (
 								})
 							})
 						).transform(
-							($) => _p.set($),
+							($) => _p.optional.set($),
 							() => wrap()
 						))
 						case 'invalid': return _p.ss($, ($) => wrap())
@@ -206,7 +206,7 @@ export const Node = (
 							}),
 							$p
 						).transform(
-							($) => _p.set($),
+							($) => _p.optional.set($),
 							() => wrap()
 						))
 						default: return _p.au($[0])
@@ -219,7 +219,7 @@ export const Node = (
 						case 'valid': return _p.ss($, ($) => _p.cc($, ($) => {
 							switch ($[0]) {
 								case 'set': return _p.ss($, ($) => Node($['child node'], $p))
-								case 'not set': return _p.ss($, ($) => _p.not_set())
+								case 'not set': return _p.ss($, ($) => _p.optional.not_set())
 								default: return _p.au($[0])
 							}
 						}))
@@ -238,7 +238,7 @@ export const Node = (
 									return _p.cc($['value substatus'], ($) => {
 										switch ($[0]) {
 											case 'missing data': return _p.ss($, ($) => {
-												return _p.set(state_group_definition.to_list(($, key) => {
+												return _p.optional.set(state_group_definition.to_list(($, key) => {
 													return {
 														'label': key,
 														'insert text': `'${key}' ${create_default_value_string($.node, true)}`,
@@ -254,11 +254,11 @@ export const Node = (
 												return $['found state definition'].transform<d_out.Optional_Completion_Items>(
 													($) => {
 														return Node($.node, $p).transform(
-															($) => _p.set($),
+															($) => _p.optional.set($),
 															() => wrap()
 														)
 													},
-													() => _p.not_set()
+													() => _p.optional.not_set()
 												)
 											})
 											default: return _p.au($[0])
@@ -270,11 +270,11 @@ export const Node = (
 						}))
 						case 'invalid': return _p.ss($, ($) => wrap())
 						//
-						// case 'unknown state': return _p.ss($, ($) => _p.set(_p.list_literal(["FIXUNKNOWNSTATE"])))
-						// case 'more than 2 elements': return _p.ss($, ($) => _p.set(_p.list_literal(["FIXMORETHANTWO"])))
-						// case 'missing state name': return _p.ss($, ($) => _p.set(_p.list_literal(["FIXMISSINGSTATENAME"])))
-						// case 'state is not a string': return _p.ss($, ($) => _p.set(_p.list_literal(["FIXSTATEISNOTSTRING"])))
-						// case 'missing value': return _p.ss($, ($) => _p.set(_p.list_literal(["FIXMISSINGVALUE"])))
+						// case 'unknown state': return _p.ss($, ($) => _p.optional.set(_p.list.literal(["FIXUNKNOWNSTATE"])))
+						// case 'more than 2 elements': return _p.ss($, ($) => _p.optional.set(_p.list.literal(["FIXMORETHANTWO"])))
+						// case 'missing state name': return _p.ss($, ($) => _p.optional.set(_p.list.literal(["FIXMISSINGSTATENAME"])))
+						// case 'state is not a string': return _p.ss($, ($) => _p.optional.set(_p.list.literal(["FIXSTATEISNOTSTRING"])))
+						// case 'missing value': return _p.ss($, ($) => _p.optional.set(_p.list.literal(["FIXMISSINGVALUE"])))
 						default: return _p.au($[0])
 					}
 				})
@@ -295,6 +295,6 @@ export const Optional_Node = (
 ): d_out.Optional_Completion_Items => {
 	return $.transform(
 		($) => Node($, $p),
-		() => _p.not_set()
+		() => _p.optional.not_set()
 	)
 }
