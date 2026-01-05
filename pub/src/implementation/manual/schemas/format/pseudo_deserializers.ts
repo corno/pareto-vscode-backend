@@ -18,22 +18,18 @@ import * as s_parse_result from "astn/dist/implementation/manual/schemas/parse_r
 
 namespace t_token_to_client {
 
-    export const create_frontend_position_from_relative_location = ($: d_token.Relative_Location): d_client.Position => {
-        return {
-            line: $.line,
-            character: $.column
-        }
-    }
+    export const create_frontend_position_from_relative_location = ($: d_token.Relative_Location): d_client.Position => ({
+        line: $.line,
+        character: $.column
+    })
 }
 
 namespace t_ide_to_client {
 
-    export const create_frontend_range_from_relative_range = ($: d_ide.Relative_Range): d_client.Range => {
-        return {
-            start: t_token_to_client.create_frontend_position_from_relative_location($.start),
-            end: t_token_to_client.create_frontend_position_from_relative_location($.end),
-        }
-    }
+    export const create_frontend_range_from_relative_range = ($: d_ide.Relative_Range): d_client.Range => ({
+        start: t_token_to_client.create_frontend_position_from_relative_location($.start),
+        end: t_token_to_client.create_frontend_position_from_relative_location($.end),
+    })
 
 }
 

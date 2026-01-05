@@ -74,17 +74,15 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): 
             )
     )
 }
-const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => {
-    return _p.cc(
-        $.filter(($) => $),
-        ($) => $.is_empty()
-            ? _p.optional.not_set()
-            : op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
-                ($) => _p.optional.set($),
-                () => _pinternals.panic("multiple entries match the location, that should not happen"),
-            )
-    )
-}
+const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => _p.cc(
+    $.filter(($) => $),
+    ($) => $.is_empty()
+        ? _p.optional.not_set()
+        : op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
+            ($) => _p.optional.set($),
+            () => _pinternals.panic("multiple entries match the location, that should not happen"),
+        )
+)
 
 export const Group_Content = (
     $: d_in.Group_Content,
@@ -92,20 +90,16 @@ export const Group_Content = (
         'location': d_token.Relative_Location
         'indent': string
     }
-): d_out.Optional_Completion_Items => {
-    return filter_dictionary(
-        $.properties.map(($, key): d_out.Optional_Completion_Items => {
-            return _p.cc($, ($) => {
-                switch ($[0]) {
-                    case 'multiple': return _p.ss($, ($) => _p.optional.not_set())
-                    case 'missing': return _p.ss($, ($) => _p.optional.not_set())
-                    case 'unique': return _p.ss($, ($) => Optional_Node($.node, $p))
-                    default: return _p.au($[0])
-                }
-            })
-        })
-    )
-}
+): d_out.Optional_Completion_Items => filter_dictionary(
+    $.properties.map(($, key): d_out.Optional_Completion_Items => _p.cc($, ($) => {
+        switch ($[0]) {
+            case 'multiple': return _p.ss($, ($) => _p.optional.not_set())
+            case 'missing': return _p.ss($, ($) => _p.optional.not_set())
+            case 'unique': return _p.ss($, ($) => Optional_Node($.node, $p))
+            default: return _p.au($[0])
+        }
+    }))
+)
 
 export const Node = (
     $: d_in.Node,
@@ -142,18 +136,15 @@ export const Node = (
 
     }
 
-    const wrap = (): d_out.Optional_Completion_Items => {
-
-        return in_range
-            ? _p.optional.set(_p.list.literal([
-                {
-                    'label': "verbose group",
-                    'insert text': create_default_value_string(node.definition, false),
-                    'documentation': ""
-                }
-            ]))
-            : _p.optional.not_set()
-    }
+    const wrap = (): d_out.Optional_Completion_Items => in_range
+        ? _p.optional.set(_p.list.literal([
+            {
+                'label': "verbose group",
+                'insert text': create_default_value_string(node.definition, false),
+                'documentation': ""
+            }
+        ]))
+        : _p.optional.not_set()
 
     if (!in_range) {
         // If not in range, return not set
@@ -175,101 +166,82 @@ export const Node = (
             case 'nothing': return _p.ss($, ($) => wrap())
             case 'reference': return _p.ss($, ($) => wrap()) //show options?
             case 'component': return _p.ss($, ($) => Node($.node, $p))
-            case 'dictionary': return _p.ss($, ($) => {
-                return _p.cc($['found value type'], ($) => {
-                    switch ($[0]) {
-                        case 'valid': return _p.ss($, ($) => filter_dictionary(
-                            $.entries.map(($, key): d_out.Optional_Completion_Items => {
-                                return _p.cc($, ($) => {
-                                    switch ($[0]) {
-                                        case 'multiple': return _p.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, $p))))
-                                        case 'unique': return _p.ss($, ($) => Optional_Node($, $p))
-                                        default: return _p.au($[0])
-                                    }
-                                })
-                            })
-                        ).transform(
-                            ($) => _p.optional.set($),
-                            () => wrap()
-                        ))
-                        case 'invalid': return _p.ss($, ($) => wrap())
-                        default: return _p.au($[0])
-                    }
-                })
-            })
-            case 'group': return _p.ss($, ($) => {
-                return _p.cc($['found value type'], ($) => {
-                    switch ($[0]) {
-                        case 'invalid': return _p.ss($, ($) => wrap())
-                        case 'valid': return _p.ss($, ($) => Group_Content(
-                            _p.cc($, ($) => {
-                                switch ($[0]) {
-                                    case 'ordered': return _p.ss($, ($) => $.content)
-                                    case 'indexed': return _p.ss($, ($) => $.content)
-                                    default: return _p.au($[0])
-                                }
-                            }),
-                            $p
-                        ).transform(
-                            ($) => _p.optional.set($),
-                            () => wrap()
-                        ))
-                        default: return _p.au($[0])
-                    }
-                })
-            })
-            case 'optional': return _p.ss($, ($) => {
-                return _p.cc($['found value type'], ($) => {
-                    switch ($[0]) {
-                        case 'valid': return _p.ss($, ($) => _p.cc($, ($) => {
+            case 'dictionary': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
+                switch ($[0]) {
+                    case 'valid': return _p.ss($, ($) => filter_dictionary(
+                        $.entries.map(($, key): d_out.Optional_Completion_Items => _p.cc($, ($) => {
                             switch ($[0]) {
-                                case 'set': return _p.ss($, ($) => Node($['child node'], $p))
-                                case 'not set': return _p.ss($, ($) => _p.optional.not_set())
+                                case 'multiple': return _p.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, $p))))
+                                case 'unique': return _p.ss($, ($) => Optional_Node($, $p))
                                 default: return _p.au($[0])
                             }
                         }))
-                        case 'invalid': return _p.ss($, ($) => wrap())
-                        default: return _p.au($[0])
-                    }
-                })
-            })
+                    ).transform(
+                        ($) => _p.optional.set($),
+                        () => wrap()
+                    ))
+                    case 'invalid': return _p.ss($, ($) => wrap())
+                    default: return _p.au($[0])
+                }
+            }))
+            case 'group': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
+                switch ($[0]) {
+                    case 'invalid': return _p.ss($, ($) => wrap())
+                    case 'valid': return _p.ss($, ($) => Group_Content(
+                        _p.cc($, ($) => {
+                            switch ($[0]) {
+                                case 'ordered': return _p.ss($, ($) => $.content)
+                                case 'indexed': return _p.ss($, ($) => $.content)
+                                default: return _p.au($[0])
+                            }
+                        }),
+                        $p
+                    ).transform(
+                        ($) => _p.optional.set($),
+                        () => wrap()
+                    ))
+                    default: return _p.au($[0])
+                }
+            }))
+            case 'optional': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
+                switch ($[0]) {
+                    case 'valid': return _p.ss($, ($) => _p.cc($, ($) => {
+                        switch ($[0]) {
+                            case 'set': return _p.ss($, ($) => Node($['child node'], $p))
+                            case 'not set': return _p.ss($, ($) => _p.optional.not_set())
+                            default: return _p.au($[0])
+                        }
+                    }))
+                    case 'invalid': return _p.ss($, ($) => wrap())
+                    default: return _p.au($[0])
+                }
+            }))
             case 'state': return _p.ss($, ($) => {
                 const state_group_definition = $.definition
                 return _p.cc($['found value type'], ($) => {
                     switch ($[0]) {
                         case 'valid': return _p.ss($, ($) => _p.cc($['value type'], ($) => {
                             switch ($[0]) {
-                                case 'state': return _p.ss($, ($) => {
-                                    return _p.cc($['value substatus'], ($) => {
-                                        switch ($[0]) {
-                                            case 'missing data': return _p.ss($, ($) => {
-                                                return _p.optional.set(state_group_definition.to_list(($, key) => {
-                                                    return {
-                                                        'label': key,
-                                                        'insert text': `'${key}' ${create_default_value_string($.node, true)}`,
-                                                        'documentation': $.description.transform(
-                                                            ($) => $,
-                                                            () => ""
-                                                        ),
-                                                    }
-                                                }))
-                                            })
-                                            case 'set': return _p.ss($, ($) => {
-                                                const temp = $.value.state.value
-                                                return $['found state definition'].transform<d_out.Optional_Completion_Items>(
-                                                    ($) => {
-                                                        return Node($.node, $p).transform(
-                                                            ($) => _p.optional.set($),
-                                                            () => wrap()
-                                                        )
-                                                    },
-                                                    () => _p.optional.not_set()
-                                                )
-                                            })
-                                            default: return _p.au($[0])
-                                        }
-                                    })
-                                })
+                                case 'state': return _p.ss($, ($) => _p.cc($['value substatus'], ($) => {
+                                    switch ($[0]) {
+                                        case 'missing data': return _p.ss($, ($) => _p.optional.set(state_group_definition.to_list(($, key) => ({
+                                            'label': key,
+                                            'insert text': `'${key}' ${create_default_value_string($.node, true)}`,
+                                            'documentation': $.description.transform(
+                                                ($) => $,
+                                                () => ""
+                                            ),
+                                        }))))
+                                        case 'set': return _p.ss($, ($) => $['found state definition'].transform<d_out.Optional_Completion_Items>(
+                                            ($) => Node($.node, $p).transform(
+                                                ($) => _p.optional.set($),
+                                                () => wrap()
+                                            ),
+                                            () => _p.optional.not_set()
+                                        ))
+                                        default: return _p.au($[0])
+                                    }
+                                }))
                                 default: return _p.au($[0])
                             }
                         }))
@@ -297,9 +269,7 @@ export const Optional_Node = (
         'location': d_token.Relative_Location
         'indent': string
     }
-): d_out.Optional_Completion_Items => {
-    return $.transform(
-        ($) => Node($, $p),
-        () => _p.optional.not_set()
-    )
-}
+): d_out.Optional_Completion_Items => $.transform(
+    ($) => Node($, $p),
+    () => _p.optional.not_set()
+)
