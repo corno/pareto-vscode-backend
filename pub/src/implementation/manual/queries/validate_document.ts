@@ -1,6 +1,7 @@
 import * as _p from 'pareto-core-query'
 import * as _pi from 'pareto-core-interface'
-import * as _pinternals from 'pareto-core-internals' //FIX, change 'file path' parameter from string to 'Node Path'
+import * as _pdev from 'pareto-core-dev' //FIX, change 'file path' parameter from string to 'Node Path'
+import * as _p_temp_transformer from 'pareto-core-transformer'
 
 import * as signatures from "../../../interface/signatures"
 
@@ -162,7 +163,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
             'content': $p.content,
             'file path': ds_path.Node_Path(
                 $p['file path'],
-                () => _pinternals.panic("Invalid file path"),
+                () => _pdev.implement_me("Invalid file path"),
                 {
                     'pedantic': true,
                 },
@@ -279,7 +280,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                                     case 'more than 2 elements': return _p.ss($, ($) => `State 'XXXX' has more than 2 elements`)
                                     case 'state is not a string': return _p.ss($, ($) => `State 'XXXX' is not a string`)
                                     case 'unknown state': return _p.ss($, ($) => `this state does not exist, choose from ${s_list_of_separated_texts(
-                                        _p.list.from_dictionary($.expected, ($, key) => `'${key}'`),
+                                        _p_temp_transformer.list.from_dictionary($.expected, ($, key) => `'${key}'`),
                                         { 'separator': " or " }
                                     )}`)
                                     default: return _p.au($[0])

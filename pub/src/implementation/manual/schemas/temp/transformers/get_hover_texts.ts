@@ -1,7 +1,6 @@
 import * as _pi from 'pareto-core-interface'
 import * as _p from 'pareto-core-transformer'
 import * as _pdev from 'pareto-core-dev'
-import * as _pinternals from 'pareto-core-internals'
 
 import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result"
 
@@ -60,23 +59,23 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Hover_Texts>): d_out
         }
         return _p.optional.set(found)
     }
-    return _p.sg(
-        $.filter(($) => $),
-        ($) => $.is_empty()
+    return _p.deprecated_cc(
+        _p.dictionary.filter($, ($) => $),
+        ($) => _p.boolean.dictionary_is_empty($)
             ? _p.optional.not_set()
             : op_expect_1_entry($).transform<d_out.Optional_Hover_Texts>(
                 ($) => _p.optional.set($.value),
-                () => _pinternals.panic("multiple entries match the location, that should not happen"),
+                () => _p.unreachable_code_path(),
             )
     )
 }
-const filter_list = ($: _pi.List<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => _p.sg(
-    $.filter(($) => $),
-    ($) => $.is_empty()
+const filter_list = ($: _pi.List<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => _p.deprecated_cc(
+    _p.list.filter($, ($) => $),
+    ($) => _p.boolean.list_is_empty($)
         ? _p.optional.not_set()
         : op_expect_1_element($).transform<d_out.Optional_Hover_Texts>(
             ($) => _p.optional.set($),
-            () => _pinternals.panic("multiple entries match the location, that should not happen"),
+            () => _p.unreachable_code_path(),
         )
 )
 
@@ -222,7 +221,12 @@ export const Node = (
                                 switch ($[0]) {
                                     case 'state': return _p.ss($, ($) => _p.sg($['value substatus'], ($) => {
                                         switch ($[0]) {
-                                            case 'missing data': return _p.ss($, ($): d_out.Optional_Hover_Texts => _p.optional.set(def.to_list(($, key) => key)))
+                                            case 'missing data': return _p.ss($, ($): d_out.Optional_Hover_Texts => _p.optional.set(
+                                                _p.list.from_dictionary(
+                                                    def,
+                                                    ($, key) => key
+                                                )
+                                            ))
                                             case 'set': return _p.ss($, ($) => {
                                                 const temp = $.value.state.value
                                                 return $['found state definition'].transform<d_out.Optional_Hover_Texts>(

@@ -64,18 +64,19 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): 
         return _p.optional.set(found)
     }
     return _p.deprecated_cc(
-        $.filter(($) => $),
-        ($) => $.is_empty()
+        _p.dictionary.filter($, ($) => $),
+        ($) => _p.boolean.dictionary_is_empty($)
             ? _p.optional.not_set()
             : op_expect_1_entry($).transform<d_out.Optional_Completion_Items>(
                 ($) => _p.optional.set($.value),
                 () => _p.unreachable_code_path(),
             )
     )
+
 }
 const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => _p.deprecated_cc(
-    $.filter(($) => $),
-    ($) => $.is_empty()
+    _p.list.filter($, ($) => $),
+    ($) => _p.boolean.list_is_empty($)
         ? _p.optional.not_set()
         : op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
             ($) => _p.optional.set($),
@@ -223,14 +224,19 @@ export const Node = (
                             switch ($[0]) {
                                 case 'state': return _p.ss($, ($) => _p.sg($['value substatus'], ($) => {
                                     switch ($[0]) {
-                                        case 'missing data': return _p.ss($, ($) => _p.optional.set(state_group_definition.to_list(($, key) => ({
-                                            'label': key,
-                                            'insert text': `'${key}' ${create_default_value_string($.node, true)}`,
-                                            'documentation': $.description.transform(
-                                                ($) => $,
-                                                () => ""
-                                            ),
-                                        }))))
+                                        case 'missing data': return _p.ss($, ($) => _p.optional.set(
+                                            _p.list.from_dictionary(
+                                                state_group_definition,
+                                                ($, key) => ({
+                                                    'label': key,
+                                                    'insert text': `'${key}' ${create_default_value_string($.node, true)}`,
+                                                    'documentation': $.description.transform(
+                                                        ($) => $,
+                                                        () => ""
+                                                    ),
+                                                })
+                                            )
+                                        ))
                                         case 'set': return _p.ss($, ($) => $['found state definition'].transform<d_out.Optional_Completion_Items>(
                                             ($) => Node($.node, $p).transform(
                                                 ($) => _p.optional.set($),
