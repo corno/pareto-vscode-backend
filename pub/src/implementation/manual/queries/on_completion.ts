@@ -1,6 +1,6 @@
 import * as _p from 'pareto-core-query'
 import * as _pi from 'pareto-core-interface'
-import * as _pinternals from 'pareto-core-internals' //FIX, change 'file path' parameter from string to 'Node Path'
+import * as _pdev from 'pareto-core-dev' //FIX, change 'file path' parameter from string to 'Node Path'
 
 import * as signatures from "../../../interface/signatures"
 
@@ -20,7 +20,7 @@ export const $$: signatures.queries.on_completion = _p.query_function(
             'content': $p.content,
             'file path': ds_path.Node_Path(
                 $p['file path'],
-                () => _pinternals.panic("Invalid file path"),
+                () => _pdev.implement_me("Invalid file path"),
                 {
                     'pedantic': true,
                 },

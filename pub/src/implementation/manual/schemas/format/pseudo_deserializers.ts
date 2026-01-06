@@ -54,7 +54,7 @@ export const $$: Signature = ($, abort, $p) => {
         }
     )
 
-    const x3 = x2.map(($): d_client.Text_Edit => _pt.cc($, ($): d_client.Text_Edit => {
+    return x2.map(($): d_client.Text_Edit => _pt.sg($, ($): d_client.Text_Edit => {
         switch ($[0]) {
             case 'replace': return _pt.ss($, ($) => ['replace', { 'range': t_ide_to_client.create_frontend_range_from_relative_range($.range), 'text': $.text }])
             case 'delete': return _pt.ss($, ($) => ['delete', { 'range': t_ide_to_client.create_frontend_range_from_relative_range($.range) }])
@@ -63,5 +63,4 @@ export const $$: Signature = ($, abort, $p) => {
         }
     }))
 
-    return x3
 }

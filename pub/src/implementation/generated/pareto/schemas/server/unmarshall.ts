@@ -42,7 +42,7 @@ export const Position: _i_signatures._T_Position = ($, $p) => _i_generic.process
     $,
     {
         'properties': ($) => ({
-            'line': _pa.cc(_i_generic.get_entry(
+            'line': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "line",
@@ -53,7 +53,7 @@ export const Position: _i_signatures._T_Position = ($, $p) => _i_generic.process
                     'deserializer': $p['value deserializers']['default number'],
                 }
             )),
-            'character': _pa.cc(_i_generic.get_entry(
+            'character': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "character",
@@ -71,7 +71,7 @@ export const Range: _i_signatures._T_Range = ($, $p) => _i_generic.process_group
     $,
     {
         'properties': ($) => ({
-            'start': _pa.cc(_i_generic.get_entry(
+            'start': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "start",
@@ -82,7 +82,7 @@ export const Range: _i_signatures._T_Range = ($, $p) => _i_generic.process_group
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'end': _pa.cc(_i_generic.get_entry(
+            'end': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "end",
@@ -100,7 +100,7 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => _i_generic.pro
     $,
     {
         'properties': ($) => ({
-            'severity': _pa.cc(_i_generic.get_entry(
+            'severity': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "severity",
@@ -111,7 +111,7 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => _i_generic.pro
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'range': _pa.cc(_i_generic.get_entry(
+            'range': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "range",
@@ -122,7 +122,7 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => _i_generic.pro
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'message': _pa.cc(_i_generic.get_entry(
+            'message': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "message",
@@ -131,7 +131,7 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => _i_generic.pro
                 $,
                 null
             )),
-            'related information': _pa.cc(_i_generic.get_entry(
+            'related information': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "related information",
@@ -146,7 +146,7 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => _i_generic.pro
                                 $,
                                 {
                                     'properties': ($) => ({
-                                        'location': _pa.cc(_i_generic.get_entry(
+                                        'location': _pa.deprecated_cc(_i_generic.get_entry(
                                             $,
                                             {
                                                 'key': "location",
@@ -155,7 +155,7 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => _i_generic.pro
                                             $,
                                             {
                                                 'properties': ($) => ({
-                                                    'file path': _pa.cc(_i_generic.get_entry(
+                                                    'file path': _pa.deprecated_cc(_i_generic.get_entry(
                                                         $,
                                                         {
                                                             'key': "file path",
@@ -164,7 +164,7 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => _i_generic.pro
                                                         $,
                                                         null
                                                     )),
-                                                    'range': _pa.cc(_i_generic.get_entry(
+                                                    'range': _pa.deprecated_cc(_i_generic.get_entry(
                                                         $,
                                                         {
                                                             'key': "range",
@@ -178,7 +178,7 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => _i_generic.pro
                                                 }),
                                             }
                                         )),
-                                        'message': _pa.cc(_i_generic.get_entry(
+                                        'message': _pa.deprecated_cc(_i_generic.get_entry(
                                             $,
                                             {
                                                 'key': "message",
@@ -212,7 +212,7 @@ export const Document_Data: _i_signatures._T_Document_Data = ($, $p) => _i_gener
     $,
     {
         'properties': ($) => ({
-            'file path': _pa.cc(_i_generic.get_entry(
+            'file path': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "file path",
@@ -221,7 +221,7 @@ export const Document_Data: _i_signatures._T_Document_Data = ($, $p) => _i_gener
                 $,
                 null
             )),
-            'content': _pa.cc(_i_generic.get_entry(
+            'content': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "content",
@@ -257,7 +257,7 @@ export const On_Hover_Result: _i_signatures._T_On_Hover_Result = ($, $p) => _i_g
     $,
     {
         'properties': ($) => ({
-            'contents': _pa.cc(_i_generic.get_entry(
+            'contents': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "contents",
@@ -266,7 +266,7 @@ export const On_Hover_Result: _i_signatures._T_On_Hover_Result = ($, $p) => _i_g
                 $,
                 {
                     'properties': ($) => ({
-                        'hover texts': _pa.cc(_i_generic.get_entry(
+                        'hover texts': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "hover texts",
@@ -290,7 +290,7 @@ export const Completion_Items: _i_signatures._T_Completion_Items = ($, $p) => _i
             $,
             {
                 'properties': ($) => ({
-                    'label': _pa.cc(_i_generic.get_entry(
+                    'label': _pa.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "label",
@@ -299,7 +299,7 @@ export const Completion_Items: _i_signatures._T_Completion_Items = ($, $p) => _i
                         $,
                         null
                     )),
-                    'insert text': _pa.cc(_i_generic.get_entry(
+                    'insert text': _pa.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "insert text",
@@ -308,7 +308,7 @@ export const Completion_Items: _i_signatures._T_Completion_Items = ($, $p) => _i
                         $,
                         null
                     )),
-                    'documentation': _pa.cc(_i_generic.get_entry(
+                    'documentation': _pa.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "documentation",
@@ -337,7 +337,7 @@ export const On_Completion_Result: _i_signatures._T_On_Completion_Result = ($, $
     $,
     {
         'properties': ($) => ({
-            'completion items': _pa.cc(_i_generic.get_entry(
+            'completion items': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "completion items",
@@ -355,7 +355,7 @@ export const On_Validate_Document_Result: _i_signatures._T_On_Validate_Document_
     $,
     {
         'properties': ($) => ({
-            'diagnostics': _pa.cc(_i_generic.get_entry(
+            'diagnostics': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "diagnostics",
@@ -373,7 +373,7 @@ export const Convert_To_JSON_Parameters: _i_signatures._T_Convert_To_JSON_Parame
     $,
     {
         'properties': ($) => ({
-            'content': _pa.cc(_i_generic.get_entry(
+            'content': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "content",
@@ -389,7 +389,7 @@ export const Seal_Parameters: _i_signatures._T_Seal_Parameters = ($, $p) => _i_g
     $,
     {
         'properties': ($) => ({
-            'content': _pa.cc(_i_generic.get_entry(
+            'content': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "content",
@@ -405,7 +405,7 @@ export const On_Completion_Parameters: _i_signatures._T_On_Completion_Parameters
     $,
     {
         'properties': ($) => ({
-            'content': _pa.cc(_i_generic.get_entry(
+            'content': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "content",
@@ -414,7 +414,7 @@ export const On_Completion_Parameters: _i_signatures._T_On_Completion_Parameters
                 $,
                 null
             )),
-            'file path': _pa.cc(_i_generic.get_entry(
+            'file path': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "file path",
@@ -423,7 +423,7 @@ export const On_Completion_Parameters: _i_signatures._T_On_Completion_Parameters
                 $,
                 null
             )),
-            'position': _pa.cc(_i_generic.get_entry(
+            'position': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "position",
@@ -434,7 +434,7 @@ export const On_Completion_Parameters: _i_signatures._T_On_Completion_Parameters
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'indent': _pa.cc(_i_generic.get_entry(
+            'indent': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "indent",
@@ -450,7 +450,7 @@ export const On_Hover_Parameters: _i_signatures._T_On_Hover_Parameters = ($, $p)
     $,
     {
         'properties': ($) => ({
-            'content': _pa.cc(_i_generic.get_entry(
+            'content': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "content",
@@ -459,7 +459,7 @@ export const On_Hover_Parameters: _i_signatures._T_On_Hover_Parameters = ($, $p)
                 $,
                 null
             )),
-            'file path': _pa.cc(_i_generic.get_entry(
+            'file path': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "file path",
@@ -468,7 +468,7 @@ export const On_Hover_Parameters: _i_signatures._T_On_Hover_Parameters = ($, $p)
                 $,
                 null
             )),
-            'position': _pa.cc(_i_generic.get_entry(
+            'position': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "position",
@@ -486,7 +486,7 @@ export const Validate_Document_Parameters: _i_signatures._T_Validate_Document_Pa
     $,
     {
         'properties': ($) => ({
-            'content': _pa.cc(_i_generic.get_entry(
+            'content': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "content",
@@ -495,7 +495,7 @@ export const Validate_Document_Parameters: _i_signatures._T_Validate_Document_Pa
                 $,
                 null
             )),
-            'file path': _pa.cc(_i_generic.get_entry(
+            'file path': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "file path",
@@ -504,7 +504,7 @@ export const Validate_Document_Parameters: _i_signatures._T_Validate_Document_Pa
                 $,
                 null
             )),
-            'tab size': _pa.cc(_i_generic.get_entry(
+            'tab size': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "tab size",

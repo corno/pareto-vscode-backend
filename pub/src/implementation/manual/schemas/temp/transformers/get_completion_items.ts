@@ -1,7 +1,6 @@
 import * as _p from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
 import * as _pdev from 'pareto-core-dev'
-import * as _pinternals from 'pareto-core-internals'
 
 import * as d_schema from "pareto/dist/interface/generated/pareto/schemas/schema/data_types/source"
 import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result"
@@ -64,23 +63,23 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): 
         }
         return _p.optional.set(found)
     }
-    return _p.cc(
+    return _p.deprecated_cc(
         $.filter(($) => $),
         ($) => $.is_empty()
             ? _p.optional.not_set()
             : op_expect_1_entry($).transform<d_out.Optional_Completion_Items>(
                 ($) => _p.optional.set($.value),
-                () => _pinternals.panic("multiple entries match the location, that should not happen"),
+                () => _p.unreachable_code_path(),
             )
     )
 }
-const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => _p.cc(
+const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => _p.deprecated_cc(
     $.filter(($) => $),
     ($) => $.is_empty()
         ? _p.optional.not_set()
         : op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
             ($) => _p.optional.set($),
-            () => _pinternals.panic("multiple entries match the location, that should not happen"),
+            () => _p.unreachable_code_path(),
         )
 )
 
@@ -91,7 +90,7 @@ export const Group_Content = (
         'indent': string
     }
 ): d_out.Optional_Completion_Items => filter_dictionary(
-    $.properties.map(($, key): d_out.Optional_Completion_Items => _p.cc($, ($) => {
+    $.properties.map(($, key): d_out.Optional_Completion_Items => _p.sg($, ($) => {
         switch ($[0]) {
             case 'multiple': return _p.ss($, ($) => _p.optional.not_set())
             case 'missing': return _p.ss($, ($) => _p.optional.not_set())
@@ -151,12 +150,12 @@ export const Node = (
         return _p.optional.not_set()
     }
 
-    return _p.cc($.type, ($): d_out.Optional_Completion_Items => {
+    return _p.sg($.type, ($): d_out.Optional_Completion_Items => {
         switch ($[0]) {
             case 'number': return _p.ss($, ($) => wrap())
             case 'boolean': return _p.ss($, ($) => wrap())
             case 'type parameter': return _p.ss($, ($) => _pdev.implement_me("xx"))
-            case 'list': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
+            case 'list': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
                 switch ($[0]) {
                     case 'valid': return _p.ss($, ($) => filter_list($.elements.map(($) => Node($, $p))))
                     case 'invalid': return _p.ss($, ($) => wrap())
@@ -166,10 +165,10 @@ export const Node = (
             case 'nothing': return _p.ss($, ($) => wrap())
             case 'reference': return _p.ss($, ($) => wrap()) //show options?
             case 'component': return _p.ss($, ($) => Node($.node, $p))
-            case 'dictionary': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
+            case 'dictionary': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
                 switch ($[0]) {
                     case 'valid': return _p.ss($, ($) => filter_dictionary(
-                        $.entries.map(($, key): d_out.Optional_Completion_Items => _p.cc($, ($) => {
+                        $.entries.map(($, key): d_out.Optional_Completion_Items => _p.sg($, ($) => {
                             switch ($[0]) {
                                 case 'multiple': return _p.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, $p))))
                                 case 'unique': return _p.ss($, ($) => Optional_Node($, $p))
@@ -184,11 +183,11 @@ export const Node = (
                     default: return _p.au($[0])
                 }
             }))
-            case 'group': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
+            case 'group': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
                 switch ($[0]) {
                     case 'invalid': return _p.ss($, ($) => wrap())
                     case 'valid': return _p.ss($, ($) => Group_Content(
-                        _p.cc($, ($) => {
+                        _p.sg($, ($) => {
                             switch ($[0]) {
                                 case 'ordered': return _p.ss($, ($) => $.content)
                                 case 'indexed': return _p.ss($, ($) => $.content)
@@ -203,9 +202,9 @@ export const Node = (
                     default: return _p.au($[0])
                 }
             }))
-            case 'optional': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
+            case 'optional': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
                 switch ($[0]) {
-                    case 'valid': return _p.ss($, ($) => _p.cc($, ($) => {
+                    case 'valid': return _p.ss($, ($) => _p.sg($, ($) => {
                         switch ($[0]) {
                             case 'set': return _p.ss($, ($) => Node($['child node'], $p))
                             case 'not set': return _p.ss($, ($) => _p.optional.not_set())
@@ -218,11 +217,11 @@ export const Node = (
             }))
             case 'state': return _p.ss($, ($) => {
                 const state_group_definition = $.definition
-                return _p.cc($['found value type'], ($) => {
+                return _p.sg($['found value type'], ($) => {
                     switch ($[0]) {
-                        case 'valid': return _p.ss($, ($) => _p.cc($['value type'], ($) => {
+                        case 'valid': return _p.ss($, ($) => _p.sg($['value type'], ($) => {
                             switch ($[0]) {
-                                case 'state': return _p.ss($, ($) => _p.cc($['value substatus'], ($) => {
+                                case 'state': return _p.ss($, ($) => _p.sg($['value substatus'], ($) => {
                                     switch ($[0]) {
                                         case 'missing data': return _p.ss($, ($) => _p.optional.set(state_group_definition.to_list(($, key) => ({
                                             'label': key,

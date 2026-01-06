@@ -60,7 +60,7 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Hover_Texts>): d_out
         }
         return _p.optional.set(found)
     }
-    return _p.cc(
+    return _p.sg(
         $.filter(($) => $),
         ($) => $.is_empty()
             ? _p.optional.not_set()
@@ -70,7 +70,7 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Hover_Texts>): d_out
             )
     )
 }
-const filter_list = ($: _pi.List<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => _p.cc(
+const filter_list = ($: _pi.List<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => _p.sg(
     $.filter(($) => $),
     ($) => $.is_empty()
         ? _p.optional.not_set()
@@ -88,7 +88,7 @@ export const Group_Content = (
         'id path': string
     }
 ): d_out.Optional_Hover_Texts => filter_dictionary(
-    $.properties.map(($, key): d_out.Optional_Hover_Texts => _p.cc($, ($) => {
+    $.properties.map(($, key): d_out.Optional_Hover_Texts => _p.sg($, ($) => {
         switch ($[0]) {
             case 'multiple': return _p.ss($, ($) => _p.optional.not_set())
             case 'missing': return _p.ss($, ($) => _p.optional.not_set())
@@ -129,12 +129,12 @@ export const Node = (
         return _p.optional.not_set()
     }
     else {
-        return _p.cc($.type, ($): d_out.Optional_Hover_Texts => {
+        return _p.sg($.type, ($): d_out.Optional_Hover_Texts => {
             switch ($[0]) {
                 case 'number': return _p.ss($, ($) => wrap())
                 case 'boolean': return _p.ss($, ($) => wrap())
                 case 'type parameter': return _p.ss($, ($) => _pdev.implement_me("xx"))
-                case 'list': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
+                case 'list': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
                     switch ($[0]) {
                         case 'valid': return _p.ss($, ($) => filter_list($.elements.map(($) => Node($, {
                             'location': $p.location,
@@ -152,10 +152,10 @@ export const Node = (
                     'full path': $p['full path'],
                     'id path': $p['id path']
                 }))
-                case 'dictionary': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
+                case 'dictionary': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
                     switch ($[0]) {
                         case 'valid': return _p.ss($, ($) => filter_dictionary(
-                            $.entries.map(($, key): d_out.Optional_Hover_Texts => _p.cc($, ($) => {
+                            $.entries.map(($, key): d_out.Optional_Hover_Texts => _p.sg($, ($) => {
                                 switch ($[0]) {
                                     case 'multiple': return _p.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, {
                                         'location': $p.location,
@@ -178,11 +178,11 @@ export const Node = (
                         default: return _p.au($[0])
                     }
                 }))
-                case 'group': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
+                case 'group': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
                     switch ($[0]) {
                         case 'invalid': return _p.ss($, ($) => wrap())
                         case 'valid': return _p.ss($, ($) => Group_Content(
-                            _p.cc($, ($) => {
+                            _p.sg($, ($) => {
                                 switch ($[0]) {
                                     case 'ordered': return _p.ss($, ($) => $.content)
                                     case 'indexed': return _p.ss($, ($) => $.content)
@@ -197,9 +197,9 @@ export const Node = (
                         default: return _p.au($[0])
                     }
                 }))
-                case 'optional': return _p.ss($, ($) => _p.cc($['found value type'], ($) => {
+                case 'optional': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
                     switch ($[0]) {
-                        case 'valid': return _p.ss($, ($) => _p.cc($, ($) => {
+                        case 'valid': return _p.ss($, ($) => _p.sg($, ($) => {
                             switch ($[0]) {
                                 case 'set': return _p.ss($, ($) => Node($['child node'], {
                                     'location': $p.location,
@@ -216,26 +216,24 @@ export const Node = (
                 }))
                 case 'state': return _p.ss($, ($) => {
                     const def = $.definition
-                    return _p.cc($['found value type'], ($) => {
+                    return _p.sg($['found value type'], ($) => {
                         switch ($[0]) {
-                            case 'valid': return _p.ss($, ($) => _p.cc($['value type'], ($) => {
+                            case 'valid': return _p.ss($, ($) => _p.sg($['value type'], ($) => {
                                 switch ($[0]) {
-                                    case 'state': return _p.ss($, ($) => _p.cc($['value substatus'], ($) => {
+                                    case 'state': return _p.ss($, ($) => _p.sg($['value substatus'], ($) => {
                                         switch ($[0]) {
                                             case 'missing data': return _p.ss($, ($): d_out.Optional_Hover_Texts => _p.optional.set(def.to_list(($, key) => key)))
                                             case 'set': return _p.ss($, ($) => {
                                                 const temp = $.value.state.value
                                                 return $['found state definition'].transform<d_out.Optional_Hover_Texts>(
-                                                    ($) => {
-                                                        return Node($.node, {
-                                                            'location': $p.location,
-                                                            'full path': `${$p['full path']} | '${temp}'`,
-                                                            'id path': $p['id path']
-                                                        }).transform(
-                                                            ($) => _p.optional.set($),
-                                                            () => wrap()
-                                                        )
-                                                    },
+                                                    ($) => Node($.node, {
+                                                        'location': $p.location,
+                                                        'full path': `${$p['full path']} | '${temp}'`,
+                                                        'id path': $p['id path']
+                                                    }).transform(
+                                                        ($) => _p.optional.set($),
+                                                        () => wrap()
+                                                    ),
                                                     () => _p.optional.not_set()
                                                 )
                                             })

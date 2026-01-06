@@ -11,21 +11,18 @@ import * as s_json from "pareto-json/dist/implementation/manual/schemas/json/ser
 import * as ds_authoring_parse_tree from "astn/dist/implementation/manual/schemas/authoring_parse_tree/deserializers"
 
 
-export const $$: Signature = ($, abort, $p,) => {
-    return s_json.Document(
-        t_ast_2_json.Document(
-            ds_authoring_parse_tree.Document(
-                $,
-                ($) => abort(null),
-                {
-                    'tab size': 1,
-                },
-            )
-        ),
-        {
-            'indentation': "    ",
-            'newline': '\n'
-        }
-    )
-
-}
+export const $$: Signature = ($, abort, $p,) => s_json.Document(
+    t_ast_2_json.Document(
+        ds_authoring_parse_tree.Document(
+            $,
+            ($) => abort(null),
+            {
+                'tab size': 1,
+            },
+        )
+    ),
+    {
+        'indentation': "    ",
+        'newline': '\n'
+    }
+)
