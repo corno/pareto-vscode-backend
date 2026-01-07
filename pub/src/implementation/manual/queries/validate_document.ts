@@ -228,7 +228,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                             {
                                 'severity': ['error', null],
                                 'range': create_frontend_range_from_range($.range),
-                                'message': `${d_parse_result.Parse_Error_Type($.type)}`,
+                                'message': `${d_parse_result.Parse_Error($, { 'position info': ['zero based', null] })}`,
                                 'related information': _p.optional.not_set()
                             }
                         ]))
