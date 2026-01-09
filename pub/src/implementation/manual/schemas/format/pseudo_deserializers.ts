@@ -13,7 +13,7 @@ type Signature = _pi.Deserializer_With_Parameters<d_client.Format_Result, d_clie
 //dependencies
 import * as ds_authoring_parse_tree from "astn/dist/implementation/manual/schemas/authoring_parse_tree/deserializers"
 import * as t_ast_2_ide from "astn/dist/implementation/manual/schemas/authoring_parse_tree/transformers/ide"
-import * as s_parse_result from "astn/dist/implementation/manual/schemas/parse_result/serializers"
+import * as s_parse_result from "astn/dist/implementation/manual/schemas/authoring_parse_result/serializers"
 
 
 namespace t_token_to_client {
@@ -38,7 +38,7 @@ export const $$: Signature = ($, abort, $p) => {
     const x = ds_authoring_parse_tree.Document(
         $,
         ($) => abort({
-            'message': s_parse_result.Parse_Error($, { 'position info': ['zero based', null] })
+            'message': s_parse_result.Error($, { 'position info': ['zero based', null] })
         }),
         {
             'tab size': 1,

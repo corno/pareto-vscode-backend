@@ -9,7 +9,7 @@ import * as signatures from "../../../interface/signatures"
 import * as d from "../../../interface/generated/pareto/schemas/server/data_types/source"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
-import * as d_parse_result from "astn/dist/implementation/manual/schemas/parse_result/serializers"
+import * as d_parse_result from "astn/dist/implementation/manual/schemas/authoring_parse_result/serializers"
 
 //dependencies
 import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/node_path/deserializers"
@@ -228,7 +228,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                             {
                                 'severity': ['error', null],
                                 'range': create_frontend_range_from_range($.range),
-                                'message': `${d_parse_result.Parse_Error($, { 'position info': ['zero based', null] })}`,
+                                'message': `${d_parse_result.Error($, { 'position info': ['zero based', null] })}`,
                                 'related information': _p.optional.not_set()
                             }
                         ]))

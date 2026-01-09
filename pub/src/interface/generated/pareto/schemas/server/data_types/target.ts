@@ -1,4 +1,4 @@
-import * as _et from 'pareto-core-interface'
+import * as _pi from 'pareto-core-interface'
 
 import * as _i_core from "../../../core/unconstrained"
 
@@ -25,7 +25,7 @@ export type _T_Diagnostic = {
     readonly 'severity': _T_Diagnostic_Severity
     readonly 'range': _T_Range
     readonly 'message': string
-    readonly 'related information': _et.Optional_Value<_i_core._T_List<null, {
+    readonly 'related information': _pi.Optional_Value<_i_core._T_List<null, {
         readonly 'location': {
             readonly 'file path': string
             readonly 'range': _T_Range
@@ -43,7 +43,7 @@ export type _T_Document_Data = {
 
 export type _T_Hover_Texts = _i_core._T_List<null, string>
 
-export type _T_Optional_Hover_Texts = _et.Optional_Value<_T_Hover_Texts>
+export type _T_Optional_Hover_Texts = _pi.Optional_Value<_T_Hover_Texts>
 
 export type _T_On_Hover_Result = {
     readonly 'contents': {
@@ -57,7 +57,7 @@ export type _T_Completion_Items = _i_core._T_List<null, {
     readonly 'documentation': string
 }>
 
-export type _T_Optional_Completion_Items = _et.Optional_Value<_T_Completion_Items>
+export type _T_Optional_Completion_Items = _pi.Optional_Value<_T_Completion_Items>
 
 export type _T_On_Completion_Result = {
     readonly 'completion items': _T_Completion_Items
@@ -223,7 +223,7 @@ export namespace _T_Diagnostic {
             readonly 'message': string
         }>
     }
-    export type related_information = _et.Optional_Value<_i_core._T_List<null, {
+    export type related_information = _pi.Optional_Value<_i_core._T_List<null, {
         readonly 'location': {
             readonly 'file path': string
             readonly 'range': _T_Range
@@ -427,7 +427,7 @@ export namespace Diagnostic {
             readonly 'message': string
         }>
     }
-    export type related_information = _et.Optional_Value<_i_core._T_List<null, {
+    export type related_information = _pi.Optional_Value<_i_core._T_List<null, {
         readonly 'location': {
             readonly 'file path': string
             readonly 'range': _T_Range
