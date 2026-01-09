@@ -45,12 +45,10 @@ export type _T_Format_Error = {
 }
 
 export type _T_Format_Parameters = {
-    readonly 'content': string
     readonly 'options': _T_Format_Options
 }
 
 export type _T_Sort_Alphabetically_Parameters = {
-    readonly 'content': string
     readonly 'position': _T_Position
 }
 
@@ -161,7 +159,6 @@ export namespace _T_Format_Error {
 }
 
 export namespace _T_Format_Parameters {
-    export type content = string
     
     export namespace options {
     }
@@ -169,7 +166,6 @@ export namespace _T_Format_Parameters {
 }
 
 export namespace _T_Sort_Alphabetically_Parameters {
-    export type content = string
     
     export namespace position {
     }
@@ -263,7 +259,6 @@ export namespace Format_Error {
 }
 
 export namespace Format_Parameters {
-    export type content = string
     
     export namespace options {
     }
@@ -271,7 +266,6 @@ export namespace Format_Parameters {
 }
 
 export namespace Sort_Alphabetically_Parameters {
-    export type content = string
     
     export namespace position {
     }

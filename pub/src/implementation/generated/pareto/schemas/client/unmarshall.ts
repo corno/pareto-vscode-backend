@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/client/unmarshall"
@@ -11,7 +11,7 @@ export const Position: _i_signatures._T_Position = ($, $p) => _i_generic.process
     $,
     {
         'properties': ($) => ({
-            'line': _pa.deprecated_cc(_i_generic.get_entry(
+            'line': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "line",
@@ -22,7 +22,7 @@ export const Position: _i_signatures._T_Position = ($, $p) => _i_generic.process
                     'deserializer': $p['value deserializers']['default number'],
                 }
             )),
-            'character': _pa.deprecated_cc(_i_generic.get_entry(
+            'character': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "character",
@@ -40,7 +40,7 @@ export const Range: _i_signatures._T_Range = ($, $p) => _i_generic.process_group
     $,
     {
         'properties': ($) => ({
-            'start': _pa.deprecated_cc(_i_generic.get_entry(
+            'start': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "start",
@@ -51,7 +51,7 @@ export const Range: _i_signatures._T_Range = ($, $p) => _i_generic.process_group
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'end': _pa.deprecated_cc(_i_generic.get_entry(
+            'end': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "end",
@@ -69,7 +69,7 @@ export const Format_Options: _i_signatures._T_Format_Options = ($, $p) => _i_gen
     $,
     {
         'properties': ($) => ({
-            'insert spaces': _pa.deprecated_cc(_i_generic.get_entry(
+            'insert spaces': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "insert spaces",
@@ -80,7 +80,7 @@ export const Format_Options: _i_signatures._T_Format_Options = ($, $p) => _i_gen
                     'deserializer': $p['value deserializers']['boolean'],
                 }
             )),
-            'preserve delimiters': _pa.deprecated_cc(_i_generic.get_entry(
+            'preserve delimiters': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "preserve delimiters",
@@ -91,7 +91,7 @@ export const Format_Options: _i_signatures._T_Format_Options = ($, $p) => _i_gen
                     'deserializer': $p['value deserializers']['boolean'],
                 }
             )),
-            'preserve final newline state': _pa.deprecated_cc(_i_generic.get_entry(
+            'preserve final newline state': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "preserve final newline state",
@@ -102,7 +102,7 @@ export const Format_Options: _i_signatures._T_Format_Options = ($, $p) => _i_gen
                     'deserializer': $p['value deserializers']['boolean'],
                 }
             )),
-            'preserve commas': _pa.deprecated_cc(_i_generic.get_entry(
+            'preserve commas': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "preserve commas",
@@ -113,7 +113,7 @@ export const Format_Options: _i_signatures._T_Format_Options = ($, $p) => _i_gen
                     'deserializer': $p['value deserializers']['boolean'],
                 }
             )),
-            'indent string': _pa.deprecated_cc(_i_generic.get_entry(
+            'indent string': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "indent string",
@@ -129,7 +129,7 @@ export const Replace: _i_signatures._T_Replace = ($, $p) => _i_generic.process_g
     $,
     {
         'properties': ($) => ({
-            'range': _pa.deprecated_cc(_i_generic.get_entry(
+            'range': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "range",
@@ -140,7 +140,7 @@ export const Replace: _i_signatures._T_Replace = ($, $p) => _i_generic.process_g
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'text': _pa.deprecated_cc(_i_generic.get_entry(
+            'text': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "text",
@@ -155,7 +155,7 @@ export const Replace: _i_signatures._T_Replace = ($, $p) => _i_generic.process_g
 export const Text_Edit: _i_signatures._T_Text_Edit = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary.literal({
+        'states': _p.dictionary.literal({
             'replace': ($): _i_out._T_Text_Edit.SG => ['replace', Replace(
                 $,
                 {
@@ -166,7 +166,7 @@ export const Text_Edit: _i_signatures._T_Text_Edit = ($, $p) => _i_generic.proce
                 $,
                 {
                     'properties': ($) => ({
-                        'range': _pa.deprecated_cc(_i_generic.get_entry(
+                        'range': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "range",
@@ -184,7 +184,7 @@ export const Text_Edit: _i_signatures._T_Text_Edit = ($, $p) => _i_generic.proce
                 $,
                 {
                     'properties': ($) => ({
-                        'location': _pa.deprecated_cc(_i_generic.get_entry(
+                        'location': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "location",
@@ -195,7 +195,7 @@ export const Text_Edit: _i_signatures._T_Text_Edit = ($, $p) => _i_generic.proce
                                 'value deserializers': $p['value deserializers'],
                             }
                         )),
-                        'text': _pa.deprecated_cc(_i_generic.get_entry(
+                        'text': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "text",
@@ -225,7 +225,7 @@ export const Format_Error: _i_signatures._T_Format_Error = ($, $p) => _i_generic
     $,
     {
         'properties': ($) => ({
-            'message': _pa.deprecated_cc(_i_generic.get_entry(
+            'message': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "message",
@@ -241,16 +241,7 @@ export const Format_Parameters: _i_signatures._T_Format_Parameters = ($, $p) => 
     $,
     {
         'properties': ($) => ({
-            'content': _pa.deprecated_cc(_i_generic.get_entry(
-                $,
-                {
-                    'key': "content",
-                }
-            ), ($) => _i_generic.process_text(
-                $,
-                null
-            )),
-            'options': _pa.deprecated_cc(_i_generic.get_entry(
+            'options': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "options",
@@ -268,16 +259,7 @@ export const Sort_Alphabetically_Parameters: _i_signatures._T_Sort_Alphabeticall
     $,
     {
         'properties': ($) => ({
-            'content': _pa.deprecated_cc(_i_generic.get_entry(
-                $,
-                {
-                    'key': "content",
-                }
-            ), ($) => _i_generic.process_text(
-                $,
-                null
-            )),
-            'position': _pa.deprecated_cc(_i_generic.get_entry(
+            'position': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "position",

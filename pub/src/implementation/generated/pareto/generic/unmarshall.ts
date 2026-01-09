@@ -92,7 +92,7 @@ export const get_entry = (
 ): t._T_Value => {
     return $.__get_possible_entry($p.key).transform(
         ($) => $,
-        () => _ea.fixme_abort(`no such entry: `, $p.key)
+        () => _ea.fixme_abort(`no such entry: ${$p.key}`)
     )
 }
 
@@ -239,6 +239,7 @@ export const process_unconstrained_list = <Mapped_Value>(
     $p: {
         'value': ($: t._T_Value) => Mapped_Value
     }
+
 ): unconstrained.List<null, Mapped_Value> => {
     return _ea.deprecated_cc($, ($) => {
         switch ($[0]) {
