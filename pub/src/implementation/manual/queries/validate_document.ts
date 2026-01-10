@@ -227,7 +227,13 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                         case 'parse error': return _p.ss($, ($) => _p.list.literal<d.Diagnostic>([
                             {
                                 'severity': ['error', null],
-                                'range': create_frontend_range_from_range($.range),
+                                'range': create_frontend_range_from_range($.range.transform(
+                                    ($) => $,
+                                    () => ({
+                                        'end': { 'absolute': 0, 'relative': { 'line': 0, 'column': 0 } },
+                                        'start': { 'absolute': 0, 'relative': { 'line': 0, 'column': 0 } },
+                                    })
+                                )),
                                 'message': `${d_parse_result.Error($, { 'position info': ['zero based', null] })}`,
                                 'related information': _p.optional.not_set()
                             }
