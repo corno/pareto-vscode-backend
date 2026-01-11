@@ -31,7 +31,7 @@ export const $$: signatures.queries.on_completion = _p.query_function(
         'completion items': t_find_completion_items.Node($, {
             'location': t_backend_location.Relative_Location($p.position),
             'indent': $p.indent,
-        }).transform(
+        }).__decide(
             ($) => $,
             () => _p.list.literal([]),
         )

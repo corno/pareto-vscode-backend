@@ -67,7 +67,7 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): 
         _p.dictionary.filter($, ($) => $),
         ($) => _p.boolean.dictionary_is_empty($)
             ? _p.optional.not_set()
-            : op_expect_1_entry($).transform<d_out.Optional_Completion_Items>(
+            : op_expect_1_entry($).__decide<d_out.Optional_Completion_Items>(
                 ($) => _p.optional.set($.value),
                 () => _p.unreachable_code_path(),
             )
@@ -78,7 +78,7 @@ const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Option
     _p.list.filter($, ($) => $),
     ($) => _p.boolean.list_is_empty($)
         ? _p.optional.not_set()
-        : op_expect_1_element($).transform<d_out.Optional_Completion_Items>(
+        : op_expect_1_element($).__decide<d_out.Optional_Completion_Items>(
             ($) => _p.optional.set($),
             () => _p.unreachable_code_path(),
         )
@@ -176,7 +176,7 @@ export const Node = (
                                 default: return _p.au($[0])
                             }
                         }))
-                    ).transform(
+                    ).__decide(
                         ($) => _p.optional.set($),
                         () => wrap()
                     ))
@@ -196,7 +196,7 @@ export const Node = (
                             }
                         }),
                         $p
-                    ).transform(
+                    ).__decide(
                         ($) => _p.optional.set($),
                         () => wrap()
                     ))
@@ -230,15 +230,15 @@ export const Node = (
                                                 ($, key) => ({
                                                     'label': key,
                                                     'insert text': `'${key}' ${create_default_value_string($.node, true)}`,
-                                                    'documentation': $.description.transform(
+                                                    'documentation': $.description.__decide(
                                                         ($) => $,
                                                         () => ""
                                                     ),
                                                 })
                                             )
                                         ))
-                                        case 'set': return _p.ss($, ($) => $['found state definition'].transform<d_out.Optional_Completion_Items>(
-                                            ($) => Node($.node, $p).transform(
+                                        case 'set': return _p.ss($, ($) => $['found state definition'].__decide<d_out.Optional_Completion_Items>(
+                                            ($) => Node($.node, $p).__decide(
                                                 ($) => _p.optional.set($),
                                                 () => wrap()
                                             ),
@@ -274,7 +274,7 @@ export const Optional_Node = (
         'location': d_token.Relative_Location
         'indent': string
     }
-): d_out.Optional_Completion_Items => $.transform(
+): d_out.Optional_Completion_Items => $.__decide(
     ($) => Node($, $p),
     () => _p.optional.not_set()
 )

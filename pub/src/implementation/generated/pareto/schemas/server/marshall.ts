@@ -77,7 +77,7 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => ['verbose grou
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'related information': _p.deprecated_cc($['related information'], ($) => ['optional', $.transform(
+    'related information': _p.deprecated_cc($['related information'], ($) => ['optional', $.__decide(
         ($): _i_out._T_Value.SG.optional => ['set', ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
             'location': _p.deprecated_cc($['location'], ($) => ['verbose group', _p.dictionary.literal({
                 'file path': _p.deprecated_cc($['file path'], ($) => ['text', ({
@@ -119,7 +119,7 @@ export const Hover_Texts: _i_signatures._T_Hover_Texts = ($, $p) => ['list', $.m
     'delimiter': ['quote', null],
     'value': $,
 })])]
-export const Optional_Hover_Texts: _i_signatures._T_Optional_Hover_Texts = ($, $p) => ['optional', $.transform(
+export const Optional_Hover_Texts: _i_signatures._T_Optional_Hover_Texts = ($, $p) => ['optional', $.__decide(
     ($): _i_out._T_Value.SG.optional => ['set', Hover_Texts(
         $,
         {
@@ -152,7 +152,7 @@ export const Completion_Items: _i_signatures._T_Completion_Items = ($, $p) => ['
         'value': $,
     })]),
 })])]
-export const Optional_Completion_Items: _i_signatures._T_Optional_Completion_Items = ($, $p) => ['optional', $.transform(
+export const Optional_Completion_Items: _i_signatures._T_Optional_Completion_Items = ($, $p) => ['optional', $.__decide(
     ($): _i_out._T_Value.SG.optional => ['set', Completion_Items(
         $,
         {

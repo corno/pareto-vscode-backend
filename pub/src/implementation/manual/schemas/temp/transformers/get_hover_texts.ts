@@ -63,7 +63,7 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Hover_Texts>): d_out
         _p.dictionary.filter($, ($) => $),
         ($) => _p.boolean.dictionary_is_empty($)
             ? _p.optional.not_set()
-            : op_expect_1_entry($).transform<d_out.Optional_Hover_Texts>(
+            : op_expect_1_entry($).__decide<d_out.Optional_Hover_Texts>(
                 ($) => _p.optional.set($.value),
                 () => _p.unreachable_code_path(),
             )
@@ -73,7 +73,7 @@ const filter_list = ($: _pi.List<d_out.Optional_Hover_Texts>): d_out.Optional_Ho
     _p.list.filter($, ($) => $),
     ($) => _p.boolean.list_is_empty($)
         ? _p.optional.not_set()
-        : op_expect_1_element($).transform<d_out.Optional_Hover_Texts>(
+        : op_expect_1_element($).__decide<d_out.Optional_Hover_Texts>(
             ($) => _p.optional.set($),
             () => _p.unreachable_code_path(),
         )
@@ -169,7 +169,7 @@ export const Node = (
                                     default: return _p.au($[0])
                                 }
                             }))
-                        ).transform(
+                        ).__decide(
                             ($) => _p.optional.set($),
                             () => wrap()
                         ))
@@ -189,7 +189,7 @@ export const Node = (
                                 }
                             }),
                             $p
-                        ).transform(
+                        ).__decide(
                             ($) => _p.optional.set($),
                             () => wrap()
                         ))
@@ -229,12 +229,12 @@ export const Node = (
                                             ))
                                             case 'set': return _p.ss($, ($) => {
                                                 const temp = $.value.state.value
-                                                return $['found state definition'].transform<d_out.Optional_Hover_Texts>(
+                                                return $['found state definition'].__decide<d_out.Optional_Hover_Texts>(
                                                     ($) => Node($.node, {
                                                         'location': $p.location,
                                                         'full path': `${$p['full path']} | '${temp}'`,
                                                         'id path': $p['id path']
-                                                    }).transform(
+                                                    }).__decide(
                                                         ($) => _p.optional.set($),
                                                         () => wrap()
                                                     ),
@@ -273,7 +273,7 @@ export const Optional_Node = (
         'full path': string
         'id path': string
     }
-): d_out.Optional_Hover_Texts => $.transform(
+): d_out.Optional_Hover_Texts => $.__decide(
     ($) => Node($, {
         'location': $p.location,
         'full path': $p['full path'],
