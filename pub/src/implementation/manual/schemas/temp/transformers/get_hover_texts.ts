@@ -135,7 +135,7 @@ export const Node = (
                 case 'type parameter': return _p.ss($, ($) => _pdev.implement_me("xx"))
                 case 'list': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
                     switch ($[0]) {
-                        case 'valid': return _p.ss($, ($) => filter_list($.elements.map(($) => Node($, {
+                        case 'valid': return _p.ss($, ($) => filter_list($.elements.__l_map(($) => Node($, {
                             'location': $p.location,
                             'full path': `${$p['full path']} [ # ]`,
                             'id path': $p['id path']
@@ -156,7 +156,7 @@ export const Node = (
                         case 'valid': return _p.ss($, ($) => filter_dictionary(
                             $.entries.map(($, key): d_out.Optional_Hover_Texts => _p.sg($, ($) => {
                                 switch ($[0]) {
-                                    case 'multiple': return _p.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, {
+                                    case 'multiple': return _p.ss($, ($) => filter_list($.__l_map(($) => Optional_Node($.node, {
                                         'location': $p.location,
                                         'full path': `${$p['full path']} [ \`${key}\` ]`,
                                         'id path': `${$p['id path']} > \`${key}\``

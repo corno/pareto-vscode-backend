@@ -261,7 +261,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
             )
         }),
     ).transform_result(($): d.On_Validate_Document_Result => ({
-        'diagnostics': t_unmarshall_result_2_unmarshall_errors.Node($, null).map(($): d.Diagnostic => ({
+        'diagnostics': t_unmarshall_result_2_unmarshall_errors.Node($, null).__l_map(($): d.Diagnostic => ({
 
             'severity': _p.sg($.type, ($) => {
                 switch ($[0]) {
@@ -276,7 +276,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                     case 'error': return _p.ss($, ($) => _p.sg($, ($) => _p.sg($, ($) => {
                         switch ($[0]) {
                             case 'duplicate property': return _p.ss($, ($) => `Duplicate property '${$.name}'`)
-                            case 'invalid value type': return _p.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
+                            case 'invalid value type': return _p.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.__l_map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
                             case 'missing property': return _p.ss($, ($) => `Missing property '${$.name}'`)
                             case 'state': return _p.ss($, ($) => _p.sg($, ($) => {
                                 switch ($[0]) {

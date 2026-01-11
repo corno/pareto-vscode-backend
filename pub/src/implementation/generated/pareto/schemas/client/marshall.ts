@@ -121,7 +121,7 @@ export const Text_Edit: _i_signatures._T_Text_Edit = ($, $p) => ['state', _p.dep
         default: return _p.au($[0])
     }
 })]
-export const Format_Result: _i_signatures._T_Format_Result = ($, $p) => ['list', $.map(($) => Text_Edit(
+export const Format_Result: _i_signatures._T_Format_Result = ($, $p) => ['list', $.__l_map(($) => Text_Edit(
     $,
     {
         'value serializers': $p['value serializers'],

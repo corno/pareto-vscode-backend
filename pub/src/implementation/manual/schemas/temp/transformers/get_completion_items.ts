@@ -158,7 +158,7 @@ export const Node = (
             case 'type parameter': return _p.ss($, ($) => _pdev.implement_me("xx"))
             case 'list': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
                 switch ($[0]) {
-                    case 'valid': return _p.ss($, ($) => filter_list($.elements.map(($) => Node($, $p))))
+                    case 'valid': return _p.ss($, ($) => filter_list($.elements.__l_map(($) => Node($, $p))))
                     case 'invalid': return _p.ss($, ($) => wrap())
                     default: return _p.au($[0])
                 }
@@ -171,7 +171,7 @@ export const Node = (
                     case 'valid': return _p.ss($, ($) => filter_dictionary(
                         $.entries.map(($, key): d_out.Optional_Completion_Items => _p.sg($, ($) => {
                             switch ($[0]) {
-                                case 'multiple': return _p.ss($, ($) => filter_list($.map(($) => Optional_Node($.node, $p))))
+                                case 'multiple': return _p.ss($, ($) => filter_list($.__l_map(($) => Optional_Node($.node, $p))))
                                 case 'unique': return _p.ss($, ($) => Optional_Node($, $p))
                                 default: return _p.au($[0])
                             }

@@ -78,7 +78,7 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => ['verbose grou
         'value': $,
     })]),
     'related information': _p.deprecated_cc($['related information'], ($) => ['optional', $.__decide(
-        ($): _i_out._T_Value.SG.optional => ['set', ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+        ($): _i_out._T_Value.SG.optional => ['set', ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
             'location': _p.deprecated_cc($['location'], ($) => ['verbose group', _p.dictionary.literal({
                 'file path': _p.deprecated_cc($['file path'], ($) => ['text', ({
                     'delimiter': ['quote', null],
@@ -99,7 +99,7 @@ export const Diagnostic: _i_signatures._T_Diagnostic = ($, $p) => ['verbose grou
         () => ['not set', null]
     )]),
 })]
-export const Diagnostics: _i_signatures._T_Diagnostics = ($, $p) => ['list', $.map(($) => Diagnostic(
+export const Diagnostics: _i_signatures._T_Diagnostics = ($, $p) => ['list', $.__l_map(($) => Diagnostic(
     $,
     {
         'value serializers': $p['value serializers'],
@@ -115,7 +115,7 @@ export const Document_Data: _i_signatures._T_Document_Data = ($, $p) => ['verbos
         'value': $,
     })]),
 })]
-export const Hover_Texts: _i_signatures._T_Hover_Texts = ($, $p) => ['list', $.map(($) => ['text', ({
+export const Hover_Texts: _i_signatures._T_Hover_Texts = ($, $p) => ['list', $.__l_map(($) => ['text', ({
     'delimiter': ['quote', null],
     'value': $,
 })])]
@@ -138,7 +138,7 @@ export const On_Hover_Result: _i_signatures._T_On_Hover_Result = ($, $p) => ['ve
         )),
     })]),
 })]
-export const Completion_Items: _i_signatures._T_Completion_Items = ($, $p) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+export const Completion_Items: _i_signatures._T_Completion_Items = ($, $p) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
     'label': _p.deprecated_cc($['label'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,

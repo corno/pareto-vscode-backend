@@ -41,7 +41,7 @@ export const Type_Node_X = (
             }
         }))
         case 'dictionary': return _p.ss($, ($) => ['dictionary', _p.list.literal([])])
-        case 'group': return _p.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
+        case 'group': return _p.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].__l_map(($) => ({
             'key': $.key,
             'value': Type_Node($.value.node)
         }))])
@@ -95,7 +95,7 @@ export const Type_Node_Resolver_X = (
             }
         }))
         case 'dictionary': return _p.ss($, ($) => ['dictionary', _p.list.literal([])])
-        case 'group': return _p.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].map(($) => ({
+        case 'group': return _p.ss($, ($): d_out.Value._type => ['verbose group', $['ordered list'].__l_map(($) => ({
             'key': $.key,
             'value': Type_Node_Resolver($.value.resolver)
         }))])
