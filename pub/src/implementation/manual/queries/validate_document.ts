@@ -45,7 +45,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => (create_
 //     $r,
 // ).map_(
 //     ($): d.On_Validate_Document_Result => ({
-//         'diagnostics': t_unmarshall_result_2_unmarshall_errors.Node($, null).map(($): d.Diagnostic => ({
+//         'diagnostics': t_unmarshall_result_2_unmarshall_errors.Node($, null).__d_map(($): d.Diagnostic => ({
 
 //             'severity': _pt.sg($.type, ($) => {
 //                 switch ($[0]) {
@@ -60,7 +60,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => (create_
 //                     case 'error': return _pt.ss($, ($) => _pt.sg($, ($) => _pt.sg($, ($) => {
 //                         switch ($[0]) {
 //                             case 'duplicate property': return _pt.ss($, ($) => `Duplicate property '${$.name}'`)
-//                             case 'invalid value type': return _pt.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
+//                             case 'invalid value type': return _pt.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.__d_map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
 //                             case 'missing property': return _pt.ss($, ($) => `Missing property '${$.name}'`)
 //                             case 'state': return _pt.ss($, ($) => _pt.sg($, ($) => {
 //                                 switch ($[0]) {
@@ -69,7 +69,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => (create_
 //                                     case 'missing value': return _pt.ss($, ($) => `Missing value for state 'XXXX'`)
 //                                     case 'more than 2 elements': return _pt.ss($, ($) => `State 'XXXX' has more than 2 elements`)
 //                                     case 'state is not a string': return _pt.ss($, ($) => `State 'XXXX' is not a string`)
-//                                     case 'unknown state': return _pt.ss($, ($) => `this state does not exist, choose from ${s_list_of_separated_texts(op_dictionary_to_list($.expected).map(($) => `'${$.key}'`), { 'separator': " or " })}`)
+//                                     case 'unknown state': return _pt.ss($, ($) => `this state does not exist, choose from ${s_list_of_separated_texts(op_dictionary_to_list($.expected).__d_map(($) => `'${$.key}'`), { 'separator': " or " })}`)
 //                                     default: return _pt.au($[0])
 //                                 }
 //                             }))
