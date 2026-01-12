@@ -1,11 +1,15 @@
 (
-    'operations': {
-    }
     'schema tree': | 'set' {
         `client`: | 'schema' (
-            'complexity': | 'unconstrained' ~
+            'imports': {
+            }
             'globals': (
                 'complexity': | 'unconstrained' ~
+                'text types': {
+                    `Text Value`: (
+                        'type': | 'single line' ~
+                    )
+                }
                 'number types': {
                     `Position`: (
                         'precision': | 'exact' (
@@ -14,16 +18,11 @@
                         )
                     )
                 }
-                'text types': {
-                    `Text Value`: (
-                        'type': | 'single line' ~
-                    )
-                }
             )
-            'imports': {
-            }
             'types': {
                 `Position`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `line`: (
                             'description': ~
@@ -44,10 +43,10 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Range`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `start`: (
                             'description': ~
@@ -58,10 +57,10 @@
                             'node': | 'component' | 'internal' `Position`
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Format Options`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `insert spaces`: (
                             'description': ~
@@ -86,10 +85,10 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Replace`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `range`: (
                             'description': ~
@@ -102,10 +101,10 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Text Edit`: (
+                    'type parameters': {
+                    }
                     'node': | 'state group' {
                         `replace`: (
                             'description': ~
@@ -136,17 +135,17 @@
                             }
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Format Result`: (
+                    'type parameters': {
+                    }
                     'node': | 'list' (
                         'node': | 'component' | 'internal' `Text Edit`
                     )
-                    'type parameters': {
-                    }
                 )
                 `Format Error`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `message`: (
                             'description': ~
@@ -155,35 +154,40 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Format Parameters`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `options`: (
                             'description': ~
                             'node': | 'component' | 'internal' `Format Options`
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Sort Alphabetically Parameters`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `position`: (
                             'description': ~
                             'node': | 'component' | 'internal' `Position`
                         )
                     }
-                    'type parameters': {
-                    }
                 )
             }
+            'complexity': | 'unconstrained' ~
         )
         `server`: | 'schema' (
-            'complexity': | 'unconstrained' ~
+            'imports': {
+            }
             'globals': (
                 'complexity': | 'unconstrained' ~
+                'text types': {
+                    `Text Value`: (
+                        'type': | 'single line' ~
+                    )
+                }
                 'number types': {
                     `Position`: (
                         'precision': | 'exact' (
@@ -192,16 +196,11 @@
                         )
                     )
                 }
-                'text types': {
-                    `Text Value`: (
-                        'type': | 'single line' ~
-                    )
-                }
             )
-            'imports': {
-            }
             'types': {
                 `Diagnostic Severity`: (
+                    'type parameters': {
+                    }
                     'node': | 'state group' {
                         `error`: (
                             'description': ~
@@ -224,10 +223,10 @@
                             }
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Position`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `line`: (
                             'description': ~
@@ -248,10 +247,10 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Range`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `start`: (
                             'description': ~
@@ -262,10 +261,10 @@
                             'node': | 'component' | 'internal' `Position`
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Diagnostic`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `severity`: (
                             'description': ~
@@ -310,17 +309,17 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Diagnostics`: (
+                    'type parameters': {
+                    }
                     'node': | 'list' (
                         'node': | 'component' | 'internal' `Diagnostic`
                     )
-                    'type parameters': {
-                    }
                 )
                 `Document Data`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `file path`: (
                             'description': ~
@@ -335,24 +334,24 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Hover Texts`: (
+                    'type parameters': {
+                    }
                     'node': | 'list' (
                         'node': | 'text' | 'local' (
                             'type': | 'single line' ~
                         )
                     )
-                    'type parameters': {
-                    }
                 )
                 `Optional Hover Texts`: (
-                    'node': | 'optional' | 'component' | 'internal' `Hover Texts`
                     'type parameters': {
                     }
+                    'node': | 'optional' | 'component' | 'internal' `Hover Texts`
                 )
                 `On Hover Result`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `contents`: (
                             'description': ~
@@ -364,10 +363,10 @@
                             }
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Completion Items`: (
+                    'type parameters': {
+                    }
                     'node': | 'list' (
                         'node': | 'group' {
                             `label`: (
@@ -390,35 +389,35 @@
                             )
                         }
                     )
-                    'type parameters': {
-                    }
                 )
                 `Optional Completion Items`: (
-                    'node': | 'optional' | 'component' | 'internal' `Completion Items`
                     'type parameters': {
                     }
+                    'node': | 'optional' | 'component' | 'internal' `Completion Items`
                 )
                 `On Completion Result`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `completion items`: (
                             'description': ~
                             'node': | 'component' | 'internal' `Completion Items`
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `On Validate Document Result`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `diagnostics`: (
                             'description': ~
                             'node': | 'component' | 'internal' `Diagnostics`
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Convert To JSON Parameters`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `content`: (
                             'description': ~
@@ -426,11 +425,11 @@
                                 'type': | 'multi line' ~
                             )
                         )
-                    }
-                    'type parameters': {
                     }
                 )
                 `Seal Parameters`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `content`: (
                             'description': ~
@@ -439,10 +438,10 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `On Completion Parameters`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `content`: (
                             'description': ~
@@ -467,10 +466,10 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `On Hover Parameters`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `content`: (
                             'description': ~
@@ -489,10 +488,10 @@
                             'node': | 'component' | 'internal' `Position`
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Validate Document Parameters`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `content`: (
                             'description': ~
@@ -516,10 +515,11 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
             }
+            'complexity': | 'unconstrained' ~
         )
+    }
+    'operations': {
     }
 )
