@@ -6,7 +6,7 @@ import * as d_schema from "pareto/dist/interface/generated/pareto/schemas/schema
 import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ast_target from "astn/dist/interface/generated/pareto/schemas/authoring_target/data_types/target"
-import * as d_fpblock from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
+import * as d_fpblock from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data"
 import * as d_out from "../../../../../interface/generated/pareto/schemas/server/data_types/target"
 
 //dependencies
