@@ -1,8 +1,8 @@
 import * as _p from 'pareto-core-transformer'
 import * as _pdev from 'pareto-core-dev'
 
-import * as d_out from "astn/dist/interface/generated/pareto/schemas/authoring_target/data_types/target"
-import * as d_in from "pareto/dist/interface/generated/pareto/schemas/schema/data_types/source";
+import * as d_out from "astn/dist/interface/generated/pareto/schemas/authoring_target/data"
+import * as d_in from "pareto/dist/interface/generated/pareto/schemas/schema/data";
 
 export const Type_Node = (
     $: d_in.Type_Node,

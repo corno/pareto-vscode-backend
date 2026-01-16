@@ -2,11 +2,11 @@ import * as _pi from 'pareto-core-interface'
 import * as _p from 'pareto-core-deserializer'
 import * as _pt from 'pareto-core-transformer'
 
-import * as d_client from "../../../../interface/generated/pareto/schemas/client/data_types/target"
-import * as d_parse_result from "astn/dist/interface/generated/pareto/schemas/authoring_parse_result/data_types/target"
-import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/parse_tree/data_types/target"
-import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
-import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
+import * as d_client from "../../../../interface/generated/pareto/schemas/client/data"
+import * as d_parse_result from "astn/dist/interface/generated/pareto/schemas/authoring_parse_result/data"
+import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/parse_tree/data"
+import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data"
+import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data"
 
 type Signature = _pi.Deserializer_With_Parameters<d_client.Format_Result, d_client.Format_Error, d_client.Format_Parameters>
 

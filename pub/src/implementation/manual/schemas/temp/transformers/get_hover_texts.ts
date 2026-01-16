@@ -4,9 +4,9 @@ import * as _pdev from 'pareto-core-dev'
 
 import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result"
 
-import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
+import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data"
 
-import * as d_out from "../../../../../interface/generated/pareto/schemas/server/data_types/target"
+import * as d_out from "../../../../../interface/generated/pareto/schemas/server/data"
 
 import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
 

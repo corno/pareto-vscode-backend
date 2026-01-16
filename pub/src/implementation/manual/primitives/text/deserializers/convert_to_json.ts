@@ -1,7 +1,7 @@
 import * as _pds from 'pareto-core-deserializer'
 import * as _pi from 'pareto-core-interface'
 
-import * as d_server from "../../../../../interface/generated/pareto/schemas/server/data_types/source"
+import * as d_server from "../../../../../interface/generated/pareto/schemas/server/data"
 
 type Signature = _pi.Deserializer_With_Parameters<string, null, d_server.Convert_To_JSON_Parameters>
 
