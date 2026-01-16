@@ -1,642 +1,315 @@
+
 import * as _pi from "pareto-core-interface"
+
+import * as i_out from "./data"
+
+import * as i_in from "./data"
+
+export namespace Diagnostic_Severity_ {
     
-    import * as _i_out from "./data_types/target"
-    import * as _i_in from "./data_types/source"
+    export type I = i_in.Diagnostic_Severity
     
-    // **** TYPES
+    export type O = i_out.Diagnostic_Severity
     
-    export type _T_Diagnostic_Severity = (
-        $$_: _i_in._T_Diagnostic_Severity,
-        $$_p: null,
-    ) => _i_out._T_Diagnostic_Severity
-    
-    export type _T_Position = (
-        $$_: _i_in._T_Position,
-        $$_p: null,
-    ) => _i_out._T_Position
-    
-    export type _T_Range = (
-        $$_: _i_in._T_Range,
-        $$_p: null,
-    ) => _i_out._T_Range
-    
-    export type _T_Diagnostic = (
-        $$_: _i_in._T_Diagnostic,
-        $$_p: null,
-    ) => _i_out._T_Diagnostic
-    
-    export type _T_Diagnostics = (
-        $$_: _i_in._T_Diagnostics,
-        $$_p: null,
-    ) => _i_out._T_Diagnostics
-    
-    export type _T_Document_Data = (
-        $$_: _i_in._T_Document_Data,
-        $$_p: null,
-    ) => _i_out._T_Document_Data
-    
-    export type _T_Hover_Texts = (
-        $$_: _i_in._T_Hover_Texts,
-        $$_p: null,
-    ) => _i_out._T_Hover_Texts
-    
-    export type _T_Optional_Hover_Texts = (
-        $$_: _i_in._T_Optional_Hover_Texts,
-        $$_p: null,
-    ) => _i_out._T_Optional_Hover_Texts
-    
-    export type _T_On_Hover_Result = (
-        $$_: _i_in._T_On_Hover_Result,
-        $$_p: null,
-    ) => _i_out._T_On_Hover_Result
-    
-    export type _T_Completion_Items = (
-        $$_: _i_in._T_Completion_Items,
-        $$_p: null,
-    ) => _i_out._T_Completion_Items
-    
-    export type _T_Optional_Completion_Items = (
-        $$_: _i_in._T_Optional_Completion_Items,
-        $$_p: null,
-    ) => _i_out._T_Optional_Completion_Items
-    
-    export type _T_On_Completion_Result = (
-        $$_: _i_in._T_On_Completion_Result,
-        $$_p: null,
-    ) => _i_out._T_On_Completion_Result
-    
-    export type _T_On_Validate_Document_Result = (
-        $$_: _i_in._T_On_Validate_Document_Result,
-        $$_p: null,
-    ) => _i_out._T_On_Validate_Document_Result
-    
-    export type _T_Convert_To_JSON_Parameters = (
-        $$_: _i_in._T_Convert_To_JSON_Parameters,
-        $$_p: null,
-    ) => _i_out._T_Convert_To_JSON_Parameters
-    
-    export type _T_Seal_Parameters = (
-        $$_: _i_in._T_Seal_Parameters,
-        $$_p: null,
-    ) => _i_out._T_Seal_Parameters
-    
-    export type _T_On_Completion_Parameters = (
-        $$_: _i_in._T_On_Completion_Parameters,
-        $$_p: null,
-    ) => _i_out._T_On_Completion_Parameters
-    
-    export type _T_On_Hover_Parameters = (
-        $$_: _i_in._T_On_Hover_Parameters,
-        $$_p: null,
-    ) => _i_out._T_On_Hover_Parameters
-    
-    export type _T_Validate_Document_Parameters = (
-        $$_: _i_in._T_Validate_Document_Parameters,
-        $$_p: null,
-    ) => _i_out._T_Validate_Document_Parameters
-    
-    // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
-    
-    export type Diagnostic_Severity = _T_Diagnostic_Severity
-    
-    export type Position = _T_Position
-    
-    export type Range = _T_Range
-    
-    export type Diagnostic = _T_Diagnostic
-    
-    export type Diagnostics = _T_Diagnostics
-    
-    export type Document_Data = _T_Document_Data
-    
-    export type Hover_Texts = _T_Hover_Texts
-    
-    export type Optional_Hover_Texts = _T_Optional_Hover_Texts
-    
-    export type On_Hover_Result = _T_On_Hover_Result
-    
-    export type Completion_Items = _T_Completion_Items
-    
-    export type Optional_Completion_Items = _T_Optional_Completion_Items
-    
-    export type On_Completion_Result = _T_On_Completion_Result
-    
-    export type On_Validate_Document_Result = _T_On_Validate_Document_Result
-    
-    export type Convert_To_JSON_Parameters = _T_Convert_To_JSON_Parameters
-    
-    export type Seal_Parameters = _T_Seal_Parameters
-    
-    export type On_Completion_Parameters = _T_On_Completion_Parameters
-    
-    export type On_Hover_Parameters = _T_On_Hover_Parameters
-    
-    export type Validate_Document_Parameters = _T_Validate_Document_Parameters
-    
-    // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
-    
-    export namespace _T_Diagnostic_Severity {
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Diagnostic_Severity
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Diagnostic_Severity
     }
     
-    export namespace _T_Position {
+}
+
+export type Diagnostic_Severity_ = (
+    $$_: Diagnostic_Severity_.I,
+) => Diagnostic_Severity_.O
+
+export namespace Position_ {
+    
+    export type I = i_in.Position
+    
+    export type O = i_out.Position
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Position
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Position
     }
     
-    export namespace _T_Range {
+}
+
+export type Position_ = (
+    $$_: Position_.I,
+) => Position_.O
+
+export namespace Range_ {
+    
+    export type I = i_in.Range
+    
+    export type O = i_out.Range
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Range
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Range
     }
     
-    export namespace _T_Diagnostic {
+}
+
+export type Range_ = (
+    $$_: Range_.I,
+) => Range_.O
+
+export namespace Diagnostic_ {
+    
+    export type I = i_in.Diagnostic
+    
+    export type O = i_out.Diagnostic
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Diagnostic
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Diagnostic
     }
     
-    export namespace _T_Diagnostics {
+}
+
+export type Diagnostic_ = (
+    $$_: Diagnostic_.I,
+) => Diagnostic_.O
+
+export namespace Diagnostics_ {
+    
+    export type I = i_in.Diagnostics
+    
+    export type O = i_out.Diagnostics
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Diagnostics
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Diagnostics
     }
     
-    export namespace _T_Document_Data {
+}
+
+export type Diagnostics_ = (
+    $$_: Diagnostics_.I,
+) => Diagnostics_.O
+
+export namespace Document_Data_ {
+    
+    export type I = i_in.Document_Data
+    
+    export type O = i_out.Document_Data
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Document_Data
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Document_Data
     }
     
-    export namespace _T_Hover_Texts {
+}
+
+export type Document_Data_ = (
+    $$_: Document_Data_.I,
+) => Document_Data_.O
+
+export namespace Hover_Texts_ {
+    
+    export type I = i_in.Hover_Texts
+    
+    export type O = i_out.Hover_Texts
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Hover_Texts
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Hover_Texts
     }
     
-    export namespace _T_Optional_Hover_Texts {
+}
+
+export type Hover_Texts_ = (
+    $$_: Hover_Texts_.I,
+) => Hover_Texts_.O
+
+export namespace Optional_Hover_Texts_ {
+    
+    export type I = i_in.Optional_Hover_Texts
+    
+    export type O = i_out.Optional_Hover_Texts
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Optional_Hover_Texts
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Optional_Hover_Texts
     }
     
-    export namespace _T_On_Hover_Result {
+}
+
+export type Optional_Hover_Texts_ = (
+    $$_: Optional_Hover_Texts_.I,
+) => Optional_Hover_Texts_.O
+
+export namespace On_Hover_Result_ {
+    
+    export type I = i_in.On_Hover_Result
+    
+    export type O = i_out.On_Hover_Result
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_On_Hover_Result
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_On_Hover_Result
     }
     
-    export namespace _T_Completion_Items {
+}
+
+export type On_Hover_Result_ = (
+    $$_: On_Hover_Result_.I,
+) => On_Hover_Result_.O
+
+export namespace Completion_Items_ {
+    
+    export type I = i_in.Completion_Items
+    
+    export type O = i_out.Completion_Items
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Completion_Items
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Completion_Items
     }
     
-    export namespace _T_Optional_Completion_Items {
+}
+
+export type Completion_Items_ = (
+    $$_: Completion_Items_.I,
+) => Completion_Items_.O
+
+export namespace Optional_Completion_Items_ {
+    
+    export type I = i_in.Optional_Completion_Items
+    
+    export type O = i_out.Optional_Completion_Items
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Optional_Completion_Items
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Optional_Completion_Items
     }
     
-    export namespace _T_On_Completion_Result {
+}
+
+export type Optional_Completion_Items_ = (
+    $$_: Optional_Completion_Items_.I,
+) => Optional_Completion_Items_.O
+
+export namespace On_Completion_Result_ {
+    
+    export type I = i_in.On_Completion_Result
+    
+    export type O = i_out.On_Completion_Result
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_On_Completion_Result
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_On_Completion_Result
     }
     
-    export namespace _T_On_Validate_Document_Result {
+}
+
+export type On_Completion_Result_ = (
+    $$_: On_Completion_Result_.I,
+) => On_Completion_Result_.O
+
+export namespace On_Validate_Document_Result_ {
+    
+    export type I = i_in.On_Validate_Document_Result
+    
+    export type O = i_out.On_Validate_Document_Result
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_On_Validate_Document_Result
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_On_Validate_Document_Result
     }
     
-    export namespace _T_Convert_To_JSON_Parameters {
+}
+
+export type On_Validate_Document_Result_ = (
+    $$_: On_Validate_Document_Result_.I,
+) => On_Validate_Document_Result_.O
+
+export namespace Convert_To_JSON_Parameters_ {
+    
+    export type I = i_in.Convert_To_JSON_Parameters
+    
+    export type O = i_out.Convert_To_JSON_Parameters
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Convert_To_JSON_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Convert_To_JSON_Parameters
     }
     
-    export namespace _T_Seal_Parameters {
+}
+
+export type Convert_To_JSON_Parameters_ = (
+    $$_: Convert_To_JSON_Parameters_.I,
+) => Convert_To_JSON_Parameters_.O
+
+export namespace Seal_Parameters_ {
+    
+    export type I = i_in.Seal_Parameters
+    
+    export type O = i_out.Seal_Parameters
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Seal_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Seal_Parameters
     }
     
-    export namespace _T_On_Completion_Parameters {
+}
+
+export type Seal_Parameters_ = (
+    $$_: Seal_Parameters_.I,
+) => Seal_Parameters_.O
+
+export namespace On_Completion_Parameters_ {
+    
+    export type I = i_in.On_Completion_Parameters
+    
+    export type O = i_out.On_Completion_Parameters
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_On_Completion_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_On_Completion_Parameters
     }
     
-    export namespace _T_On_Hover_Parameters {
+}
+
+export type On_Completion_Parameters_ = (
+    $$_: On_Completion_Parameters_.I,
+) => On_Completion_Parameters_.O
+
+export namespace On_Hover_Parameters_ {
+    
+    export type I = i_in.On_Hover_Parameters
+    
+    export type O = i_out.On_Hover_Parameters
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_On_Hover_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_On_Hover_Parameters
     }
     
-    export namespace _T_Validate_Document_Parameters {
+}
+
+export type On_Hover_Parameters_ = (
+    $$_: On_Hover_Parameters_.I,
+) => On_Hover_Parameters_.O
+
+export namespace Validate_Document_Parameters_ {
+    
+    export type I = i_in.Validate_Document_Parameters
+    
+    export type O = i_out.Validate_Document_Parameters
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Validate_Document_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Validate_Document_Parameters
     }
     
-    // *** ALIASES FOR NESTED TYPES
-    
-    export namespace Diagnostic_Severity {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Diagnostic_Severity
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Diagnostic_Severity
-    }
-    
-    export namespace Position {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Position
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Position
-    }
-    
-    export namespace Range {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Range
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Range
-    }
-    
-    export namespace Diagnostic {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Diagnostic
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Diagnostic
-    }
-    
-    export namespace Diagnostics {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Diagnostics
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Diagnostics
-    }
-    
-    export namespace Document_Data {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Document_Data
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Document_Data
-    }
-    
-    export namespace Hover_Texts {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Hover_Texts
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Hover_Texts
-    }
-    
-    export namespace Optional_Hover_Texts {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Optional_Hover_Texts
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Optional_Hover_Texts
-    }
-    
-    export namespace On_Hover_Result {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_On_Hover_Result
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_On_Hover_Result
-    }
-    
-    export namespace Completion_Items {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Completion_Items
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Completion_Items
-    }
-    
-    export namespace Optional_Completion_Items {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Optional_Completion_Items
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Optional_Completion_Items
-    }
-    
-    export namespace On_Completion_Result {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_On_Completion_Result
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_On_Completion_Result
-    }
-    
-    export namespace On_Validate_Document_Result {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_On_Validate_Document_Result
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_On_Validate_Document_Result
-    }
-    
-    export namespace Convert_To_JSON_Parameters {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Convert_To_JSON_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Convert_To_JSON_Parameters
-    }
-    
-    export namespace Seal_Parameters {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Seal_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Seal_Parameters
-    }
-    
-    export namespace On_Completion_Parameters {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_On_Completion_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_On_Completion_Parameters
-    }
-    
-    export namespace On_Hover_Parameters {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_On_Hover_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_On_Hover_Parameters
-    }
-    
-    export namespace Validate_Document_Parameters {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Validate_Document_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Validate_Document_Parameters
-    }
+}
+
+export type Validate_Document_Parameters_ = (
+    $$_: Validate_Document_Parameters_.I,
+) => Validate_Document_Parameters_.O
+
+export { 
+    Diagnostic_Severity_ as Diagnostic_Severity, 
+    Position_ as Position, 
+    Range_ as Range, 
+    Diagnostic_ as Diagnostic, 
+    Diagnostics_ as Diagnostics, 
+    Document_Data_ as Document_Data, 
+    Hover_Texts_ as Hover_Texts, 
+    Optional_Hover_Texts_ as Optional_Hover_Texts, 
+    On_Hover_Result_ as On_Hover_Result, 
+    Completion_Items_ as Completion_Items, 
+    Optional_Completion_Items_ as Optional_Completion_Items, 
+    On_Completion_Result_ as On_Completion_Result, 
+    On_Validate_Document_Result_ as On_Validate_Document_Result, 
+    Convert_To_JSON_Parameters_ as Convert_To_JSON_Parameters, 
+    Seal_Parameters_ as Seal_Parameters, 
+    On_Completion_Parameters_ as On_Completion_Parameters, 
+    On_Hover_Parameters_ as On_Hover_Parameters, 
+    Validate_Document_Parameters_ as Validate_Document_Parameters, 
+}

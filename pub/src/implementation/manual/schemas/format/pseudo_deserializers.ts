@@ -4,15 +4,15 @@ import * as _pt from 'pareto-core-transformer'
 
 import * as d_client from "../../../../interface/generated/pareto/schemas/client/data_types/target"
 import * as d_parse_result from "astn/dist/interface/generated/pareto/schemas/authoring_parse_result/data_types/target"
-import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/authoring_parse_tree/data_types/target"
+import * as d_parse_tree from "astn/dist/interface/generated/pareto/schemas/parse_tree/data_types/target"
 import * as d_token from "astn/dist/interface/generated/pareto/schemas/token/data_types/source"
 import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data_types/source"
 
 type Signature = _pi.Deserializer_With_Parameters<d_client.Format_Result, d_client.Format_Error, d_client.Format_Parameters>
 
 //dependencies
-import * as ds_authoring_parse_tree from "astn/dist/implementation/manual/schemas/authoring_parse_tree/deserializers"
-import * as t_ast_2_ide from "astn/dist/implementation/manual/schemas/authoring_parse_tree/transformers/ide"
+import * as ds_authoring_parse_tree from "astn/dist/implementation/manual/schemas/parse_tree/deserializers"
+import * as t_ast_2_ide from "astn/dist/implementation/manual/schemas/parse_tree/transformers/ide"
 import * as s_parse_result from "astn/dist/implementation/manual/schemas/authoring_parse_result/serializers"
 
 

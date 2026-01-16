@@ -6,9 +6,9 @@ type Signature = _pi.Deserializer_With_Parameters<string, null, d_server.Convert
 import * as d_server from "../../../../../interface/generated/pareto/schemas/server/data_types/source"
 
 //dependencies
-import * as t_authoring_parse_tree_2_sealed_ast from "astn/dist/implementation/manual/schemas/authoring_parse_tree/transformers/json_target" //FIXME this should be sealed target
+import * as t_authoring_parse_tree_2_sealed_ast from "astn/dist/implementation/manual/schemas/parse_tree/transformers/json_target" //FIXME this should be sealed target
 import * as s_json from "pareto-json/dist/implementation/manual/schemas/json/serializers"
-import * as ds_authoring_parse_tree from "astn/dist/implementation/manual/schemas/authoring_parse_tree/deserializers"
+import * as ds_authoring_parse_tree from "astn/dist/implementation/manual/schemas/parse_tree/deserializers"
 
 export const $$: Signature = ($, abort, $p) => s_json.Document(
     t_authoring_parse_tree_2_sealed_ast.Document(

@@ -12,7 +12,7 @@ import * as d_out from "../../../../../interface/generated/pareto/schemas/server
 //dependencies
 import * as t_astn_target_to_fp from "astn/dist/implementation/manual/schemas/authoring_target/transformers/fountain_pen_block"
 import * as t_default_initialize from "../../schema/transformers/default_initialize"
-import * as t_ast_to_range from "astn/dist/implementation/manual/schemas/authoring_parse_tree/transformers/token"
+import * as t_ast_to_range from "astn/dist/implementation/manual/schemas/parse_tree/transformers/token"
 import * as s_fp from "pareto-fountain-pen/dist/implementation/manual/schemas/block/serializers"
 
 import { $$ as op_expect_1_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"

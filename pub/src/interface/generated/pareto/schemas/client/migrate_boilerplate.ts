@@ -1,327 +1,162 @@
+
 import * as _pi from "pareto-core-interface"
+
+import * as i_out from "./data"
+
+import * as i_in from "./data"
+
+export namespace Position_ {
     
-    import * as _i_out from "./data_types/target"
-    import * as _i_in from "./data_types/source"
+    export type I = i_in.Position
     
-    // **** TYPES
+    export type O = i_out.Position
     
-    export type _T_Position = (
-        $$_: _i_in._T_Position,
-        $$_p: null,
-    ) => _i_out._T_Position
-    
-    export type _T_Range = (
-        $$_: _i_in._T_Range,
-        $$_p: null,
-    ) => _i_out._T_Range
-    
-    export type _T_Format_Options = (
-        $$_: _i_in._T_Format_Options,
-        $$_p: null,
-    ) => _i_out._T_Format_Options
-    
-    export type _T_Replace = (
-        $$_: _i_in._T_Replace,
-        $$_p: null,
-    ) => _i_out._T_Replace
-    
-    export type _T_Text_Edit = (
-        $$_: _i_in._T_Text_Edit,
-        $$_p: null,
-    ) => _i_out._T_Text_Edit
-    
-    export type _T_Format_Result = (
-        $$_: _i_in._T_Format_Result,
-        $$_p: null,
-    ) => _i_out._T_Format_Result
-    
-    export type _T_Format_Error = (
-        $$_: _i_in._T_Format_Error,
-        $$_p: null,
-    ) => _i_out._T_Format_Error
-    
-    export type _T_Format_Parameters = (
-        $$_: _i_in._T_Format_Parameters,
-        $$_p: null,
-    ) => _i_out._T_Format_Parameters
-    
-    export type _T_Sort_Alphabetically_Parameters = (
-        $$_: _i_in._T_Sort_Alphabetically_Parameters,
-        $$_p: null,
-    ) => _i_out._T_Sort_Alphabetically_Parameters
-    
-    // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
-    
-    export type Position = _T_Position
-    
-    export type Range = _T_Range
-    
-    export type Format_Options = _T_Format_Options
-    
-    export type Replace = _T_Replace
-    
-    export type Text_Edit = _T_Text_Edit
-    
-    export type Format_Result = _T_Format_Result
-    
-    export type Format_Error = _T_Format_Error
-    
-    export type Format_Parameters = _T_Format_Parameters
-    
-    export type Sort_Alphabetically_Parameters = _T_Sort_Alphabetically_Parameters
-    
-    // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
-    
-    export namespace _T_Position {
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Position
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Position
     }
     
-    export namespace _T_Range {
+}
+
+export type Position_ = (
+    $$_: Position_.I,
+) => Position_.O
+
+export namespace Range_ {
+    
+    export type I = i_in.Range
+    
+    export type O = i_out.Range
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Range
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Range
     }
     
-    export namespace _T_Format_Options {
+}
+
+export type Range_ = (
+    $$_: Range_.I,
+) => Range_.O
+
+export namespace Format_Options_ {
+    
+    export type I = i_in.Format_Options
+    
+    export type O = i_out.Format_Options
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Format_Options
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Format_Options
     }
     
-    export namespace _T_Replace {
+}
+
+export type Format_Options_ = (
+    $$_: Format_Options_.I,
+) => Format_Options_.O
+
+export namespace Replace_ {
+    
+    export type I = i_in.Replace
+    
+    export type O = i_out.Replace
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Replace
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Replace
     }
     
-    export namespace _T_Text_Edit {
+}
+
+export type Replace_ = (
+    $$_: Replace_.I,
+) => Replace_.O
+
+export namespace Text_Edit_ {
+    
+    export type I = i_in.Text_Edit
+    
+    export type O = i_out.Text_Edit
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Text_Edit
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Text_Edit
     }
     
-    export namespace _T_Format_Result {
+}
+
+export type Text_Edit_ = (
+    $$_: Text_Edit_.I,
+) => Text_Edit_.O
+
+export namespace Format_Result_ {
+    
+    export type I = i_in.Format_Result
+    
+    export type O = i_out.Format_Result
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Format_Result
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Format_Result
     }
     
-    export namespace _T_Format_Error {
+}
+
+export type Format_Result_ = (
+    $$_: Format_Result_.I,
+) => Format_Result_.O
+
+export namespace Format_Error_ {
+    
+    export type I = i_in.Format_Error
+    
+    export type O = i_out.Format_Error
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Format_Error
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Format_Error
     }
     
-    export namespace _T_Format_Parameters {
+}
+
+export type Format_Error_ = (
+    $$_: Format_Error_.I,
+) => Format_Error_.O
+
+export namespace Format_Parameters_ {
+    
+    export type I = i_in.Format_Parameters
+    
+    export type O = i_out.Format_Parameters
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Format_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Format_Parameters
     }
     
-    export namespace _T_Sort_Alphabetically_Parameters {
+}
+
+export type Format_Parameters_ = (
+    $$_: Format_Parameters_.I,
+) => Format_Parameters_.O
+
+export namespace Sort_Alphabetically_Parameters_ {
+    
+    export type I = i_in.Sort_Alphabetically_Parameters
+    
+    export type O = i_out.Sort_Alphabetically_Parameters
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Sort_Alphabetically_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Sort_Alphabetically_Parameters
     }
     
-    // *** ALIASES FOR NESTED TYPES
-    
-    export namespace Position {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Position
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Position
-    }
-    
-    export namespace Range {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Range
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Range
-    }
-    
-    export namespace Format_Options {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Format_Options
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Format_Options
-    }
-    
-    export namespace Replace {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Replace
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Replace
-    }
-    
-    export namespace Text_Edit {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Text_Edit
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Text_Edit
-    }
-    
-    export namespace Format_Result {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Format_Result
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Format_Result
-    }
-    
-    export namespace Format_Error {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Format_Error
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Format_Error
-    }
-    
-    export namespace Format_Parameters {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Format_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Format_Parameters
-    }
-    
-    export namespace Sort_Alphabetically_Parameters {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Sort_Alphabetically_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Sort_Alphabetically_Parameters
-    }
+}
+
+export type Sort_Alphabetically_Parameters_ = (
+    $$_: Sort_Alphabetically_Parameters_.I,
+) => Sort_Alphabetically_Parameters_.O
+
+export { 
+    Position_ as Position, 
+    Range_ as Range, 
+    Format_Options_ as Format_Options, 
+    Replace_ as Replace, 
+    Text_Edit_ as Text_Edit, 
+    Format_Result_ as Format_Result, 
+    Format_Error_ as Format_Error, 
+    Format_Parameters_ as Format_Parameters, 
+    Sort_Alphabetically_Parameters_ as Sort_Alphabetically_Parameters, 
+}
