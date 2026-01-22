@@ -22,52 +22,52 @@ export const Value = (
     _ea.deprecated_cc($, ($) => {
         switch ($[0]) {
             case 'dictionary': return _ea.ss($, ($) => {
-                $i['add snippet'](`{`)
+                $i.add_snippet(`{`)
                 $.__d_map(($, key) => {
-                    $i['add snippet'](`\n${indent}${indentation}\`${key}\`: `) //FIXME escape key
+                    $i.add_snippet(`\n${indent}${indentation}\`${key}\`: `) //FIXME escape key
                     Value($, indent + indentation, $i)
                 })
-                $i['add snippet'](`\n${indent}}`)
+                $i.add_snippet(`\n${indent}}`)
             })
             case 'verbose group': return _ea.ss($, ($) => {
-                $i['add snippet'](`(`)
+                $i.add_snippet(`(`)
                 $.__d_map(($, key) => {
-                    $i['add snippet'](`\n${indent}${indentation}'${key}': `) //FIXME escape key
+                    $i.add_snippet(`\n${indent}${indentation}'${key}': `) //FIXME escape key
                     Value($, indent + indentation, $i)
                 })
-                $i['add snippet'](`\n${indent})`)
+                $i.add_snippet(`\n${indent})`)
             })
             case 'list': return _ea.ss($, ($) => {
-                $i['add snippet'](`[`)
+                $i.add_snippet(`[`)
                 $.__l_map(($) => {
-                    $i['add snippet'](` `)
+                    $i.add_snippet(` `)
                     Value($, indent + indentation, $i)
                 })
-                $i['add snippet'](` ]`)
+                $i.add_snippet(` ]`)
             })
             case 'state': return _ea.ss($, ($) => {
-                $i['add snippet'](`| '${$.state}' `)
+                $i.add_snippet(`| '${$.state}' `)
                 Value($.value, indent, $i)
             })
             case 'optional': return _ea.ss($, ($) => _ea.deprecated_cc($, ($) => {
                 switch ($[0]) {
-                    case 'not set': return _ea.ss($, ($) => $i['add snippet'](`~`))
+                    case 'not set': return _ea.ss($, ($) => $i.add_snippet(`~`))
                     case 'set': return _ea.ss($, ($) => {
-                        $i['add snippet'](`* `)
+                        $i.add_snippet(`* `)
                         Value($, indent, $i)
                     })
 
                     default: return _ea.au($[0])
                 }
             }))
-            case 'nothing': return _ea.ss($, ($) => $i['add snippet'](`~`))
+            case 'nothing': return _ea.ss($, ($) => $i.add_snippet(`~`))
             case 'text': return _ea.ss($, ($) => {
                 const value = $.value
                 return _ea.deprecated_cc($.delimiter, ($) => {
                     switch ($[0]) {
-                        case 'backtick': return _ea.ss($, ($) => $i['add snippet'](`\`${value}\``))
-                        case 'quote': return _ea.ss($, ($) => $i['add snippet'](`"${value}"`))
-                        case 'none': return _ea.ss($, ($) => $i['add snippet'](`${value}`))
+                        case 'backtick': return _ea.ss($, ($) => $i.add_snippet(`\`${value}\``))
+                        case 'quote': return _ea.ss($, ($) => $i.add_snippet(`"${value}"`))
+                        case 'none': return _ea.ss($, ($) => $i.add_snippet(`${value}`))
                         default: return _ea.au($[0])
                     }
                 })
