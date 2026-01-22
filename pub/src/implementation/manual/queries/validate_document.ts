@@ -6,9 +6,9 @@ import * as _p_temp_transformer from 'pareto-core/dist/transformer'
 import * as signatures from "../../../interface/signatures"
 
 //data types
-import * as d from "../../../interface/generated/pareto/schemas/server/data"
-import * as d_token from "astn-core/dist/interface/generated/pareto/schemas/token/data"
-import * as d_ide from "astn/dist/interface/generated/pareto/schemas/ide/data"
+import * as d from "../../../interface/generated/liana/schemas/server/data"
+import * as d_token from "astn-core/dist/interface/generated/liana/schemas/token/data"
+import * as d_ide from "astn/dist/interface/generated/liana/schemas/ide/data"
 import * as d_parse_result from "astn/dist/implementation/manual/schemas/authoring_parse_result/serializers"
 
 //dependencies

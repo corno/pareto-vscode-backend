@@ -2,12 +2,12 @@ import * as _p from 'pareto-core/dist/transformer'
 import * as _pi from 'pareto-core/dist/interface'
 import * as _pdev from 'pareto-core-dev'
 
-import * as d_schema from "pareto-liana/dist/interface/generated/pareto/schemas/schema/data/resolved"
+import * as d_schema from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
 import * as d_in from "pareto-liana/dist/interface/to_be_generated/temp_unmashall_result"
-import * as d_token from "astn-core/dist/interface/generated/pareto/schemas/token/data"
-import * as d_ast_target from "astn/dist/interface/generated/pareto/schemas/authoring_target/data"
-import * as d_fpblock from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data"
-import * as d_out from "../../../../../interface/generated/pareto/schemas/server/data"
+import * as d_token from "astn-core/dist/interface/generated/liana/schemas/token/data"
+import * as d_ast_target from "astn/dist/interface/generated/liana/schemas/authoring_target/data"
+import * as d_fpblock from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+import * as d_out from "../../../../../interface/generated/liana/schemas/server/data"
 
 //dependencies
 import * as t_astn_target_to_fp from "astn/dist/implementation/manual/schemas/authoring_target/transformers/fountain_pen_block"

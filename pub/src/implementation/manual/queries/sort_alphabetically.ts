@@ -1,6 +1,6 @@
 import * as _p from 'pareto-core/dist/query'
 
-import * as d from "../../../interface/generated/pareto/schemas/client/data"
+import * as d from "../../../interface/generated/liana/schemas/client/data"
 
 import * as t_backend_location from "../schemas/server/transformers/backend_location"
 

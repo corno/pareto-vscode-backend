@@ -5,7 +5,7 @@ import * as _pdev from 'pareto-core-dev' //FIX, change 'file path' parameter fro
 import * as signatures from "../../../interface/signatures"
 
 //data types
-import * as d from "../../../interface/generated/pareto/schemas/server/data"
+import * as d from "../../../interface/generated/liana/schemas/server/data"
 
 //dependencies
 import { $$ as q_load_pareto_document } from "pareto/dist/implementation/manual/queries/load_pareto_document"
