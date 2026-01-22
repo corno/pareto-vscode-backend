@@ -1,4 +1,4 @@
-import * as _pi from 'pareto-core-interface'
+import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_on_completion from "./to_be_generated/on_completion"
 import * as d_on_hover from "./to_be_generated/on_hover"

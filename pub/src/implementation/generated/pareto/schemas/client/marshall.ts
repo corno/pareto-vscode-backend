@@ -1,4 +1,4 @@
-    import * as _p from 'pareto-core-transformer'
+    import * as _p from 'pareto-core/dist/transformer'
     import * as _pdev from 'pareto-core-dev'
     
     import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/client/marshall"

@@ -1,6 +1,6 @@
-import * as _pi from 'pareto-core-interface'
-import * as _p from 'pareto-core-deserializer'
-import * as _pt from 'pareto-core-transformer'
+import * as _pi from 'pareto-core/dist/interface'
+import * as _p from 'pareto-core/dist/deserializer'
+import * as _pt from 'pareto-core/dist/transformer'
 
 import * as d_client from "../../../../interface/generated/pareto/schemas/client/data"
 import * as d_parse_result from "astn/dist/interface/generated/pareto/schemas/authoring_parse_result/data"

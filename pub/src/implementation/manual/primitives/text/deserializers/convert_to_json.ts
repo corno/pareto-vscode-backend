@@ -1,5 +1,5 @@
-import * as _pds from 'pareto-core-deserializer'
-import * as _pi from 'pareto-core-interface'
+import * as _pds from 'pareto-core/dist/deserializer'
+import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_server from "../../../../../interface/generated/pareto/schemas/server/data"
 

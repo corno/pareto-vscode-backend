@@ -1,4 +1,4 @@
-    import * as _p from 'pareto-core-refiner'
+    import * as _p from 'pareto-core/dist/refiner'
     import * as _pdev from 'pareto-core-dev'
     
     import * as _i_generic from "../../generic/unmarshall"
