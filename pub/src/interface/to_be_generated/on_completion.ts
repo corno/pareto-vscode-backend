@@ -1,5 +1,5 @@
 import * as d_server from "../generated/pareto/schemas/server/data"
-import * as d_load_pareto_document from "pareto/dist/interface/to_be_generated/load_pareto_document"
+import * as d_load_pareto_document from "pareto-liana/dist/interface/to_be_generated/load_pareto_document"
 
 export type Result = d_server.On_Completion_Result
 

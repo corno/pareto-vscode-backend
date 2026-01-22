@@ -8,7 +8,7 @@ import * as signatures from "../../../interface/signatures"
 import * as d from "../../../interface/generated/pareto/schemas/server/data"
 
 //dependencies
-import { $$ as q_load_pareto_document } from "pareto/dist/implementation/manual/queries/load_pareto_document"
+import { $$ as q_load_pareto_document } from "pareto-liana/dist/implementation/manual/queries/load_pareto_document"
 import * as t_find_hover_texts from "../schemas/temp/transformers/get_hover_texts"
 import * as t_backend_location from "../schemas/server/transformers/backend_location"
 import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/node_path/deserializers"

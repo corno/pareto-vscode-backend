@@ -2,7 +2,7 @@ import * as _pi from 'pareto-core/dist/interface'
 import * as _p from 'pareto-core/dist/transformer'
 import * as _pdev from 'pareto-core-dev'
 
-import * as d_in from "pareto/dist/interface/to_be_generated/temp_unmashall_result"
+import * as d_in from "pareto-liana/dist/interface/to_be_generated/temp_unmashall_result"
 
 import * as d_token from "astn-core/dist/interface/generated/pareto/schemas/token/data"
 
