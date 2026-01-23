@@ -18,7 +18,7 @@ export namespace Position_ {
 }
 
 export type Position_ = (
-    $$_: Position_.I,
+    context: Position_.I,
 ) => Position_.O
 
 export namespace Range_ {
@@ -34,7 +34,7 @@ export namespace Range_ {
 }
 
 export type Range_ = (
-    $$_: Range_.I,
+    context: Range_.I,
 ) => Range_.O
 
 export namespace Format_Options_ {
@@ -50,7 +50,7 @@ export namespace Format_Options_ {
 }
 
 export type Format_Options_ = (
-    $$_: Format_Options_.I,
+    context: Format_Options_.I,
 ) => Format_Options_.O
 
 export namespace Replace_ {
@@ -66,7 +66,7 @@ export namespace Replace_ {
 }
 
 export type Replace_ = (
-    $$_: Replace_.I,
+    context: Replace_.I,
 ) => Replace_.O
 
 export namespace Text_Edit_ {
@@ -82,7 +82,7 @@ export namespace Text_Edit_ {
 }
 
 export type Text_Edit_ = (
-    $$_: Text_Edit_.I,
+    context: Text_Edit_.I,
 ) => Text_Edit_.O
 
 export namespace Format_Result_ {
@@ -98,7 +98,7 @@ export namespace Format_Result_ {
 }
 
 export type Format_Result_ = (
-    $$_: Format_Result_.I,
+    context: Format_Result_.I,
 ) => Format_Result_.O
 
 export namespace Format_Error_ {
@@ -114,7 +114,7 @@ export namespace Format_Error_ {
 }
 
 export type Format_Error_ = (
-    $$_: Format_Error_.I,
+    context: Format_Error_.I,
 ) => Format_Error_.O
 
 export namespace Format_Parameters_ {
@@ -130,7 +130,7 @@ export namespace Format_Parameters_ {
 }
 
 export type Format_Parameters_ = (
-    $$_: Format_Parameters_.I,
+    context: Format_Parameters_.I,
 ) => Format_Parameters_.O
 
 export namespace Sort_Alphabetically_Parameters_ {
@@ -146,7 +146,7 @@ export namespace Sort_Alphabetically_Parameters_ {
 }
 
 export type Sort_Alphabetically_Parameters_ = (
-    $$_: Sort_Alphabetically_Parameters_.I,
+    context: Sort_Alphabetically_Parameters_.I,
 ) => Sort_Alphabetically_Parameters_.O
 
 export { 

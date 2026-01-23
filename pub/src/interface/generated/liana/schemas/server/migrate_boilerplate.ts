@@ -18,7 +18,7 @@ export namespace Diagnostic_Severity_ {
 }
 
 export type Diagnostic_Severity_ = (
-    $$_: Diagnostic_Severity_.I,
+    context: Diagnostic_Severity_.I,
 ) => Diagnostic_Severity_.O
 
 export namespace Position_ {
@@ -34,7 +34,7 @@ export namespace Position_ {
 }
 
 export type Position_ = (
-    $$_: Position_.I,
+    context: Position_.I,
 ) => Position_.O
 
 export namespace Range_ {
@@ -50,7 +50,7 @@ export namespace Range_ {
 }
 
 export type Range_ = (
-    $$_: Range_.I,
+    context: Range_.I,
 ) => Range_.O
 
 export namespace Diagnostic_ {
@@ -66,7 +66,7 @@ export namespace Diagnostic_ {
 }
 
 export type Diagnostic_ = (
-    $$_: Diagnostic_.I,
+    context: Diagnostic_.I,
 ) => Diagnostic_.O
 
 export namespace Diagnostics_ {
@@ -82,7 +82,7 @@ export namespace Diagnostics_ {
 }
 
 export type Diagnostics_ = (
-    $$_: Diagnostics_.I,
+    context: Diagnostics_.I,
 ) => Diagnostics_.O
 
 export namespace Document_Data_ {
@@ -98,7 +98,7 @@ export namespace Document_Data_ {
 }
 
 export type Document_Data_ = (
-    $$_: Document_Data_.I,
+    context: Document_Data_.I,
 ) => Document_Data_.O
 
 export namespace Hover_Texts_ {
@@ -114,7 +114,7 @@ export namespace Hover_Texts_ {
 }
 
 export type Hover_Texts_ = (
-    $$_: Hover_Texts_.I,
+    context: Hover_Texts_.I,
 ) => Hover_Texts_.O
 
 export namespace Optional_Hover_Texts_ {
@@ -130,7 +130,7 @@ export namespace Optional_Hover_Texts_ {
 }
 
 export type Optional_Hover_Texts_ = (
-    $$_: Optional_Hover_Texts_.I,
+    context: Optional_Hover_Texts_.I,
 ) => Optional_Hover_Texts_.O
 
 export namespace On_Hover_Result_ {
@@ -146,7 +146,7 @@ export namespace On_Hover_Result_ {
 }
 
 export type On_Hover_Result_ = (
-    $$_: On_Hover_Result_.I,
+    context: On_Hover_Result_.I,
 ) => On_Hover_Result_.O
 
 export namespace Completion_Items_ {
@@ -162,7 +162,7 @@ export namespace Completion_Items_ {
 }
 
 export type Completion_Items_ = (
-    $$_: Completion_Items_.I,
+    context: Completion_Items_.I,
 ) => Completion_Items_.O
 
 export namespace Optional_Completion_Items_ {
@@ -178,7 +178,7 @@ export namespace Optional_Completion_Items_ {
 }
 
 export type Optional_Completion_Items_ = (
-    $$_: Optional_Completion_Items_.I,
+    context: Optional_Completion_Items_.I,
 ) => Optional_Completion_Items_.O
 
 export namespace On_Completion_Result_ {
@@ -194,7 +194,7 @@ export namespace On_Completion_Result_ {
 }
 
 export type On_Completion_Result_ = (
-    $$_: On_Completion_Result_.I,
+    context: On_Completion_Result_.I,
 ) => On_Completion_Result_.O
 
 export namespace On_Validate_Document_Result_ {
@@ -210,7 +210,7 @@ export namespace On_Validate_Document_Result_ {
 }
 
 export type On_Validate_Document_Result_ = (
-    $$_: On_Validate_Document_Result_.I,
+    context: On_Validate_Document_Result_.I,
 ) => On_Validate_Document_Result_.O
 
 export namespace Convert_To_JSON_Parameters_ {
@@ -226,7 +226,7 @@ export namespace Convert_To_JSON_Parameters_ {
 }
 
 export type Convert_To_JSON_Parameters_ = (
-    $$_: Convert_To_JSON_Parameters_.I,
+    context: Convert_To_JSON_Parameters_.I,
 ) => Convert_To_JSON_Parameters_.O
 
 export namespace Seal_Parameters_ {
@@ -242,7 +242,7 @@ export namespace Seal_Parameters_ {
 }
 
 export type Seal_Parameters_ = (
-    $$_: Seal_Parameters_.I,
+    context: Seal_Parameters_.I,
 ) => Seal_Parameters_.O
 
 export namespace On_Completion_Parameters_ {
@@ -258,7 +258,7 @@ export namespace On_Completion_Parameters_ {
 }
 
 export type On_Completion_Parameters_ = (
-    $$_: On_Completion_Parameters_.I,
+    context: On_Completion_Parameters_.I,
 ) => On_Completion_Parameters_.O
 
 export namespace On_Hover_Parameters_ {
@@ -274,7 +274,7 @@ export namespace On_Hover_Parameters_ {
 }
 
 export type On_Hover_Parameters_ = (
-    $$_: On_Hover_Parameters_.I,
+    context: On_Hover_Parameters_.I,
 ) => On_Hover_Parameters_.O
 
 export namespace Validate_Document_Parameters_ {
@@ -290,7 +290,7 @@ export namespace Validate_Document_Parameters_ {
 }
 
 export type Validate_Document_Parameters_ = (
-    $$_: Validate_Document_Parameters_.I,
+    context: Validate_Document_Parameters_.I,
 ) => Validate_Document_Parameters_.O
 
 export { 
