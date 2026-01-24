@@ -87,7 +87,7 @@ export const Group_Content = (
         'id path': string
     }
 ): d_out.Optional_Hover_Texts => filter_dictionary(
-    $.properties.__d_map(($, key): d_out.Optional_Hover_Texts => _p.sg($, ($) => {
+    $.properties.__d_map(($, key): d_out.Optional_Hover_Texts => _p.decide.state($, ($) => {
         switch ($[0]) {
             case 'multiple': return _p.ss($, ($) => _p.optional.not_set())
             case 'missing': return _p.ss($, ($) => _p.optional.not_set())
@@ -128,12 +128,12 @@ export const Node = (
         return _p.optional.not_set()
     }
     else {
-        return _p.sg($.type, ($): d_out.Optional_Hover_Texts => {
+        return _p.decide.state($.type, ($): d_out.Optional_Hover_Texts => {
             switch ($[0]) {
                 case 'number': return _p.ss($, ($) => wrap())
                 case 'boolean': return _p.ss($, ($) => wrap())
                 case 'type parameter': return _p.ss($, ($) => _pdev.implement_me("xx"))
-                case 'list': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
+                case 'list': return _p.ss($, ($) => _p.decide.state($['found value type'], ($) => {
                     switch ($[0]) {
                         case 'valid': return _p.ss($, ($) => filter_list($.elements.__l_map(($) => Node($, {
                             'location': $p.location,
@@ -151,10 +151,10 @@ export const Node = (
                     'full path': $p['full path'],
                     'id path': $p['id path']
                 }))
-                case 'dictionary': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
+                case 'dictionary': return _p.ss($, ($) => _p.decide.state($['found value type'], ($) => {
                     switch ($[0]) {
                         case 'valid': return _p.ss($, ($) => filter_dictionary(
-                            $.entries.__d_map(($, key): d_out.Optional_Hover_Texts => _p.sg($, ($) => {
+                            $.entries.__d_map(($, key): d_out.Optional_Hover_Texts => _p.decide.state($, ($) => {
                                 switch ($[0]) {
                                     case 'multiple': return _p.ss($, ($) => filter_list($.__l_map(($) => Optional_Node($.node, {
                                         'location': $p.location,
@@ -177,11 +177,11 @@ export const Node = (
                         default: return _p.au($[0])
                     }
                 }))
-                case 'group': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
+                case 'group': return _p.ss($, ($) => _p.decide.state($['found value type'], ($) => {
                     switch ($[0]) {
                         case 'invalid': return _p.ss($, ($) => wrap())
                         case 'valid': return _p.ss($, ($) => Group_Content(
-                            _p.sg($, ($) => {
+                            _p.decide.state($, ($) => {
                                 switch ($[0]) {
                                     case 'ordered': return _p.ss($, ($) => $.content)
                                     case 'indexed': return _p.ss($, ($) => $.content)
@@ -196,9 +196,9 @@ export const Node = (
                         default: return _p.au($[0])
                     }
                 }))
-                case 'optional': return _p.ss($, ($) => _p.sg($['found value type'], ($) => {
+                case 'optional': return _p.ss($, ($) => _p.decide.state($['found value type'], ($) => {
                     switch ($[0]) {
-                        case 'valid': return _p.ss($, ($) => _p.sg($, ($) => {
+                        case 'valid': return _p.ss($, ($) => _p.decide.state($, ($) => {
                             switch ($[0]) {
                                 case 'set': return _p.ss($, ($) => Node($['child node'], {
                                     'location': $p.location,
@@ -215,11 +215,11 @@ export const Node = (
                 }))
                 case 'state': return _p.ss($, ($) => {
                     const def = $.definition
-                    return _p.sg($['found value type'], ($) => {
+                    return _p.decide.state($['found value type'], ($) => {
                         switch ($[0]) {
-                            case 'valid': return _p.ss($, ($) => _p.sg($['value type'], ($) => {
+                            case 'valid': return _p.ss($, ($) => _p.decide.state($['value type'], ($) => {
                                 switch ($[0]) {
-                                    case 'state': return _p.ss($, ($) => _p.sg($['value substatus'], ($) => {
+                                    case 'state': return _p.ss($, ($) => _p.decide.state($['value substatus'], ($) => {
                                         switch ($[0]) {
                                             case 'missing data': return _p.ss($, ($): d_out.Optional_Hover_Texts => _p.optional.set(
                                                 _p.list.from_dictionary(

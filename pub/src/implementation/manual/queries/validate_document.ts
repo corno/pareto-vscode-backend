@@ -170,7 +170,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
             ),
         },
         ($): d.On_Validate_Document_Result => ({
-            'diagnostics': _p.sg(
+            'diagnostics': _p.decide.state(
                 $,
                 ($): d.Diagnostics => {
                     switch ($[0]) {
@@ -263,7 +263,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
     ).transform_result(($): d.On_Validate_Document_Result => ({
         'diagnostics': t_unmarshall_result_2_unmarshall_errors.Node($, null).__l_map(($): d.Diagnostic => ({
 
-            'severity': _p.sg($.type, ($) => {
+            'severity': _p.decide.state($.type, ($) => {
                 switch ($[0]) {
                     case 'error': return _p.ss($, ($) => ['error', null])
                     case 'warning': return _p.ss($, ($) => ['warning', null])
@@ -271,14 +271,14 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                 }
             }),
             'range': create_frontend_range_from_range($.range),
-            'message': _p.sg($.type, ($) => {
+            'message': _p.decide.state($.type, ($) => {
                 switch ($[0]) {
-                    case 'error': return _p.ss($, ($) => _p.sg($, ($) => _p.sg($, ($) => {
+                    case 'error': return _p.ss($, ($) => _p.decide.state($, ($) => _p.decide.state($, ($) => {
                         switch ($[0]) {
                             case 'duplicate property': return _p.ss($, ($) => `Duplicate property '${$.name}'`)
                             case 'invalid value type': return _p.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.__l_map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
                             case 'missing property': return _p.ss($, ($) => `Missing property '${$.name}'`)
-                            case 'state': return _p.ss($, ($) => _p.sg($, ($) => {
+                            case 'state': return _p.ss($, ($) => _p.decide.state($, ($) => {
                                 switch ($[0]) {
                                     case 'missing state name': return _p.ss($, ($) => `Missing state name`)
                                     case 'missing data marker': return _p.ss($, ($) => `Missing data marker for state 'XXXX'`)
@@ -296,7 +296,7 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                             default: return _p.au($[0])
                         }
                     })))
-                    case 'warning': return _p.ss($, ($) => _p.sg($, ($) => `${$[0]} (FIXME: more info)`))
+                    case 'warning': return _p.ss($, ($) => _p.decide.state($, ($) => `${$[0]} (FIXME: more info)`))
                     default: return _p.au($[0])
                 }
             }),

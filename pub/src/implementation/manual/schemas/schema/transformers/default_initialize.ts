@@ -12,7 +12,7 @@ export const Type_Node = (
 
 export const Type_Node_X = (
     $: d_in.Type_Node,
-): d_out.Value._type => _p.sg($, ($): d_out.Value._type => {
+): d_out.Value._type => _p.decide.state($, ($): d_out.Value._type => {
     switch ($[0]) {
         case 'number': return _p.ss($, ($) => ['text', {
             'delimiter': ['none', null],
@@ -32,7 +32,7 @@ export const Type_Node_X = (
             'delimiter': ['backtick', null],
             'value': "..."
         }])
-        case 'component': return _p.ss($, ($) => _p.sg($, ($) => {
+        case 'component': return _p.ss($, ($) => _p.decide.state($, ($) => {
             switch ($[0]) {
                 case 'external': return _p.ss($, ($) => Type_Node_X($.type.entry.node))
                 case 'internal': return _p.ss($, ($) => Type_Node_X($.entry.node))
@@ -64,7 +64,7 @@ export const Type_Node_Resolver = (
 
 export const Type_Node_Resolver_X = (
     $: d_in.Node_Resolver,
-): d_out.Value._type => _p.sg($, ($) => {
+): d_out.Value._type => _p.decide.state($, ($) => {
     switch ($[0]) {
         case 'number': return _p.ss($, ($) => ['text', {
             'delimiter': ['none', null],
@@ -84,7 +84,7 @@ export const Type_Node_Resolver_X = (
             'delimiter': ['backtick', null],
             'value': "..."
         }])
-        case 'component': return _p.ss($, ($) => _p.sg($.location, ($) => {
+        case 'component': return _p.ss($, ($) => _p.decide.state($.location, ($) => {
             switch ($[0]) {
                 case 'external': return _p.ss($, ($) => _pdev.implement_me("xx"))
                 case 'internal': return _p.ss($, ($) => _pdev.implement_me("xx"))
