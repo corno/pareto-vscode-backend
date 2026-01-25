@@ -7,17 +7,13 @@ import * as t_out from "../../../../../interface/generated/liana/schemas/server/
 export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($,) => _p.decide.state($, ($,): t_out.Diagnostic_Severity => {
     switch ($[0]) {
         case 'error':
-            return _p.ss($, ($,) => ['error', ({
-            })])
+            return _p.ss($, ($,) => ['error', null])
         case 'warning':
-            return _p.ss($, ($,) => ['warning', ({
-            })])
+            return _p.ss($, ($,) => ['warning', null])
         case 'information':
-            return _p.ss($, ($,) => ['information', ({
-            })])
+            return _p.ss($, ($,) => ['information', null])
         case 'hint':
-            return _p.ss($, ($,) => ['hint', ({
-            })])
+            return _p.ss($, ($,) => ['hint', null])
         default:
             return _p.au($[0])
     }
