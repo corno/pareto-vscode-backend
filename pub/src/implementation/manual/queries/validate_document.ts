@@ -47,7 +47,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => (create_
 //     ($): d.On_Validate_Document_Result => ({
 //         'diagnostics': t_unmarshall_result_2_unmarshall_errors.Node($, null).__d_map(($): d.Diagnostic => ({
 
-//             'severity': _pt.sg($.type, ($) => {
+//             'severity': _pt.decide.state($.type, ($) => {
 //                 switch ($[0]) {
 //                     case 'error': return _pt.ss($, ($) => ['error', null])
 //                     case 'warning': return _pt.ss($, ($) => ['warning', null])
@@ -55,14 +55,14 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => (create_
 //                 }
 //             }),
 //             'range': create_frontend_range_from_range($.range),
-//             'message': _pt.sg($.type, ($) => {
+//             'message': _pt.decide.state($.type, ($) => {
 //                 switch ($[0]) {
-//                     case 'error': return _pt.ss($, ($) => _pt.sg($, ($) => _pt.sg($, ($) => {
+//                     case 'error': return _pt.ss($, ($) => _pt.decide.state($, ($) => _pt.decide.state($, ($) => {
 //                         switch ($[0]) {
 //                             case 'duplicate property': return _pt.ss($, ($) => `Duplicate property '${$.name}'`)
 //                             case 'invalid value type': return _pt.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.__d_map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
 //                             case 'missing property': return _pt.ss($, ($) => `Missing property '${$.name}'`)
-//                             case 'state': return _pt.ss($, ($) => _pt.sg($, ($) => {
+//                             case 'state': return _pt.ss($, ($) => _pt.decide.state($, ($) => {
 //                                 switch ($[0]) {
 //                                     case 'missing state name': return _pt.ss($, ($) => `Missing state name`)
 //                                     case 'missing data marker': return _pt.ss($, ($) => `Missing data marker for state 'XXXX'`)
@@ -77,7 +77,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => (create_
 //                             default: return _pt.au($[0])
 //                         }
 //                     })))
-//                     case 'warning': return _pt.ss($, ($) => _pt.sg($, ($) => `${$[0]} (FIXME: more info)`))
+//                     case 'warning': return _pt.ss($, ($) => _pt.decide.state($, ($) => `${$[0]} (FIXME: more info)`))
 //                     default: return _pt.au($[0])
 //                 }
 //             }),
@@ -86,7 +86,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => (create_
 //     })
 // ).catch_(($) => {
 //     return _easync.query.guaranteed['create result']<d.On_Validate_Document_Result>({
-//         'diagnostics': _pt.sg(
+//         'diagnostics': _pt.decide.state(
 //             $,
 //             ($): d.Diagnostics => {
 //                 switch ($[0]) {
