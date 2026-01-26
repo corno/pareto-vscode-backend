@@ -10,11 +10,11 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 export const Position: t_signatures.Position = ($,) => ['group', ['verbose', _p.dictionary.literal(({
     'line': _p.deprecated_cc($['line'], ($,) => ['text', ({
-        'delimiter': ['backtick', null],
+        'delimiter': ['none', null],
         'value': v_serialize_number.serialize($),
     })]),
     'character': _p.deprecated_cc($['character'], ($,) => ['text', ({
-        'delimiter': ['backtick', null],
+        'delimiter': ['none', null],
         'value': v_serialize_number.serialize($),
     })]),
 }))]]
@@ -24,19 +24,19 @@ export const Range: t_signatures.Range = ($,) => ['group', ['verbose', _p.dictio
 }))]]
 export const Format_Options: t_signatures.Format_Options = ($,) => ['group', ['verbose', _p.dictionary.literal(({
     'insert spaces': _p.deprecated_cc($['insert spaces'], ($,) => ['text', ({
-        'delimiter': ['backtick', null],
+        'delimiter': ['none', null],
         'value': v_serialize_boolean.serialize($),
     })]),
     'preserve delimiters': _p.deprecated_cc($['preserve delimiters'], ($,) => ['text', ({
-        'delimiter': ['backtick', null],
+        'delimiter': ['none', null],
         'value': v_serialize_boolean.serialize($),
     })]),
     'preserve final newline state': _p.deprecated_cc($['preserve final newline state'], ($,) => ['text', ({
-        'delimiter': ['backtick', null],
+        'delimiter': ['none', null],
         'value': v_serialize_boolean.serialize($),
     })]),
     'preserve commas': _p.deprecated_cc($['preserve commas'], ($,) => ['text', ({
-        'delimiter': ['backtick', null],
+        'delimiter': ['none', null],
         'value': v_serialize_boolean.serialize($),
     })]),
     'indent string': _p.deprecated_cc($['indent string'], ($,) => ['text', ({
@@ -55,19 +55,19 @@ export const Text_Edit: t_signatures.Text_Edit = ($,) => ['state', _p.decide.sta
     switch ($[0]) {
         case 'replace':
             return _p.ss($, ($,) => ({
-                'option': "replace",
+                'option': 'replace',
                 'value': Replace($),
             }))
         case 'delete':
             return _p.ss($, ($,) => ({
-                'option': "delete",
+                'option': 'delete',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'range': _p.deprecated_cc($['range'], ($,) => Range($)),
                 }))]],
             }))
         case 'insert':
             return _p.ss($, ($,) => ({
-                'option': "insert",
+                'option': 'insert',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'location': _p.deprecated_cc($['location'], ($,) => Position($)),
                     'text': _p.deprecated_cc($['text'], ($,) => ['text', ({

@@ -12,25 +12,25 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($,) => ['s
     switch ($[0]) {
         case 'error':
             return _p.ss($, ($,) => ({
-                'option': "error",
+                'option': 'error',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                 }))]],
             }))
         case 'warning':
             return _p.ss($, ($,) => ({
-                'option': "warning",
+                'option': 'warning',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                 }))]],
             }))
         case 'information':
             return _p.ss($, ($,) => ({
-                'option': "information",
+                'option': 'information',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                 }))]],
             }))
         case 'hint':
             return _p.ss($, ($,) => ({
-                'option': "hint",
+                'option': 'hint',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                 }))]],
             }))
@@ -40,11 +40,11 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($,) => ['s
 })]
 export const Position: t_signatures.Position = ($,) => ['group', ['verbose', _p.dictionary.literal(({
     'line': _p.deprecated_cc($['line'], ($,) => ['text', ({
-        'delimiter': ['backtick', null],
+        'delimiter': ['none', null],
         'value': v_serialize_number.serialize($),
     })]),
     'character': _p.deprecated_cc($['character'], ($,) => ['text', ({
-        'delimiter': ['backtick', null],
+        'delimiter': ['none', null],
         'value': v_serialize_number.serialize($),
     })]),
 }))]]
@@ -163,7 +163,7 @@ export const Validate_Document_Parameters: t_signatures.Validate_Document_Parame
         'value': $,
     })]),
     'tab size': _p.deprecated_cc($['tab size'], ($,) => ['text', ({
-        'delimiter': ['backtick', null],
+        'delimiter': ['none', null],
         'value': v_serialize_number.serialize($),
     })]),
 }))]]
