@@ -40,7 +40,7 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Hover_Texts>): d_out
     const op_expect_1_entry = <T>($: _pi.Dictionary<T>): _pi.Optional_Value<Key_Value_Pair<T>> => {
         let found: null | Key_Value_Pair<T> = null
         let found_too_many = false
-        $.__d_map(($, key) => {
+        $.__d_map(($, id) => {
             if (found !== null) {
                 found_too_many = true
             }
@@ -87,7 +87,7 @@ export const Group_Content = (
         'id path': string
     }
 ): d_out.Optional_Hover_Texts => filter_dictionary(
-    $.properties.__d_map(($, key): d_out.Optional_Hover_Texts => _p.decide.state($, ($) => {
+    $.properties.__d_map(($, id): d_out.Optional_Hover_Texts => _p.decide.state($, ($) => {
         switch ($[0]) {
             case 'multiple': return _p.ss($, ($) => _p.optional.not_set())
             case 'missing': return _p.ss($, ($) => _p.optional.not_set())
@@ -154,7 +154,7 @@ export const Node = (
                 case 'dictionary': return _p.ss($, ($) => _p.decide.state($['found value type'], ($) => {
                     switch ($[0]) {
                         case 'valid': return _p.ss($, ($) => filter_dictionary(
-                            $.entries.__d_map(($, key): d_out.Optional_Hover_Texts => _p.decide.state($, ($) => {
+                            $.entries.__d_map(($, id): d_out.Optional_Hover_Texts => _p.decide.state($, ($) => {
                                 switch ($[0]) {
                                     case 'multiple': return _p.ss($, ($) => filter_list($.__l_map(($) => Optional_Node($.node, {
                                         'location': $p.location,
@@ -224,7 +224,7 @@ export const Node = (
                                             case 'missing data': return _p.ss($, ($): d_out.Optional_Hover_Texts => _p.optional.set(
                                                 _p.list.from_dictionary(
                                                     def,
-                                                    ($, key) => key
+                                                    ($, id) => key
                                                 )
                                             ))
                                             case 'set': return _p.ss($, ($) => {

@@ -44,7 +44,7 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): 
     const op_expect_1_entry = <T>($: _pi.Dictionary<T>): _pi.Optional_Value<Key_Value_Pair<T>> => {
         let found: null | Key_Value_Pair<T> = null
         let found_too_many = false
-        $.__d_map(($, key) => {
+        $.__d_map(($, id) => {
             if (found !== null) {
                 found_too_many = true
             }
@@ -91,7 +91,7 @@ export const Group_Content = (
         'indent': string
     }
 ): d_out.Optional_Completion_Items => filter_dictionary(
-    $.properties.__d_map(($, key): d_out.Optional_Completion_Items => _p.decide.state($, ($) => {
+    $.properties.__d_map(($, id): d_out.Optional_Completion_Items => _p.decide.state($, ($) => {
         switch ($[0]) {
             case 'multiple': return _p.ss($, ($) => _p.optional.not_set())
             case 'missing': return _p.ss($, ($) => _p.optional.not_set())
@@ -169,7 +169,7 @@ export const Node = (
             case 'dictionary': return _p.ss($, ($) => _p.decide.state($['found value type'], ($) => {
                 switch ($[0]) {
                     case 'valid': return _p.ss($, ($) => filter_dictionary(
-                        $.entries.__d_map(($, key): d_out.Optional_Completion_Items => _p.decide.state($, ($) => {
+                        $.entries.__d_map(($, id): d_out.Optional_Completion_Items => _p.decide.state($, ($) => {
                             switch ($[0]) {
                                 case 'multiple': return _p.ss($, ($) => filter_list($.__l_map(($) => Optional_Node($.node, $p))))
                                 case 'unique': return _p.ss($, ($) => Optional_Node($, $p))
@@ -227,7 +227,7 @@ export const Node = (
                                         case 'missing data': return _p.ss($, ($) => _p.optional.set(
                                             _p.list.from_dictionary(
                                                 state_group_definition,
-                                                ($, key) => ({
+                                                ($, id) => ({
                                                     'label': key,
                                                     'insert text': `'${key}' ${create_default_value_string($.node, true)}`,
                                                     'documentation': $.description.__decide(
