@@ -15,6 +15,10 @@ export namespace Position_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -22,6 +26,10 @@ export namespace Position_ {
 export type Position_ = (
     context: Position_.I,
     abort: _pi.Abort<Position_.E>,
+    parameters: {
+        readonly 'document resource identifier': Position_.P.document_resource_identifier
+        readonly 'indentation': Position_.P.indentation
+    },
 ) => Position_.O
 
 export namespace Range_ {
@@ -34,6 +42,10 @@ export namespace Range_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -41,6 +53,10 @@ export namespace Range_ {
 export type Range_ = (
     context: Range_.I,
     abort: _pi.Abort<Range_.E>,
+    parameters: {
+        readonly 'document resource identifier': Range_.P.document_resource_identifier
+        readonly 'indentation': Range_.P.indentation
+    },
 ) => Range_.O
 
 export namespace Format_Options_ {
@@ -53,6 +69,10 @@ export namespace Format_Options_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -60,6 +80,10 @@ export namespace Format_Options_ {
 export type Format_Options_ = (
     context: Format_Options_.I,
     abort: _pi.Abort<Format_Options_.E>,
+    parameters: {
+        readonly 'document resource identifier': Format_Options_.P.document_resource_identifier
+        readonly 'indentation': Format_Options_.P.indentation
+    },
 ) => Format_Options_.O
 
 export namespace Replace_ {
@@ -72,6 +96,10 @@ export namespace Replace_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -79,6 +107,10 @@ export namespace Replace_ {
 export type Replace_ = (
     context: Replace_.I,
     abort: _pi.Abort<Replace_.E>,
+    parameters: {
+        readonly 'document resource identifier': Replace_.P.document_resource_identifier
+        readonly 'indentation': Replace_.P.indentation
+    },
 ) => Replace_.O
 
 export namespace Text_Edit_ {
@@ -91,6 +123,10 @@ export namespace Text_Edit_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -98,6 +134,10 @@ export namespace Text_Edit_ {
 export type Text_Edit_ = (
     context: Text_Edit_.I,
     abort: _pi.Abort<Text_Edit_.E>,
+    parameters: {
+        readonly 'document resource identifier': Text_Edit_.P.document_resource_identifier
+        readonly 'indentation': Text_Edit_.P.indentation
+    },
 ) => Text_Edit_.O
 
 export namespace Format_Result_ {
@@ -110,6 +150,10 @@ export namespace Format_Result_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -117,6 +161,10 @@ export namespace Format_Result_ {
 export type Format_Result_ = (
     context: Format_Result_.I,
     abort: _pi.Abort<Format_Result_.E>,
+    parameters: {
+        readonly 'document resource identifier': Format_Result_.P.document_resource_identifier
+        readonly 'indentation': Format_Result_.P.indentation
+    },
 ) => Format_Result_.O
 
 export namespace Format_Error_ {
@@ -129,6 +177,10 @@ export namespace Format_Error_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -136,6 +188,10 @@ export namespace Format_Error_ {
 export type Format_Error_ = (
     context: Format_Error_.I,
     abort: _pi.Abort<Format_Error_.E>,
+    parameters: {
+        readonly 'document resource identifier': Format_Error_.P.document_resource_identifier
+        readonly 'indentation': Format_Error_.P.indentation
+    },
 ) => Format_Error_.O
 
 export namespace Format_Parameters_ {
@@ -148,6 +204,10 @@ export namespace Format_Parameters_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -155,6 +215,10 @@ export namespace Format_Parameters_ {
 export type Format_Parameters_ = (
     context: Format_Parameters_.I,
     abort: _pi.Abort<Format_Parameters_.E>,
+    parameters: {
+        readonly 'document resource identifier': Format_Parameters_.P.document_resource_identifier
+        readonly 'indentation': Format_Parameters_.P.indentation
+    },
 ) => Format_Parameters_.O
 
 export namespace Sort_Alphabetically_Parameters_ {
@@ -167,6 +231,10 @@ export namespace Sort_Alphabetically_Parameters_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -174,6 +242,10 @@ export namespace Sort_Alphabetically_Parameters_ {
 export type Sort_Alphabetically_Parameters_ = (
     context: Sort_Alphabetically_Parameters_.I,
     abort: _pi.Abort<Sort_Alphabetically_Parameters_.E>,
+    parameters: {
+        readonly 'document resource identifier': Sort_Alphabetically_Parameters_.P.document_resource_identifier
+        readonly 'indentation': Sort_Alphabetically_Parameters_.P.indentation
+    },
 ) => Sort_Alphabetically_Parameters_.O
 
 export { 
