@@ -1,12 +1,12 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/client/marshall"
@@ -16,10 +16,11 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 import * as v_serialize_number from "liana-core/dist/implementation/manual/primitives/integer/serializers/decimal"
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
+
 export const Position: t_signatures.Position = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'line': _p_cc(
-            $['line'], 
+            $['line'],
             ($) => ['text', ({
                 'delimiter': ['none', null],
                 'value': v_serialize_number.serialize(
@@ -28,7 +29,7 @@ export const Position: t_signatures.Position = ($) => ['group', ['verbose', _p.d
             })]
         ),
         'character': _p_cc(
-            $['character'], 
+            $['character'],
             ($) => ['text', ({
                 'delimiter': ['none', null],
                 'value': v_serialize_number.serialize(
@@ -38,26 +39,28 @@ export const Position: t_signatures.Position = ($) => ['group', ['verbose', _p.d
         ),
     })
 )]]
+
 export const Range: t_signatures.Range = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'start': _p_cc(
-            $['start'], 
+            $['start'],
             ($) => Position(
                 $
             )
         ),
         'end': _p_cc(
-            $['end'], 
+            $['end'],
             ($) => Position(
                 $
             )
         ),
     })
 )]]
+
 export const Format_Options: t_signatures.Format_Options = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'insert spaces': _p_cc(
-            $['insert spaces'], 
+            $['insert spaces'],
             ($) => ['text', ({
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
@@ -66,7 +69,7 @@ export const Format_Options: t_signatures.Format_Options = ($) => ['group', ['ve
             })]
         ),
         'preserve delimiters': _p_cc(
-            $['preserve delimiters'], 
+            $['preserve delimiters'],
             ($) => ['text', ({
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
@@ -75,7 +78,7 @@ export const Format_Options: t_signatures.Format_Options = ($) => ['group', ['ve
             })]
         ),
         'preserve final newline state': _p_cc(
-            $['preserve final newline state'], 
+            $['preserve final newline state'],
             ($) => ['text', ({
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
@@ -84,7 +87,7 @@ export const Format_Options: t_signatures.Format_Options = ($) => ['group', ['ve
             })]
         ),
         'preserve commas': _p_cc(
-            $['preserve commas'], 
+            $['preserve commas'],
             ($) => ['text', ({
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
@@ -93,7 +96,7 @@ export const Format_Options: t_signatures.Format_Options = ($) => ['group', ['ve
             })]
         ),
         'indent string': _p_cc(
-            $['indent string'], 
+            $['indent string'],
             ($) => ['text', ({
                 'delimiter': ['quote', null],
                 'value': $,
@@ -101,16 +104,17 @@ export const Format_Options: t_signatures.Format_Options = ($) => ['group', ['ve
         ),
     })
 )]]
+
 export const Replace: t_signatures.Replace = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'range': _p_cc(
-            $['range'], 
+            $['range'],
             ($) => Range(
                 $
             )
         ),
         'text': _p_cc(
-            $['text'], 
+            $['text'],
             ($) => ['text', ({
                 'delimiter': ['quote', null],
                 'value': $,
@@ -118,13 +122,14 @@ export const Replace: t_signatures.Replace = ($) => ['group', ['verbose', _p.dic
         ),
     })
 )]]
+
 export const Text_Edit: t_signatures.Text_Edit = ($) => ['state', _p.decide.state(
-    $, 
+    $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'replace':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'replace',
                         'value': Replace(
@@ -134,13 +139,13 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => ['state', _p.decide.stat
                 )
             case 'delete':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'delete',
                         'value': ['group', ['verbose', _p.dictionary.literal(
                             ({
                                 'range': _p_cc(
-                                    $['range'], 
+                                    $['range'],
                                     ($) => Range(
                                         $
                                     )
@@ -151,19 +156,19 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => ['state', _p.decide.stat
                 )
             case 'insert':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'insert',
                         'value': ['group', ['verbose', _p.dictionary.literal(
                             ({
                                 'location': _p_cc(
-                                    $['location'], 
+                                    $['location'],
                                     ($) => Position(
                                         $
                                     )
                                 ),
                                 'text': _p_cc(
-                                    $['text'], 
+                                    $['text'],
                                     ($) => ['text', ({
                                         'delimiter': ['quote', null],
                                         'value': $,
@@ -180,15 +185,17 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => ['state', _p.decide.stat
         }
     }
 )]
+
 export const Format_Result: t_signatures.Format_Result = ($) => ['list', $.__l_map(
     ($) => Text_Edit(
         $
     )
 )]
+
 export const Format_Error: t_signatures.Format_Error = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'message': _p_cc(
-            $['message'], 
+            $['message'],
             ($) => ['text', ({
                 'delimiter': ['quote', null],
                 'value': $,
@@ -196,20 +203,22 @@ export const Format_Error: t_signatures.Format_Error = ($) => ['group', ['verbos
         ),
     })
 )]]
+
 export const Format_Parameters: t_signatures.Format_Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'options': _p_cc(
-            $['options'], 
+            $['options'],
             ($) => Format_Options(
                 $
             )
         ),
     })
 )]]
+
 export const Sort_Alphabetically_Parameters: t_signatures.Sort_Alphabetically_Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'position': _p_cc(
-            $['position'], 
+            $['position'],
             ($) => Position(
                 $
             )
