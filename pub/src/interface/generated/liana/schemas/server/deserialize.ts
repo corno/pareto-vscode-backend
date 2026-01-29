@@ -17,7 +17,7 @@ export namespace Diagnostic_Severity_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -28,7 +28,7 @@ export type Diagnostic_Severity_ = (
     abort: _pi.Abort<Diagnostic_Severity_.E>,
     parameters: {
         readonly 'document resource identifier': Diagnostic_Severity_.P.document_resource_identifier
-        readonly 'indentation': Diagnostic_Severity_.P.indentation
+        readonly 'tab size': Diagnostic_Severity_.P.tab_size
     },
 ) => Diagnostic_Severity_.O
 
@@ -44,7 +44,7 @@ export namespace Position_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -55,7 +55,7 @@ export type Position_ = (
     abort: _pi.Abort<Position_.E>,
     parameters: {
         readonly 'document resource identifier': Position_.P.document_resource_identifier
-        readonly 'indentation': Position_.P.indentation
+        readonly 'tab size': Position_.P.tab_size
     },
 ) => Position_.O
 
@@ -71,7 +71,7 @@ export namespace Range_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -82,7 +82,7 @@ export type Range_ = (
     abort: _pi.Abort<Range_.E>,
     parameters: {
         readonly 'document resource identifier': Range_.P.document_resource_identifier
-        readonly 'indentation': Range_.P.indentation
+        readonly 'tab size': Range_.P.tab_size
     },
 ) => Range_.O
 
@@ -98,7 +98,7 @@ export namespace Diagnostic_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -109,7 +109,7 @@ export type Diagnostic_ = (
     abort: _pi.Abort<Diagnostic_.E>,
     parameters: {
         readonly 'document resource identifier': Diagnostic_.P.document_resource_identifier
-        readonly 'indentation': Diagnostic_.P.indentation
+        readonly 'tab size': Diagnostic_.P.tab_size
     },
 ) => Diagnostic_.O
 
@@ -125,7 +125,7 @@ export namespace Diagnostics_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -136,7 +136,7 @@ export type Diagnostics_ = (
     abort: _pi.Abort<Diagnostics_.E>,
     parameters: {
         readonly 'document resource identifier': Diagnostics_.P.document_resource_identifier
-        readonly 'indentation': Diagnostics_.P.indentation
+        readonly 'tab size': Diagnostics_.P.tab_size
     },
 ) => Diagnostics_.O
 
@@ -152,7 +152,7 @@ export namespace Document_Data_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -163,7 +163,7 @@ export type Document_Data_ = (
     abort: _pi.Abort<Document_Data_.E>,
     parameters: {
         readonly 'document resource identifier': Document_Data_.P.document_resource_identifier
-        readonly 'indentation': Document_Data_.P.indentation
+        readonly 'tab size': Document_Data_.P.tab_size
     },
 ) => Document_Data_.O
 
@@ -179,7 +179,7 @@ export namespace Hover_Texts_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -190,7 +190,7 @@ export type Hover_Texts_ = (
     abort: _pi.Abort<Hover_Texts_.E>,
     parameters: {
         readonly 'document resource identifier': Hover_Texts_.P.document_resource_identifier
-        readonly 'indentation': Hover_Texts_.P.indentation
+        readonly 'tab size': Hover_Texts_.P.tab_size
     },
 ) => Hover_Texts_.O
 
@@ -206,7 +206,7 @@ export namespace Optional_Hover_Texts_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -217,7 +217,7 @@ export type Optional_Hover_Texts_ = (
     abort: _pi.Abort<Optional_Hover_Texts_.E>,
     parameters: {
         readonly 'document resource identifier': Optional_Hover_Texts_.P.document_resource_identifier
-        readonly 'indentation': Optional_Hover_Texts_.P.indentation
+        readonly 'tab size': Optional_Hover_Texts_.P.tab_size
     },
 ) => Optional_Hover_Texts_.O
 
@@ -233,7 +233,7 @@ export namespace On_Hover_Result_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -244,7 +244,7 @@ export type On_Hover_Result_ = (
     abort: _pi.Abort<On_Hover_Result_.E>,
     parameters: {
         readonly 'document resource identifier': On_Hover_Result_.P.document_resource_identifier
-        readonly 'indentation': On_Hover_Result_.P.indentation
+        readonly 'tab size': On_Hover_Result_.P.tab_size
     },
 ) => On_Hover_Result_.O
 
@@ -260,7 +260,7 @@ export namespace Completion_Items_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -271,7 +271,7 @@ export type Completion_Items_ = (
     abort: _pi.Abort<Completion_Items_.E>,
     parameters: {
         readonly 'document resource identifier': Completion_Items_.P.document_resource_identifier
-        readonly 'indentation': Completion_Items_.P.indentation
+        readonly 'tab size': Completion_Items_.P.tab_size
     },
 ) => Completion_Items_.O
 
@@ -287,7 +287,7 @@ export namespace Optional_Completion_Items_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -298,7 +298,7 @@ export type Optional_Completion_Items_ = (
     abort: _pi.Abort<Optional_Completion_Items_.E>,
     parameters: {
         readonly 'document resource identifier': Optional_Completion_Items_.P.document_resource_identifier
-        readonly 'indentation': Optional_Completion_Items_.P.indentation
+        readonly 'tab size': Optional_Completion_Items_.P.tab_size
     },
 ) => Optional_Completion_Items_.O
 
@@ -314,7 +314,7 @@ export namespace On_Completion_Result_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -325,7 +325,7 @@ export type On_Completion_Result_ = (
     abort: _pi.Abort<On_Completion_Result_.E>,
     parameters: {
         readonly 'document resource identifier': On_Completion_Result_.P.document_resource_identifier
-        readonly 'indentation': On_Completion_Result_.P.indentation
+        readonly 'tab size': On_Completion_Result_.P.tab_size
     },
 ) => On_Completion_Result_.O
 
@@ -341,7 +341,7 @@ export namespace On_Validate_Document_Result_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -352,7 +352,7 @@ export type On_Validate_Document_Result_ = (
     abort: _pi.Abort<On_Validate_Document_Result_.E>,
     parameters: {
         readonly 'document resource identifier': On_Validate_Document_Result_.P.document_resource_identifier
-        readonly 'indentation': On_Validate_Document_Result_.P.indentation
+        readonly 'tab size': On_Validate_Document_Result_.P.tab_size
     },
 ) => On_Validate_Document_Result_.O
 
@@ -368,7 +368,7 @@ export namespace Convert_To_JSON_Parameters_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -379,7 +379,7 @@ export type Convert_To_JSON_Parameters_ = (
     abort: _pi.Abort<Convert_To_JSON_Parameters_.E>,
     parameters: {
         readonly 'document resource identifier': Convert_To_JSON_Parameters_.P.document_resource_identifier
-        readonly 'indentation': Convert_To_JSON_Parameters_.P.indentation
+        readonly 'tab size': Convert_To_JSON_Parameters_.P.tab_size
     },
 ) => Convert_To_JSON_Parameters_.O
 
@@ -395,7 +395,7 @@ export namespace Seal_Parameters_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -406,7 +406,7 @@ export type Seal_Parameters_ = (
     abort: _pi.Abort<Seal_Parameters_.E>,
     parameters: {
         readonly 'document resource identifier': Seal_Parameters_.P.document_resource_identifier
-        readonly 'indentation': Seal_Parameters_.P.indentation
+        readonly 'tab size': Seal_Parameters_.P.tab_size
     },
 ) => Seal_Parameters_.O
 
@@ -422,7 +422,7 @@ export namespace On_Completion_Parameters_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -433,7 +433,7 @@ export type On_Completion_Parameters_ = (
     abort: _pi.Abort<On_Completion_Parameters_.E>,
     parameters: {
         readonly 'document resource identifier': On_Completion_Parameters_.P.document_resource_identifier
-        readonly 'indentation': On_Completion_Parameters_.P.indentation
+        readonly 'tab size': On_Completion_Parameters_.P.tab_size
     },
 ) => On_Completion_Parameters_.O
 
@@ -449,7 +449,7 @@ export namespace On_Hover_Parameters_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -460,7 +460,7 @@ export type On_Hover_Parameters_ = (
     abort: _pi.Abort<On_Hover_Parameters_.E>,
     parameters: {
         readonly 'document resource identifier': On_Hover_Parameters_.P.document_resource_identifier
-        readonly 'indentation': On_Hover_Parameters_.P.indentation
+        readonly 'tab size': On_Hover_Parameters_.P.tab_size
     },
 ) => On_Hover_Parameters_.O
 
@@ -476,7 +476,7 @@ export namespace Validate_Document_Parameters_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -487,7 +487,7 @@ export type Validate_Document_Parameters_ = (
     abort: _pi.Abort<Validate_Document_Parameters_.E>,
     parameters: {
         readonly 'document resource identifier': Validate_Document_Parameters_.P.document_resource_identifier
-        readonly 'indentation': Validate_Document_Parameters_.P.indentation
+        readonly 'tab size': Validate_Document_Parameters_.P.tab_size
     },
 ) => Validate_Document_Parameters_.O
 

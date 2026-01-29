@@ -63,24 +63,24 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): 
         }
         return _p.optional.set(found)
     }
-    return _p.deprecated_cc(
+    return _p_cc(
         _p.dictionary.filter($, ($) => $),
         ($) => _p.boolean.dictionary_is_empty($)
             ? _p.optional.not_set()
             : op_expect_1_entry($).__decide<d_out.Optional_Completion_Items>(
                 ($) => _p.optional.set($.value),
-                () => _p.unreachable_code_path(),
+                () => _p_unreachable_code_path(),
             )
     )
 
 }
-const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => _p.deprecated_cc(
+const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => _p_cc(
     _p.list.filter($, ($) => $),
     ($) => _p.boolean.list_is_empty($)
         ? _p.optional.not_set()
         : op_expect_1_element($).__decide<d_out.Optional_Completion_Items>(
             ($) => _p.optional.set($),
-            () => _p.unreachable_code_path(),
+            () => _p_unreachable_code_path(),
         )
 )
 
