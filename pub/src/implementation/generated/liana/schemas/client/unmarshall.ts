@@ -11,6 +11,8 @@ import {
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/client/unmarshall"
 
+import * as t_out from "../../../../../interface/generated/liana/schemas/client/data"
+
 import * as v_deserialize_number from "liana-core/dist/implementation/manual/primitives/integer/deserializers/decimal"
 
 import * as v_deserialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/deserializers/true_false"
@@ -247,7 +249,104 @@ export const Replace: t_signatures.Replace = ($, abort) => _p_cc(
     })
 )
 
-export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_unreachable_code_path(
+export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.State(
+        $,
+        ($) => abort(
+            ['expected a state', null]
+        )
+    ),
+    ($) => _p.decide.text(
+        $['option']['value'],
+        ($t): t_out.Text_Edit => {
+            switch ($t) {
+                case 'replace':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['replace', Replace(
+                            $,
+                            ($) => abort(
+                                $
+                            )
+                        )]
+                    )
+                case 'delete':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['delete', _p_cc(
+                            v_unmarshalled_from_parse_tree.Group(
+                                $,
+                                ($) => abort(
+                                    ['expected a group', null]
+                                )
+                            ),
+                            ($) => ({
+                                'range': _p_cc(
+                                    $.__get_entry(
+                                        'range',
+                                        ($) => abort(
+                                            ['no such entry', "range"]
+                                        )
+                                    ),
+                                    ($) => Range(
+                                        $,
+                                        ($) => abort(
+                                            $
+                                        )
+                                    )
+                                ),
+                            })
+                        )]
+                    )
+                case 'insert':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['insert', _p_cc(
+                            v_unmarshalled_from_parse_tree.Group(
+                                $,
+                                ($) => abort(
+                                    ['expected a group', null]
+                                )
+                            ),
+                            ($) => ({
+                                'location': _p_cc(
+                                    $.__get_entry(
+                                        'location',
+                                        ($) => abort(
+                                            ['no such entry', "location"]
+                                        )
+                                    ),
+                                    ($) => Position(
+                                        $,
+                                        ($) => abort(
+                                            $
+                                        )
+                                    )
+                                ),
+                                'text': _p_cc(
+                                    $.__get_entry(
+                                        'text',
+                                        ($) => abort(
+                                            ['no such entry', "text"]
+                                        )
+                                    ),
+                                    ($) => v_unmarshalled_from_parse_tree.Text(
+                                        $,
+                                        ($) => abort(
+                                            ['expected a text', null]
+                                        )
+                                    )
+                                ),
+                            })
+                        )]
+                    )
+                default:
+                    return abort(
+                        ['unknown option', $['option']['value']]
+                    )
+            }
+        }
+    )
 )
 
 export const Format_Result: t_signatures.Format_Result = ($, abort) => v_unmarshalled_from_parse_tree.List(

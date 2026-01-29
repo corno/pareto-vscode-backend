@@ -11,6 +11,8 @@ import {
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/server/unmarshall"
 
+import * as t_out from "../../../../../interface/generated/liana/schemas/server/data"
+
 import * as v_deserialize_number from "liana-core/dist/implementation/manual/primitives/integer/deserializers/decimal"
 
 import * as v_deserialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/deserializers/true_false"
@@ -19,7 +21,76 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($, abort) => _p_unreachable_code_path(
+export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.State(
+        $,
+        ($) => abort(
+            ['expected a state', null]
+        )
+    ),
+    ($) => _p.decide.text(
+        $['option']['value'],
+        ($t): t_out.Diagnostic_Severity => {
+            switch ($t) {
+                case 'error':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['error', _p_cc(
+                            v_unmarshalled_from_parse_tree.Group(
+                                $,
+                                ($) => abort(
+                                    ['expected a group', null]
+                                )
+                            ),
+                            ($) => null
+                        )]
+                    )
+                case 'warning':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['warning', _p_cc(
+                            v_unmarshalled_from_parse_tree.Group(
+                                $,
+                                ($) => abort(
+                                    ['expected a group', null]
+                                )
+                            ),
+                            ($) => null
+                        )]
+                    )
+                case 'information':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['information', _p_cc(
+                            v_unmarshalled_from_parse_tree.Group(
+                                $,
+                                ($) => abort(
+                                    ['expected a group', null]
+                                )
+                            ),
+                            ($) => null
+                        )]
+                    )
+                case 'hint':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['hint', _p_cc(
+                            v_unmarshalled_from_parse_tree.Group(
+                                $,
+                                ($) => abort(
+                                    ['expected a group', null]
+                                )
+                            ),
+                            ($) => null
+                        )]
+                    )
+                default:
+                    return abort(
+                        ['unknown option', $['option']['value']]
+                    )
+            }
+        }
+    )
 )
 
 export const Position: t_signatures.Position = ($, abort) => _p_cc(
