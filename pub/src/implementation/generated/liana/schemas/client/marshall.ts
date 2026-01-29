@@ -14,30 +14,30 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
 export const Position: t_signatures.Position = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'line': _p_cc(
             $['line'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['none', null],
                 'value': v_serialize_number.serialize(
                     $
                 ),
-            })]
+            }]
         ),
         'character': _p_cc(
             $['character'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['none', null],
                 'value': v_serialize_number.serialize(
                     $
                 ),
-            })]
+            }]
         ),
-    })
+    }
 )]]
 
 export const Range: t_signatures.Range = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'start': _p_cc(
             $['start'],
             ($) => Position(
@@ -50,59 +50,59 @@ export const Range: t_signatures.Range = ($) => ['group', ['verbose', _p.diction
                 $
             )
         ),
-    })
+    }
 )]]
 
 export const Format_Options: t_signatures.Format_Options = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'insert spaces': _p_cc(
             $['insert spaces'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
                     $
                 ),
-            })]
+            }]
         ),
         'preserve delimiters': _p_cc(
             $['preserve delimiters'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
                     $
                 ),
-            })]
+            }]
         ),
         'preserve final newline state': _p_cc(
             $['preserve final newline state'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
                     $
                 ),
-            })]
+            }]
         ),
         'preserve commas': _p_cc(
             $['preserve commas'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
                     $
                 ),
-            })]
+            }]
         ),
         'indent string': _p_cc(
             $['indent string'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
-            })]
+            }]
         ),
-    })
+    }
 )]]
 
 export const Replace: t_signatures.Replace = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'range': _p_cc(
             $['range'],
             ($) => Range(
@@ -111,12 +111,12 @@ export const Replace: t_signatures.Replace = ($) => ['group', ['verbose', _p.dic
         ),
         'text': _p_cc(
             $['text'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
-            })]
+            }]
         ),
-    })
+    }
 )]]
 
 export const Text_Edit: t_signatures.Text_Edit = ($) => ['state', _p.decide.state(
@@ -139,14 +139,14 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => ['state', _p.decide.stat
                     ($) => ({
                         'option': 'delete',
                         'value': ['group', ['verbose', _p.dictionary.literal(
-                            ({
+                            {
                                 'range': _p_cc(
                                     $['range'],
                                     ($) => Range(
                                         $
                                     )
                                 ),
-                            })
+                            }
                         )]],
                     })
                 )
@@ -156,7 +156,7 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => ['state', _p.decide.stat
                     ($) => ({
                         'option': 'insert',
                         'value': ['group', ['verbose', _p.dictionary.literal(
-                            ({
+                            {
                                 'location': _p_cc(
                                     $['location'],
                                     ($) => Position(
@@ -165,12 +165,12 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => ['state', _p.decide.stat
                                 ),
                                 'text': _p_cc(
                                     $['text'],
-                                    ($) => ['text', ({
+                                    ($) => ['text', {
                                         'delimiter': ['quote', null],
                                         'value': $,
-                                    })]
+                                    }]
                                 ),
-                            })
+                            }
                         )]],
                     })
                 )
@@ -189,35 +189,35 @@ export const Format_Result: t_signatures.Format_Result = ($) => ['list', $.__l_m
 )]
 
 export const Format_Error: t_signatures.Format_Error = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'message': _p_cc(
             $['message'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
-            })]
+            }]
         ),
-    })
+    }
 )]]
 
 export const Format_Parameters: t_signatures.Format_Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'options': _p_cc(
             $['options'],
             ($) => Format_Options(
                 $
             )
         ),
-    })
+    }
 )]]
 
 export const Sort_Alphabetically_Parameters: t_signatures.Sort_Alphabetically_Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'position': _p_cc(
             $['position'],
             ($) => Position(
                 $
             )
         ),
-    })
+    }
 )]]

@@ -85,19 +85,19 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => _p.decide.state(
             case 'delete':
                 return _p.ss(
                     $,
-                    ($) => ['delete', ({
+                    ($) => ['delete', {
                         'range': _p_cc(
                             $['range'],
                             ($) => Range(
                                 $
                             )
                         ),
-                    })]
+                    }]
                 )
             case 'insert':
                 return _p.ss(
                     $,
-                    ($) => ['insert', ({
+                    ($) => ['insert', {
                         'location': _p_cc(
                             $['location'],
                             ($) => Position(
@@ -108,7 +108,7 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => _p.decide.state(
                             $['text'],
                             ($) => $
                         ),
-                    })]
+                    }]
                 )
             default:
                 return _p.au(
