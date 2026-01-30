@@ -86,8 +86,10 @@ export const Diagnostic: t_signatures.Diagnostic = ($) => ({
     ),
     'related information': _p_cc(
         $['related information'],
-        ($) => $.__o_map(
-            ($) => $.__l_map(
+        ($) => _p.optional.map(
+            $,
+            ($) => _p.list.map(
+                $,
                 ($) => ({
                     'location': _p_cc(
                         $['location'],
@@ -114,7 +116,8 @@ export const Diagnostic: t_signatures.Diagnostic = ($) => ({
     ),
 })
 
-export const Diagnostics: t_signatures.Diagnostics = ($) => $.__l_map(
+export const Diagnostics: t_signatures.Diagnostics = ($) => _p.list.map(
+    $,
     ($) => Diagnostic(
         $
     )
@@ -131,11 +134,13 @@ export const Document_Data: t_signatures.Document_Data = ($) => ({
     ),
 })
 
-export const Hover_Texts: t_signatures.Hover_Texts = ($) => $.__l_map(
+export const Hover_Texts: t_signatures.Hover_Texts = ($) => _p.list.map(
+    $,
     ($) => $
 )
 
-export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($) => $.__o_map(
+export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($) => _p.optional.map(
+    $,
     ($) => Hover_Texts(
         $
     )
@@ -155,7 +160,8 @@ export const On_Hover_Result: t_signatures.On_Hover_Result = ($) => ({
     ),
 })
 
-export const Completion_Items: t_signatures.Completion_Items = ($) => $.__l_map(
+export const Completion_Items: t_signatures.Completion_Items = ($) => _p.list.map(
+    $,
     ($) => ({
         'label': _p_cc(
             $['label'],
@@ -172,7 +178,8 @@ export const Completion_Items: t_signatures.Completion_Items = ($) => $.__l_map(
     })
 )
 
-export const Optional_Completion_Items: t_signatures.Optional_Completion_Items = ($) => $.__o_map(
+export const Optional_Completion_Items: t_signatures.Optional_Completion_Items = ($) => _p.optional.map(
+    $,
     ($) => Completion_Items(
         $
     )

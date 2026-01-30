@@ -234,18 +234,20 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
                     ['no such entry', "related information"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.Optional(
-                $,
-                ($) => abort(
-                    ['expected an optional', null]
-                )
-            ).__o_map(
-                ($) => v_unmarshalled_from_parse_tree.List(
+            ($) => _p.optional.map(
+                v_unmarshalled_from_parse_tree.Optional(
                     $,
                     ($) => abort(
-                        ['expected a list', null]
+                        ['expected an optional', null]
                     )
-                ).__l_map(
+                ),
+                ($) => _p.list.map(
+                    v_unmarshalled_from_parse_tree.List(
+                        $,
+                        ($) => abort(
+                            ['expected a list', null]
+                        )
+                    ),
                     ($) => _p_cc(
                         v_unmarshalled_from_parse_tree.Group(
                             $,
@@ -322,12 +324,13 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
     })
 )
 
-export const Diagnostics: t_signatures.Diagnostics = ($, abort) => v_unmarshalled_from_parse_tree.List(
-    $,
-    ($) => abort(
-        ['expected a list', null]
-    )
-).__l_map(
+export const Diagnostics: t_signatures.Diagnostics = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(
+            ['expected a list', null]
+        )
+    ),
     ($) => Diagnostic(
         $,
         ($) => abort(
@@ -375,12 +378,13 @@ export const Document_Data: t_signatures.Document_Data = ($, abort) => _p_cc(
     })
 )
 
-export const Hover_Texts: t_signatures.Hover_Texts = ($, abort) => v_unmarshalled_from_parse_tree.List(
-    $,
-    ($) => abort(
-        ['expected a list', null]
-    )
-).__l_map(
+export const Hover_Texts: t_signatures.Hover_Texts = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(
+            ['expected a list', null]
+        )
+    ),
     ($) => v_unmarshalled_from_parse_tree.Text(
         $,
         ($) => abort(
@@ -389,12 +393,13 @@ export const Hover_Texts: t_signatures.Hover_Texts = ($, abort) => v_unmarshalle
     )
 )
 
-export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($, abort) => v_unmarshalled_from_parse_tree.Optional(
-    $,
-    ($) => abort(
-        ['expected an optional', null]
-    )
-).__o_map(
+export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($, abort) => _p.optional.map(
+    v_unmarshalled_from_parse_tree.Optional(
+        $,
+        ($) => abort(
+            ['expected an optional', null]
+        )
+    ),
     ($) => Hover_Texts(
         $,
         ($) => abort(
@@ -446,12 +451,13 @@ export const On_Hover_Result: t_signatures.On_Hover_Result = ($, abort) => _p_cc
     })
 )
 
-export const Completion_Items: t_signatures.Completion_Items = ($, abort) => v_unmarshalled_from_parse_tree.List(
-    $,
-    ($) => abort(
-        ['expected a list', null]
-    )
-).__l_map(
+export const Completion_Items: t_signatures.Completion_Items = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(
+            ['expected a list', null]
+        )
+    ),
     ($) => _p_cc(
         v_unmarshalled_from_parse_tree.Group(
             $,
@@ -506,12 +512,13 @@ export const Completion_Items: t_signatures.Completion_Items = ($, abort) => v_u
     )
 )
 
-export const Optional_Completion_Items: t_signatures.Optional_Completion_Items = ($, abort) => v_unmarshalled_from_parse_tree.Optional(
-    $,
-    ($) => abort(
-        ['expected an optional', null]
-    )
-).__o_map(
+export const Optional_Completion_Items: t_signatures.Optional_Completion_Items = ($, abort) => _p.optional.map(
+    v_unmarshalled_from_parse_tree.Optional(
+        $,
+        ($) => abort(
+            ['expected an optional', null]
+        )
+    ),
     ($) => Completion_Items(
         $,
         ($) => abort(

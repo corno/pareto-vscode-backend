@@ -132,8 +132,10 @@ export const Diagnostic: t_signatures.Diagnostic = ($) => ['group', ['verbose', 
         ),
         'related information': _p_cc(
             $['related information'],
-            ($) => ['optional', $.__decide(
-                ($): t_out.Value.optional => ['set', ['list', $.__l_map(
+            ($) => ['optional', _p.decide.optional(
+                $,
+                ($): t_out.Value.optional => ['set', ['list', _p.list.map(
+                    $,
                     ($) => ['group', ['verbose', _p.dictionary.literal(
                         {
                             'location': _p_cc(
@@ -172,7 +174,8 @@ export const Diagnostic: t_signatures.Diagnostic = ($) => ['group', ['verbose', 
     }
 )]]
 
-export const Diagnostics: t_signatures.Diagnostics = ($) => ['list', $.__l_map(
+export const Diagnostics: t_signatures.Diagnostics = ($) => ['list', _p.list.map(
+    $,
     ($) => Diagnostic(
         $
     )
@@ -197,14 +200,16 @@ export const Document_Data: t_signatures.Document_Data = ($) => ['group', ['verb
     }
 )]]
 
-export const Hover_Texts: t_signatures.Hover_Texts = ($) => ['list', $.__l_map(
+export const Hover_Texts: t_signatures.Hover_Texts = ($) => ['list', _p.list.map(
+    $,
     ($) => ['text', {
         'delimiter': ['quote', null],
         'value': $,
     }]
 )]
 
-export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($) => ['optional', $.__decide(
+export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($) => ['optional', _p.decide.optional(
+    $,
     ($): t_out.Value.optional => ['set', Hover_Texts(
         $
     )],
@@ -229,7 +234,8 @@ export const On_Hover_Result: t_signatures.On_Hover_Result = ($) => ['group', ['
     }
 )]]
 
-export const Completion_Items: t_signatures.Completion_Items = ($) => ['list', $.__l_map(
+export const Completion_Items: t_signatures.Completion_Items = ($) => ['list', _p.list.map(
+    $,
     ($) => ['group', ['verbose', _p.dictionary.literal(
         {
             'label': _p_cc(
@@ -257,7 +263,8 @@ export const Completion_Items: t_signatures.Completion_Items = ($) => ['list', $
     )]]
 )]
 
-export const Optional_Completion_Items: t_signatures.Optional_Completion_Items = ($) => ['optional', $.__decide(
+export const Optional_Completion_Items: t_signatures.Optional_Completion_Items = ($) => ['optional', _p.decide.optional(
+    $,
     ($): t_out.Value.optional => ['set', Completion_Items(
         $
     )],

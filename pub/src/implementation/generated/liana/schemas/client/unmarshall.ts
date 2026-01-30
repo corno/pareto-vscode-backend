@@ -345,12 +345,13 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
     )
 )
 
-export const Format_Result: t_signatures.Format_Result = ($, abort) => v_unmarshalled_from_parse_tree.List(
-    $,
-    ($) => abort(
-        ['expected a list', null]
-    )
-).__l_map(
+export const Format_Result: t_signatures.Format_Result = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(
+            ['expected a list', null]
+        )
+    ),
     ($) => Text_Edit(
         $,
         ($) => abort(

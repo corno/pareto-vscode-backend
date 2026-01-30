@@ -182,7 +182,8 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => ['state', _p.decide.stat
     }
 )]
 
-export const Format_Result: t_signatures.Format_Result = ($) => ['list', $.__l_map(
+export const Format_Result: t_signatures.Format_Result = ($) => ['list', _p.list.map(
+    $,
     ($) => Text_Edit(
         $
     )
