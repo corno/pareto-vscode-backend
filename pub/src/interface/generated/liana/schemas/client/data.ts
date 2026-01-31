@@ -49,19 +49,6 @@ export type Format_Options_ = {
     readonly 'indent string': Format_Options_.indent_string
 }
 
-export namespace Replace_ {
-    
-    export type range = Range_
-    
-    export type text = string
-    
-}
-
-export type Replace_ = {
-    readonly 'range': Replace_.range
-    readonly 'text': Replace_.text
-}
-
 export namespace Text_Edit_ {
     
     export type replace = Replace_
@@ -95,6 +82,19 @@ export type Text_Edit_ =
     | readonly ['replace', Text_Edit_.replace]
     | readonly ['delete', Text_Edit_.delete_]
     | readonly ['insert', Text_Edit_.insert]
+
+export namespace Replace_ {
+    
+    export type range = Range_
+    
+    export type text = string
+    
+}
+
+export type Replace_ = {
+    readonly 'range': Replace_.range
+    readonly 'text': Replace_.text
+}
 
 export namespace Format_Result_ {
     
@@ -138,8 +138,8 @@ export {
     Position_ as Position, 
     Range_ as Range, 
     Format_Options_ as Format_Options, 
-    Replace_ as Replace, 
     Text_Edit_ as Text_Edit, 
+    Replace_ as Replace, 
     Format_Result_ as Format_Result, 
     Format_Error_ as Format_Error, 
     Format_Parameters_ as Format_Parameters, 

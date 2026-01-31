@@ -58,19 +58,6 @@ export const Format_Options: t_signatures.Format_Options = ($) => ({
     ),
 })
 
-export const Replace: t_signatures.Replace = ($) => ({
-    'range': _p_cc(
-        $['range'],
-        ($) => Range(
-            $
-        )
-    ),
-    'text': _p_cc(
-        $['text'],
-        ($) => $
-    ),
-})
-
 export const Text_Edit: t_signatures.Text_Edit = ($) => _p.decide.state(
     $,
     ($): t_out.Text_Edit => {
@@ -117,6 +104,19 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => _p.decide.state(
         }
     }
 )
+
+export const Replace: t_signatures.Replace = ($) => ({
+    'range': _p_cc(
+        $['range'],
+        ($) => Range(
+            $
+        )
+    ),
+    'text': _p_cc(
+        $['text'],
+        ($) => $
+    ),
+})
 
 export const Format_Result: t_signatures.Format_Result = ($) => _p.list.map(
     $,

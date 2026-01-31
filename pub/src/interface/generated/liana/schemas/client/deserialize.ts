@@ -86,33 +86,6 @@ export type Format_Options_ = (
     },
 ) => Format_Options_.O
 
-export namespace Replace_ {
-    
-    export type I = string
-    
-    export type O = i_out.Replace
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
-        
-    }
-    
-}
-
-export type Replace_ = (
-    context: Replace_.I,
-    abort: _pi.Abort<Replace_.E>,
-    parameters: {
-        readonly 'document resource identifier': Replace_.P.document_resource_identifier
-        readonly 'tab size': Replace_.P.tab_size
-    },
-) => Replace_.O
-
 export namespace Text_Edit_ {
     
     export type I = string
@@ -139,6 +112,33 @@ export type Text_Edit_ = (
         readonly 'tab size': Text_Edit_.P.tab_size
     },
 ) => Text_Edit_.O
+
+export namespace Replace_ {
+    
+    export type I = string
+    
+    export type O = i_out.Replace
+    
+    export type E = i_generic.Error
+    
+    export namespace P {
+        
+        export type document_resource_identifier = string
+        
+        export type tab_size = number
+        
+    }
+    
+}
+
+export type Replace_ = (
+    context: Replace_.I,
+    abort: _pi.Abort<Replace_.E>,
+    parameters: {
+        readonly 'document resource identifier': Replace_.P.document_resource_identifier
+        readonly 'tab size': Replace_.P.tab_size
+    },
+) => Replace_.O
 
 export namespace Format_Result_ {
     
@@ -252,8 +252,8 @@ export {
     Position_ as Position, 
     Range_ as Range, 
     Format_Options_ as Format_Options, 
-    Replace_ as Replace, 
     Text_Edit_ as Text_Edit, 
+    Replace_ as Replace, 
     Format_Result_ as Format_Result, 
     Format_Error_ as Format_Error, 
     Format_Parameters_ as Format_Parameters, 

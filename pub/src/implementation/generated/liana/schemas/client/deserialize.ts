@@ -55,7 +55,7 @@ export const Format_Options: t_signatures.Format_Options = ($, abort, $p) => v_u
     )
 )
 
-export const Replace: t_signatures.Replace = ($, abort, $p) => v_unmarshall.Replace(
+export const Text_Edit: t_signatures.Text_Edit = ($, abort, $p) => v_unmarshall.Text_Edit(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -71,7 +71,7 @@ export const Replace: t_signatures.Replace = ($, abort, $p) => v_unmarshall.Repl
     )
 )
 
-export const Text_Edit: t_signatures.Text_Edit = ($, abort, $p) => v_unmarshall.Text_Edit(
+export const Replace: t_signatures.Replace = ($, abort, $p) => v_unmarshall.Replace(
     v_deserialize.Document(
         $,
         ($) => abort(

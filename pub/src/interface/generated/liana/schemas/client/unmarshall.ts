@@ -64,25 +64,6 @@ export type Format_Options_ = (
     abort: _pi.Abort<Format_Options_.E>,
 ) => Format_Options_.O
 
-export namespace Replace_ {
-    
-    export type I = i_in.Value
-    
-    export type O = i_out.Replace
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
-    }
-    
-}
-
-export type Replace_ = (
-    context: Replace_.I,
-    abort: _pi.Abort<Replace_.E>,
-) => Replace_.O
-
 export namespace Text_Edit_ {
     
     export type I = i_in.Value
@@ -101,6 +82,25 @@ export type Text_Edit_ = (
     context: Text_Edit_.I,
     abort: _pi.Abort<Text_Edit_.E>,
 ) => Text_Edit_.O
+
+export namespace Replace_ {
+    
+    export type I = i_in.Value
+    
+    export type O = i_out.Replace
+    
+    export type E = i_generic.Error
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Replace_ = (
+    context: Replace_.I,
+    abort: _pi.Abort<Replace_.E>,
+) => Replace_.O
 
 export namespace Format_Result_ {
     
@@ -182,8 +182,8 @@ export {
     Position_ as Position, 
     Range_ as Range, 
     Format_Options_ as Format_Options, 
-    Replace_ as Replace, 
     Text_Edit_ as Text_Edit, 
+    Replace_ as Replace, 
     Format_Result_ as Format_Result, 
     Format_Error_ as Format_Error, 
     Format_Parameters_ as Format_Parameters, 

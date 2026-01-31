@@ -101,24 +101,6 @@ export const Format_Options: t_signatures.Format_Options = ($) => ['group', ['ve
     }
 )]]
 
-export const Replace: t_signatures.Replace = ($) => ['group', ['verbose', _p.dictionary.literal(
-    {
-        'range': _p_cc(
-            $['range'],
-            ($) => Range(
-                $
-            )
-        ),
-        'text': _p_cc(
-            $['text'],
-            ($) => ['text', {
-                'delimiter': ['quote', null],
-                'value': $,
-            }]
-        ),
-    }
-)]]
-
 export const Text_Edit: t_signatures.Text_Edit = ($) => ['state', _p.decide.state(
     $,
     ($): t_out.Value.state => {
@@ -181,6 +163,24 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => ['state', _p.decide.stat
         }
     }
 )]
+
+export const Replace: t_signatures.Replace = ($) => ['group', ['verbose', _p.dictionary.literal(
+    {
+        'range': _p_cc(
+            $['range'],
+            ($) => Range(
+                $
+            )
+        ),
+        'text': _p_cc(
+            $['text'],
+            ($) => ['text', {
+                'delimiter': ['quote', null],
+                'value': $,
+            }]
+        ),
+    }
+)]]
 
 export const Format_Result: t_signatures.Format_Result = ($) => ['list', _p.list.map(
     $,

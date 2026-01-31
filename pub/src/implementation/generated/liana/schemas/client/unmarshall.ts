@@ -206,45 +206,6 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_cc(
     })
 )
 
-export const Replace: t_signatures.Replace = ($, abort) => _p_cc(
-    v_unmarshalled_from_parse_tree.Group(
-        $,
-        ($) => abort(
-            ['expected a group', null]
-        )
-    ),
-    ($) => ({
-        'range': _p_cc(
-            $.__get_entry(
-                'range',
-                ($) => abort(
-                    ['no such entry', "range"]
-                )
-            ),
-            ($) => Range(
-                $,
-                ($) => abort(
-                    $
-                )
-            )
-        ),
-        'text': _p_cc(
-            $.__get_entry(
-                'text',
-                ($) => abort(
-                    ['no such entry', "text"]
-                )
-            ),
-            ($) => v_unmarshalled_from_parse_tree.Text(
-                $,
-                ($) => abort(
-                    ['expected a text', null]
-                )
-            )
-        ),
-    })
-)
-
 export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
     v_unmarshalled_from_parse_tree.State(
         $,
@@ -343,6 +304,45 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
             }
         }
     )
+)
+
+export const Replace: t_signatures.Replace = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.Group(
+        $,
+        ($) => abort(
+            ['expected a group', null]
+        )
+    ),
+    ($) => ({
+        'range': _p_cc(
+            $.__get_entry(
+                'range',
+                ($) => abort(
+                    ['no such entry', "range"]
+                )
+            ),
+            ($) => Range(
+                $,
+                ($) => abort(
+                    $
+                )
+            )
+        ),
+        'text': _p_cc(
+            $.__get_entry(
+                'text',
+                ($) => abort(
+                    ['no such entry', "text"]
+                )
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Text(
+                $,
+                ($) => abort(
+                    ['expected a text', null]
+                )
+            )
+        ),
+    })
 )
 
 export const Format_Result: t_signatures.Format_Result = ($, abort) => _p.list.map(

@@ -25,14 +25,14 @@ export const Format_Options: t_signatures.Format_Options = ($) => v_serialize.Do
     )
 )
 
-export const Replace: t_signatures.Replace = ($) => v_serialize.Document(
-    v_marshall.Replace(
+export const Text_Edit: t_signatures.Text_Edit = ($) => v_serialize.Document(
+    v_marshall.Text_Edit(
         $
     )
 )
 
-export const Text_Edit: t_signatures.Text_Edit = ($) => v_serialize.Document(
-    v_marshall.Text_Edit(
+export const Replace: t_signatures.Replace = ($) => v_serialize.Document(
+    v_marshall.Replace(
         $
     )
 )
