@@ -1,9 +1,7 @@
 
 import * as _p from "pareto-core/dist/refiner"
 
-import {
-    _p_cc,
-} from "pareto-core/dist/change_context"
+import _p_change_context from "pareto-core/dist/_p_change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/server/unmarshall"
 
@@ -17,7 +15,7 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($, abort) => _p_cc(
+export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.State(
         $,
         ($) => abort(
@@ -29,9 +27,9 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($, abort) 
         ($t): t_out.Diagnostic_Severity => {
             switch ($t) {
                 case 'error':
-                    return _p_cc(
+                    return _p_change_context(
                         $['value'],
-                        ($) => ['error', _p_cc(
+                        ($) => ['error', _p_change_context(
                             v_unmarshalled_from_parse_tree.Group(
                                 $,
                                 ($) => abort(
@@ -42,9 +40,9 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($, abort) 
                         )]
                     )
                 case 'warning':
-                    return _p_cc(
+                    return _p_change_context(
                         $['value'],
-                        ($) => ['warning', _p_cc(
+                        ($) => ['warning', _p_change_context(
                             v_unmarshalled_from_parse_tree.Group(
                                 $,
                                 ($) => abort(
@@ -55,9 +53,9 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($, abort) 
                         )]
                     )
                 case 'information':
-                    return _p_cc(
+                    return _p_change_context(
                         $['value'],
-                        ($) => ['information', _p_cc(
+                        ($) => ['information', _p_change_context(
                             v_unmarshalled_from_parse_tree.Group(
                                 $,
                                 ($) => abort(
@@ -68,9 +66,9 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($, abort) 
                         )]
                     )
                 case 'hint':
-                    return _p_cc(
+                    return _p_change_context(
                         $['value'],
-                        ($) => ['hint', _p_cc(
+                        ($) => ['hint', _p_change_context(
                             v_unmarshalled_from_parse_tree.Group(
                                 $,
                                 ($) => abort(
@@ -89,7 +87,7 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($, abort) 
     )
 )
 
-export const Position: t_signatures.Position = ($, abort) => _p_cc(
+export const Position: t_signatures.Position = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -97,7 +95,7 @@ export const Position: t_signatures.Position = ($, abort) => _p_cc(
         )
     ),
     ($) => ({
-        'line': _p_cc(
+        'line': _p_change_context(
             $.__get_entry(
                 'line',
                 ($) => abort(
@@ -116,7 +114,7 @@ export const Position: t_signatures.Position = ($, abort) => _p_cc(
                 )
             )
         ),
-        'character': _p_cc(
+        'character': _p_change_context(
             $.__get_entry(
                 'character',
                 ($) => abort(
@@ -138,7 +136,7 @@ export const Position: t_signatures.Position = ($, abort) => _p_cc(
     })
 )
 
-export const Range: t_signatures.Range = ($, abort) => _p_cc(
+export const Range: t_signatures.Range = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -146,7 +144,7 @@ export const Range: t_signatures.Range = ($, abort) => _p_cc(
         )
     ),
     ($) => ({
-        'start': _p_cc(
+        'start': _p_change_context(
             $.__get_entry(
                 'start',
                 ($) => abort(
@@ -160,7 +158,7 @@ export const Range: t_signatures.Range = ($, abort) => _p_cc(
                 )
             )
         ),
-        'end': _p_cc(
+        'end': _p_change_context(
             $.__get_entry(
                 'end',
                 ($) => abort(
@@ -177,7 +175,7 @@ export const Range: t_signatures.Range = ($, abort) => _p_cc(
     })
 )
 
-export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
+export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -185,7 +183,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
         )
     ),
     ($) => ({
-        'severity': _p_cc(
+        'severity': _p_change_context(
             $.__get_entry(
                 'severity',
                 ($) => abort(
@@ -199,7 +197,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
                 )
             )
         ),
-        'range': _p_cc(
+        'range': _p_change_context(
             $.__get_entry(
                 'range',
                 ($) => abort(
@@ -213,7 +211,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
                 )
             )
         ),
-        'message': _p_cc(
+        'message': _p_change_context(
             $.__get_entry(
                 'message',
                 ($) => abort(
@@ -227,7 +225,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
                 )
             )
         ),
-        'related information': _p_cc(
+        'related information': _p_change_context(
             $.__get_entry(
                 'related information',
                 ($) => abort(
@@ -248,7 +246,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
                             ['expected a list', null]
                         )
                     ),
-                    ($) => _p_cc(
+                    ($) => _p_change_context(
                         v_unmarshalled_from_parse_tree.Group(
                             $,
                             ($) => abort(
@@ -256,14 +254,14 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
                             )
                         ),
                         ($) => ({
-                            'location': _p_cc(
+                            'location': _p_change_context(
                                 $.__get_entry(
                                     'location',
                                     ($) => abort(
                                         ['no such entry', "location"]
                                     )
                                 ),
-                                ($) => _p_cc(
+                                ($) => _p_change_context(
                                     v_unmarshalled_from_parse_tree.Group(
                                         $,
                                         ($) => abort(
@@ -271,7 +269,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
                                         )
                                     ),
                                     ($) => ({
-                                        'file path': _p_cc(
+                                        'file path': _p_change_context(
                                             $.__get_entry(
                                                 'file path',
                                                 ($) => abort(
@@ -285,7 +283,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
                                                 )
                                             )
                                         ),
-                                        'range': _p_cc(
+                                        'range': _p_change_context(
                                             $.__get_entry(
                                                 'range',
                                                 ($) => abort(
@@ -302,7 +300,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_cc(
                                     })
                                 )
                             ),
-                            'message': _p_cc(
+                            'message': _p_change_context(
                                 $.__get_entry(
                                     'message',
                                     ($) => abort(
@@ -339,7 +337,7 @@ export const Diagnostics: t_signatures.Diagnostics = ($, abort) => _p.list.map(
     )
 )
 
-export const Document_Data: t_signatures.Document_Data = ($, abort) => _p_cc(
+export const Document_Data: t_signatures.Document_Data = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -347,7 +345,7 @@ export const Document_Data: t_signatures.Document_Data = ($, abort) => _p_cc(
         )
     ),
     ($) => ({
-        'file path': _p_cc(
+        'file path': _p_change_context(
             $.__get_entry(
                 'file path',
                 ($) => abort(
@@ -361,7 +359,7 @@ export const Document_Data: t_signatures.Document_Data = ($, abort) => _p_cc(
                 )
             )
         ),
-        'content': _p_cc(
+        'content': _p_change_context(
             $.__get_entry(
                 'content',
                 ($) => abort(
@@ -408,7 +406,7 @@ export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($, abort
     )
 )
 
-export const On_Hover_Result: t_signatures.On_Hover_Result = ($, abort) => _p_cc(
+export const On_Hover_Result: t_signatures.On_Hover_Result = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -416,14 +414,14 @@ export const On_Hover_Result: t_signatures.On_Hover_Result = ($, abort) => _p_cc
         )
     ),
     ($) => ({
-        'contents': _p_cc(
+        'contents': _p_change_context(
             $.__get_entry(
                 'contents',
                 ($) => abort(
                     ['no such entry', "contents"]
                 )
             ),
-            ($) => _p_cc(
+            ($) => _p_change_context(
                 v_unmarshalled_from_parse_tree.Group(
                     $,
                     ($) => abort(
@@ -431,7 +429,7 @@ export const On_Hover_Result: t_signatures.On_Hover_Result = ($, abort) => _p_cc
                     )
                 ),
                 ($) => ({
-                    'hover texts': _p_cc(
+                    'hover texts': _p_change_context(
                         $.__get_entry(
                             'hover texts',
                             ($) => abort(
@@ -458,7 +456,7 @@ export const Completion_Items: t_signatures.Completion_Items = ($, abort) => _p.
             ['expected a list', null]
         )
     ),
-    ($) => _p_cc(
+    ($) => _p_change_context(
         v_unmarshalled_from_parse_tree.Group(
             $,
             ($) => abort(
@@ -466,7 +464,7 @@ export const Completion_Items: t_signatures.Completion_Items = ($, abort) => _p.
             )
         ),
         ($) => ({
-            'label': _p_cc(
+            'label': _p_change_context(
                 $.__get_entry(
                     'label',
                     ($) => abort(
@@ -480,7 +478,7 @@ export const Completion_Items: t_signatures.Completion_Items = ($, abort) => _p.
                     )
                 )
             ),
-            'insert text': _p_cc(
+            'insert text': _p_change_context(
                 $.__get_entry(
                     'insert text',
                     ($) => abort(
@@ -494,7 +492,7 @@ export const Completion_Items: t_signatures.Completion_Items = ($, abort) => _p.
                     )
                 )
             ),
-            'documentation': _p_cc(
+            'documentation': _p_change_context(
                 $.__get_entry(
                     'documentation',
                     ($) => abort(
@@ -527,7 +525,7 @@ export const Optional_Completion_Items: t_signatures.Optional_Completion_Items =
     )
 )
 
-export const On_Completion_Result: t_signatures.On_Completion_Result = ($, abort) => _p_cc(
+export const On_Completion_Result: t_signatures.On_Completion_Result = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -535,7 +533,7 @@ export const On_Completion_Result: t_signatures.On_Completion_Result = ($, abort
         )
     ),
     ($) => ({
-        'completion items': _p_cc(
+        'completion items': _p_change_context(
             $.__get_entry(
                 'completion items',
                 ($) => abort(
@@ -552,7 +550,7 @@ export const On_Completion_Result: t_signatures.On_Completion_Result = ($, abort
     })
 )
 
-export const On_Validate_Document_Result: t_signatures.On_Validate_Document_Result = ($, abort) => _p_cc(
+export const On_Validate_Document_Result: t_signatures.On_Validate_Document_Result = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -560,7 +558,7 @@ export const On_Validate_Document_Result: t_signatures.On_Validate_Document_Resu
         )
     ),
     ($) => ({
-        'diagnostics': _p_cc(
+        'diagnostics': _p_change_context(
             $.__get_entry(
                 'diagnostics',
                 ($) => abort(
@@ -577,7 +575,7 @@ export const On_Validate_Document_Result: t_signatures.On_Validate_Document_Resu
     })
 )
 
-export const Convert_To_JSON_Parameters: t_signatures.Convert_To_JSON_Parameters = ($, abort) => _p_cc(
+export const Convert_To_JSON_Parameters: t_signatures.Convert_To_JSON_Parameters = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -585,7 +583,7 @@ export const Convert_To_JSON_Parameters: t_signatures.Convert_To_JSON_Parameters
         )
     ),
     ($) => ({
-        'content': _p_cc(
+        'content': _p_change_context(
             $.__get_entry(
                 'content',
                 ($) => abort(
@@ -602,7 +600,7 @@ export const Convert_To_JSON_Parameters: t_signatures.Convert_To_JSON_Parameters
     })
 )
 
-export const Seal_Parameters: t_signatures.Seal_Parameters = ($, abort) => _p_cc(
+export const Seal_Parameters: t_signatures.Seal_Parameters = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -610,7 +608,7 @@ export const Seal_Parameters: t_signatures.Seal_Parameters = ($, abort) => _p_cc
         )
     ),
     ($) => ({
-        'content': _p_cc(
+        'content': _p_change_context(
             $.__get_entry(
                 'content',
                 ($) => abort(
@@ -627,7 +625,7 @@ export const Seal_Parameters: t_signatures.Seal_Parameters = ($, abort) => _p_cc
     })
 )
 
-export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = ($, abort) => _p_cc(
+export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -635,7 +633,7 @@ export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = (
         )
     ),
     ($) => ({
-        'content': _p_cc(
+        'content': _p_change_context(
             $.__get_entry(
                 'content',
                 ($) => abort(
@@ -649,7 +647,7 @@ export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = (
                 )
             )
         ),
-        'file path': _p_cc(
+        'file path': _p_change_context(
             $.__get_entry(
                 'file path',
                 ($) => abort(
@@ -663,7 +661,7 @@ export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = (
                 )
             )
         ),
-        'position': _p_cc(
+        'position': _p_change_context(
             $.__get_entry(
                 'position',
                 ($) => abort(
@@ -677,7 +675,7 @@ export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = (
                 )
             )
         ),
-        'indent': _p_cc(
+        'indent': _p_change_context(
             $.__get_entry(
                 'indent',
                 ($) => abort(
@@ -694,7 +692,7 @@ export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = (
     })
 )
 
-export const On_Hover_Parameters: t_signatures.On_Hover_Parameters = ($, abort) => _p_cc(
+export const On_Hover_Parameters: t_signatures.On_Hover_Parameters = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -702,7 +700,7 @@ export const On_Hover_Parameters: t_signatures.On_Hover_Parameters = ($, abort) 
         )
     ),
     ($) => ({
-        'content': _p_cc(
+        'content': _p_change_context(
             $.__get_entry(
                 'content',
                 ($) => abort(
@@ -716,7 +714,7 @@ export const On_Hover_Parameters: t_signatures.On_Hover_Parameters = ($, abort) 
                 )
             )
         ),
-        'file path': _p_cc(
+        'file path': _p_change_context(
             $.__get_entry(
                 'file path',
                 ($) => abort(
@@ -730,7 +728,7 @@ export const On_Hover_Parameters: t_signatures.On_Hover_Parameters = ($, abort) 
                 )
             )
         ),
-        'position': _p_cc(
+        'position': _p_change_context(
             $.__get_entry(
                 'position',
                 ($) => abort(
@@ -747,7 +745,7 @@ export const On_Hover_Parameters: t_signatures.On_Hover_Parameters = ($, abort) 
     })
 )
 
-export const Validate_Document_Parameters: t_signatures.Validate_Document_Parameters = ($, abort) => _p_cc(
+export const Validate_Document_Parameters: t_signatures.Validate_Document_Parameters = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -755,7 +753,7 @@ export const Validate_Document_Parameters: t_signatures.Validate_Document_Parame
         )
     ),
     ($) => ({
-        'content': _p_cc(
+        'content': _p_change_context(
             $.__get_entry(
                 'content',
                 ($) => abort(
@@ -769,7 +767,7 @@ export const Validate_Document_Parameters: t_signatures.Validate_Document_Parame
                 )
             )
         ),
-        'file path': _p_cc(
+        'file path': _p_change_context(
             $.__get_entry(
                 'file path',
                 ($) => abort(
@@ -783,7 +781,7 @@ export const Validate_Document_Parameters: t_signatures.Validate_Document_Parame
                 )
             )
         ),
-        'tab size': _p_cc(
+        'tab size': _p_change_context(
             $.__get_entry(
                 'tab size',
                 ($) => abort(

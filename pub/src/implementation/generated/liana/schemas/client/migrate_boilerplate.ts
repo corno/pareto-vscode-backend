@@ -1,33 +1,31 @@
 
-import * as _p from "pareto-core/dist/transformer"
+import * as _p from "pareto-core/dist/expression"
 
-import {
-    _p_cc,
-} from "pareto-core/dist/change_context"
+import _p_change_context from "pareto-core/dist/_p_change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/client/migrate_boilerplate"
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/client/data"
 
 export const Position: t_signatures.Position = ($) => ({
-    'line': _p_cc(
+    'line': _p_change_context(
         $['line'],
         ($) => $
     ),
-    'character': _p_cc(
+    'character': _p_change_context(
         $['character'],
         ($) => $
     ),
 })
 
 export const Range: t_signatures.Range = ($) => ({
-    'start': _p_cc(
+    'start': _p_change_context(
         $['start'],
         ($) => Position(
             $
         )
     ),
-    'end': _p_cc(
+    'end': _p_change_context(
         $['end'],
         ($) => Position(
             $
@@ -36,23 +34,23 @@ export const Range: t_signatures.Range = ($) => ({
 })
 
 export const Format_Options: t_signatures.Format_Options = ($) => ({
-    'insert spaces': _p_cc(
+    'insert spaces': _p_change_context(
         $['insert spaces'],
         ($) => $
     ),
-    'preserve delimiters': _p_cc(
+    'preserve delimiters': _p_change_context(
         $['preserve delimiters'],
         ($) => $
     ),
-    'preserve final newline state': _p_cc(
+    'preserve final newline state': _p_change_context(
         $['preserve final newline state'],
         ($) => $
     ),
-    'preserve commas': _p_cc(
+    'preserve commas': _p_change_context(
         $['preserve commas'],
         ($) => $
     ),
-    'indent string': _p_cc(
+    'indent string': _p_change_context(
         $['indent string'],
         ($) => $
     ),
@@ -73,7 +71,7 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => _p.decide.state(
                 return _p.ss(
                     $,
                     ($) => ['delete', {
-                        'range': _p_cc(
+                        'range': _p_change_context(
                             $['range'],
                             ($) => Range(
                                 $
@@ -85,13 +83,13 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => _p.decide.state(
                 return _p.ss(
                     $,
                     ($) => ['insert', {
-                        'location': _p_cc(
+                        'location': _p_change_context(
                             $['location'],
                             ($) => Position(
                                 $
                             )
                         ),
-                        'text': _p_cc(
+                        'text': _p_change_context(
                             $['text'],
                             ($) => $
                         ),
@@ -106,13 +104,13 @@ export const Text_Edit: t_signatures.Text_Edit = ($) => _p.decide.state(
 )
 
 export const Replace: t_signatures.Replace = ($) => ({
-    'range': _p_cc(
+    'range': _p_change_context(
         $['range'],
         ($) => Range(
             $
         )
     ),
-    'text': _p_cc(
+    'text': _p_change_context(
         $['text'],
         ($) => $
     ),
@@ -126,14 +124,14 @@ export const Format_Result: t_signatures.Format_Result = ($) => _p.list.map(
 )
 
 export const Format_Error: t_signatures.Format_Error = ($) => ({
-    'message': _p_cc(
+    'message': _p_change_context(
         $['message'],
         ($) => $
     ),
 })
 
 export const Format_Parameters: t_signatures.Format_Parameters = ($) => ({
-    'options': _p_cc(
+    'options': _p_change_context(
         $['options'],
         ($) => Format_Options(
             $
@@ -142,7 +140,7 @@ export const Format_Parameters: t_signatures.Format_Parameters = ($) => ({
 })
 
 export const Sort_Alphabetically_Parameters: t_signatures.Sort_Alphabetically_Parameters = ($) => ({
-    'position': _p_cc(
+    'position': _p_change_context(
         $['position'],
         ($) => Position(
             $

@@ -1,7 +1,7 @@
 import * as _p from 'pareto-core/dist/query'
 import * as _pi from 'pareto-core/dist/interface'
 import * as _pdev from 'pareto-core-dev' //FIX, change 'file path' parameter from string to 'Node Path'
-import * as _p_temp_transformer from 'pareto-core/dist/transformer'
+import * as _p_temp_transformer from 'pareto-core/dist/expression'
 
 import * as signatures from "../../../interface/signatures"
 

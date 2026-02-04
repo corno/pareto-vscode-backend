@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/transformer'
+import * as _p from 'pareto-core/dist/expression'
 import * as _pi from 'pareto-core/dist/interface'
 import * as _pdev from 'pareto-core-dev'
 
@@ -63,7 +63,7 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): 
         }
         return _p.optional.set(found)
     }
-    return _p_cc(
+    return _p_change_context(
         _p.dictionary.filter($, ($) => $),
         ($) => _p.boolean.dictionary_is_empty($)
             ? _p.optional.not_set()
@@ -74,7 +74,7 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Completion_Items>): 
     )
 
 }
-const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => _p_cc(
+const filter_list = ($: _pi.List<d_out.Optional_Completion_Items>): d_out.Optional_Completion_Items => _p_change_context(
     _p.list.filter($, ($) => $),
     ($) => _p.boolean.list_is_empty($)
         ? _p.optional.not_set()

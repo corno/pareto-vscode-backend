@@ -1,9 +1,7 @@
 
 import * as _p from "pareto-core/dist/refiner"
 
-import {
-    _p_cc,
-} from "pareto-core/dist/change_context"
+import _p_change_context from "pareto-core/dist/_p_change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/client/unmarshall"
 
@@ -17,7 +15,7 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const Position: t_signatures.Position = ($, abort) => _p_cc(
+export const Position: t_signatures.Position = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -25,7 +23,7 @@ export const Position: t_signatures.Position = ($, abort) => _p_cc(
         )
     ),
     ($) => ({
-        'line': _p_cc(
+        'line': _p_change_context(
             $.__get_entry(
                 'line',
                 ($) => abort(
@@ -44,7 +42,7 @@ export const Position: t_signatures.Position = ($, abort) => _p_cc(
                 )
             )
         ),
-        'character': _p_cc(
+        'character': _p_change_context(
             $.__get_entry(
                 'character',
                 ($) => abort(
@@ -66,7 +64,7 @@ export const Position: t_signatures.Position = ($, abort) => _p_cc(
     })
 )
 
-export const Range: t_signatures.Range = ($, abort) => _p_cc(
+export const Range: t_signatures.Range = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -74,7 +72,7 @@ export const Range: t_signatures.Range = ($, abort) => _p_cc(
         )
     ),
     ($) => ({
-        'start': _p_cc(
+        'start': _p_change_context(
             $.__get_entry(
                 'start',
                 ($) => abort(
@@ -88,7 +86,7 @@ export const Range: t_signatures.Range = ($, abort) => _p_cc(
                 )
             )
         ),
-        'end': _p_cc(
+        'end': _p_change_context(
             $.__get_entry(
                 'end',
                 ($) => abort(
@@ -105,7 +103,7 @@ export const Range: t_signatures.Range = ($, abort) => _p_cc(
     })
 )
 
-export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_cc(
+export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -113,7 +111,7 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_cc(
         )
     ),
     ($) => ({
-        'insert spaces': _p_cc(
+        'insert spaces': _p_change_context(
             $.__get_entry(
                 'insert spaces',
                 ($) => abort(
@@ -132,7 +130,7 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_cc(
                 )
             )
         ),
-        'preserve delimiters': _p_cc(
+        'preserve delimiters': _p_change_context(
             $.__get_entry(
                 'preserve delimiters',
                 ($) => abort(
@@ -151,7 +149,7 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_cc(
                 )
             )
         ),
-        'preserve final newline state': _p_cc(
+        'preserve final newline state': _p_change_context(
             $.__get_entry(
                 'preserve final newline state',
                 ($) => abort(
@@ -170,7 +168,7 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_cc(
                 )
             )
         ),
-        'preserve commas': _p_cc(
+        'preserve commas': _p_change_context(
             $.__get_entry(
                 'preserve commas',
                 ($) => abort(
@@ -189,7 +187,7 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_cc(
                 )
             )
         ),
-        'indent string': _p_cc(
+        'indent string': _p_change_context(
             $.__get_entry(
                 'indent string',
                 ($) => abort(
@@ -206,7 +204,7 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_cc(
     })
 )
 
-export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
+export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.State(
         $,
         ($) => abort(
@@ -218,7 +216,7 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
         ($t): t_out.Text_Edit => {
             switch ($t) {
                 case 'replace':
-                    return _p_cc(
+                    return _p_change_context(
                         $['value'],
                         ($) => ['replace', Replace(
                             $,
@@ -228,9 +226,9 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
                         )]
                     )
                 case 'delete':
-                    return _p_cc(
+                    return _p_change_context(
                         $['value'],
-                        ($) => ['delete', _p_cc(
+                        ($) => ['delete', _p_change_context(
                             v_unmarshalled_from_parse_tree.Group(
                                 $,
                                 ($) => abort(
@@ -238,7 +236,7 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
                                 )
                             ),
                             ($) => ({
-                                'range': _p_cc(
+                                'range': _p_change_context(
                                     $.__get_entry(
                                         'range',
                                         ($) => abort(
@@ -256,9 +254,9 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
                         )]
                     )
                 case 'insert':
-                    return _p_cc(
+                    return _p_change_context(
                         $['value'],
-                        ($) => ['insert', _p_cc(
+                        ($) => ['insert', _p_change_context(
                             v_unmarshalled_from_parse_tree.Group(
                                 $,
                                 ($) => abort(
@@ -266,7 +264,7 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
                                 )
                             ),
                             ($) => ({
-                                'location': _p_cc(
+                                'location': _p_change_context(
                                     $.__get_entry(
                                         'location',
                                         ($) => abort(
@@ -280,7 +278,7 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
                                         )
                                     )
                                 ),
-                                'text': _p_cc(
+                                'text': _p_change_context(
                                     $.__get_entry(
                                         'text',
                                         ($) => abort(
@@ -306,7 +304,7 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_cc(
     )
 )
 
-export const Replace: t_signatures.Replace = ($, abort) => _p_cc(
+export const Replace: t_signatures.Replace = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -314,7 +312,7 @@ export const Replace: t_signatures.Replace = ($, abort) => _p_cc(
         )
     ),
     ($) => ({
-        'range': _p_cc(
+        'range': _p_change_context(
             $.__get_entry(
                 'range',
                 ($) => abort(
@@ -328,7 +326,7 @@ export const Replace: t_signatures.Replace = ($, abort) => _p_cc(
                 )
             )
         ),
-        'text': _p_cc(
+        'text': _p_change_context(
             $.__get_entry(
                 'text',
                 ($) => abort(
@@ -360,7 +358,7 @@ export const Format_Result: t_signatures.Format_Result = ($, abort) => _p.list.m
     )
 )
 
-export const Format_Error: t_signatures.Format_Error = ($, abort) => _p_cc(
+export const Format_Error: t_signatures.Format_Error = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -368,7 +366,7 @@ export const Format_Error: t_signatures.Format_Error = ($, abort) => _p_cc(
         )
     ),
     ($) => ({
-        'message': _p_cc(
+        'message': _p_change_context(
             $.__get_entry(
                 'message',
                 ($) => abort(
@@ -385,7 +383,7 @@ export const Format_Error: t_signatures.Format_Error = ($, abort) => _p_cc(
     })
 )
 
-export const Format_Parameters: t_signatures.Format_Parameters = ($, abort) => _p_cc(
+export const Format_Parameters: t_signatures.Format_Parameters = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -393,7 +391,7 @@ export const Format_Parameters: t_signatures.Format_Parameters = ($, abort) => _
         )
     ),
     ($) => ({
-        'options': _p_cc(
+        'options': _p_change_context(
             $.__get_entry(
                 'options',
                 ($) => abort(
@@ -410,7 +408,7 @@ export const Format_Parameters: t_signatures.Format_Parameters = ($, abort) => _
     })
 )
 
-export const Sort_Alphabetically_Parameters: t_signatures.Sort_Alphabetically_Parameters = ($, abort) => _p_cc(
+export const Sort_Alphabetically_Parameters: t_signatures.Sort_Alphabetically_Parameters = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
@@ -418,7 +416,7 @@ export const Sort_Alphabetically_Parameters: t_signatures.Sort_Alphabetically_Pa
         )
     ),
     ($) => ({
-        'position': _p_cc(
+        'position': _p_change_context(
             $.__get_entry(
                 'position',
                 ($) => abort(

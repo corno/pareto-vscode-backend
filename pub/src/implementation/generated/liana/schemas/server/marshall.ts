@@ -1,9 +1,7 @@
 
-import * as _p from "pareto-core/dist/transformer"
+import * as _p from "pareto-core/dist/expression"
 
-import {
-    _p_cc,
-} from "pareto-core/dist/change_context"
+import _p_change_context from "pareto-core/dist/_p_change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/server/marshall"
 
@@ -71,7 +69,7 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($) => ['st
 
 export const Position: t_signatures.Position = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'line': _p_cc(
+        'line': _p_change_context(
             $['line'],
             ($) => ['text', {
                 'delimiter': ['none', null],
@@ -80,7 +78,7 @@ export const Position: t_signatures.Position = ($) => ['group', ['verbose', _p.d
                 ),
             }]
         ),
-        'character': _p_cc(
+        'character': _p_change_context(
             $['character'],
             ($) => ['text', {
                 'delimiter': ['none', null],
@@ -94,13 +92,13 @@ export const Position: t_signatures.Position = ($) => ['group', ['verbose', _p.d
 
 export const Range: t_signatures.Range = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'start': _p_cc(
+        'start': _p_change_context(
             $['start'],
             ($) => Position(
                 $
             )
         ),
-        'end': _p_cc(
+        'end': _p_change_context(
             $['end'],
             ($) => Position(
                 $
@@ -111,26 +109,26 @@ export const Range: t_signatures.Range = ($) => ['group', ['verbose', _p.diction
 
 export const Diagnostic: t_signatures.Diagnostic = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'severity': _p_cc(
+        'severity': _p_change_context(
             $['severity'],
             ($) => Diagnostic_Severity(
                 $
             )
         ),
-        'range': _p_cc(
+        'range': _p_change_context(
             $['range'],
             ($) => Range(
                 $
             )
         ),
-        'message': _p_cc(
+        'message': _p_change_context(
             $['message'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }]
         ),
-        'related information': _p_cc(
+        'related information': _p_change_context(
             $['related information'],
             ($) => ['optional', _p.decide.optional(
                 $,
@@ -138,18 +136,18 @@ export const Diagnostic: t_signatures.Diagnostic = ($) => ['group', ['verbose', 
                     $,
                     ($) => ['group', ['verbose', _p.dictionary.literal(
                         {
-                            'location': _p_cc(
+                            'location': _p_change_context(
                                 $['location'],
                                 ($) => ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'file path': _p_cc(
+                                        'file path': _p_change_context(
                                             $['file path'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],
                                                 'value': $,
                                             }]
                                         ),
-                                        'range': _p_cc(
+                                        'range': _p_change_context(
                                             $['range'],
                                             ($) => Range(
                                                 $
@@ -158,7 +156,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($) => ['group', ['verbose', 
                                     }
                                 )]]
                             ),
-                            'message': _p_cc(
+                            'message': _p_change_context(
                                 $['message'],
                                 ($) => ['text', {
                                     'delimiter': ['quote', null],
@@ -183,14 +181,14 @@ export const Diagnostics: t_signatures.Diagnostics = ($) => ['list', _p.list.map
 
 export const Document_Data: t_signatures.Document_Data = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'file path': _p_cc(
+        'file path': _p_change_context(
             $['file path'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }]
         ),
-        'content': _p_cc(
+        'content': _p_change_context(
             $['content'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
@@ -218,11 +216,11 @@ export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($) => ['
 
 export const On_Hover_Result: t_signatures.On_Hover_Result = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'contents': _p_cc(
+        'contents': _p_change_context(
             $['contents'],
             ($) => ['group', ['verbose', _p.dictionary.literal(
                 {
-                    'hover texts': _p_cc(
+                    'hover texts': _p_change_context(
                         $['hover texts'],
                         ($) => Optional_Hover_Texts(
                             $
@@ -238,21 +236,21 @@ export const Completion_Items: t_signatures.Completion_Items = ($) => ['list', _
     $,
     ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'label': _p_cc(
+            'label': _p_change_context(
                 $['label'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
                 }]
             ),
-            'insert text': _p_cc(
+            'insert text': _p_change_context(
                 $['insert text'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
                 }]
             ),
-            'documentation': _p_cc(
+            'documentation': _p_change_context(
                 $['documentation'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
@@ -273,7 +271,7 @@ export const Optional_Completion_Items: t_signatures.Optional_Completion_Items =
 
 export const On_Completion_Result: t_signatures.On_Completion_Result = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'completion items': _p_cc(
+        'completion items': _p_change_context(
             $['completion items'],
             ($) => Completion_Items(
                 $
@@ -284,7 +282,7 @@ export const On_Completion_Result: t_signatures.On_Completion_Result = ($) => ['
 
 export const On_Validate_Document_Result: t_signatures.On_Validate_Document_Result = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'diagnostics': _p_cc(
+        'diagnostics': _p_change_context(
             $['diagnostics'],
             ($) => Diagnostics(
                 $
@@ -295,7 +293,7 @@ export const On_Validate_Document_Result: t_signatures.On_Validate_Document_Resu
 
 export const Convert_To_JSON_Parameters: t_signatures.Convert_To_JSON_Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'content': _p_cc(
+        'content': _p_change_context(
             $['content'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
@@ -307,7 +305,7 @@ export const Convert_To_JSON_Parameters: t_signatures.Convert_To_JSON_Parameters
 
 export const Seal_Parameters: t_signatures.Seal_Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'content': _p_cc(
+        'content': _p_change_context(
             $['content'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
@@ -319,27 +317,27 @@ export const Seal_Parameters: t_signatures.Seal_Parameters = ($) => ['group', ['
 
 export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'content': _p_cc(
+        'content': _p_change_context(
             $['content'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }]
         ),
-        'file path': _p_cc(
+        'file path': _p_change_context(
             $['file path'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }]
         ),
-        'position': _p_cc(
+        'position': _p_change_context(
             $['position'],
             ($) => Position(
                 $
             )
         ),
-        'indent': _p_cc(
+        'indent': _p_change_context(
             $['indent'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
@@ -351,21 +349,21 @@ export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = (
 
 export const On_Hover_Parameters: t_signatures.On_Hover_Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'content': _p_cc(
+        'content': _p_change_context(
             $['content'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }]
         ),
-        'file path': _p_cc(
+        'file path': _p_change_context(
             $['file path'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }]
         ),
-        'position': _p_cc(
+        'position': _p_change_context(
             $['position'],
             ($) => Position(
                 $
@@ -376,21 +374,21 @@ export const On_Hover_Parameters: t_signatures.On_Hover_Parameters = ($) => ['gr
 
 export const Validate_Document_Parameters: t_signatures.Validate_Document_Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        'content': _p_cc(
+        'content': _p_change_context(
             $['content'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }]
         ),
-        'file path': _p_cc(
+        'file path': _p_change_context(
             $['file path'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }]
         ),
-        'tab size': _p_cc(
+        'tab size': _p_change_context(
             $['tab size'],
             ($) => ['text', {
                 'delimiter': ['none', null],
