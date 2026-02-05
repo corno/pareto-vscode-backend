@@ -1,513 +1,513 @@
-
-import * as _pi from "pareto-core/dist/interface"
-
-import * as i_generic from "../../generic/deserialize"
-
-import * as i_out from "./data"
-
-export namespace Diagnostic_Severity_ {
     
-    export type I = string
+    import * as _pi from "pareto-core/dist/interface"
     
-    export type O = i_out.Diagnostic_Severity
+    import * as i_generic from "../../generic/deserialize"
     
-    export type E = i_generic.Error
+    import * as i_out from "./data"
     
-    export namespace P {
+    export namespace Diagnostic_Severity_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Diagnostic_Severity
         
-    }
-    
-}
-
-export type Diagnostic_Severity_ = (
-    context: Diagnostic_Severity_.I,
-    abort: _pi.Abort<Diagnostic_Severity_.E>,
-    parameters: {
-        readonly 'document resource identifier': Diagnostic_Severity_.P.document_resource_identifier
-        readonly 'tab size': Diagnostic_Severity_.P.tab_size
-    },
-) => Diagnostic_Severity_.O
-
-export namespace Position_ {
-    
-    export type I = string
-    
-    export type O = i_out.Position
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type Position_ = (
-    context: Position_.I,
-    abort: _pi.Abort<Position_.E>,
-    parameters: {
-        readonly 'document resource identifier': Position_.P.document_resource_identifier
-        readonly 'tab size': Position_.P.tab_size
-    },
-) => Position_.O
-
-export namespace Range_ {
+    export type Diagnostic_Severity_ = (
+        context: Diagnostic_Severity_.I,
+        abort: _pi.Abort<Diagnostic_Severity_.E>,
+        parameters: {
+            readonly 'document resource identifier': Diagnostic_Severity_.P.document_resource_identifier
+            readonly 'tab size': Diagnostic_Severity_.P.tab_size
+        },
+    ) => Diagnostic_Severity_.O
     
-    export type I = string
-    
-    export type O = i_out.Range
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+    export namespace Position_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Position
         
-    }
-    
-}
-
-export type Range_ = (
-    context: Range_.I,
-    abort: _pi.Abort<Range_.E>,
-    parameters: {
-        readonly 'document resource identifier': Range_.P.document_resource_identifier
-        readonly 'tab size': Range_.P.tab_size
-    },
-) => Range_.O
-
-export namespace Diagnostic_ {
-    
-    export type I = string
-    
-    export type O = i_out.Diagnostic
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type Diagnostic_ = (
-    context: Diagnostic_.I,
-    abort: _pi.Abort<Diagnostic_.E>,
-    parameters: {
-        readonly 'document resource identifier': Diagnostic_.P.document_resource_identifier
-        readonly 'tab size': Diagnostic_.P.tab_size
-    },
-) => Diagnostic_.O
-
-export namespace Diagnostics_ {
+    export type Position_ = (
+        context: Position_.I,
+        abort: _pi.Abort<Position_.E>,
+        parameters: {
+            readonly 'document resource identifier': Position_.P.document_resource_identifier
+            readonly 'tab size': Position_.P.tab_size
+        },
+    ) => Position_.O
     
-    export type I = string
-    
-    export type O = i_out.Diagnostics
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+    export namespace Range_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Range
         
-    }
-    
-}
-
-export type Diagnostics_ = (
-    context: Diagnostics_.I,
-    abort: _pi.Abort<Diagnostics_.E>,
-    parameters: {
-        readonly 'document resource identifier': Diagnostics_.P.document_resource_identifier
-        readonly 'tab size': Diagnostics_.P.tab_size
-    },
-) => Diagnostics_.O
-
-export namespace Document_Data_ {
-    
-    export type I = string
-    
-    export type O = i_out.Document_Data
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type Document_Data_ = (
-    context: Document_Data_.I,
-    abort: _pi.Abort<Document_Data_.E>,
-    parameters: {
-        readonly 'document resource identifier': Document_Data_.P.document_resource_identifier
-        readonly 'tab size': Document_Data_.P.tab_size
-    },
-) => Document_Data_.O
-
-export namespace Hover_Texts_ {
+    export type Range_ = (
+        context: Range_.I,
+        abort: _pi.Abort<Range_.E>,
+        parameters: {
+            readonly 'document resource identifier': Range_.P.document_resource_identifier
+            readonly 'tab size': Range_.P.tab_size
+        },
+    ) => Range_.O
     
-    export type I = string
-    
-    export type O = i_out.Hover_Texts
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+    export namespace Diagnostic_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Diagnostic
         
-    }
-    
-}
-
-export type Hover_Texts_ = (
-    context: Hover_Texts_.I,
-    abort: _pi.Abort<Hover_Texts_.E>,
-    parameters: {
-        readonly 'document resource identifier': Hover_Texts_.P.document_resource_identifier
-        readonly 'tab size': Hover_Texts_.P.tab_size
-    },
-) => Hover_Texts_.O
-
-export namespace Optional_Hover_Texts_ {
-    
-    export type I = string
-    
-    export type O = i_out.Optional_Hover_Texts
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type Optional_Hover_Texts_ = (
-    context: Optional_Hover_Texts_.I,
-    abort: _pi.Abort<Optional_Hover_Texts_.E>,
-    parameters: {
-        readonly 'document resource identifier': Optional_Hover_Texts_.P.document_resource_identifier
-        readonly 'tab size': Optional_Hover_Texts_.P.tab_size
-    },
-) => Optional_Hover_Texts_.O
-
-export namespace On_Hover_Result_ {
+    export type Diagnostic_ = (
+        context: Diagnostic_.I,
+        abort: _pi.Abort<Diagnostic_.E>,
+        parameters: {
+            readonly 'document resource identifier': Diagnostic_.P.document_resource_identifier
+            readonly 'tab size': Diagnostic_.P.tab_size
+        },
+    ) => Diagnostic_.O
     
-    export type I = string
-    
-    export type O = i_out.On_Hover_Result
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+    export namespace Diagnostics_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Diagnostics
         
-    }
-    
-}
-
-export type On_Hover_Result_ = (
-    context: On_Hover_Result_.I,
-    abort: _pi.Abort<On_Hover_Result_.E>,
-    parameters: {
-        readonly 'document resource identifier': On_Hover_Result_.P.document_resource_identifier
-        readonly 'tab size': On_Hover_Result_.P.tab_size
-    },
-) => On_Hover_Result_.O
-
-export namespace Completion_Items_ {
-    
-    export type I = string
-    
-    export type O = i_out.Completion_Items
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type Completion_Items_ = (
-    context: Completion_Items_.I,
-    abort: _pi.Abort<Completion_Items_.E>,
-    parameters: {
-        readonly 'document resource identifier': Completion_Items_.P.document_resource_identifier
-        readonly 'tab size': Completion_Items_.P.tab_size
-    },
-) => Completion_Items_.O
-
-export namespace Optional_Completion_Items_ {
+    export type Diagnostics_ = (
+        context: Diagnostics_.I,
+        abort: _pi.Abort<Diagnostics_.E>,
+        parameters: {
+            readonly 'document resource identifier': Diagnostics_.P.document_resource_identifier
+            readonly 'tab size': Diagnostics_.P.tab_size
+        },
+    ) => Diagnostics_.O
     
-    export type I = string
-    
-    export type O = i_out.Optional_Completion_Items
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+    export namespace Document_Data_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Document_Data
         
-    }
-    
-}
-
-export type Optional_Completion_Items_ = (
-    context: Optional_Completion_Items_.I,
-    abort: _pi.Abort<Optional_Completion_Items_.E>,
-    parameters: {
-        readonly 'document resource identifier': Optional_Completion_Items_.P.document_resource_identifier
-        readonly 'tab size': Optional_Completion_Items_.P.tab_size
-    },
-) => Optional_Completion_Items_.O
-
-export namespace On_Completion_Result_ {
-    
-    export type I = string
-    
-    export type O = i_out.On_Completion_Result
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type On_Completion_Result_ = (
-    context: On_Completion_Result_.I,
-    abort: _pi.Abort<On_Completion_Result_.E>,
-    parameters: {
-        readonly 'document resource identifier': On_Completion_Result_.P.document_resource_identifier
-        readonly 'tab size': On_Completion_Result_.P.tab_size
-    },
-) => On_Completion_Result_.O
-
-export namespace On_Validate_Document_Result_ {
+    export type Document_Data_ = (
+        context: Document_Data_.I,
+        abort: _pi.Abort<Document_Data_.E>,
+        parameters: {
+            readonly 'document resource identifier': Document_Data_.P.document_resource_identifier
+            readonly 'tab size': Document_Data_.P.tab_size
+        },
+    ) => Document_Data_.O
     
-    export type I = string
-    
-    export type O = i_out.On_Validate_Document_Result
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+    export namespace Hover_Texts_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Hover_Texts
         
-    }
-    
-}
-
-export type On_Validate_Document_Result_ = (
-    context: On_Validate_Document_Result_.I,
-    abort: _pi.Abort<On_Validate_Document_Result_.E>,
-    parameters: {
-        readonly 'document resource identifier': On_Validate_Document_Result_.P.document_resource_identifier
-        readonly 'tab size': On_Validate_Document_Result_.P.tab_size
-    },
-) => On_Validate_Document_Result_.O
-
-export namespace Convert_To_JSON_Parameters_ {
-    
-    export type I = string
-    
-    export type O = i_out.Convert_To_JSON_Parameters
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type Convert_To_JSON_Parameters_ = (
-    context: Convert_To_JSON_Parameters_.I,
-    abort: _pi.Abort<Convert_To_JSON_Parameters_.E>,
-    parameters: {
-        readonly 'document resource identifier': Convert_To_JSON_Parameters_.P.document_resource_identifier
-        readonly 'tab size': Convert_To_JSON_Parameters_.P.tab_size
-    },
-) => Convert_To_JSON_Parameters_.O
-
-export namespace Seal_Parameters_ {
+    export type Hover_Texts_ = (
+        context: Hover_Texts_.I,
+        abort: _pi.Abort<Hover_Texts_.E>,
+        parameters: {
+            readonly 'document resource identifier': Hover_Texts_.P.document_resource_identifier
+            readonly 'tab size': Hover_Texts_.P.tab_size
+        },
+    ) => Hover_Texts_.O
     
-    export type I = string
-    
-    export type O = i_out.Seal_Parameters
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+    export namespace Optional_Hover_Texts_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Optional_Hover_Texts
         
-    }
-    
-}
-
-export type Seal_Parameters_ = (
-    context: Seal_Parameters_.I,
-    abort: _pi.Abort<Seal_Parameters_.E>,
-    parameters: {
-        readonly 'document resource identifier': Seal_Parameters_.P.document_resource_identifier
-        readonly 'tab size': Seal_Parameters_.P.tab_size
-    },
-) => Seal_Parameters_.O
-
-export namespace On_Completion_Parameters_ {
-    
-    export type I = string
-    
-    export type O = i_out.On_Completion_Parameters
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type On_Completion_Parameters_ = (
-    context: On_Completion_Parameters_.I,
-    abort: _pi.Abort<On_Completion_Parameters_.E>,
-    parameters: {
-        readonly 'document resource identifier': On_Completion_Parameters_.P.document_resource_identifier
-        readonly 'tab size': On_Completion_Parameters_.P.tab_size
-    },
-) => On_Completion_Parameters_.O
-
-export namespace On_Hover_Parameters_ {
+    export type Optional_Hover_Texts_ = (
+        context: Optional_Hover_Texts_.I,
+        abort: _pi.Abort<Optional_Hover_Texts_.E>,
+        parameters: {
+            readonly 'document resource identifier': Optional_Hover_Texts_.P.document_resource_identifier
+            readonly 'tab size': Optional_Hover_Texts_.P.tab_size
+        },
+    ) => Optional_Hover_Texts_.O
     
-    export type I = string
-    
-    export type O = i_out.On_Hover_Parameters
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+    export namespace On_Hover_Result_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.On_Hover_Result
         
-    }
-    
-}
-
-export type On_Hover_Parameters_ = (
-    context: On_Hover_Parameters_.I,
-    abort: _pi.Abort<On_Hover_Parameters_.E>,
-    parameters: {
-        readonly 'document resource identifier': On_Hover_Parameters_.P.document_resource_identifier
-        readonly 'tab size': On_Hover_Parameters_.P.tab_size
-    },
-) => On_Hover_Parameters_.O
-
-export namespace Validate_Document_Parameters_ {
-    
-    export type I = string
-    
-    export type O = i_out.Validate_Document_Parameters
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type Validate_Document_Parameters_ = (
-    context: Validate_Document_Parameters_.I,
-    abort: _pi.Abort<Validate_Document_Parameters_.E>,
-    parameters: {
-        readonly 'document resource identifier': Validate_Document_Parameters_.P.document_resource_identifier
-        readonly 'tab size': Validate_Document_Parameters_.P.tab_size
-    },
-) => Validate_Document_Parameters_.O
-
-export { 
-    Diagnostic_Severity_ as Diagnostic_Severity, 
-    Position_ as Position, 
-    Range_ as Range, 
-    Diagnostic_ as Diagnostic, 
-    Diagnostics_ as Diagnostics, 
-    Document_Data_ as Document_Data, 
-    Hover_Texts_ as Hover_Texts, 
-    Optional_Hover_Texts_ as Optional_Hover_Texts, 
-    On_Hover_Result_ as On_Hover_Result, 
-    Completion_Items_ as Completion_Items, 
-    Optional_Completion_Items_ as Optional_Completion_Items, 
-    On_Completion_Result_ as On_Completion_Result, 
-    On_Validate_Document_Result_ as On_Validate_Document_Result, 
-    Convert_To_JSON_Parameters_ as Convert_To_JSON_Parameters, 
-    Seal_Parameters_ as Seal_Parameters, 
-    On_Completion_Parameters_ as On_Completion_Parameters, 
-    On_Hover_Parameters_ as On_Hover_Parameters, 
-    Validate_Document_Parameters_ as Validate_Document_Parameters, 
-}
+    export type On_Hover_Result_ = (
+        context: On_Hover_Result_.I,
+        abort: _pi.Abort<On_Hover_Result_.E>,
+        parameters: {
+            readonly 'document resource identifier': On_Hover_Result_.P.document_resource_identifier
+            readonly 'tab size': On_Hover_Result_.P.tab_size
+        },
+    ) => On_Hover_Result_.O
+    
+    export namespace Completion_Items_ {
+        
+        export type I = string
+        
+        export type O = i_out.Completion_Items
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type Completion_Items_ = (
+        context: Completion_Items_.I,
+        abort: _pi.Abort<Completion_Items_.E>,
+        parameters: {
+            readonly 'document resource identifier': Completion_Items_.P.document_resource_identifier
+            readonly 'tab size': Completion_Items_.P.tab_size
+        },
+    ) => Completion_Items_.O
+    
+    export namespace Optional_Completion_Items_ {
+        
+        export type I = string
+        
+        export type O = i_out.Optional_Completion_Items
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type Optional_Completion_Items_ = (
+        context: Optional_Completion_Items_.I,
+        abort: _pi.Abort<Optional_Completion_Items_.E>,
+        parameters: {
+            readonly 'document resource identifier': Optional_Completion_Items_.P.document_resource_identifier
+            readonly 'tab size': Optional_Completion_Items_.P.tab_size
+        },
+    ) => Optional_Completion_Items_.O
+    
+    export namespace On_Completion_Result_ {
+        
+        export type I = string
+        
+        export type O = i_out.On_Completion_Result
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type On_Completion_Result_ = (
+        context: On_Completion_Result_.I,
+        abort: _pi.Abort<On_Completion_Result_.E>,
+        parameters: {
+            readonly 'document resource identifier': On_Completion_Result_.P.document_resource_identifier
+            readonly 'tab size': On_Completion_Result_.P.tab_size
+        },
+    ) => On_Completion_Result_.O
+    
+    export namespace On_Validate_Document_Result_ {
+        
+        export type I = string
+        
+        export type O = i_out.On_Validate_Document_Result
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type On_Validate_Document_Result_ = (
+        context: On_Validate_Document_Result_.I,
+        abort: _pi.Abort<On_Validate_Document_Result_.E>,
+        parameters: {
+            readonly 'document resource identifier': On_Validate_Document_Result_.P.document_resource_identifier
+            readonly 'tab size': On_Validate_Document_Result_.P.tab_size
+        },
+    ) => On_Validate_Document_Result_.O
+    
+    export namespace Convert_To_JSON_Parameters_ {
+        
+        export type I = string
+        
+        export type O = i_out.Convert_To_JSON_Parameters
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type Convert_To_JSON_Parameters_ = (
+        context: Convert_To_JSON_Parameters_.I,
+        abort: _pi.Abort<Convert_To_JSON_Parameters_.E>,
+        parameters: {
+            readonly 'document resource identifier': Convert_To_JSON_Parameters_.P.document_resource_identifier
+            readonly 'tab size': Convert_To_JSON_Parameters_.P.tab_size
+        },
+    ) => Convert_To_JSON_Parameters_.O
+    
+    export namespace Seal_Parameters_ {
+        
+        export type I = string
+        
+        export type O = i_out.Seal_Parameters
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type Seal_Parameters_ = (
+        context: Seal_Parameters_.I,
+        abort: _pi.Abort<Seal_Parameters_.E>,
+        parameters: {
+            readonly 'document resource identifier': Seal_Parameters_.P.document_resource_identifier
+            readonly 'tab size': Seal_Parameters_.P.tab_size
+        },
+    ) => Seal_Parameters_.O
+    
+    export namespace On_Completion_Parameters_ {
+        
+        export type I = string
+        
+        export type O = i_out.On_Completion_Parameters
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type On_Completion_Parameters_ = (
+        context: On_Completion_Parameters_.I,
+        abort: _pi.Abort<On_Completion_Parameters_.E>,
+        parameters: {
+            readonly 'document resource identifier': On_Completion_Parameters_.P.document_resource_identifier
+            readonly 'tab size': On_Completion_Parameters_.P.tab_size
+        },
+    ) => On_Completion_Parameters_.O
+    
+    export namespace On_Hover_Parameters_ {
+        
+        export type I = string
+        
+        export type O = i_out.On_Hover_Parameters
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type On_Hover_Parameters_ = (
+        context: On_Hover_Parameters_.I,
+        abort: _pi.Abort<On_Hover_Parameters_.E>,
+        parameters: {
+            readonly 'document resource identifier': On_Hover_Parameters_.P.document_resource_identifier
+            readonly 'tab size': On_Hover_Parameters_.P.tab_size
+        },
+    ) => On_Hover_Parameters_.O
+    
+    export namespace Validate_Document_Parameters_ {
+        
+        export type I = string
+        
+        export type O = i_out.Validate_Document_Parameters
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type Validate_Document_Parameters_ = (
+        context: Validate_Document_Parameters_.I,
+        abort: _pi.Abort<Validate_Document_Parameters_.E>,
+        parameters: {
+            readonly 'document resource identifier': Validate_Document_Parameters_.P.document_resource_identifier
+            readonly 'tab size': Validate_Document_Parameters_.P.tab_size
+        },
+    ) => Validate_Document_Parameters_.O
+    
+    export { 
+        Diagnostic_Severity_ as Diagnostic_Severity, 
+        Position_ as Position, 
+        Range_ as Range, 
+        Diagnostic_ as Diagnostic, 
+        Diagnostics_ as Diagnostics, 
+        Document_Data_ as Document_Data, 
+        Hover_Texts_ as Hover_Texts, 
+        Optional_Hover_Texts_ as Optional_Hover_Texts, 
+        On_Hover_Result_ as On_Hover_Result, 
+        Completion_Items_ as Completion_Items, 
+        Optional_Completion_Items_ as Optional_Completion_Items, 
+        On_Completion_Result_ as On_Completion_Result, 
+        On_Validate_Document_Result_ as On_Validate_Document_Result, 
+        Convert_To_JSON_Parameters_ as Convert_To_JSON_Parameters, 
+        Seal_Parameters_ as Seal_Parameters, 
+        On_Completion_Parameters_ as On_Completion_Parameters, 
+        On_Hover_Parameters_ as On_Hover_Parameters, 
+        Validate_Document_Parameters_ as Validate_Document_Parameters, 
+    }
