@@ -3,11 +3,13 @@
     
     import * as i_in from "./data"
     
+    import * as i_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+    
     export namespace Diagnostic_Severity_ {
         
         export type I = i_in.Diagnostic_Severity
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -23,7 +25,7 @@
         
         export type I = i_in.Position
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -39,7 +41,7 @@
         
         export type I = i_in.Range
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -55,7 +57,7 @@
         
         export type I = i_in.Diagnostic
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -71,7 +73,7 @@
         
         export type I = i_in.Diagnostics
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -87,7 +89,7 @@
         
         export type I = i_in.Document_Data
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -103,7 +105,7 @@
         
         export type I = i_in.Hover_Texts
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -119,7 +121,7 @@
         
         export type I = i_in.Optional_Hover_Texts
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -135,7 +137,7 @@
         
         export type I = i_in.On_Hover_Result
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -151,7 +153,7 @@
         
         export type I = i_in.Completion_Items
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -167,7 +169,7 @@
         
         export type I = i_in.Optional_Completion_Items
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -183,7 +185,7 @@
         
         export type I = i_in.On_Completion_Result
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -199,7 +201,7 @@
         
         export type I = i_in.On_Validate_Document_Result
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -215,7 +217,7 @@
         
         export type I = i_in.Convert_To_JSON_Parameters
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -231,7 +233,7 @@
         
         export type I = i_in.Seal_Parameters
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -247,7 +249,7 @@
         
         export type I = i_in.On_Completion_Parameters
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -263,7 +265,7 @@
         
         export type I = i_in.On_Hover_Parameters
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -279,7 +281,7 @@
         
         export type I = i_in.Validate_Document_Parameters
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             

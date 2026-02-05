@@ -3,11 +3,13 @@
     
     import * as i_in from "./data"
     
+    import * as i_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+    
     export namespace Position_ {
         
         export type I = i_in.Position
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -23,7 +25,7 @@
         
         export type I = i_in.Range
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -39,7 +41,7 @@
         
         export type I = i_in.Format_Options
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -55,7 +57,7 @@
         
         export type I = i_in.Text_Edit
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -71,7 +73,7 @@
         
         export type I = i_in.Replace
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -87,7 +89,7 @@
         
         export type I = i_in.Format_Result
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -103,7 +105,7 @@
         
         export type I = i_in.Format_Error
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -119,7 +121,7 @@
         
         export type I = i_in.Format_Parameters
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
@@ -135,7 +137,7 @@
         
         export type I = i_in.Sort_Alphabetically_Parameters
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
