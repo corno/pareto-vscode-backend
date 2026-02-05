@@ -3,11 +3,13 @@
     
     import * as i_generic from "astn-core/dist/interface/to_be_generated/deserialize"
     
+    import * as i_in from "pareto-fountain-pen/dist/interface/to_be_generated/list_of_characters"
+    
     import * as i_out from "./data"
     
     export namespace Position_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Position
         
@@ -34,7 +36,7 @@
     
     export namespace Range_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Range
         
@@ -61,7 +63,7 @@
     
     export namespace Format_Options_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Format_Options
         
@@ -88,7 +90,7 @@
     
     export namespace Text_Edit_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Text_Edit
         
@@ -115,7 +117,7 @@
     
     export namespace Replace_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Replace
         
@@ -142,7 +144,7 @@
     
     export namespace Format_Result_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Format_Result
         
@@ -169,7 +171,7 @@
     
     export namespace Format_Error_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Format_Error
         
@@ -196,7 +198,7 @@
     
     export namespace Format_Parameters_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Format_Parameters
         
@@ -223,7 +225,7 @@
     
     export namespace Sort_Alphabetically_Parameters_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Sort_Alphabetically_Parameters
         

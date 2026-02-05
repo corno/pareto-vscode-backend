@@ -3,11 +3,13 @@
     
     import * as i_generic from "astn-core/dist/interface/to_be_generated/deserialize"
     
+    import * as i_in from "pareto-fountain-pen/dist/interface/to_be_generated/list_of_characters"
+    
     import * as i_out from "./data"
     
     export namespace Diagnostic_Severity_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Diagnostic_Severity
         
@@ -34,7 +36,7 @@
     
     export namespace Position_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Position
         
@@ -61,7 +63,7 @@
     
     export namespace Range_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Range
         
@@ -88,7 +90,7 @@
     
     export namespace Diagnostic_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Diagnostic
         
@@ -115,7 +117,7 @@
     
     export namespace Diagnostics_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Diagnostics
         
@@ -142,7 +144,7 @@
     
     export namespace Document_Data_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Document_Data
         
@@ -169,7 +171,7 @@
     
     export namespace Hover_Texts_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Hover_Texts
         
@@ -196,7 +198,7 @@
     
     export namespace Optional_Hover_Texts_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Optional_Hover_Texts
         
@@ -223,7 +225,7 @@
     
     export namespace On_Hover_Result_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.On_Hover_Result
         
@@ -250,7 +252,7 @@
     
     export namespace Completion_Items_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Completion_Items
         
@@ -277,7 +279,7 @@
     
     export namespace Optional_Completion_Items_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Optional_Completion_Items
         
@@ -304,7 +306,7 @@
     
     export namespace On_Completion_Result_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.On_Completion_Result
         
@@ -331,7 +333,7 @@
     
     export namespace On_Validate_Document_Result_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.On_Validate_Document_Result
         
@@ -358,7 +360,7 @@
     
     export namespace Convert_To_JSON_Parameters_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Convert_To_JSON_Parameters
         
@@ -385,7 +387,7 @@
     
     export namespace Seal_Parameters_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Seal_Parameters
         
@@ -412,7 +414,7 @@
     
     export namespace On_Completion_Parameters_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.On_Completion_Parameters
         
@@ -439,7 +441,7 @@
     
     export namespace On_Hover_Parameters_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.On_Hover_Parameters
         
@@ -466,7 +468,7 @@
     
     export namespace Validate_Document_Parameters_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Validate_Document_Parameters
         
