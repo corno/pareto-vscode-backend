@@ -1,9 +1,9 @@
     
-    import * as _p from "pareto-core/dist/expression"
+    import * as _p from 'pareto-core/dist/expression'
     
-    import _p_change_context from "pareto-core/dist/_p_change_context"
+    import _p_change_context from 'pareto-core/dist/_p_change_context'
     
-    import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
+    import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
     
     import * as t_signatures from "../../../../../../interface/generated/liana/schemas/client/marshall"
     
@@ -15,7 +15,7 @@
     
     export const Position: t_signatures.Position = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'line': _p_change_context(
+            "line": _p_change_context(
                 $['line'],
                 ($) => ['text', {
                     'delimiter': ['none', null],
@@ -27,7 +27,7 @@
                     ),
                 }],
             ),
-            'character': _p_change_context(
+            "character": _p_change_context(
                 $['character'],
                 ($) => ['text', {
                     'delimiter': ['none', null],
@@ -44,13 +44,13 @@
     
     export const Range: t_signatures.Range = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'start': _p_change_context(
+            "start": _p_change_context(
                 $['start'],
                 ($) => Position(
                     $,
                 ),
             ),
-            'end': _p_change_context(
+            "end": _p_change_context(
                 $['end'],
                 ($) => Position(
                     $,
@@ -61,7 +61,7 @@
     
     export const Format_Options: t_signatures.Format_Options = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'insert spaces': _p_change_context(
+            "insert spaces": _p_change_context(
                 $['insert spaces'],
                 ($) => ['text', {
                     'delimiter': ['none', null],
@@ -73,7 +73,7 @@
                     ),
                 }],
             ),
-            'preserve delimiters': _p_change_context(
+            "preserve delimiters": _p_change_context(
                 $['preserve delimiters'],
                 ($) => ['text', {
                     'delimiter': ['none', null],
@@ -85,7 +85,7 @@
                     ),
                 }],
             ),
-            'preserve final newline state': _p_change_context(
+            "preserve final newline state": _p_change_context(
                 $['preserve final newline state'],
                 ($) => ['text', {
                     'delimiter': ['none', null],
@@ -97,7 +97,7 @@
                     ),
                 }],
             ),
-            'preserve commas': _p_change_context(
+            "preserve commas": _p_change_context(
                 $['preserve commas'],
                 ($) => ['text', {
                     'delimiter': ['none', null],
@@ -109,7 +109,7 @@
                     ),
                 }],
             ),
-            'indent string': _p_change_context(
+            "indent string": _p_change_context(
                 $['indent string'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
@@ -140,7 +140,7 @@
                             'option': 'delete',
                             'value': ['group', ['verbose', _p.dictionary.literal(
                                 {
-                                    'range': _p_change_context(
+                                    "range": _p_change_context(
                                         $['range'],
                                         ($) => Range(
                                             $,
@@ -157,13 +157,13 @@
                             'option': 'insert',
                             'value': ['group', ['verbose', _p.dictionary.literal(
                                 {
-                                    'location': _p_change_context(
+                                    "location": _p_change_context(
                                         $['location'],
                                         ($) => Position(
                                             $,
                                         ),
                                     ),
-                                    'text': _p_change_context(
+                                    "text": _p_change_context(
                                         $['text'],
                                         ($) => ['text', {
                                             'delimiter': ['quote', null],
@@ -184,13 +184,13 @@
     
     export const Replace: t_signatures.Replace = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'range': _p_change_context(
+            "range": _p_change_context(
                 $['range'],
                 ($) => Range(
                     $,
                 ),
             ),
-            'text': _p_change_context(
+            "text": _p_change_context(
                 $['text'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
@@ -209,7 +209,7 @@
     
     export const Format_Error: t_signatures.Format_Error = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'message': _p_change_context(
+            "message": _p_change_context(
                 $['message'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
@@ -221,7 +221,7 @@
     
     export const Format_Parameters: t_signatures.Format_Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'options': _p_change_context(
+            "options": _p_change_context(
                 $['options'],
                 ($) => Format_Options(
                     $,
@@ -232,7 +232,7 @@
     
     export const Sort_Alphabetically_Parameters: t_signatures.Sort_Alphabetically_Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'position': _p_change_context(
+            "position": _p_change_context(
                 $['position'],
                 ($) => Position(
                     $,
