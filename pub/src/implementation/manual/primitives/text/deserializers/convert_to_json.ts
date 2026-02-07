@@ -1,9 +1,9 @@
-import * as _pds from 'pareto-core/dist/deserializer'
+import * as _p from 'pareto-core/dist/expression'
 import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_server from "../../../../../interface/generated/liana/schemas/server/data"
 
-type Signature = _pi.Deserializer_With_Parameters<string, null, d_server.Convert_To_JSON_Parameters>
+type Signature = _pi.Refiner_With_Parameters<string, null, string, d_server.Convert_To_JSON_Parameters>
 
 //dependencies
 import * as t_ast_2_json from "astn/dist/implementation/manual/schemas/parse_tree/transformers/json_target"
