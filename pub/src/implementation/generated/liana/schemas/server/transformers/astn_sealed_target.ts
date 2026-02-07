@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -140,8 +140,9 @@ export const Diagnostic: t_signatures.Diagnostic = ($) => ['group', ['verbose', 
             $['related information'],
             ($) => ['optional', _p.decide.optional(
                 $,
-                ($): t_out.Value.optional => ['set', ['list', _p.list.map(
+                ($): t_out.Value.optional => ['set', ['list', _p.list.from.list(
                     $,
+                ).map(
                     ($) => ['group', ['verbose', _p.dictionary.literal(
                         {
                             "location": _p_change_context(
@@ -180,8 +181,9 @@ export const Diagnostic: t_signatures.Diagnostic = ($) => ['group', ['verbose', 
     },
 )]]
 
-export const Diagnostics: t_signatures.Diagnostics = ($) => ['list', _p.list.map(
+export const Diagnostics: t_signatures.Diagnostics = ($) => ['list', _p.list.from.list(
     $,
+).map(
     ($) => Diagnostic(
         $,
     ),
@@ -206,8 +208,9 @@ export const Document_Data: t_signatures.Document_Data = ($) => ['group', ['verb
     },
 )]]
 
-export const Hover_Texts: t_signatures.Hover_Texts = ($) => ['list', _p.list.map(
+export const Hover_Texts: t_signatures.Hover_Texts = ($) => ['list', _p.list.from.list(
     $,
+).map(
     ($) => ['text', {
         'delimiter': ['quote', null],
         'value': $,
@@ -240,8 +243,9 @@ export const On_Hover_Result: t_signatures.On_Hover_Result = ($) => ['group', ['
     },
 )]]
 
-export const Completion_Items: t_signatures.Completion_Items = ($) => ['list', _p.list.map(
+export const Completion_Items: t_signatures.Completion_Items = ($) => ['list', _p.list.from.list(
     $,
+).map(
     ($) => ['group', ['verbose', _p.dictionary.literal(
         {
             "label": _p_change_context(

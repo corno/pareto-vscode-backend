@@ -30,8 +30,8 @@ export const $$: signatures.queries.on_hover = _p.query_function(
 		'contents': {
 			'hover texts': t_find_hover_texts.Node($, {
 				'location': t_backend_location.Relative_Location($p.position),
-				'full path': ``,
-				'id path': ``,
+				'full path': "",
+				'id path': "",
 			})
 		}
 	}))

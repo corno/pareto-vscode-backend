@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -363,13 +363,14 @@ export const Replace: t_signatures.Replace = ($, abort) => _p_change_context(
     }),
 )
 
-export const Format_Result: t_signatures.Format_Result = ($, abort) => _p.list.map(
+export const Format_Result: t_signatures.Format_Result = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             ['expected a list', null],
         ),
     ),
+).map(
     ($) => Text_Edit(
         $,
         ($) => abort(

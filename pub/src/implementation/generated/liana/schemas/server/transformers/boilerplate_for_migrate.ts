@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -84,10 +84,12 @@ export const Diagnostic: t_signatures.Diagnostic = ($) => ({
     ),
     'related information': _p_change_context(
         $['related information'],
-        ($) => _p.optional.map(
+        ($) => _p.optional.from.optional(
             $,
-            ($) => _p.list.map(
+        ).map(
+            ($) => _p.list.from.list(
                 $,
+            ).map(
                 ($) => ({
                     'location': _p_change_context(
                         $['location'],
@@ -114,8 +116,9 @@ export const Diagnostic: t_signatures.Diagnostic = ($) => ({
     ),
 })
 
-export const Diagnostics: t_signatures.Diagnostics = ($) => _p.list.map(
+export const Diagnostics: t_signatures.Diagnostics = ($) => _p.list.from.list(
     $,
+).map(
     ($) => Diagnostic(
         $,
     ),
@@ -132,13 +135,15 @@ export const Document_Data: t_signatures.Document_Data = ($) => ({
     ),
 })
 
-export const Hover_Texts: t_signatures.Hover_Texts = ($) => _p.list.map(
+export const Hover_Texts: t_signatures.Hover_Texts = ($) => _p.list.from.list(
     $,
+).map(
     ($) => $,
 )
 
-export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($) => _p.optional.map(
+export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($) => _p.optional.from.optional(
     $,
+).map(
     ($) => Hover_Texts(
         $,
     ),
@@ -158,8 +163,9 @@ export const On_Hover_Result: t_signatures.On_Hover_Result = ($) => ({
     ),
 })
 
-export const Completion_Items: t_signatures.Completion_Items = ($) => _p.list.map(
+export const Completion_Items: t_signatures.Completion_Items = ($) => _p.list.from.list(
     $,
+).map(
     ($) => ({
         'label': _p_change_context(
             $['label'],
@@ -176,8 +182,9 @@ export const Completion_Items: t_signatures.Completion_Items = ($) => _p.list.ma
     }),
 )
 
-export const Optional_Completion_Items: t_signatures.Optional_Completion_Items = ($) => _p.optional.map(
+export const Optional_Completion_Items: t_signatures.Optional_Completion_Items = ($) => _p.optional.from.optional(
     $,
+).map(
     ($) => Completion_Items(
         $,
     ),

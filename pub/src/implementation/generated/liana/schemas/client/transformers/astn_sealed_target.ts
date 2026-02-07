@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -200,8 +200,9 @@ export const Replace: t_signatures.Replace = ($) => ['group', ['verbose', _p.dic
     },
 )]]
 
-export const Format_Result: t_signatures.Format_Result = ($) => ['list', _p.list.map(
+export const Format_Result: t_signatures.Format_Result = ($) => ['list', _p.list.from.list(
     $,
+).map(
     ($) => Text_Edit(
         $,
     ),

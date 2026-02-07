@@ -1,5 +1,5 @@
 import * as _pi from 'pareto-core/dist/interface'
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import * as _pdev from 'pareto-core-dev'
 
 import * as d_in from "pareto-liana/dist/interface/to_be_generated/temp_unmashall_result"
@@ -51,20 +51,20 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Hover_Texts>): d_out
         })
         if (found_too_many) {
             //more than one entry
-            return _p.optional.not_set()
+            return _p.optional.literal.not_set()
         }
         if (found === null) {
             //not found
-            return _p.optional.not_set()
+            return _p.optional.literal.not_set()
         }
-        return _p.optional.set(found)
+        return _p.optional.literal.set(found)
     }
     return _p_change_context(
         _p.dictionary.filter($, ($) => $),
         ($) => _p.boolean.dictionary_is_empty($)
-            ? _p.optional.not_set()
+            ? _p.optional.literal.not_set()
             : op_expect_1_entry($).__decide<d_out.Optional_Hover_Texts>(
-                ($) => _p.optional.set($.value),
+                ($) => _p.optional.literal.set($.value),
                 () => _p_unreachable_code_path(),
             )
     )
@@ -72,9 +72,9 @@ const filter_dictionary = ($: _pi.Dictionary<d_out.Optional_Hover_Texts>): d_out
 const filter_list = ($: _pi.List<d_out.Optional_Hover_Texts>): d_out.Optional_Hover_Texts => _p_change_context(
     _p.list.filter($, ($) => $),
     ($) => _p.boolean.list_is_empty($)
-        ? _p.optional.not_set()
+        ? _p.optional.literal.not_set()
         : op_expect_1_element($).__decide<d_out.Optional_Hover_Texts>(
-            ($) => _p.optional.set($),
+            ($) => _p.optional.literal.set($),
             () => _p_unreachable_code_path(),
         )
 )
@@ -89,8 +89,8 @@ export const Group_Content = (
 ): d_out.Optional_Hover_Texts => filter_dictionary(
     $.properties.__d_map(($, id): d_out.Optional_Hover_Texts => _p.decide.state($, ($) => {
         switch ($[0]) {
-            case 'multiple': return _p.ss($, ($) => _p.optional.not_set())
-            case 'missing': return _p.ss($, ($) => _p.optional.not_set())
+            case 'multiple': return _p.ss($, ($) => _p.optional.literal.not_set())
+            case 'missing': return _p.ss($, ($) => _p.optional.literal.not_set())
             case 'unique': return _p.ss($, ($) => Optional_Node($.node, {
                 'location': $p.location,
                 'full path': `${$p['full path']} . '${key}'`,
@@ -120,12 +120,12 @@ export const Node = (
     const in_range = is_in_range($p.location, { range: node_range })
 
     const wrap = (): d_out.Optional_Hover_Texts => in_range
-        ? _p.optional.set(_p.list.literal([$p['full path'], $p['id path']]))
-        : _p.optional.not_set()
+        ? _p.optional.literal.set(_p.list.literal([$p['full path'], $p['id path']]))
+        : _p.optional.literal.not_set()
 
     if (!in_range) {
         // If not in range, return not set
-        return _p.optional.not_set()
+        return _p.optional.literal.not_set()
     }
     else {
         return _p.decide.state($.type, ($): d_out.Optional_Hover_Texts => {
@@ -170,7 +170,7 @@ export const Node = (
                                 }
                             }))
                         ).__decide(
-                            ($) => _p.optional.set($),
+                            ($) => _p.optional.literal.set($),
                             () => wrap()
                         ))
                         case 'invalid': return _p.ss($, ($) => wrap())
@@ -190,7 +190,7 @@ export const Node = (
                             }),
                             $p
                         ).__decide(
-                            ($) => _p.optional.set($),
+                            ($) => _p.optional.literal.set($),
                             () => wrap()
                         ))
                         default: return _p.au($[0])
@@ -205,7 +205,7 @@ export const Node = (
                                     'full path': `${$p['full path']} *`,
                                     'id path': $p['id path']
                                 }))
-                                case 'not set': return _p.ss($, ($) => _p.optional.not_set())
+                                case 'not set': return _p.ss($, ($) => _p.optional.literal.not_set())
                                 default: return _p.au($[0])
                             }
                         }))
@@ -221,7 +221,7 @@ export const Node = (
                                 switch ($[0]) {
                                     case 'state': return _p.ss($, ($) => _p.decide.state($['value substatus'], ($) => {
                                         switch ($[0]) {
-                                            case 'missing data': return _p.ss($, ($): d_out.Optional_Hover_Texts => _p.optional.set(
+                                            case 'missing data': return _p.ss($, ($): d_out.Optional_Hover_Texts => _p.optional.literal.set(
                                                 _p.list.from_dictionary(
                                                     def,
                                                     ($, id) => key
@@ -235,10 +235,10 @@ export const Node = (
                                                         'full path': `${$p['full path']} | '${temp}'`,
                                                         'id path': $p['id path']
                                                     }).__decide(
-                                                        ($) => _p.optional.set($),
+                                                        ($) => _p.optional.literal.set($),
                                                         () => wrap()
                                                     ),
-                                                    () => _p.optional.not_set()
+                                                    () => _p.optional.literal.not_set()
                                                 )
                                             })
                                             default: return _p.au($[0])
@@ -249,11 +249,11 @@ export const Node = (
                             }))
                             case 'invalid': return _p.ss($, ($) => wrap())
                             //
-                            // case 'unknown state': return _p.ss($, ($) => _p.optional.set(_p.list.literal(["FIXUNKNOWNSTATE"])))
-                            // case 'more than 2 elements': return _p.ss($, ($) => _p.optional.set(_p.list.literal(["FIXMORETHANTWO"])))
-                            // case 'missing state name': return _p.ss($, ($) => _p.optional.set(_p.list.literal(["FIXMISSINGSTATENAME"])))
-                            // case 'state is not a string': return _p.ss($, ($) => _p.optional.set(_p.list.literal(["FIXSTATEISNOTSTRING"])))
-                            // case 'missing value': return _p.ss($, ($) => _p.optional.set(_p.list.literal(["FIXMISSINGVALUE"])))
+                            // case 'unknown state': return _p.ss($, ($) => _p.optional.literal.set(_p.list.literal(["FIXUNKNOWNSTATE"])))
+                            // case 'more than 2 elements': return _p.ss($, ($) => _p.optional.literal.set(_p.list.literal(["FIXMORETHANTWO"])))
+                            // case 'missing state name': return _p.ss($, ($) => _p.optional.literal.set(_p.list.literal(["FIXMISSINGSTATENAME"])))
+                            // case 'state is not a string': return _p.ss($, ($) => _p.optional.literal.set(_p.list.literal(["FIXSTATEISNOTSTRING"])))
+                            // case 'missing value': return _p.ss($, ($) => _p.optional.literal.set(_p.list.literal(["FIXMISSINGVALUE"])))
                             default: return _p.au($[0])
                         }
                     })
@@ -279,5 +279,5 @@ export const Optional_Node = (
         'full path': $p['full path'],
         'id path': $p['id path']
     }),
-    () => _p.optional.not_set()
+    () => _p.optional.literal.not_set()
 )

@@ -1,7 +1,7 @@
 import * as _p from 'pareto-core/dist/query'
 import * as _pi from 'pareto-core/dist/interface'
 import * as _pdev from 'pareto-core-dev' //FIX, change 'file path' parameter from string to 'Node Path'
-import * as _p_temp_transformer from 'pareto-core/dist/expression'
+import * as _p_temp_transformer from 'pareto-core/dist/assign'
 
 import * as signatures from "../../../interface/signatures"
 
@@ -59,25 +59,25 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => (create_
 //                 switch ($[0]) {
 //                     case 'error': return _pt.ss($, ($) => _pt.decide.state($, ($) => _pt.decide.state($, ($) => {
 //                         switch ($[0]) {
-//                             case 'duplicate property': return _pt.ss($, ($) => `Duplicate property '${$.name}'`)
-//                             case 'invalid value type': return _pt.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.__d_map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
-//                             case 'missing property': return _pt.ss($, ($) => `Missing property '${$.name}'`)
+//                             case 'duplicate property': return _pt.ss($, ($) => "Duplicate property '${$.name}'")
+//                             case 'invalid value type': return _pt.ss($, ($) => "Invalid type, expected ${s_list_of_separated_texts($.expected.__d_map(($) => "'${$[0]}'"), { 'separator': " or " })}")
+//                             case 'missing property': return _pt.ss($, ($) => "Missing property '${$.name}'")
 //                             case 'state': return _pt.ss($, ($) => _pt.decide.state($, ($) => {
 //                                 switch ($[0]) {
-//                                     case 'missing state name': return _pt.ss($, ($) => `Missing state name`)
-//                                     case 'missing data marker': return _pt.ss($, ($) => `Missing data marker for state 'XXXX'`)
-//                                     case 'missing value': return _pt.ss($, ($) => `Missing value for state 'XXXX'`)
-//                                     case 'more than 2 elements': return _pt.ss($, ($) => `State 'XXXX' has more than 2 elements`)
-//                                     case 'state is not a string': return _pt.ss($, ($) => `State 'XXXX' is not a string`)
-//                                     case 'unknown state': return _pt.ss($, ($) => `this state does not exist, choose from ${s_list_of_separated_texts(op_dictionary_to_list($.expected).__d_map(($) => `'${$.key}'`), { 'separator': " or " })}`)
+//                                     case 'missing state name': return _pt.ss($, ($) => "Missing state name")
+//                                     case 'missing data marker': return _pt.ss($, ($) => "Missing data marker for state 'XXXX'")
+//                                     case 'missing value': return _pt.ss($, ($) => "Missing value for state 'XXXX'")
+//                                     case 'more than 2 elements': return _pt.ss($, ($) => "State 'XXXX' has more than 2 elements")
+//                                     case 'state is not a string': return _pt.ss($, ($) => "State 'XXXX' is not a string")
+//                                     case 'unknown state': return _pt.ss($, ($) => "this state does not exist, choose from ${s_list_of_separated_texts(op_dictionary_to_list($.expected).__d_map(($) => "'${$.key}'"), { 'separator': " or " })}")
 //                                     default: return _pt.au($[0])
 //                                 }
 //                             }))
-//                             case 'superfluous property': return _pt.ss($, ($) => `Superfluous property '${$.name}'`)
+//                             case 'superfluous property': return _pt.ss($, ($) => "Superfluous property '${$.name}'")
 //                             default: return _pt.au($[0])
 //                         }
 //                     })))
-//                     case 'warning': return _pt.ss($, ($) => _pt.decide.state($, ($) => `${$[0]} (FIXME: more info)`))
+//                     case 'warning': return _pt.ss($, ($) => _pt.decide.state($, ($) => "${$[0]} (FIXME: more info)"))
 //                     default: return _pt.au($[0])
 //                 }
 //             }),
@@ -103,7 +103,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => (create_
 //                                     'character': 0,
 //                                 }
 //                             },
-//                             'message': `No schema file found`,
+//                             'message': "No schema file found",
 //                             'related information': _pt.not_set()
 //                         }
 
@@ -122,7 +122,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => (create_
 //                                     'character': 0,
 //                                 }
 //                             },
-//                             'message': `error in schema: ${$['file location']}`,
+//                             'message': "error in schema: ${$['file location']}",
 //                             'related information': _pt.set(_pt.list.literal([
 //                                 {
 //                                     'location': {
@@ -144,7 +144,7 @@ const create_frontend_range_from_range = ($: d_token.Range): d.Range => (create_
 //                         {
 //                             'severity': ['error', null],
 //                             'range': create_frontend_range_from_range($.range),
-//                             'message': `${d_parse_result.Parse_Error_Type($.type)}`,
+//                             'message': "${d_parse_result.Parse_Error_Type($.type)}",
 //                             'related information': _pt.not_set()
 //                         }
 //                     ]))
@@ -187,8 +187,8 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                                         'character': 0,
                                     }
                                 },
-                                'message': `No schema file found`,
-                                'related information': _p.optional.not_set()
+                                'message': "No schema file found",
+                                'related information': _p.optional.literal.not_set()
                             }
 
 
@@ -206,8 +206,8 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                                         'character': 0,
                                     }
                                 },
-                                'message': `error in schema: ${$['file location']}`,
-                                'related information': _p.optional.set(_p.list.literal([
+                                'message': "error in schema: ${$['file location']}",
+                                'related information': _p.optional.literal.set(_p.list.literal([
                                     {
                                         'location': {
                                             'file path': "FIXME/PATH/TO/SCHEMA",
@@ -234,8 +234,8 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                                         'start': { 'absolute': 0, 'relative': { 'line': 0, 'column': 0 } },
                                     })
                                 )),
-                                'message': `${d_parse_result.Error($, { 'position info': ['zero based', null] })}`,
-                                'related information': _p.optional.not_set()
+                                'message': "${d_parse_result.Error($, { 'position info': ['zero based', null] })}",
+                                'related information': _p.optional.literal.not_set()
                             }
                         ]))
                         case 'unmarshall error': return _p.ss($, ($) => _p.list.literal<d.Diagnostic>([
@@ -251,8 +251,8 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                                         'character': 0,
                                     }
                                 },
-                                'message': `unmarshall error (no further information available currently)`,
-                                'related information': _p.optional.not_set()
+                                'message': "unmarshall error (no further information available currently)",
+                                'related information': _p.optional.literal.not_set()
                             }
                         ]))
                         default: return _p.au($[0])
@@ -275,32 +275,32 @@ export const $$: signatures.queries.validate_document = _p.query_function(
                 switch ($[0]) {
                     case 'error': return _p.ss($, ($) => _p.decide.state($, ($) => _p.decide.state($, ($) => {
                         switch ($[0]) {
-                            case 'duplicate property': return _p.ss($, ($) => `Duplicate property '${$.name}'`)
-                            case 'invalid value type': return _p.ss($, ($) => `Invalid type, expected ${s_list_of_separated_texts($.expected.__l_map(($) => `'${$[0]}'`), { 'separator': " or " })}`)
-                            case 'missing property': return _p.ss($, ($) => `Missing property '${$.name}'`)
+                            case 'duplicate property': return _p.ss($, ($) => "Duplicate property '${$.name}'")
+                            case 'invalid value type': return _p.ss($, ($) => "Invalid type, expected ${s_list_of_separated_texts($.expected.__l_map(($) => "'${$[0]}'"), { 'separator': " or " })}")
+                            case 'missing property': return _p.ss($, ($) => "Missing property '${$.name}'")
                             case 'state': return _p.ss($, ($) => _p.decide.state($, ($) => {
                                 switch ($[0]) {
-                                    case 'missing state name': return _p.ss($, ($) => `Missing state name`)
-                                    case 'missing data marker': return _p.ss($, ($) => `Missing data marker for state 'XXXX'`)
-                                    case 'missing value': return _p.ss($, ($) => `Missing value for state 'XXXX'`)
-                                    case 'more than 2 elements': return _p.ss($, ($) => `State 'XXXX' has more than 2 elements`)
-                                    case 'state is not a string': return _p.ss($, ($) => `State 'XXXX' is not a string`)
-                                    case 'unknown state': return _p.ss($, ($) => `this state does not exist, choose from ${s_list_of_separated_texts(
-                                        _p_temp_transformer.list.from_dictionary($.expected, ($, id) => `'${key}'`),
+                                    case 'missing state name': return _p.ss($, ($) => "Missing state name")
+                                    case 'missing data marker': return _p.ss($, ($) => "Missing data marker for state 'XXXX'")
+                                    case 'missing value': return _p.ss($, ($) => "Missing value for state 'XXXX'")
+                                    case 'more than 2 elements': return _p.ss($, ($) => "State 'XXXX' has more than 2 elements")
+                                    case 'state is not a string': return _p.ss($, ($) => "State 'XXXX' is not a string")
+                                    case 'unknown state': return _p.ss($, ($) => "this state does not exist, choose from ${s_list_of_separated_texts(
+                                        _p_temp_transformer.list.from_dictionary($.expected, ($, id) => "'${key}'"),
                                         { 'separator': " or " }
-                                    )}`)
+                                    )}")
                                     default: return _p.au($[0])
                                 }
                             }))
-                            case 'superfluous property': return _p.ss($, ($) => `Superfluous property '${$.name}'`)
+                            case 'superfluous property': return _p.ss($, ($) => "Superfluous property '${$.name}'")
                             default: return _p.au($[0])
                         }
                     })))
-                    case 'warning': return _p.ss($, ($) => _p.decide.state($, ($) => `${$[0]} (FIXME: more info)`))
+                    case 'warning': return _p.ss($, ($) => _p.decide.state($, ($) => "${$[0]} (FIXME: more info)"))
                     default: return _p.au($[0])
                 }
             }),
-            'related information': _p.optional.not_set()
+            'related information': _p.optional.literal.not_set()
         }))
     }))
 )

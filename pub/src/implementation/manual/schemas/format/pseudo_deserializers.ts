@@ -1,6 +1,6 @@
 import * as _pi from 'pareto-core/dist/interface'
 import * as _p from 'pareto-core/dist/deserializer'
-import * as _pt from 'pareto-core/dist/expression'
+import * as _pt from 'pareto-core/dist/assign'
 
 import * as d_client from "../../../../interface/generated/liana/schemas/client/data"
 // import * as d_parse_result from "astn/dist/interface/generated/liana/schemas/authoring_parse_result/data"

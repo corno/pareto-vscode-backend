@@ -21,7 +21,7 @@ export const $$: Signature = ($, abort, $p) => s_json.Document(
         )
     ),
     {
-        'indentation': ``,
-        'newline': `\n`,
+        'indentation': "",
+        'newline': "\n",
     }
 )

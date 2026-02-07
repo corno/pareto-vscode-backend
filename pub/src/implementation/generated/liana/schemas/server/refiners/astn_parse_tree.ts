@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -240,20 +240,22 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_change_conte
                     ['no such entry', "related information"],
                 ),
             ),
-            ($) => _p.optional.map(
+            ($) => _p.optional.from.optional(
                 v_unmarshalled_from_parse_tree.Optional(
                     $,
                     ($) => abort(
                         ['expected an optional', null],
                     ),
                 ),
-                ($) => _p.list.map(
+            ).map(
+                ($) => _p.list.from.list(
                     v_unmarshalled_from_parse_tree.List(
                         $,
                         ($) => abort(
                             ['expected a list', null],
                         ),
                     ),
+                ).map(
                     ($) => _p_change_context(
                         v_unmarshalled_from_parse_tree.Group(
                             $,
@@ -330,13 +332,14 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_change_conte
     }),
 )
 
-export const Diagnostics: t_signatures.Diagnostics = ($, abort) => _p.list.map(
+export const Diagnostics: t_signatures.Diagnostics = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             ['expected a list', null],
         ),
     ),
+).map(
     ($) => Diagnostic(
         $,
         ($) => abort(
@@ -384,13 +387,14 @@ export const Document_Data: t_signatures.Document_Data = ($, abort) => _p_change
     }),
 )
 
-export const Hover_Texts: t_signatures.Hover_Texts = ($, abort) => _p.list.map(
+export const Hover_Texts: t_signatures.Hover_Texts = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             ['expected a list', null],
         ),
     ),
+).map(
     ($) => v_unmarshalled_from_parse_tree.Text(
         $,
         ($) => abort(
@@ -399,13 +403,14 @@ export const Hover_Texts: t_signatures.Hover_Texts = ($, abort) => _p.list.map(
     ),
 )
 
-export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($, abort) => _p.optional.map(
+export const Optional_Hover_Texts: t_signatures.Optional_Hover_Texts = ($, abort) => _p.optional.from.optional(
     v_unmarshalled_from_parse_tree.Optional(
         $,
         ($) => abort(
             ['expected an optional', null],
         ),
     ),
+).map(
     ($) => Hover_Texts(
         $,
         ($) => abort(
@@ -457,13 +462,14 @@ export const On_Hover_Result: t_signatures.On_Hover_Result = ($, abort) => _p_ch
     }),
 )
 
-export const Completion_Items: t_signatures.Completion_Items = ($, abort) => _p.list.map(
+export const Completion_Items: t_signatures.Completion_Items = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             ['expected a list', null],
         ),
     ),
+).map(
     ($) => _p_change_context(
         v_unmarshalled_from_parse_tree.Group(
             $,
@@ -518,13 +524,14 @@ export const Completion_Items: t_signatures.Completion_Items = ($, abort) => _p.
     ),
 )
 
-export const Optional_Completion_Items: t_signatures.Optional_Completion_Items = ($, abort) => _p.optional.map(
+export const Optional_Completion_Items: t_signatures.Optional_Completion_Items = ($, abort) => _p.optional.from.optional(
     v_unmarshalled_from_parse_tree.Optional(
         $,
         ($) => abort(
             ['expected an optional', null],
         ),
     ),
+).map(
     ($) => Completion_Items(
         $,
         ($) => abort(
