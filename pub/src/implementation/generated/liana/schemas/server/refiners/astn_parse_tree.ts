@@ -98,7 +98,7 @@ export const Position: t_signatures.Position = ($, abort) => _p_change_context(
     ),
     ($) => ({
         'line': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'line',
                 ($) => abort(
                     ['no such entry', "line"],
@@ -120,7 +120,7 @@ export const Position: t_signatures.Position = ($, abort) => _p_change_context(
             ),
         ),
         'character': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'character',
                 ($) => abort(
                     ['no such entry', "character"],
@@ -153,7 +153,7 @@ export const Range: t_signatures.Range = ($, abort) => _p_change_context(
     ),
     ($) => ({
         'start': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'start',
                 ($) => abort(
                     ['no such entry', "start"],
@@ -167,7 +167,7 @@ export const Range: t_signatures.Range = ($, abort) => _p_change_context(
             ),
         ),
         'end': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'end',
                 ($) => abort(
                     ['no such entry', "end"],
@@ -192,7 +192,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_change_conte
     ),
     ($) => ({
         'severity': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'severity',
                 ($) => abort(
                     ['no such entry', "severity"],
@@ -206,7 +206,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_change_conte
             ),
         ),
         'range': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'range',
                 ($) => abort(
                     ['no such entry', "range"],
@@ -220,7 +220,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_change_conte
             ),
         ),
         'message': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'message',
                 ($) => abort(
                     ['no such entry', "message"],
@@ -234,7 +234,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_change_conte
             ),
         ),
         'related information': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'related information',
                 ($) => abort(
                     ['no such entry', "related information"],
@@ -263,7 +263,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_change_conte
                         ),
                         ($) => ({
                             'location': _p_change_context(
-                                $.__get_entry(
+                                $.__get_entry_deprecated(
                                     'location',
                                     ($) => abort(
                                         ['no such entry', "location"],
@@ -278,7 +278,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_change_conte
                                     ),
                                     ($) => ({
                                         'file path': _p_change_context(
-                                            $.__get_entry(
+                                            $.__get_entry_deprecated(
                                                 'file path',
                                                 ($) => abort(
                                                     ['no such entry', "file path"],
@@ -292,7 +292,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_change_conte
                                             ),
                                         ),
                                         'range': _p_change_context(
-                                            $.__get_entry(
+                                            $.__get_entry_deprecated(
                                                 'range',
                                                 ($) => abort(
                                                     ['no such entry', "range"],
@@ -309,7 +309,7 @@ export const Diagnostic: t_signatures.Diagnostic = ($, abort) => _p_change_conte
                                 ),
                             ),
                             'message': _p_change_context(
-                                $.__get_entry(
+                                $.__get_entry_deprecated(
                                     'message',
                                     ($) => abort(
                                         ['no such entry', "message"],
@@ -354,7 +354,7 @@ export const Document_Data: t_signatures.Document_Data = ($, abort) => _p_change
     ),
     ($) => ({
         'file path': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'file path',
                 ($) => abort(
                     ['no such entry', "file path"],
@@ -368,7 +368,7 @@ export const Document_Data: t_signatures.Document_Data = ($, abort) => _p_change
             ),
         ),
         'content': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'content',
                 ($) => abort(
                     ['no such entry', "content"],
@@ -423,7 +423,7 @@ export const On_Hover_Result: t_signatures.On_Hover_Result = ($, abort) => _p_ch
     ),
     ($) => ({
         'contents': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'contents',
                 ($) => abort(
                     ['no such entry', "contents"],
@@ -438,7 +438,7 @@ export const On_Hover_Result: t_signatures.On_Hover_Result = ($, abort) => _p_ch
                 ),
                 ($) => ({
                     'hover texts': _p_change_context(
-                        $.__get_entry(
+                        $.__get_entry_deprecated(
                             'hover texts',
                             ($) => abort(
                                 ['no such entry', "hover texts"],
@@ -473,7 +473,7 @@ export const Completion_Items: t_signatures.Completion_Items = ($, abort) => _p.
         ),
         ($) => ({
             'label': _p_change_context(
-                $.__get_entry(
+                $.__get_entry_deprecated(
                     'label',
                     ($) => abort(
                         ['no such entry', "label"],
@@ -487,7 +487,7 @@ export const Completion_Items: t_signatures.Completion_Items = ($, abort) => _p.
                 ),
             ),
             'insert text': _p_change_context(
-                $.__get_entry(
+                $.__get_entry_deprecated(
                     'insert text',
                     ($) => abort(
                         ['no such entry', "insert text"],
@@ -501,7 +501,7 @@ export const Completion_Items: t_signatures.Completion_Items = ($, abort) => _p.
                 ),
             ),
             'documentation': _p_change_context(
-                $.__get_entry(
+                $.__get_entry_deprecated(
                     'documentation',
                     ($) => abort(
                         ['no such entry', "documentation"],
@@ -542,7 +542,7 @@ export const On_Completion_Result: t_signatures.On_Completion_Result = ($, abort
     ),
     ($) => ({
         'completion items': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'completion items',
                 ($) => abort(
                     ['no such entry', "completion items"],
@@ -567,7 +567,7 @@ export const On_Validate_Document_Result: t_signatures.On_Validate_Document_Resu
     ),
     ($) => ({
         'diagnostics': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'diagnostics',
                 ($) => abort(
                     ['no such entry', "diagnostics"],
@@ -592,7 +592,7 @@ export const Convert_To_JSON_Parameters: t_signatures.Convert_To_JSON_Parameters
     ),
     ($) => ({
         'content': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'content',
                 ($) => abort(
                     ['no such entry', "content"],
@@ -617,7 +617,7 @@ export const Seal_Parameters: t_signatures.Seal_Parameters = ($, abort) => _p_ch
     ),
     ($) => ({
         'content': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'content',
                 ($) => abort(
                     ['no such entry', "content"],
@@ -642,7 +642,7 @@ export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = (
     ),
     ($) => ({
         'content': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'content',
                 ($) => abort(
                     ['no such entry', "content"],
@@ -656,7 +656,7 @@ export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = (
             ),
         ),
         'file path': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'file path',
                 ($) => abort(
                     ['no such entry', "file path"],
@@ -670,7 +670,7 @@ export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = (
             ),
         ),
         'position': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'position',
                 ($) => abort(
                     ['no such entry', "position"],
@@ -684,7 +684,7 @@ export const On_Completion_Parameters: t_signatures.On_Completion_Parameters = (
             ),
         ),
         'indent': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'indent',
                 ($) => abort(
                     ['no such entry', "indent"],
@@ -709,7 +709,7 @@ export const On_Hover_Parameters: t_signatures.On_Hover_Parameters = ($, abort) 
     ),
     ($) => ({
         'content': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'content',
                 ($) => abort(
                     ['no such entry', "content"],
@@ -723,7 +723,7 @@ export const On_Hover_Parameters: t_signatures.On_Hover_Parameters = ($, abort) 
             ),
         ),
         'file path': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'file path',
                 ($) => abort(
                     ['no such entry', "file path"],
@@ -737,7 +737,7 @@ export const On_Hover_Parameters: t_signatures.On_Hover_Parameters = ($, abort) 
             ),
         ),
         'position': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'position',
                 ($) => abort(
                     ['no such entry', "position"],
@@ -762,7 +762,7 @@ export const Validate_Document_Parameters: t_signatures.Validate_Document_Parame
     ),
     ($) => ({
         'content': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'content',
                 ($) => abort(
                     ['no such entry', "content"],
@@ -776,7 +776,7 @@ export const Validate_Document_Parameters: t_signatures.Validate_Document_Parame
             ),
         ),
         'file path': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'file path',
                 ($) => abort(
                     ['no such entry', "file path"],
@@ -790,7 +790,7 @@ export const Validate_Document_Parameters: t_signatures.Validate_Document_Parame
             ),
         ),
         'tab size': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'tab size',
                 ($) => abort(
                     ['no such entry', "tab size"],
