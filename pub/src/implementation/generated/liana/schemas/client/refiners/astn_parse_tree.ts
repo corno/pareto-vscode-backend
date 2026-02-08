@@ -28,9 +28,11 @@ export const Position: t_signatures.Position = ($, abort) => _p_change_context(
         'line': _p_change_context(
             $.__get_entry_deprecated(
                 'line',
-                ($) => abort(
-                    ['no such entry', "line"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "line"],
+                    ),
+                },
             ),
             ($) => v_deserialize_number.deserialize(
                 _p_list_from_text(
@@ -50,9 +52,11 @@ export const Position: t_signatures.Position = ($, abort) => _p_change_context(
         'character': _p_change_context(
             $.__get_entry_deprecated(
                 'character',
-                ($) => abort(
-                    ['no such entry', "character"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "character"],
+                    ),
+                },
             ),
             ($) => v_deserialize_number.deserialize(
                 _p_list_from_text(
@@ -83,9 +87,11 @@ export const Range: t_signatures.Range = ($, abort) => _p_change_context(
         'start': _p_change_context(
             $.__get_entry_deprecated(
                 'start',
-                ($) => abort(
-                    ['no such entry', "start"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "start"],
+                    ),
+                },
             ),
             ($) => Position(
                 $,
@@ -97,9 +103,11 @@ export const Range: t_signatures.Range = ($, abort) => _p_change_context(
         'end': _p_change_context(
             $.__get_entry_deprecated(
                 'end',
-                ($) => abort(
-                    ['no such entry', "end"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "end"],
+                    ),
+                },
             ),
             ($) => Position(
                 $,
@@ -122,9 +130,11 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_chan
         'insert spaces': _p_change_context(
             $.__get_entry_deprecated(
                 'insert spaces',
-                ($) => abort(
-                    ['no such entry', "insert spaces"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "insert spaces"],
+                    ),
+                },
             ),
             ($) => v_deserialize_boolean.deserialize(
                 _p_list_from_text(
@@ -144,9 +154,11 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_chan
         'preserve delimiters': _p_change_context(
             $.__get_entry_deprecated(
                 'preserve delimiters',
-                ($) => abort(
-                    ['no such entry', "preserve delimiters"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "preserve delimiters"],
+                    ),
+                },
             ),
             ($) => v_deserialize_boolean.deserialize(
                 _p_list_from_text(
@@ -166,9 +178,11 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_chan
         'preserve final newline state': _p_change_context(
             $.__get_entry_deprecated(
                 'preserve final newline state',
-                ($) => abort(
-                    ['no such entry', "preserve final newline state"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "preserve final newline state"],
+                    ),
+                },
             ),
             ($) => v_deserialize_boolean.deserialize(
                 _p_list_from_text(
@@ -188,9 +202,11 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_chan
         'preserve commas': _p_change_context(
             $.__get_entry_deprecated(
                 'preserve commas',
-                ($) => abort(
-                    ['no such entry', "preserve commas"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "preserve commas"],
+                    ),
+                },
             ),
             ($) => v_deserialize_boolean.deserialize(
                 _p_list_from_text(
@@ -210,9 +226,11 @@ export const Format_Options: t_signatures.Format_Options = ($, abort) => _p_chan
         'indent string': _p_change_context(
             $.__get_entry_deprecated(
                 'indent string',
-                ($) => abort(
-                    ['no such entry', "indent string"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "indent string"],
+                    ),
+                },
             ),
             ($) => v_unmarshalled_from_parse_tree.Text(
                 $,
@@ -259,9 +277,11 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_change_context
                                 'range': _p_change_context(
                                     $.__get_entry_deprecated(
                                         'range',
-                                        ($) => abort(
-                                            ['no such entry', "range"],
-                                        ),
+                                        {
+                                            no_such_entry: ($) => abort(
+                                                ['no such entry', "range"],
+                                            ),
+                                        },
                                     ),
                                     ($) => Range(
                                         $,
@@ -287,9 +307,11 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_change_context
                                 'location': _p_change_context(
                                     $.__get_entry_deprecated(
                                         'location',
-                                        ($) => abort(
-                                            ['no such entry', "location"],
-                                        ),
+                                        {
+                                            no_such_entry: ($) => abort(
+                                                ['no such entry', "location"],
+                                            ),
+                                        },
                                     ),
                                     ($) => Position(
                                         $,
@@ -301,9 +323,11 @@ export const Text_Edit: t_signatures.Text_Edit = ($, abort) => _p_change_context
                                 'text': _p_change_context(
                                     $.__get_entry_deprecated(
                                         'text',
-                                        ($) => abort(
-                                            ['no such entry', "text"],
-                                        ),
+                                        {
+                                            no_such_entry: ($) => abort(
+                                                ['no such entry', "text"],
+                                            ),
+                                        },
                                     ),
                                     ($) => v_unmarshalled_from_parse_tree.Text(
                                         $,
@@ -335,9 +359,11 @@ export const Replace: t_signatures.Replace = ($, abort) => _p_change_context(
         'range': _p_change_context(
             $.__get_entry_deprecated(
                 'range',
-                ($) => abort(
-                    ['no such entry', "range"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "range"],
+                    ),
+                },
             ),
             ($) => Range(
                 $,
@@ -349,9 +375,11 @@ export const Replace: t_signatures.Replace = ($, abort) => _p_change_context(
         'text': _p_change_context(
             $.__get_entry_deprecated(
                 'text',
-                ($) => abort(
-                    ['no such entry', "text"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "text"],
+                    ),
+                },
             ),
             ($) => v_unmarshalled_from_parse_tree.Text(
                 $,
@@ -390,9 +418,11 @@ export const Format_Error: t_signatures.Format_Error = ($, abort) => _p_change_c
         'message': _p_change_context(
             $.__get_entry_deprecated(
                 'message',
-                ($) => abort(
-                    ['no such entry', "message"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "message"],
+                    ),
+                },
             ),
             ($) => v_unmarshalled_from_parse_tree.Text(
                 $,
@@ -415,9 +445,11 @@ export const Format_Parameters: t_signatures.Format_Parameters = ($, abort) => _
         'options': _p_change_context(
             $.__get_entry_deprecated(
                 'options',
-                ($) => abort(
-                    ['no such entry', "options"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "options"],
+                    ),
+                },
             ),
             ($) => Format_Options(
                 $,
@@ -440,9 +472,11 @@ export const Sort_Alphabetically_Parameters: t_signatures.Sort_Alphabetically_Pa
         'position': _p_change_context(
             $.__get_entry_deprecated(
                 'position',
-                ($) => abort(
-                    ['no such entry', "position"],
-                ),
+                {
+                    no_such_entry: ($) => abort(
+                        ['no such entry', "position"],
+                    ),
+                },
             ),
             ($) => Position(
                 $,
