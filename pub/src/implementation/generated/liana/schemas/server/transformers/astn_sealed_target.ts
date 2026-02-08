@@ -23,8 +23,7 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($) => ['st
                     ($) => ({
                         'option': 'error',
                         'value': ['group', ['verbose', _p.dictionary.literal(
-                            {
-                            },
+                            {},
                         )]],
                     }),
                 )
@@ -34,8 +33,7 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($) => ['st
                     ($) => ({
                         'option': 'warning',
                         'value': ['group', ['verbose', _p.dictionary.literal(
-                            {
-                            },
+                            {},
                         )]],
                     }),
                 )
@@ -45,8 +43,7 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($) => ['st
                     ($) => ({
                         'option': 'information',
                         'value': ['group', ['verbose', _p.dictionary.literal(
-                            {
-                            },
+                            {},
                         )]],
                     }),
                 )
@@ -56,8 +53,7 @@ export const Diagnostic_Severity: t_signatures.Diagnostic_Severity = ($) => ['st
                     ($) => ({
                         'option': 'hint',
                         'value': ['group', ['verbose', _p.dictionary.literal(
-                            {
-                            },
+                            {},
                         )]],
                     }),
                 )
